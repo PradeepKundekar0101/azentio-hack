@@ -49,3 +49,15 @@ export const logoMark = {
   /** The leaked block, drawn in brand.signal. */
   leak: rect(LEAK_X, top + LINES.length * (BAR + LINE_GAP), BAR, BAR),
 } as const;
+
+const NEAR_RIDGE = "M0 790C300 760 560 690 860 640C1030 612 1190 606 1440 640";
+
+/** The landing backdrop: dune outlines in a 1440 x 1000 scene, anchored to the bottom edge. */
+export const scene = {
+  width: 1440,
+  height: 1000,
+  viewBox: "0 0 1440 1000",
+  farDune: "M0 640C260 600 520 548 820 552C1040 555 1250 590 1440 612V1000H0Z",
+  nearRidge: NEAR_RIDGE,
+  nearDune: `${NEAR_RIDGE}V1000H0Z`,
+} as const;
