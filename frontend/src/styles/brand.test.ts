@@ -18,6 +18,11 @@ describe("brand tokens", () => {
     );
     expect(declared).toEqual(brand);
   });
+
+  it("match the app's primary, so the logo tile is the same blue as the buttons", () => {
+    const primary = read("./theme.css").match(/^\s*--primary:\s*(#[0-9a-f]{6});/im)?.[1];
+    expect(primary?.toLowerCase()).toBe(brand.blue);
+  });
 });
 
 describe("favicon", () => {
@@ -25,22 +30,16 @@ describe("favicon", () => {
 
   it("draws the logo geometry", () => {
     expect(icon).toContain(`viewBox="${logoMark.viewBox}"`);
+    expect(icon).toContain(`rx="${logoMark.radius}"`);
+    expect(icon).toContain(`d="${logoMark.form}"`);
     expect(icon).toContain(`d="${logoMark.lines}"`);
-    expect(icon).toContain(`d="${logoMark.leak}"`);
+    expect(icon).toContain(`d="${logoMark.drop}"`);
+    expect(icon).toContain(`stroke-width="${logoMark.strokeWidth}"`);
   });
 
   it("uses the brand colours", () => {
-    expect(icon).toContain(`fill="${brand.ink}"`);
+    expect(icon).toContain(`fill="${brand.blue}"`);
+    expect(icon).toContain(`stroke="${brand.onInk}"`);
     expect(icon).toContain(`fill="${brand.onInk}"`);
-    expect(icon).toContain(`fill="${brand.signal}"`);
-  });
-});
-
-describe("logo geometry", () => {
-  it("keeps the leaked block inside the tile", () => {
-    const numbers = (path: string) => [...path.matchAll(/-?\d+(?:\.\d+)?/g)].map(([n]) => Number(n));
-    for (const n of [...numbers(logoMark.lines), ...numbers(logoMark.leak)]) {
-      expect(Math.abs(n)).toBeLessThanOrEqual(logoMark.size);
-    }
   });
 });

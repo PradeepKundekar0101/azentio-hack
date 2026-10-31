@@ -48,7 +48,7 @@ Every colour, contrast pair and radius lives in `src/styles/theme.css`; change i
 - `:root` and `.dark` are the app themes, read by the shadcn/ui components.
 - The brand block (`--brand-*`) is the same in both themes. The logo, the landing page and the share images use it.
 - `src/app/globals.css` maps the tokens to Tailwind utilities (`bg-primary`, `text-brand-signal`, `font-pixel`, ...).
-- `src/styles/brand.ts` mirrors the brand block for code that cannot read CSS (share images, icons) and holds the logo and backdrop geometry.
+- `src/styles/brand.ts` mirrors the brand block for code that cannot read CSS (share images, icons) and holds the logo (the drop leaking from a claim form) and landing-backdrop geometry.
   `brand.test.ts` fails if it drifts from `theme.css` or from `src/app/icon.svg`.
 - Brand type: Geist Pixel (vendored in `src/styles/fonts`, SIL Open Font License) and Geist, loaded by `src/styles/fonts.ts` for the public pages only.
   The app keeps Atkinson Hyperlegible.

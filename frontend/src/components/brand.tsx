@@ -4,25 +4,23 @@ import { logoMark } from "@/styles/brand";
 export const PRODUCT_NAME = "Claims Leakage";
 
 /**
- * The logo tile: ledger lines with one block fallen out of the record (see
- * src/styles/brand.ts). Brand colours are fixed, so the mark looks the same in both themes.
+ * A drop leaking from a claim form: the product's one-line idea, at 24px. Drawn from the
+ * geometry in src/styles/brand.ts in fixed brand colours, so the mark reads the same in both
+ * themes, on the landing page and in the share images.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox={logoMark.viewBox} aria-hidden="true" className={cn("size-6 shrink-0", className)}>
-      <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} className="fill-brand-ink" />
-      {/* A hairline edge keeps the tile defined on near-black surfaces (dark theme, landing). */}
-      <rect
-        x="0.5"
-        y="0.5"
-        width={logoMark.size - 1}
-        height={logoMark.size - 1}
-        rx={logoMark.radius - 0.5}
-        fill="none"
-        className="stroke-brand-on-ink/15"
+    <svg viewBox={logoMark.viewBox} aria-hidden="true" className={cn("size-6 shrink-0", className)} fill="none">
+      <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} className="fill-brand-blue" />
+      <path
+        d={logoMark.form}
+        className="stroke-brand-on-ink"
+        strokeWidth={logoMark.strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d={logoMark.lines} className="fill-brand-on-ink" />
-      <path d={logoMark.leak} className="fill-brand-signal" />
+      <path d={logoMark.lines} className="stroke-brand-on-ink" strokeWidth={logoMark.strokeWidth} strokeLinecap="round" />
+      <path d={logoMark.drop} className="fill-brand-on-ink" />
     </svg>
   );
 }

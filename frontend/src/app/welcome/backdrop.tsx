@@ -27,9 +27,9 @@ export function Backdrop() {
             <feGaussianBlur stdDeviation={scene.duneBlur} />
           </filter>
           <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0.3" style={{ stopColor: brandVar("meshEmber"), stopOpacity: 0 }} />
-            <stop offset="0.7" style={{ stopColor: brandVar("meshEmber"), stopOpacity: 0.9 }} />
-            <stop offset="0.9" style={{ stopColor: brandVar("signal"), stopOpacity: 0.8 }} />
+            <stop offset="0.3" style={{ stopColor: brandVar("meshGlow"), stopOpacity: 0 }} />
+            <stop offset="0.7" style={{ stopColor: brandVar("meshGlow"), stopOpacity: 0.9 }} />
+            <stop offset="0.9" style={{ stopColor: brandVar("meshLight"), stopOpacity: 0.9 }} />
           </linearGradient>
         </defs>
         <g filter="url(#mesh)">

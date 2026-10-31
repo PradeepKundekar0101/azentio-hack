@@ -6,88 +6,89 @@
  *   generated share images use it, so they look the same whatever theme a visitor picks.
  *   src/styles/brand.ts mirrors it for code that cannot read CSS (share images and icons);
  *   a test keeps the two in step.
- * - globals.css maps every token to a Tailwind utility (bg-primary, text-brand-signal, ...).
+ * - globals.css maps every token to a Tailwind utility (bg-primary, bg-brand-ink, ...).
  *
- * Palette idea: warm paper and ink with a deep-teal accent, taken from the brand mesh
- * (teal sky, ember glow). Status colours are reserved for meaning and never used as
- * decoration.
+ * Palette idea: a cool ledger-paper canvas, ink-navy text and one accent taken from the
+ * blue of rubber stamps on Indian hospital bills ("stamp blue"). The brand mesh behind the
+ * landing page is the same blue at night: ocean, sky and a bright highlight. Status colours
+ * are reserved for meaning and never used as decoration.
  */
 
 :root {
   /* Brand (fixed in both themes) */
-  --brand-ink: #07090b; /* logo tile, landing canvas, share-image background */
-  --brand-signal: #f2a33a; /* amber: the leaked block, the hottest point of the glow */
-  --brand-on-ink: #f5f1ea; /* text on ink (17.7:1) */
-  --brand-on-ink-muted: #b4ada3; /* secondary text on ink (9:1) */
+  --brand-ink: #070a12; /* landing canvas, share-image background */
+  --brand-blue: #2c41ab; /* stamp blue: logo tile, the app's primary */
+  --brand-on-ink: #f3f6fb; /* text on ink (18:1) */
+  --brand-on-ink-muted: #a9b4c8; /* secondary text on ink (9.5:1) */
 
   /* Mesh gradient behind the landing page and share image (src/styles/brand.ts places them) */
-  --brand-mesh-sky: #0f3236; /* deep teal, upper left */
-  --brand-mesh-ember: #c4501a; /* burnt orange glow */
-  --brand-mesh-wine: #4a1a10; /* dark red where the glow meets the dune */
-  --brand-mesh-shadow: #120d0c; /* the dune */
+  --brand-mesh-sky: #0a1b3f; /* deep ocean, upper left */
+  --brand-mesh-glow: #2f7fe8; /* sky blue glow */
+  --brand-mesh-deep: #16246b; /* indigo where the glow meets the dune */
+  --brand-mesh-light: #8ed0ff; /* the brightest point of the glow */
+  --brand-mesh-shadow: #060912; /* the dune */
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* Elevation: warm, low shadows that read as paper lifted off paper, never grey smudges. */
-  --shadow-card: 0 1px 2px rgb(27 23 20 / 0.04), 0 1px 1px rgb(27 23 20 / 0.03), 0 0 0 1px rgb(27 23 20 / 0.04);
-  --shadow-raised: 0 1px 2px rgb(27 23 20 / 0.06), 0 8px 24px -12px rgb(27 23 20 / 0.18), 0 0 0 1px rgb(27 23 20 / 0.05);
-  --shadow-pop: 0 1px 2px rgb(27 23 20 / 0.08), 0 16px 40px -16px rgb(27 23 20 / 0.28), 0 0 0 1px rgb(27 23 20 / 0.06);
-  --shadow-button: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 1px 2px rgb(27 23 20 / 0.16);
-  --shadow-inset: inset 0 1px 2px rgb(27 23 20 / 0.05);
-  --glow-primary: 0 0 0 4px color-mix(in oklch, var(--primary) 18%, transparent);
+  /* Elevation: low, ink-tinted shadows that read as paper lifted off paper, never grey smudges. */
+  --shadow-card: 0 1px 2px rgb(23 32 51 / 0.05), 0 1px 1px rgb(23 32 51 / 0.03), 0 0 0 1px rgb(23 32 51 / 0.05);
+  --shadow-raised: 0 1px 2px rgb(23 32 51 / 0.06), 0 8px 24px -12px rgb(23 32 51 / 0.2), 0 0 0 1px rgb(23 32 51 / 0.06);
+  --shadow-pop: 0 1px 2px rgb(23 32 51 / 0.08), 0 16px 40px -16px rgb(23 32 51 / 0.3), 0 0 0 1px rgb(23 32 51 / 0.07);
+  --shadow-button: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 1px 2px rgb(23 32 51 / 0.18);
+  --shadow-inset: inset 0 1px 2px rgb(23 32 51 / 0.05);
 
-  /* Surfaces: warm paper, so long reading sessions are easy on the eyes */
-  --canvas: #f5f2ec; /* app background behind work surfaces */
-  --background: #f5f2ec;
-  --foreground: #1b1714; /* warm ink (17.5:1 on card) */
-  --card: #fffdf9;
-  --card-foreground: #1b1714;
-  --popover: #fffdf9;
-  --popover-foreground: #1b1714;
 
-  /* Accent: deep teal, the sky of the brand mesh. Ember stays a brand colour and never
-     becomes the primary, so actions are never confused with amber warnings. */
-  --primary: #11545b; /* white text 8.6:1 */
+  /* Surfaces */
+  --canvas: #f4f6f9; /* app background behind work surfaces */
+  --background: #f4f6f9;
+  --foreground: #172033; /* ink navy */
+  --card: #ffffff;
+  --card-foreground: #172033;
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+
+  /* Accent: stamp blue */
+  --primary: #2c41ab;
   --primary-foreground: #ffffff;
 
-  --secondary: #ede7de;
-  --secondary-foreground: #1b1714;
-  --muted: #ede7de;
-  --muted-foreground: #675e55; /* 6.3:1 on card, 5.2:1 on muted */
-  --accent: #e9e2d7;
-  --accent-foreground: #1b1714;
+  --secondary: #eceff4;
+  --secondary-foreground: #172033;
+  --muted: #eceff4;
+  --muted-foreground: #586275;
+  --accent: #e7ebf3;
+  --accent-foreground: #172033;
   --destructive: #b42318;
-  --border: #e3dbd0;
-  --input: #8f857a; /* field outlines 3.6:1 */
-  --ring: #11545b;
+  --border: #dde2ea;
+  --input: #c9d0db;
+  --ring: #2c41ab;
 
   /* Status */
   --success: #1d7a4b;
   --warning: #9a5a06;
 
   /* Table header band, a step off the card surface. */
-  --table-head: #f8f4ee;
+  --table-head: #f8f9fb;
 
-  /* Charts. Categorical slots 1-3 in fixed order, validated against the card #fffdf9.
+  /* Charts. Categorical slots 1-3 in fixed order, validated against #ffffff.
      Single-series charts use chart-1. */
-  --chart-1: #11545b; /* teal */
-  --chart-2: #c4501a; /* ember */
-  --chart-3: #8a4fa6; /* plum */
-  --chart-4: #7a7068; /* de-emphasis / peer data */
-  --chart-5: #ddd4c8; /* recessive fills */
-  --chart-grid: #ebe4da; /* chart grid lines */
-  --chart-axis: #675e55; /* axis labels, 6.3:1 on card */
+  --chart-1: #4a5fd9;
+  --chart-2: #d0691a;
+  --chart-3: #9b3fbf;
+  --chart-4: #5d6b82; /* de-emphasis / peer data */
+  --chart-5: #c9d0db; /* recessive fills */
+  --chart-grid: #e8ebf0;
+  --chart-axis: #586275;
 
-  --sidebar: #efe9e0;
-  --sidebar-foreground: #2a241f;
-  --sidebar-primary: #11545b;
+  --sidebar: #eceff5;
+  --sidebar-foreground: #283247;
+  --sidebar-primary: #2c41ab;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fffdf9;
-  --sidebar-accent-foreground: #1b1714;
-  --sidebar-border: #e2d9cd;
-  --sidebar-ring: #11545b;
+  --sidebar-accent: #ffffff;
+  --sidebar-accent-foreground: #172033;
+  --sidebar-border: #dbe0e9;
+  --sidebar-ring: #2c41ab;
 }
 
 .dark {
@@ -97,48 +98,48 @@
   --shadow-button: inset 0 1px 0 rgb(255 255 255 / 0.18), 0 1px 2px rgb(0 0 0 / 0.4);
   --shadow-inset: inset 0 1px 2px rgb(0 0 0 / 0.35);
 
-  --canvas: #0b0a09;
-  --background: #0b0a09;
-  --foreground: #f2ede6; /* 15.9:1 on card */
-  --card: #151311;
-  --card-foreground: #f2ede6;
-  --popover: #1a1715;
-  --popover-foreground: #f2ede6;
+  --canvas: #0e131b;
+  --background: #0e131b;
+  --foreground: #e3e7ef;
+  --card: #151b26;
+  --card-foreground: #e3e7ef;
+  --popover: #1a2130;
+  --popover-foreground: #e3e7ef;
 
-  --primary: #5fb4b5; /* dark text 8.2:1 */
-  --primary-foreground: #0b0a09;
+  --primary: #8b9cf4;
+  --primary-foreground: #0e131b;
 
-  --secondary: #1d1a17;
-  --secondary-foreground: #f2ede6;
-  --muted: #1d1a17;
-  --muted-foreground: #a69d93; /* 6.9:1 on card */
-  --accent: #241f1b;
-  --accent-foreground: #f2ede6;
+  --secondary: #1e2533;
+  --secondary-foreground: #e3e7ef;
+  --muted: #1e2533;
+  --muted-foreground: #9aa4b6;
+  --accent: #222b3b;
+  --accent-foreground: #e3e7ef;
   --destructive: #f0715f;
-  --border: #2a2521;
-  --input: #756a61; /* field outlines 3.5:1 */
-  --ring: #5fb4b5;
+  --border: #262f40;
+  --input: #344055;
+  --ring: #8b9cf4;
 
   --success: #4cc38a;
   --warning: #e3a43c;
 
-  --table-head: #1a1715;
+  --table-head: #19202c;
 
-  /* Validated against the dark card surface #151311. */
-  --chart-1: #5fb4b5;
-  --chart-2: #e07a3f;
-  --chart-3: #b98ad6;
-  --chart-4: #948a80;
-  --chart-5: #3a332d;
-  --chart-grid: #26211d;
-  --chart-axis: #a69d93; /* 6.9:1 on card */
+  /* Validated against the dark card surface #151b26. */
+  --chart-1: #6f82ee;
+  --chart-2: #d06c22;
+  --chart-3: #a46fde;
+  --chart-4: #8a96ab;
+  --chart-5: #3a4458;
+  --chart-grid: #232b3a;
+  --chart-axis: #9aa4b6;
 
-  --sidebar: #100e0c;
-  --sidebar-foreground: #d9d2c9;
-  --sidebar-primary: #5fb4b5;
-  --sidebar-primary-foreground: #0b0a09;
-  --sidebar-accent: #1f1b18;
-  --sidebar-accent-foreground: #f2ede6;
-  --sidebar-border: #24201c;
-  --sidebar-ring: #5fb4b5;
+  --sidebar: #111722;
+  --sidebar-foreground: #c9d0dc;
+  --sidebar-primary: #8b9cf4;
+  --sidebar-primary-foreground: #0e131b;
+  --sidebar-accent: #1c2433;
+  --sidebar-accent-foreground: #e3e7ef;
+  --sidebar-border: #222a39;
+  --sidebar-ring: #8b9cf4;
 }

@@ -34,9 +34,9 @@ const backdrop = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${scene.viewB
     <filter id="dune" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="${scene.duneBlur}"/></filter>
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
     <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0.3" stop-color="${brand.meshEmber}" stop-opacity="0"/>
-      <stop offset="0.7" stop-color="${brand.meshEmber}" stop-opacity="0.9"/>
-      <stop offset="0.9" stop-color="${brand.signal}" stop-opacity="0.8"/>
+      <stop offset="0.3" stop-color="${brand.meshGlow}" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="${brand.meshGlow}" stop-opacity="0.9"/>
+      <stop offset="0.9" stop-color="${brand.meshLight}" stop-opacity="0.9"/>
     </linearGradient>
   </defs>
   <rect x="-200" y="-200" width="${scene.width + 400}" height="${scene.height + 400}" fill="${brand.ink}"/>
@@ -75,10 +75,17 @@ export async function renderShareImage() {
         style={{ position: "absolute", top: 0, left: 0 }}
       />
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-        <svg width="56" height="56" viewBox={logoMark.viewBox}>
-          <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} fill={brand.ink} />
-          <path d={logoMark.lines} fill={brand.onInk} />
-          <path d={logoMark.leak} fill={brand.signal} />
+        <svg width="56" height="56" viewBox={logoMark.viewBox} fill="none">
+          <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} fill={brand.blue} />
+          <path
+            d={logoMark.form}
+            stroke={brand.onInk}
+            strokeWidth={logoMark.strokeWidth}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path d={logoMark.lines} stroke={brand.onInk} strokeWidth={logoMark.strokeWidth} strokeLinecap="round" />
+          <path d={logoMark.drop} fill={brand.onInk} />
         </svg>
         <div style={{ fontSize: 30, letterSpacing: 1 }}>{PRODUCT_NAME.toUpperCase()}</div>
       </div>

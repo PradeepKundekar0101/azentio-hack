@@ -4,14 +4,15 @@
  * until these values match it.
  */
 export const brand = {
-  ink: "#07090b",
-  signal: "#f2a33a",
-  onInk: "#f5f1ea",
-  onInkMuted: "#b4ada3",
-  meshSky: "#0f3236",
-  meshEmber: "#c4501a",
-  meshWine: "#4a1a10",
-  meshShadow: "#120d0c",
+  ink: "#070a12",
+  blue: "#2c41ab",
+  onInk: "#f3f6fb",
+  onInkMuted: "#a9b4c8",
+  meshSky: "#0a1b3f",
+  meshGlow: "#2f7fe8",
+  meshDeep: "#16246b",
+  meshLight: "#8ed0ff",
+  meshShadow: "#060912",
 } as const;
 
 export type BrandColor = keyof typeof brand;
@@ -20,40 +21,22 @@ export type BrandColor = keyof typeof brand;
 export const brandVar = (color: BrandColor) => `var(--brand-${color.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)})`;
 
 /**
- * The logo: three ledger lines of a claim, the last one missing a block, and that block
- * fallen below the gap in the signal colour. Money slipping out of the record, caught
- * and made visible. This geometry is the single definition used by the React mark, the
- * favicon (app/icon.svg, checked by brand.test.ts) and the generated share images.
+ * The logo: a drop leaking from a claim form, the product's one-line idea. This geometry
+ * is the single definition used by the React mark, the favicon (app/icon.svg, checked by
+ * brand.test.ts), the Apple touch icon and the share images.
  */
-const SIZE = 32;
-const BAR = 3; // line thickness; the leaked block is BAR x BAR, so it reads as the missing piece
-const LINE_GAP = 2.5;
-const LINES: ReadonlyArray<ReadonlyArray<readonly [start: number, end: number]>> = [
-  [[8, 24]],
-  [[8, 21]],
-  [
-    [8, 14],
-    [18, 24],
-  ],
-];
-const LEAK_X = 14.5; // centred under the gap in the last line (14 to 18)
-
-const contentHeight = LINES.length * (BAR + LINE_GAP) + BAR;
-const top = (SIZE - contentHeight) / 2;
-
-const rect = (x: number, y: number, width: number, height: number) => `M${x} ${y}h${width}v${height}h-${width}z`;
-
 export const logoMark = {
-  viewBox: `0 0 ${SIZE} ${SIZE}`,
-  size: SIZE,
-  /** Corner radius of the tile, drawn in brand.ink. */
-  radius: 8,
-  /** The ledger lines, drawn on the tile in brand.onInk. */
-  lines: LINES.flatMap((segments, row) =>
-    segments.map(([start, end]) => rect(start, top + row * (BAR + LINE_GAP), end - start, BAR)),
-  ).join(""),
-  /** The leaked block, drawn in brand.signal. */
-  leak: rect(LEAK_X, top + LINES.length * (BAR + LINE_GAP), BAR, BAR),
+  viewBox: "0 0 24 24",
+  size: 24,
+  /** Corner radius of the tile, drawn in brand.blue. */
+  radius: 5,
+  strokeWidth: 1.6,
+  /** The claim form's outline, stroked in brand.onInk. */
+  form: "M7.5 5.5h6l3 3v5.25M7.5 5.5v13h4.75",
+  /** Two lines of text on the form, stroked in brand.onInk. */
+  lines: "M10 9.75h3M10 12.5h2.5",
+  /** The drop leaking from the form, filled in brand.onInk. */
+  drop: "M16.25 14.25c1.2 1.45 1.95 2.5 1.95 3.4a1.95 1.95 0 0 1-3.9 0c0-.9.75-1.95 1.95-3.4z",
 } as const;
 
 /**
@@ -72,9 +55,9 @@ export const scene = {
   meshBlur: 110,
   fields: [
     { color: "meshSky", cx: 260, cy: 180, rx: 950, ry: 560, rotate: 0, opacity: 1 },
-    { color: "meshWine", cx: 760, cy: 760, rx: 700, ry: 200, rotate: -8, opacity: 0.9 },
-    { color: "meshEmber", cx: 1220, cy: 520, rx: 600, ry: 270, rotate: -14, opacity: 1 },
-    { color: "signal", cx: 1310, cy: 470, rx: 250, ry: 105, rotate: -14, opacity: 0.85 },
+    { color: "meshDeep", cx: 760, cy: 760, rx: 700, ry: 200, rotate: -8, opacity: 0.9 },
+    { color: "meshGlow", cx: 1220, cy: 520, rx: 600, ry: 270, rotate: -14, opacity: 1 },
+    { color: "meshLight", cx: 1310, cy: 470, rx: 250, ry: 105, rotate: -14, opacity: 0.8 },
   ] satisfies ReadonlyArray<{
     color: BrandColor;
     cx: number;

@@ -54,9 +54,9 @@
   --color-warning: var(--warning);
   --color-canvas: var(--canvas);
 
-  /* Brand tokens: bg-brand-ink, text-brand-signal, ... (fixed in both themes) */
+  /* Brand tokens: bg-brand-ink, fill-brand-blue, ... (fixed in both themes) */
   --color-brand-ink: var(--brand-ink);
-  --color-brand-signal: var(--brand-signal);
+  --color-brand-blue: var(--brand-blue);
   --color-brand-on-ink: var(--brand-on-ink);
   --color-brand-on-ink-muted: var(--brand-on-ink-muted);
 
@@ -115,7 +115,7 @@
   .canvas-glow {
     background-image:
       radial-gradient(900px 420px at 18% -10%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%),
-      radial-gradient(700px 360px at 100% 0%, color-mix(in oklch, var(--brand-signal) 6%, transparent), transparent 70%);
+      radial-gradient(700px 360px at 100% 0%, color-mix(in oklch, var(--brand-mesh-glow) 7%, transparent), transparent 70%);
   }
 
   /* Page content settles in on navigation. */
