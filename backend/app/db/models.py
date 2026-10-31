@@ -20,6 +20,7 @@ from sqlalchemy import (
     Numeric,
     String,
     Text,
+    UniqueConstraint,
     func,
 )
 from sqlalchemy.dialects.postgresql import JSONB
@@ -446,6 +447,8 @@ class Document(Base):
     storage_key: Mapped[str] = mapped_column(Text)
     sha256: Mapped[str] = mapped_column(String(64), index=True)
     phash: Mapped[str | None] = mapped_column(String(64))  # images only (app/documents/phash.py)
+    doc_type: Mapped[str | None] = mapped_column(String(30))  # supporting documents: classified or set by a user
+    page_count: Mapped[int | None] = mapped_column(Integer)
     file_name: Mapped[str] = mapped_column(Text)
     file_type: Mapped[str] = mapped_column(String(20))
     size_bytes: Mapped[int] = mapped_column(Integer)
@@ -454,6 +457,74 @@ class Document(Base):
     issues: Mapped[Json | None]
     confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
     created_at: Mapped[CreatedAt]
+
+
+class DocumentExtraction(Base):
+    """One extraction of a supporting document (append-only; re-extracting writes the next version)."""
+
+    __tablename__ = "document_extractions"
+    __table_args__ = (
+        one_of("doc_type", enums.DocType),
+        one_of("status", enums.ExtractionStatus),
+        one_of("generated_by", enums.GeneratedBy),
+        UniqueConstraint("document_id", "version", name="uq_document_extractions_document_version"),
+    )
+
+    extraction_id: Mapped[IntId]
+    document_id: Mapped[int] = mapped_column(ForeignKey("documents.id", ondelete="CASCADE"), index=True)
+    version: Mapped[int] = mapped_column(Integer)
+    doc_type: Mapped[str] = mapped_column(String(30))
+    schema_version: Mapped[str] = mapped_column(String(20))
+    model: Mapped[str] = mapped_column(Text)
+    prompt_version: Mapped[str] = mapped_column(String(40))
+    status: Mapped[str] = mapped_column(String(20))
+    route: Mapped[str] = mapped_column(String(10))  # text, vision or mixed
+    attempts: Mapped[int] = mapped_column(Integer)
+    validation_errors: Mapped[Json | None]
+    classification_confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
+    error: Mapped[str | None] = mapped_column(Text)
+    # The document's text as parsed (empty for pages read by vision only), so later checks can verify quotes.
+    source_text: Mapped[str | None] = mapped_column(Text)
+    generated_by: Mapped[str] = mapped_column(String(10), server_default=enums.GeneratedBy.AI.value)
+    created_at: Mapped[CreatedAt]
+
+
+class ExtractedField(Base):
+    """One extracted value with where it came from: page, box (fractions of the page) and the quoted text."""
+
+    __tablename__ = "extracted_fields"
+    __table_args__ = (one_of("provenance_status", enums.ProvenanceStatus),)
+
+    id: Mapped[IntId]
+    extraction_id: Mapped[int] = mapped_column(
+        ForeignKey("document_extractions.extraction_id", ondelete="CASCADE"), index=True
+    )
+    field_path: Mapped[str] = mapped_column(Text)  # header.invoice_number, lines[3].amount, procedures[0]
+    value_text: Mapped[str | None] = mapped_column(Text)
+    value_normalised: Mapped[str | None] = mapped_column(Text)
+    page: Mapped[int | None] = mapped_column(Integer)
+    bbox: Mapped[Json | None]  # {"l", "t", "r", "b"} as fractions of the page, top-left origin
+    source_quote: Mapped[str | None] = mapped_column(Text)
+    provenance_status: Mapped[str] = mapped_column(String(20))
+    confidence: Mapped[Decimal] = mapped_column(Numeric(4, 3))
+
+
+class ExtractedLine(Base):
+    __tablename__ = "extracted_lines"
+
+    id: Mapped[IntId]
+    extraction_id: Mapped[int] = mapped_column(
+        ForeignKey("document_extractions.extraction_id", ondelete="CASCADE"), index=True
+    )
+    line_no: Mapped[int] = mapped_column(Integer)
+    description: Mapped[str | None] = mapped_column(Text)
+    service_code: Mapped[str | None] = mapped_column(String(20))
+    service_date: Mapped[date | None] = mapped_column(Date)
+    quantity: Mapped[Decimal | None] = mapped_column(Numeric(10, 2))
+    unit_price: Mapped[Money | None]
+    amount: Mapped[Money | None]
+    page: Mapped[int | None] = mapped_column(Integer)
+    bbox: Mapped[Json | None]
 
 
 class AuditLog(Base):

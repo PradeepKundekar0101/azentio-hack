@@ -192,3 +192,27 @@ class EventType(StrEnum):
     GROUP_CREATED = "group_created"
     CORRECTION_SET_CREATED = "correction_set_created"
     CROSS_CLAIM_ALERT_RAISED = "cross_claim_alert_raised"
+
+
+class DocType(StrEnum):
+    INVOICE = "invoice"
+    DISCHARGE_SUMMARY = "discharge_summary"
+    REPAIR_ESTIMATE = "repair_estimate"
+    OTHER = "other"
+
+
+class ExtractionStatus(StrEnum):
+    OK = "ok"
+    NEEDS_REVIEW = "needs_review"
+    FAILED = "failed"
+
+
+class ProvenanceStatus(StrEnum):
+    VERIFIED = "verified"
+    UNVERIFIED = "unverified"
+    PAGE_ONLY = "page_only"
+
+
+class GeneratedBy(StrEnum):
+    RULE = "rule"
+    AI = "ai"
