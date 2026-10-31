@@ -111,16 +111,56 @@
     mask-image: radial-gradient(ellipse 60% 80% at 50% 40%, black 10%, transparent 100%);
   }
 
-  /* A soft primary-tinted glow in the top corner of the canvas, so the app is not a flat sheet. */
-  .canvas-glow {
-    background-image:
-      radial-gradient(900px 420px at 18% -10%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%),
-      radial-gradient(700px 360px at 100% 0%, color-mix(in oklch, var(--brand-mesh-glow) 7%, transparent), transparent 70%);
+  /* The mesh fields drift slowly (backdrop.tsx); each has its own path and period. */
+  .mesh-drift {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mesh-drift 26s ease-in-out infinite alternate;
+  }
+  .mesh-drift-1 {
+    animation-duration: 34s;
+    animation-name: mesh-drift-b;
+  }
+  .mesh-drift-2 {
+    animation-duration: 30s;
+    animation-name: mesh-drift-c;
+  }
+  .mesh-drift-3 {
+    animation-duration: 22s;
+    animation-name: mesh-drift-b;
+    animation-delay: -8s;
   }
 
   /* Page content settles in on navigation. */
   .page-enter {
     animation: page-enter 320ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+}
+
+@keyframes mesh-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-60px, 40px) scale(1.08);
+  }
+}
+
+@keyframes mesh-drift-b {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(70px, -50px) scale(0.94);
+  }
+}
+
+@keyframes mesh-drift-c {
+  from {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  to {
+    transform: translate(-40px, -70px) scale(1.12) rotate(6deg);
   }
 }
 

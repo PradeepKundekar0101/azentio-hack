@@ -5,15 +5,23 @@
  * colour from the brand tokens in src/styles/theme.css. No image request.
  */
 
+import { cn } from "@/lib/utils";
 import { brandVar, scene } from "@/styles/brand";
 
 // Film grain: an SVG noise tile, repeated. Two blend layers give the matte, printed look.
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
-export function Backdrop() {
+export function Backdrop({
+  className,
+  tinted = true,
+}: {
+  className?: string;
+  /** Paint the ink canvas under the mesh (off when the mesh sits over the app canvas). */
+  tinted?: boolean;
+}) {
   return (
-    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-brand-ink">
+    <div aria-hidden="true" className={cn("absolute inset-0 -z-10 overflow-hidden", tinted && "bg-brand-ink", className)}>
       <svg
         className="absolute inset-0 size-full animate-in duration-[1600ms] ease-out fade-in"
         viewBox={scene.viewBox}
@@ -33,9 +41,10 @@ export function Backdrop() {
           </linearGradient>
         </defs>
         <g filter="url(#mesh)">
-          {scene.fields.map((field) => (
+          {scene.fields.map((field, i) => (
             <ellipse
               key={field.color}
+              className={`mesh-drift mesh-drift-${i}`}
               cx={field.cx}
               cy={field.cy}
               rx={field.rx}
