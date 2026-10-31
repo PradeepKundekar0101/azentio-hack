@@ -65,4 +65,4 @@ This branch is cut from `main` (`928c471`) and does not know about users, roles 
 6. **Frontend types.** Both branches change `frontend/src/lib/api/schema.d.ts`. Take either side, then regenerate from the merged backend (`pnpm api:types`). Decision labels already cover `evidence_requested` and `escalated` (`frontend/src/lib/evidence/model.ts`).
 7. **Tests.** `backend/tests/test_evidence.py` signs in through the shared `api` fixture; if login changes, only that fixture needs updating.
 
-Also on this branch: `fix(rules)` replaces `strftime("%-d")`, which raises on Windows, in `backend/app/rules/explain.py`. Without it, every claim fails evaluation on Windows.
+On Windows, run the backend tests on top of `feat/rbac-escalation`: it carries the fix for `strftime("%-d")` in `backend/app/rules/explain.py`, without which every claim fails evaluation there.
