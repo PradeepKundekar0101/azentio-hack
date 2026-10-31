@@ -44,7 +44,9 @@ Level 2, point 6: every investigation keeps a complete evidence history (origina
 
 This branch is cut from `main` (`928c471`) and does not know about users, roles or escalation. To bring it into the review and escalation branch:
 
-1. **Merge** `feat/evidence-audit-trail` into `feat/rbac-escalation`.
+1. **Merge** `feat/evidence-audit-trail` into `feat/rbac-escalation`. A dry run (`git merge-tree`) shows four conflicts: `backend/app/api/alerts.py` and `frontend/src/lib/api/schema.d.ts` (steps 3 and 6), plus two one-liners where both branches add something; keep both sides:
+   - `backend/app/main.py`: import and include both the `users` and `evidence` routers.
+   - `frontend/src/components/app-shell/nav.ts`: keep both new nav items (Evidence and the users page) and both icon imports.
 2. **Migrations have two heads**: both `f9a35b8bb39d` (evidence) and the users/escalation migration revise `8b5b83935338`. Set `down_revision` in the evidence migration to the users/escalation revision (`c4d2a9e7f1b3`), then check `uv run alembic heads` shows one head.
 3. **`backend/app/api/alerts.py`, `update_alert`** will conflict. Keep the review/escalation version, capture the status before changing it, and record the decision before the commit:
 
