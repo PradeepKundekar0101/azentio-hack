@@ -1,5 +1,6 @@
 """Application settings, read only from environment variables (and the gitignored backend/.env)."""
 
+from decimal import Decimal
 from functools import lru_cache
 from pathlib import Path
 from typing import Annotated, Literal
@@ -41,6 +42,18 @@ class Settings(BaseSettings):
     cookie_secure: bool = True
     demo_username: str = "demo"
     demo_password: SecretStr
+
+    # Deductible and co-pay are normal policy application; set true to raise alerts for them on open claims too.
+    alert_on_adjustments: bool = False
+    near_duplicate_threshold: Decimal = Decimal("0.80")
+    # Severity thresholds on calculated amounts (rupees).
+    severity_critical_amount: Decimal = Decimal("50000")
+    severity_high_amount: Decimal = Decimal("10000")
+    severity_medium_amount: Decimal = Decimal("2000")
+
+    # Claude reads uploaded invoices (structured extraction, and vision for scanned pages). Unset: reading is off.
+    anthropic_api_key: SecretStr | None = None
+    extraction_model: str = "claude-haiku-5-5"
 
     cors_origins: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["http://localhost:3000"])
 

@@ -1,0 +1,284 @@
+Rule No,Policy Number,Rule Type,Scope Type,Scope Value,Limit Basis,Limit Amount,Clause,Description
+POL-900001-CV-01,POL-900001,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900001-CV-02,POL-900001,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900001-CV-03,POL-900001,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900001-CV-04,POL-900001,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900001-CV-05,POL-900001,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900001-CV-06,POL-900001,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900001-CV-07,POL-900001,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900001-CV-08,POL-900001,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900001-CV-09,POL-900001,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900001-CV-10,POL-900001,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900001-CV-11,POL-900001,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900001-CV-12,POL-900001,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900001-EX-01,POL-900001,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900001-EX-02,POL-900001,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900001-EX-03,POL-900001,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900001-EX-04,POL-900001,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900001-EX-05,POL-900001,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900001-SL-01,POL-900001,sub_limit,category,room,per_day,"₹3,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 3000 per day.
+POL-900001-SL-02,POL-900001,sub_limit,category,diagnostics,per_claim,"₹10,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 10000 per claim.
+POL-900002-CV-01,POL-900002,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900002-CV-02,POL-900002,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900002-CV-03,POL-900002,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900002-CV-04,POL-900002,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900002-CV-05,POL-900002,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900002-CV-06,POL-900002,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900002-CV-07,POL-900002,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900002-CV-08,POL-900002,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900002-CV-09,POL-900002,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900002-CV-10,POL-900002,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900002-CV-11,POL-900002,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900002-CV-12,POL-900002,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900002-EX-01,POL-900002,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900002-EX-02,POL-900002,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900002-EX-03,POL-900002,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900002-EX-04,POL-900002,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900002-EX-05,POL-900002,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900002-SL-01,POL-900002,sub_limit,category,room,per_day,"3,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 3000 per day.
+POL-900002-SL-02,POL-900002,sub_limit,category,diagnostics,per_claim,10000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 10000 per claim.
+POL-900003-CV-01,POL-900003,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900003-CV-02,POL-900003,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900003-CV-03,POL-900003,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900003-CV-04,POL-900003,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900003-CV-05,POL-900003,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900003-CV-06,POL-900003,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900003-CV-07,POL-900003,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900003-CV-08,POL-900003,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900003-CV-09,POL-900003,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900003-CV-10,POL-900003,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900003-CV-11,POL-900003,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900003-CV-12,POL-900003,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900003-CV-13,POL-900003,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900003-CV-14,POL-900003,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900003-EX-01,POL-900003,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900003-EX-02,POL-900003,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900003-EX-03,POL-900003,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900003-EX-04,POL-900003,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900003-EX-05,POL-900003,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900003-SL-01,POL-900003,sub_limit,category,room,per_day,5000,Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900003-SL-02,POL-900003,sub_limit,category,diagnostics,per_claim,15000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900003-SL-03,POL-900003,sub_limit,category,physiotherapy,per_period,"20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900004-CV-01,POL-900004,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900004-CV-02,POL-900004,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900004-CV-03,POL-900004,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900004-CV-04,POL-900004,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900004-CV-05,POL-900004,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900004-CV-06,POL-900004,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900004-CV-07,POL-900004,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900004-CV-08,POL-900004,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900004-CV-09,POL-900004,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900004-CV-10,POL-900004,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900004-CV-11,POL-900004,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900004-CV-12,POL-900004,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900004-CV-13,POL-900004,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900004-CV-14,POL-900004,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900004-EX-01,POL-900004,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900004-EX-02,POL-900004,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900004-EX-03,POL-900004,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900004-EX-04,POL-900004,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900004-EX-05,POL-900004,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900004-SL-01,POL-900004,sub_limit,category,room,per_day,5000,Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900004-SL-02,POL-900004,sub_limit,category,diagnostics,per_claim,"15,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900004-SL-03,POL-900004,sub_limit,category,physiotherapy,per_period,"₹20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900005-CV-01,POL-900005,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900005-CV-02,POL-900005,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900005-CV-03,POL-900005,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900005-CV-04,POL-900005,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900005-CV-05,POL-900005,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900005-CV-06,POL-900005,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900005-CV-07,POL-900005,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900005-CV-08,POL-900005,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900005-CV-09,POL-900005,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900005-CV-10,POL-900005,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900005-CV-11,POL-900005,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900005-CV-12,POL-900005,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900005-CV-13,POL-900005,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900005-CV-14,POL-900005,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900005-EX-01,POL-900005,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900005-EX-02,POL-900005,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900005-EX-03,POL-900005,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900005-EX-04,POL-900005,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900005-EX-05,POL-900005,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900005-SL-01,POL-900005,sub_limit,category,room,per_day,"₹5,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900005-SL-02,POL-900005,sub_limit,category,diagnostics,per_claim,15000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900005-SL-03,POL-900005,sub_limit,category,physiotherapy,per_period,"₹20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900006-CV-01,POL-900006,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900006-CV-02,POL-900006,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900006-CV-03,POL-900006,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900006-CV-04,POL-900006,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900006-CV-05,POL-900006,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900006-CV-06,POL-900006,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900006-CV-07,POL-900006,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900006-CV-08,POL-900006,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900006-CV-09,POL-900006,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900006-CV-10,POL-900006,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900006-CV-11,POL-900006,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900006-CV-12,POL-900006,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900006-CV-13,POL-900006,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900006-CV-14,POL-900006,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900006-EX-01,POL-900006,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900006-EX-02,POL-900006,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900006-EX-03,POL-900006,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900006-EX-04,POL-900006,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900006-EX-05,POL-900006,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900006-SL-01,POL-900006,sub_limit,category,room,per_day,"5,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900006-SL-02,POL-900006,sub_limit,category,diagnostics,per_claim,15000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900006-SL-03,POL-900006,sub_limit,category,physiotherapy,per_period,"20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900007-CV-01,POL-900007,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900007-CV-02,POL-900007,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900007-CV-03,POL-900007,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900007-CV-04,POL-900007,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900007-CV-05,POL-900007,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900007-CV-06,POL-900007,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900007-CV-07,POL-900007,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900007-CV-08,POL-900007,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900007-CV-09,POL-900007,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900007-CV-10,POL-900007,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900007-CV-11,POL-900007,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900007-CV-12,POL-900007,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900007-CV-13,POL-900007,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900007-CV-14,POL-900007,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900007-EX-01,POL-900007,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900007-EX-02,POL-900007,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900007-EX-03,POL-900007,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900007-EX-04,POL-900007,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900007-EX-05,POL-900007,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900007-SL-01,POL-900007,sub_limit,category,room,per_day,"8,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 8000 per day.
+POL-900007-SL-02,POL-900007,sub_limit,category,diagnostics,per_claim,"25,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 25000 per claim.
+POL-900007-SL-03,POL-900007,sub_limit,category,physiotherapy,per_period,30000,Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 30000 per policy period.
+POL-900008-CV-01,POL-900008,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900008-CV-02,POL-900008,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900008-CV-03,POL-900008,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900008-CV-04,POL-900008,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900008-CV-05,POL-900008,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900008-CV-06,POL-900008,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900008-CV-07,POL-900008,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900008-CV-08,POL-900008,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900008-CV-09,POL-900008,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900008-CV-10,POL-900008,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900008-CV-11,POL-900008,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900008-CV-12,POL-900008,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900008-CV-13,POL-900008,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900008-CV-14,POL-900008,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900008-EX-01,POL-900008,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900008-EX-02,POL-900008,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900008-EX-03,POL-900008,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900008-EX-04,POL-900008,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900008-EX-05,POL-900008,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900008-SL-01,POL-900008,sub_limit,category,room,per_day,8000,Section 4.1 Room rent limit,Room rent is payable up to Rs 8000 per day.
+POL-900008-SL-02,POL-900008,sub_limit,category,diagnostics,per_claim,25000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 25000 per claim.
+POL-900008-SL-03,POL-900008,sub_limit,category,physiotherapy,per_period,"₹30,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 30000 per policy period.
+POL-900009-CV-01,POL-900009,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900009-CV-02,POL-900009,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900009-CV-03,POL-900009,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900009-CV-04,POL-900009,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900009-CV-05,POL-900009,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900009-CV-06,POL-900009,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900009-CV-07,POL-900009,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900009-CV-08,POL-900009,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900009-CV-09,POL-900009,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900009-CV-10,POL-900009,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900009-CV-11,POL-900009,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900009-CV-12,POL-900009,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900009-EX-01,POL-900009,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900009-EX-02,POL-900009,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900009-EX-03,POL-900009,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900009-EX-04,POL-900009,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900009-EX-05,POL-900009,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900009-SL-01,POL-900009,sub_limit,category,room,per_day,3000,Section 4.1 Room rent limit,Room rent is payable up to Rs 3000 per day.
+POL-900009-SL-02,POL-900009,sub_limit,category,diagnostics,per_claim,"10,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 10000 per claim.
+POL-900010-CV-01,POL-900010,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900010-CV-02,POL-900010,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900010-CV-03,POL-900010,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900010-CV-04,POL-900010,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900010-CV-05,POL-900010,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900010-CV-06,POL-900010,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900010-CV-07,POL-900010,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900010-CV-08,POL-900010,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900010-CV-09,POL-900010,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900010-CV-10,POL-900010,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900010-CV-11,POL-900010,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900010-CV-12,POL-900010,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900010-CV-13,POL-900010,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900010-CV-14,POL-900010,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900010-EX-01,POL-900010,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900010-EX-02,POL-900010,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900010-EX-03,POL-900010,exclusion,service_code,PRC-IVF,,,Section 5.4 Infertility treatment,IVF treatment cycle is excluded.
+POL-900010-EX-04,POL-900010,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900010-EX-05,POL-900010,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900010-SL-01,POL-900010,sub_limit,category,room,per_day,5000,Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900010-SL-02,POL-900010,sub_limit,category,diagnostics,per_claim,"15,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900010-SL-03,POL-900010,sub_limit,category,physiotherapy,per_period,"20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900011-CV-01,POL-900011,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900011-CV-02,POL-900011,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900011-CV-03,POL-900011,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900011-CV-04,POL-900011,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900016-XR-01,POL-900016,exclusion,service_code,PRC-BARI,,,,Added in error.
+POL-900011-CV-05,POL-900011,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900011-CV-06,POL-900011,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900011-CV-07,POL-900011,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900011-CV-08,POL-900011,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900011-CV-09,POL-900011,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900011-CV-10,POL-900011,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900011-CV-11,POL-900011,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900011-CV-12,POL-900011,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900011-CV-13,POL-900011,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900011-CV-14,POL-900011,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900011-EX-01,POL-900011,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900011-SL-01,POL-900011,sub_limit,category,room,per_day,"8,000",Section 4.1 Room rent limit,Room rent is payable up to Rs 8000 per day.
+POL-900011-SL-02,POL-900011,sub_limit,category,diagnostics,per_claim,25000,Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 25000 per claim.
+POL-900011-SL-03,POL-900011,sub_limit,category,physiotherapy,per_period,"20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.
+POL-900014-CV-01,POL-900014,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900014-CV-02,POL-900014,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900014-CV-03,POL-900014,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900014-CV-04,POL-900014,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900014-CV-05,POL-900014,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900014-CV-06,POL-900014,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900014-CV-07,POL-900014,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900014-CV-08,POL-900014,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900014-CV-09,POL-900014,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900014-CV-10,POL-900014,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900014-CV-11,POL-900014,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900014-CV-12,POL-900014,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900014-CV-13,POL-900014,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900014-CV-14,POL-900014,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900014-EX-01,POL-900014,exclusion,service_code,PHA-VIT,,,"Section 5.5 Vitamins, tonics and supplements",Vitamins and supplements is excluded.
+POL-900014-SL-01,POL-900014,sub_limit,category,room,per_day,8000,Section 4.1 Room rent limit,Room rent is payable up to Rs 8000 per day.
+POL-900014-SL-02,POL-900014,sub_limit,category,diagnostics,per_claim,"25,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 25000 per claim.
+POL-900014-SL-03,POL-900014,sub_limit,category,physiotherapy,per_period,"₹25,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 25000 per policy period.
+POL-900015-CV-01,POL-900015,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900015-CV-02,POL-900015,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900015-CV-03,POL-900015,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900015-CV-04,POL-900015,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900015-CV-05,POL-900015,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900015-CV-06,POL-900015,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900015-CV-07,POL-900015,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900015-CV-08,POL-900015,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900015-CV-09,POL-900015,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900015-CV-10,POL-900015,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900015-CV-11,POL-900015,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900015-CV-12,POL-900015,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900015-EX-01,POL-900015,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900015-EX-02,POL-900015,exclusion,service_code,PRC-LIPO,,,Section 5.2 Cosmetic weight-loss procedures,Liposuction is excluded.
+POL-900015-SL-01,POL-900015,sub_limit,category,room,per_day,3000,Section 4.1 Room rent limit,Room rent is payable up to Rs 3000 per day.
+POL-900015-SL-02,POL-900015,sub_limit,category,diagnostics,per_claim,"₹10,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 10000 per claim.
+POL-900016-CV-01,POL-900016,coverage,claim_type,inpatient,,,Section 2.1 In-patient hospitalisation,Inpatient claims are covered.
+POL-900016-CV-02,POL-900016,coverage,claim_type,daycare,,,Section 2.2 Day-care procedures,Daycare claims are covered.
+POL-900016-CV-03,POL-900016,coverage,claim_type,outpatient,,,Section 2.3 Out-patient treatment,Outpatient claims are covered.
+POL-900016-CV-04,POL-900016,coverage,claim_type,pharmacy,,,Section 2.4 Pharmacy bills,Pharmacy claims are covered.
+POL-900016-CV-05,POL-900016,coverage,claim_type,diagnostics,,,Section 2.5 Diagnostic tests,Diagnostics claims are covered.
+POL-900016-CV-06,POL-900016,coverage,category,room,,,Section 3.1 Room rent,Charges in the room category are covered.
+POL-900016-CV-07,POL-900016,coverage,category,icu,,,Section 3.2 Intensive care,Charges in the icu category are covered.
+POL-900016-CV-08,POL-900016,coverage,category,consultation,,,Section 3.3 Consultation fees,Charges in the consultation category are covered.
+POL-900016-CV-09,POL-900016,coverage,category,procedure,,,Section 3.4 Surgical and medical procedures,Charges in the procedure category are covered.
+POL-900016-CV-10,POL-900016,coverage,category,pharmacy,,,Section 3.5 Medicines and drugs,Charges in the pharmacy category are covered.
+POL-900016-CV-11,POL-900016,coverage,category,diagnostics,,,Section 3.6 Diagnostic tests,Charges in the diagnostics category are covered.
+POL-900016-CV-12,POL-900016,coverage,category,consumables,,,Section 3.7 Medical consumables,Charges in the consumables category are covered.
+POL-900016-CV-13,POL-900016,coverage,category,physiotherapy,,,Section 3.8 Physiotherapy,Charges in the physiotherapy category are covered.
+POL-900016-CV-14,POL-900016,coverage,category,other,,,Section 3.9 Other hospital charges,Charges in the other category are covered.
+POL-900016-EX-01,POL-900016,exclusion,service_code,PRC-COSM,,,Section 5.1 Cosmetic and plastic surgery,Cosmetic rhinoplasty is excluded.
+POL-900016-EX-02,POL-900016,exclusion,service_code,PRC-LASIK,,,Section 5.3 Correction of refractive error,LASIK refractive surgery is excluded.
+POL-900016-SL-01,POL-900016,sub_limit,category,room,per_day,5000,Section 4.1 Room rent limit,Room rent is payable up to Rs 5000 per day.
+POL-900016-SL-02,POL-900016,sub_limit,category,diagnostics,per_claim,"₹15,000",Section 4.2 Diagnostics limit per claim,Diagnostic tests are payable up to Rs 15000 per claim.
+POL-900016-SL-03,POL-900016,sub_limit,category,physiotherapy,per_period,"20,000",Section 4.3 Physiotherapy limit per policy period,Physiotherapy is payable up to Rs 20000 per policy period.

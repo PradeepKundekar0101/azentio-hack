@@ -1,0 +1,241 @@
+from datetime import UTC, date, datetime
+from decimal import Decimal
+from typing import Annotated, Any, Literal
+
+from fastapi import APIRouter, Query
+from pydantic import BaseModel, Field
+from sqlalchemy import func, select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.api.claims import ClaimDetail, MatchOut, claim_detail
+from app.api.filters import FiltersDep
+from app.api.pagination import Page, PageDep
+from app.core import audit
+from app.core.enums import AlertStatus, MatchDecision
+from app.core.errors import not_found
+from app.core.security import CurrentUser
+from app.db.models import Alert, Claim, DuplicateMatch, LineItem
+from app.db.session import SessionDep
+
+router = APIRouter(tags=["alerts"])
+
+
+def mask_name(name: str) -> str:
+    """'Ravi Kumar' -> 'R*** K***'. Full names are shown only on detail pages."""
+    return " ".join(f"{part[0]}***" for part in name.split() if part)
+
+
+class AlertRow(BaseModel):
+    id: int
+    claim_id: str
+    claimant: str
+    provider_id: str | None
+    provider_name: str | None
+    claim_type: str
+    category: str
+    severity: str
+    amount: Decimal | None
+    amount_type: str
+    rule_or_pattern: str
+    incident_date: date
+    status: str
+
+
+class AlertOut(BaseModel):
+    id: int
+    run_id: int
+    claim_id: str
+    line_id: str | None
+    category: str
+    severity: str
+    amount: Decimal | None
+    amount_type: str
+    calculation: str | None
+    rule_or_pattern: str
+    policy_rule_id: str | None
+    explanation: str
+    supporting: dict[str, Any]
+    status: str
+    review_note: str | None
+    reviewed_at: datetime | None
+    created_at: datetime
+
+
+class AlertDetail(BaseModel):
+    alert: AlertOut
+    claim: ClaimDetail
+    matched_claim: ClaimDetail | None
+    match: MatchOut | None
+
+
+class AlertPatch(BaseModel):
+    status: Literal["open", "reviewed", "dismissed"]
+    note: str | None = Field(default=None, max_length=2000)
+
+
+async def _providers(session: AsyncSession, alerts: list[Alert]) -> dict[int, tuple[str, str]]:
+    """Provider of each alert: its line's provider, else the claim's first line's provider."""
+    claim_ids = {a.claim_id for a in alerts}
+    if not claim_ids:
+        return {}
+    lines = await session.execute(
+        select(LineItem.line_id, LineItem.claim_id, LineItem.provider_id, LineItem.provider_name)
+        .where(LineItem.claim_id.in_(claim_ids))
+        .order_by(LineItem.line_id)
+    )
+    by_line, by_claim = {}, {}
+    for line_id, claim_id, provider_id, provider_name in lines:
+        by_line[line_id] = (provider_id, provider_name)
+        by_claim.setdefault(claim_id, (provider_id, provider_name))
+    return {a.id: by_line.get(a.line_id or "") or by_claim.get(a.claim_id) for a in alerts}
+
+
+@router.get("/alerts")
+async def list_alerts(
+    session: SessionDep,
+    page: PageDep,
+    filters: FiltersDep,
+    sort: Annotated[str, Query(pattern=r"^-?(id|amount|severity|incident_date|category|claim_id|status)$")] = "-amount",
+) -> Page[AlertRow]:
+    query = filters.alerts()
+    total = await session.scalar(select(func.count()).select_from(query.subquery()))
+    column = {
+        "id": Alert.id,
+        "amount": Alert.amount,
+        "severity": func.array_position(func.string_to_array("critical,high,medium,low,review", ","), Alert.severity),
+        "incident_date": Claim.incident_date,
+        "category": Alert.category,
+        "claim_id": Alert.claim_id,
+        "status": Alert.status,
+    }[sort.lstrip("-")]
+    descending = sort.startswith("-")
+    if sort.lstrip("-") == "severity":
+        descending = not descending  # rank 1 is the most severe
+    order = column.desc().nulls_last() if descending else column.asc().nulls_last()
+    rows = (
+        await session.execute(
+            query.add_columns(Claim).order_by(order, Alert.id).offset(page.offset).limit(page.page_size)
+        )
+    ).all()
+    alerts = [row[0] for row in rows]
+    providers = await _providers(session, alerts)
+    items = []
+    for alert, claim in rows:
+        provider = providers.get(alert.id) or (None, None)
+        items.append(
+            AlertRow(
+                id=alert.id,
+                claim_id=alert.claim_id,
+                claimant=mask_name(claim.claimant_name),
+                provider_id=provider[0],
+                provider_name=provider[1],
+                claim_type=claim.claim_type,
+                category=alert.category,
+                severity=alert.severity,
+                amount=alert.amount,
+                amount_type=alert.amount_type,
+                rule_or_pattern=alert.rule_or_pattern,
+                incident_date=claim.incident_date,
+                status=alert.status,
+            )
+        )
+    return Page(items=items, total=total or 0)
+
+
+async def _alert_detail(session: AsyncSession, alert: Alert) -> AlertDetail:
+    claim = await claim_detail(session, alert.claim_id)
+    matched_id = (alert.supporting or {}).get("matched_claim_id")
+    matched = await claim_detail(session, matched_id) if matched_id and matched_id != alert.claim_id else None
+    match = (
+        next(
+            (
+                m
+                for m in claim.duplicates
+                if m.claim_id == alert.claim_id and m.matched_claim_id == matched_id and (m.line_id == alert.line_id)
+            ),
+            None,
+        )
+        if matched_id
+        else None
+    )
+    return AlertDetail(
+        alert=AlertOut.model_validate(alert, from_attributes=True), claim=claim, matched_claim=matched, match=match
+    )
+
+
+@router.get("/alerts/{alert_id}")
+async def get_alert(alert_id: int, session: SessionDep) -> AlertDetail:
+    alert = await session.get(Alert, alert_id)
+    if alert is None:
+        raise not_found("Alert")
+    return await _alert_detail(session, alert)
+
+
+@router.patch("/alerts/{alert_id}")
+async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, username: CurrentUser) -> AlertOut:
+    alert = await session.get(Alert, alert_id)
+    if alert is None:
+        raise not_found("Alert")
+    audit.record(
+        session,
+        username,
+        "alert_status_changed",
+        "alert",
+        alert.id,
+        previous=alert.status,
+        status=body.status,
+        note=body.note,
+    )
+    alert.status = body.status
+    alert.review_note = (body.note or "").strip() or None
+    alert.reviewed_at = None if body.status == AlertStatus.OPEN.value else datetime.now(UTC)
+    await session.commit()
+    await session.refresh(alert)
+    return AlertOut.model_validate(alert, from_attributes=True)
+
+
+class ClearedRow(BaseModel):
+    id: int
+    claim_id: str
+    line_id: str | None
+    matched_claim_id: str
+    matched_line_id: str | None
+    claimant: str
+    service_code: str | None
+    service_description: str | None
+    reason: str
+    signals: dict[str, Any] | None
+
+
+@router.get("/duplicates/cleared")
+async def cleared_duplicates(session: SessionDep, page: PageDep) -> Page[ClearedRow]:
+    query = select(DuplicateMatch).where(DuplicateMatch.decision == MatchDecision.CLEARED.value)
+    total = await session.scalar(select(func.count()).select_from(query.subquery()))
+    rows = (
+        await session.execute(
+            query.add_columns(Claim, LineItem)
+            .join(Claim, Claim.claim_id == DuplicateMatch.claim_id)
+            .outerjoin(LineItem, LineItem.line_id == DuplicateMatch.line_id)
+            .order_by(DuplicateMatch.id)
+            .offset(page.offset)
+            .limit(page.page_size)
+        )
+    ).all()
+    return Page(
+        items=[
+            ClearedRow(
+                id=m.id,
+                claim_id=m.claim_id,
+                line_id=m.line_id,
+                matched_claim_id=m.matched_claim_id,
+                matched_line_id=m.matched_line_id,
+                claimant=mask_name(c.claimant_name),
+                service_code=ln.service_code if ln else None,
+                service_description=ln.service_description if ln else None,
+                reason=m.reason,
+                signals=m.signals,
+            )
+            for m, c, ln in rows
+        ],
+        total=total or 0,
+    )

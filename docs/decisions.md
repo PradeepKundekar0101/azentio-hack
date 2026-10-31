@@ -30,3 +30,36 @@ Each entry says what was chosen and why.
 - **Contract enums are CHECK constraints** on text columns rather than Postgres enum types, so adding a value is a one-line migration.
 - **CORS** origins come from the settings loaded at startup, so importing the app never reads configuration.
   In production the browser only talks to one domain, so CORS is a fallback for local tools.
+
+## Phase 1
+
+- **Products.** Silver: co-pay 20%, deductible ₹5,000-₹10,000, sum insured ₹3-4 lakh, room ₹3,000/day, diagnostics ₹10,000/claim, no day-care or physiotherapy cover.
+  Gold: co-pay 10%, deductible ₹2,000-₹5,000, ₹5-7.5 lakh, room ₹5,000/day, diagnostics ₹15,000/claim, physiotherapy ₹20,000/period.
+  Platinum: no co-pay, deductible ₹0 or ₹2,500, ₹8-10 lakh, room ₹8,000/day, diagnostics ₹25,000/claim, physiotherapy ₹30,000/period.
+  Deductibles are per claim or per period; benefit periods are one year, starting between July 2025 and May 2026.
+- **One value per policy rule.** The contract allows one `scope_value` per rule, so coverage needs one rule per covered claim type and per covered category.
+  Policies therefore have 15-20 rules (about 5,400 in the full set) instead of the plan's 4-8.
+- **Clean claims stay clear of every check.** Each policy's claims use at most 45% of its sum insured and 50% of its physiotherapy limit; room rates stay at or below 85% of the daily limit and diagnostics at or below 60% of the per-claim limit.
+  Two claims of the same claimant are at least 10 days apart (incident and every service date), so they are never duplicate candidates; invoice and incident references are globally unique.
+  Codes used by exclusion scenarios (cosmetic, liposuction, LASIK, IVF, vitamins) never appear in clean claims.
+- **Ledger order cannot change a result.** Every policy scenario sits on a per-claim-deductible policy.
+  On per-period-deductible policies settled claims come before open claims in time, so a settled claim's entitlement never depends on an open claim.
+  Per-period and overall-limit scenarios get their own policies, with the breaching claim last; per-period ones have no deductible or co-pay, so "allowed in-scope amount" and "paid amount" consumption agree.
+- **Policy scenarios are open claims; settled claims are clean apart from C12.** Settled claims are paid exactly their entitlement unless planted as an overpayment.
+  Settled claims within the deductible have a `rejected` settlement with ₹0 approved and paid.
+- **Duplicate scenarios.** The later submission is always the flagged claim.
+  Exact duplicates resubmit the same invoices (reference spelled differently but equal once normalised, e.g. `INV-04521` and `inv 4521`), or 30% of the time the same incident reference, date and amount with re-issued invoice numbers.
+  Lines of an exact-duplicate claim are not reported again as duplicate lines (one alert per leakage).
+  Near-duplicates use one `INV-` reference with a suffixed variant (`INV-00452` and `INV452A`), 1-3 days and 1-3% apart, and score at least 0.82 under every reading of the formula (largest and smallest date gap and amount base); every other candidate pair scores below 0.79.
+  Duplicate lines across claims copy one line into a follow-up visit 8-14 days later whose amount differs by at least 20%, so it can never score as a near-duplicate.
+- **Legitimate repeats** are pairs of single-line claims (physiotherapy, occupational therapy, rehabilitation, dialysis, follow-up consultation, home nursing) at the same provider, within the near-duplicate window, with dissimilar invoice numbers.
+  They are cleared by the repeat rule regardless of score; chemotherapy cycles (14-day minimum) never fall inside the 7-day window, so none are planted.
+- **Invalid rows** are extra rows (about 2% of all rows) with exactly one problem each, so rejecting them never changes the valid data.
+  Bad lines and settlements are attached to clean claims and are not counted in the requested amount; a repeated identifier is a later copy of an earlier row, and only the later copy is rejected.
+  Rejected claims and one rejected policy have children, recorded as `parent_rejected`.
+  Planted `requested_amount_mismatch` warnings are on otherwise clean open claims.
+- **Formats.** All three exports hold the same rows in the same order (`row_index` is shared); dates and amounts vary per cell, not per file; header spellings differ per file and all compact to the importer's synonyms.
+  Excel cells are text and its zip entries and document properties carry a fixed timestamp, so the same seed gives byte-identical files.
+- **Verification.** `scripts/datagen/oracle.py` re-reads the CSV export, validates it, recomputes every policy check, payable ledger and duplicate rule, and must reproduce the answer key exactly; generation fails otherwise.
+- **Invoices.** The 10 PDFs and 2 scans are new claims for demo-pack members (claim IDs `CLM-95xxxx`, not in the demo files); two carry a planted room-rent and exclusion finding.
+  The duplicate PDF re-issues the largest settled single-invoice demo claim; `manifest.json` lists each document's expected findings as computed by the checker.

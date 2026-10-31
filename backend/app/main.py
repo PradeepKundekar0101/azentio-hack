@@ -7,12 +7,13 @@ from fastapi import APIRouter, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-from app.api import auth, health, reference
+from app.api import alerts, auth, claims, dashboard, documents, health, imports, reference, runs
 from app.core.config import Settings, get_settings
 from app.core.errors import install_error_handlers
 from app.core.logging import configure_logging
 from app.core.security import session_username
 from app.db.session import Database
+from app.documents.extract import Extractor
 from app.storage.spaces import Storage
 
 
@@ -45,6 +46,12 @@ def _api_router() -> APIRouter:
     # Every other API route needs the demo session.
     protected = APIRouter(dependencies=[Depends(session_username)])
     protected.include_router(reference.router)
+    protected.include_router(imports.router)
+    protected.include_router(runs.router)
+    protected.include_router(claims.router)
+    protected.include_router(alerts.router)
+    protected.include_router(dashboard.router)
+    protected.include_router(documents.router)
     api.include_router(protected)
     return api
 
@@ -57,6 +64,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         app.state.settings = resolved
         app.state.db = Database(resolved)
         app.state.storage = Storage.from_settings(resolved)
+        app.state.extractor = Extractor(resolved)
         try:
             yield
         finally:
