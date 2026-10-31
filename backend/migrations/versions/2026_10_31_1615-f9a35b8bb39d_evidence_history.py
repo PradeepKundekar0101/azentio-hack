@@ -1,7 +1,7 @@
 """evidence history: investigations and an append-only, hash-chained evidence_events table
 
 Revision ID: f9a35b8bb39d
-Revises: e5abd29e0ea8
+Revises: f67d5ada6b8f
 Create Date: 2026-10-31 16:15:26.578897
 
 """
@@ -14,7 +14,7 @@ from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
 revision: str = "f9a35b8bb39d"
-down_revision: str | Sequence[str] | None = "e5abd29e0ea8"
+down_revision: str | Sequence[str] | None = "f67d5ada6b8f"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

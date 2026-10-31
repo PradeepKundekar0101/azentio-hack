@@ -14,13 +14,13 @@ from app.api.pagination import Page, PageDep
 from app.core.config import Settings
 from app.core.enums import EdgeStrength, NodeType
 from app.core.errors import AppError, not_found
-from app.core.security import session_principal
+from app.core.security import get_current_user
 from app.db.models import Claim, Document, GraphBuild, GraphEdge, GraphNode, LineItem, RelationshipGroup
 from app.db.session import SessionDep
 from app.graph.nodes import HUB_TYPES
 from app.graph.service import build_graph, latest_build_id
 
-router = APIRouter(tags=["graph"], dependencies=[Depends(session_principal)])
+router = APIRouter(tags=["graph"], dependencies=[Depends(get_current_user)])
 MAX_SUBGRAPH_CLAIMS = 60
 MAX_NODE_CLAIMS = 200
 

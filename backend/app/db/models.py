@@ -21,6 +21,7 @@ from sqlalchemy import (
     Numeric,
     String,
     Text,
+    UniqueConstraint,
     func,
 )
 from sqlalchemy.dialects.postgresql import JSONB
@@ -321,7 +322,9 @@ class Alert(Base):
         one_of("severity", enums.Severity),
         one_of("amount_type", enums.AmountType),
         one_of("status", enums.AlertStatus),
-        CheckConstraint("run_id is not null or graph_build_id is not null", name="raised_by"),
+        CheckConstraint(
+            "run_id is not null or graph_build_id is not null or comparison_id is not null", name="raised_by"
+        ),
         Index("ix_alerts_category_severity", "category", "severity"),
         Index("ix_alerts_claim_id", "claim_id"),
     )
@@ -332,6 +335,9 @@ class Alert(Base):
     # Raised by a processing run (rules, duplicates, documents) or by a graph build (cross-claim alerts).
     run_id: Mapped[int | None] = mapped_column(ForeignKey("processing_runs.id", ondelete="CASCADE"))
     graph_build_id: Mapped[int | None] = mapped_column(ForeignKey("graph_builds.build_id", ondelete="CASCADE"))
+    comparison_id: Mapped[int | None] = mapped_column(
+        ForeignKey("document_comparisons.comparison_id", ondelete="CASCADE")
+    )
     claim_id: Mapped[str] = claim_fk()
     line_id: Mapped[str | None] = mapped_column(String(30), ForeignKey("line_items.line_id", ondelete="CASCADE"))
     category: Mapped[str] = mapped_column(String(30))
@@ -453,6 +459,8 @@ class Document(Base):
     storage_key: Mapped[str] = mapped_column(Text)
     sha256: Mapped[str] = mapped_column(String(64), index=True)
     phash: Mapped[str | None] = mapped_column(String(64))  # images only (app/documents/phash.py)
+    doc_type: Mapped[str | None] = mapped_column(String(30))  # supporting documents: classified or set by a user
+    page_count: Mapped[int | None] = mapped_column(Integer)
     file_name: Mapped[str] = mapped_column(Text)
     file_type: Mapped[str] = mapped_column(String(20))
     size_bytes: Mapped[int] = mapped_column(Integer)
@@ -477,6 +485,183 @@ class User(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, server_default="true")
     created_by: Mapped[str | None] = mapped_column(String(100))
     created_at: Mapped[CreatedAt]
+
+
+class DocumentExtraction(Base):
+    """One extraction of a supporting document (append-only; re-extracting writes the next version)."""
+
+    __tablename__ = "document_extractions"
+    __table_args__ = (
+        one_of("doc_type", enums.DocType),
+        one_of("status", enums.ExtractionStatus),
+        one_of("generated_by", enums.GeneratedBy),
+        UniqueConstraint("document_id", "version", name="uq_document_extractions_document_version"),
+    )
+
+    extraction_id: Mapped[IntId]
+    document_id: Mapped[int] = mapped_column(ForeignKey("documents.id", ondelete="CASCADE"), index=True)
+    version: Mapped[int] = mapped_column(Integer)
+    doc_type: Mapped[str] = mapped_column(String(30))
+    schema_version: Mapped[str] = mapped_column(String(20))
+    model: Mapped[str] = mapped_column(Text)
+    prompt_version: Mapped[str] = mapped_column(String(40))
+    status: Mapped[str] = mapped_column(String(20))
+    route: Mapped[str] = mapped_column(String(10))  # text, vision or mixed
+    attempts: Mapped[int] = mapped_column(Integer)
+    validation_errors: Mapped[Json | None]
+    classification_confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
+    error: Mapped[str | None] = mapped_column(Text)
+    # The document's text as parsed (empty for pages read by vision only), so later checks can verify quotes.
+    source_text: Mapped[str | None] = mapped_column(Text)
+    generated_by: Mapped[str] = mapped_column(String(10), server_default=enums.GeneratedBy.AI.value)
+    created_at: Mapped[CreatedAt]
+
+
+class ExtractedField(Base):
+    """One extracted value with where it came from: page, box (fractions of the page) and the quoted text."""
+
+    __tablename__ = "extracted_fields"
+    __table_args__ = (one_of("provenance_status", enums.ProvenanceStatus),)
+
+    id: Mapped[IntId]
+    extraction_id: Mapped[int] = mapped_column(
+        ForeignKey("document_extractions.extraction_id", ondelete="CASCADE"), index=True
+    )
+    field_path: Mapped[str] = mapped_column(Text)  # header.invoice_number, lines[3].amount, procedures[0]
+    value_text: Mapped[str | None] = mapped_column(Text)
+    value_normalised: Mapped[str | None] = mapped_column(Text)
+    page: Mapped[int | None] = mapped_column(Integer)
+    bbox: Mapped[Json | None]  # {"l", "t", "r", "b"} as fractions of the page, top-left origin
+    source_quote: Mapped[str | None] = mapped_column(Text)
+    provenance_status: Mapped[str] = mapped_column(String(20))
+    confidence: Mapped[Decimal] = mapped_column(Numeric(4, 3))
+
+
+class ExtractedLine(Base):
+    __tablename__ = "extracted_lines"
+
+    id: Mapped[IntId]
+    extraction_id: Mapped[int] = mapped_column(
+        ForeignKey("document_extractions.extraction_id", ondelete="CASCADE"), index=True
+    )
+    line_no: Mapped[int] = mapped_column(Integer)
+    description: Mapped[str | None] = mapped_column(Text)
+    service_code: Mapped[str | None] = mapped_column(String(20))
+    service_date: Mapped[date | None] = mapped_column(Date)
+    quantity: Mapped[Decimal | None] = mapped_column(Numeric(10, 2))
+    unit_price: Mapped[Money | None]
+    amount: Mapped[Money | None]
+    page: Mapped[int | None] = mapped_column(Integer)
+    bbox: Mapped[Json | None]
+
+
+class DocumentComparison(Base):
+    """One comparison of a document's extraction with its claim (append-only; a new version only when the
+    claim lines or the extraction changed). line_matches: {"pairs", "unmatched_claim", "unmatched_document"}."""
+
+    __tablename__ = "document_comparisons"
+    __table_args__ = (
+        UniqueConstraint("document_id", "version", name="uq_document_comparisons_document_version"),
+        Index("ix_document_comparisons_claim_id", "claim_id"),
+    )
+
+    comparison_id: Mapped[IntId]
+    claim_id: Mapped[str] = claim_fk()
+    document_id: Mapped[int] = mapped_column(ForeignKey("documents.id", ondelete="CASCADE"))
+    extraction_id: Mapped[int] = mapped_column(ForeignKey("document_extractions.extraction_id", ondelete="CASCADE"))
+    version: Mapped[int] = mapped_column(Integer)
+    inputs_hash: Mapped[str] = mapped_column(String(64))
+    line_matches: Mapped[Json]
+    created_at: Mapped[CreatedAt]
+
+
+class DocumentDiscrepancy(Base):
+    """One difference between a claim and a document. discrepancy_id (DSC-...) is stable across comparison
+    versions, so a decision references (discrepancy_id, version)."""
+
+    __tablename__ = "document_discrepancies"
+    __table_args__ = (
+        one_of("type", enums.DiscrepancyType),
+        one_of("severity", enums.Severity),
+        one_of("amount_type", enums.AmountType),
+        one_of("generated_by", enums.GeneratedBy),
+        Index("ix_document_discrepancies_claim_id", "claim_id"),
+    )
+
+    discrepancy_id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    comparison_id: Mapped[int] = mapped_column(
+        ForeignKey("document_comparisons.comparison_id", ondelete="CASCADE"), primary_key=True
+    )
+    version: Mapped[int] = mapped_column(Integer)
+    claim_id: Mapped[str] = claim_fk()
+    document_id: Mapped[int] = mapped_column(ForeignKey("documents.id", ondelete="CASCADE"))
+    type: Mapped[str] = mapped_column(String(30))
+    severity: Mapped[str] = mapped_column(String(10))
+    claim_value: Mapped[str | None] = mapped_column(Text)
+    document_value: Mapped[str | None] = mapped_column(Text)
+    difference: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))
+    amount_impact: Mapped[Money | None]
+    amount_type: Mapped[str | None] = mapped_column(String(10))
+    claim_ref: Mapped[Json]  # {"claim_id", "line_id", "source_row"}
+    document_ref: Mapped[Json]  # {"document_id", "file_name", "page", "bbox", "quote", "line_no"}
+    generated_by: Mapped[str] = mapped_column(String(10))
+    model: Mapped[str | None] = mapped_column(Text)
+    prompt_version: Mapped[str | None] = mapped_column(String(40))
+    explanation: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[CreatedAt]
+
+
+class CorrectionSet(Base):
+    """One version of a claim's recommended settlement (append-only; a new version only when its inputs change)."""
+
+    __tablename__ = "correction_sets"
+    __table_args__ = (
+        UniqueConstraint("claim_id", "version", name="uq_correction_sets_claim_version"),
+        Index("ix_correction_sets_claim_id", "claim_id"),
+    )
+
+    set_id: Mapped[IntId]
+    claim_id: Mapped[str] = claim_fk()
+    version: Mapped[int] = mapped_column(Integer)
+    requested_amount: Mapped[Money]
+    recommended_payable: Mapped[Money]
+    total_reduction: Mapped[Money]
+    paid_amount: Mapped[Money | None]
+    recovery_amount: Mapped[Money | None]
+    inputs_hash: Mapped[str] = mapped_column(String(64))
+    run_id: Mapped[int | None] = mapped_column(ForeignKey("processing_runs.id", ondelete="SET NULL"))
+    created_at: Mapped[CreatedAt]
+
+
+class Correction(Base):
+    """One step from the requested amount to the recommended payable. correction_id (COR-...) is stable across
+    versions; original and corrected amounts are the running amount before and after the step."""
+
+    __tablename__ = "corrections"
+    __table_args__ = (
+        one_of("amount_type", enums.AmountType),
+        one_of("generated_by", enums.GeneratedBy),
+        Index("ix_corrections_claim_id", "claim_id"),
+    )
+
+    correction_id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    set_id: Mapped[int] = mapped_column(ForeignKey("correction_sets.set_id", ondelete="CASCADE"), primary_key=True)
+    claim_id: Mapped[str] = claim_fk()
+    line_id: Mapped[str | None] = mapped_column(String(30))
+    sequence: Mapped[int] = mapped_column(Integer)
+    type: Mapped[str] = mapped_column(String(30))
+    original_amount: Mapped[Money]
+    corrected_amount: Mapped[Money]
+    difference: Mapped[Money]
+    calculation_text: Mapped[str] = mapped_column(Text)
+    calculation: Mapped[Json]  # {"formula", "inputs"}
+    policy_rule_id: Mapped[str | None] = mapped_column(String(40))
+    evidence_refs: Mapped[list[str]] = mapped_column(ARRAY(Text))
+    amount_type: Mapped[str] = mapped_column(String(10))
+    confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
+    generated_by: Mapped[str] = mapped_column(String(10))
+    applied: Mapped[bool]
+    explanation: Mapped[str] = mapped_column(Text)
 
 
 class AuditLog(Base):

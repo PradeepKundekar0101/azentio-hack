@@ -6,6 +6,7 @@ import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 from threading import Lock
+from typing import Any
 
 import pypdfium2 as pdfium
 from PIL import Image
@@ -110,3 +111,78 @@ def render_page(data: bytes, file_type: str, page: int = 1, dpi: int = RENDER_DP
     buffer = io.BytesIO()
     image.convert("RGB").save(buffer, format="PNG")
     return buffer.getvalue()
+
+
+@dataclass
+class ItemPage:
+    number: int
+    width: float
+    height: float
+    spans: list[Any] = field(default_factory=list)  # provenance.TextSpan
+
+    @property
+    def text(self) -> str:
+        return "\n".join(span.text for span in self.spans)
+
+    @property
+    def needs_vision(self) -> bool:
+        return len(self.text.strip()) < VISION_MIN_CHARS
+
+
+@dataclass
+class ItemDocument:
+    """Every text item and table cell Docling found, with its page and its box as fractions of the page
+    (top-left origin), so a value can be traced to the place it was printed."""
+
+    pages: list[ItemPage]
+
+    @property
+    def text(self) -> str:
+        return "\n\n".join(f"--- page {p.number} ---\n{p.text}" for p in self.pages)
+
+    @property
+    def spans(self) -> list[Any]:
+        return [span for page in self.pages for span in page.spans]
+
+
+def _fraction_box(bbox: Any, width: float, height: float) -> dict[str, float]:
+    box = bbox.to_top_left_origin(page_height=height)
+    return {
+        "l": round(box.l / width, 4),
+        "t": round(box.t / height, 4),
+        "r": round(box.r / width, 4),
+        "b": round(box.b / height, 4),
+    }
+
+
+def parse_items(data: bytes) -> ItemDocument:
+    from docling_core.types.doc import TableItem, TextItem
+
+    from app.documents.provenance import TextSpan
+
+    with tempfile.NamedTemporaryFile(suffix=".pdf") as handle:
+        handle.write(data)
+        handle.flush()
+        document = _get_converter().convert(Path(handle.name)).document
+    pages = {
+        number: ItemPage(number, page.size.width, page.size.height) for number, page in (document.pages or {}).items()
+    }
+    for item, _level in document.iterate_items():
+        provenance = item.prov[0] if getattr(item, "prov", None) else None
+        if provenance is None:
+            continue
+        page = pages.get(provenance.page_no)
+        if page is None:
+            continue
+        if isinstance(item, TableItem):
+            for cell in item.data.table_cells:
+                if cell.text.strip() and cell.bbox is not None:
+                    box = _fraction_box(cell.bbox, page.width, page.height)
+                    page.spans.append(TextSpan(page.number, cell.text.strip(), box))
+        elif isinstance(item, TextItem) and item.text.strip():
+            page.spans.append(
+                TextSpan(page.number, item.text.strip(), _fraction_box(provenance.bbox, page.width, page.height))
+            )
+    if not pages:
+        pages[1] = ItemPage(1, 1.0, 1.0)
+    return ItemDocument([pages[k] for k in sorted(pages)])

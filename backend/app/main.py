@@ -7,13 +7,30 @@ from fastapi import APIRouter, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-from app.api import alerts, auth, claims, dashboard, documents, evidence, graph, health, imports, reference, runs, users
+from app.api import (
+    alerts,
+    auth,
+    claim_documents,
+    claims,
+    corrections,
+    dashboard,
+    documents,
+    evidence,
+    graph,
+    health,
+    imports,
+    investigation,
+    reference,
+    runs,
+    users,
+)
 from app.core.config import Settings, get_settings
 from app.core.errors import install_error_handlers
 from app.core.logging import configure_logging
 from app.core.security import session_principal
 from app.db.session import Database
 from app.documents.extract import Extractor
+from app.documents.read import DocumentReader
 from app.storage.spaces import Storage
 
 
@@ -53,6 +70,9 @@ def _api_router() -> APIRouter:
     protected.include_router(dashboard.router)
     protected.include_router(documents.router)
     protected.include_router(graph.router)
+    protected.include_router(claim_documents.router)
+    protected.include_router(corrections.router)
+    protected.include_router(investigation.router)
     protected.include_router(users.router)
     protected.include_router(evidence.router)
     api.include_router(protected)
@@ -68,6 +88,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         app.state.db = Database(resolved)
         app.state.storage = Storage.from_settings(resolved)
         app.state.extractor = Extractor(resolved)
+        app.state.reader = DocumentReader(resolved)
         try:
             yield
         finally:

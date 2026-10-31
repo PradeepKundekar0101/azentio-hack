@@ -218,3 +218,43 @@ class EvidenceKind(StrEnum):
     OVERRIDE = "override"  # an analyst changed a recommended correction, with a reason
     NOTE = "note"
     EXPORTED = "exported"  # the investigation report was downloaded
+
+
+class DocType(StrEnum):
+    INVOICE = "invoice"
+    DISCHARGE_SUMMARY = "discharge_summary"
+    REPAIR_ESTIMATE = "repair_estimate"
+    OTHER = "other"
+
+
+class ExtractionStatus(StrEnum):
+    OK = "ok"
+    NEEDS_REVIEW = "needs_review"
+    FAILED = "failed"
+
+
+class ProvenanceStatus(StrEnum):
+    VERIFIED = "verified"
+    UNVERIFIED = "unverified"
+    PAGE_ONLY = "page_only"
+
+
+class DiscrepancyType(StrEnum):
+    INVOICE_REF_MISMATCH = "INVOICE_REF_MISMATCH"
+    PROVIDER_MISMATCH = "PROVIDER_MISMATCH"
+    PATIENT_MISMATCH = "PATIENT_MISMATCH"
+    DATE_MISMATCH = "DATE_MISMATCH"
+    TOTAL_MISMATCH = "TOTAL_MISMATCH"
+    AMOUNT_MISMATCH = "AMOUNT_MISMATCH"
+    QUANTITY_MISMATCH = "QUANTITY_MISMATCH"
+    UNIT_PRICE_MISMATCH = "UNIT_PRICE_MISMATCH"
+    SERVICE_DATE_MISMATCH = "SERVICE_DATE_MISMATCH"
+    ONLY_IN_CLAIM = "ONLY_IN_CLAIM"
+    ONLY_IN_DOCUMENT = "ONLY_IN_DOCUMENT"
+    STAY_LENGTH_MISMATCH = "STAY_LENGTH_MISMATCH"
+    PROCEDURE_NOT_DOCUMENTED = "PROCEDURE_NOT_DOCUMENTED"
+
+
+class GeneratedBy(StrEnum):
+    RULE = "rule"
+    AI = "ai"

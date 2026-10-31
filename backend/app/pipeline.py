@@ -15,6 +15,7 @@ from app.alerts.build import build_alerts
 from app.core.config import Settings
 from app.core.enums import RunScope, RunStatus
 from app.core.logging import get_logger
+from app.corrections.service import build_for_loaded
 from app.db.models import (
     Alert,
     Claim,
@@ -28,6 +29,8 @@ from app.db.models import (
     ValidationResult,
 )
 from app.db.session import Database
+from app.documents.comparison_service import ComparisonReader, compare_claims
+from app.documents.read import DocumentReader
 from app.duplicates.detect import detect_duplicates
 from app.evidence import service as evidence
 from app.graph.service import build_graph
@@ -180,7 +183,9 @@ async def _clear(session: AsyncSession, claim_ids: list[str]) -> None:
             await session.execute(delete(model).where(model.claim_id.in_(ids)))
 
 
-async def execute_run(session: AsyncSession, run: ProcessingRun, settings: Settings) -> ProcessingRun:
+async def execute_run(
+    session: AsyncSession, run: ProcessingRun, settings: Settings, reader: ComparisonReader | None = None
+) -> ProcessingRun:
     timings: dict[str, float] = {}
     clock = time.monotonic()
 
@@ -208,11 +213,17 @@ async def execute_run(session: AsyncSession, run: ProcessingRun, settings: Setti
     await _insert(session, DuplicateMatch, matches)
     await _insert(session, Alert, alerts)
     lap("insert")
+    # Documents: compare each claim's documents with its records (cached by inputs, so no repeat model calls).
+    await compare_claims(session, reader or DocumentReader(settings), settings, claim_ids, run.id)
+    lap("documents")
     # Cross-claim correlation over every claim (links cross policies), in the same transaction.
     await build_graph(session, settings, run_id=run.id)
     lap("graph")
     await evidence.capture_rerun(session, claim_ids, run.id)
     lap("evidence")
+    # Corrections: a new correction set for each affected claim whose result changed.
+    await build_for_loaded(session, loaded, claim_ids, run.id)
+    lap("corrections")
 
     run.claims_processed = len(evaluations)
     run.claims_failed = len(failures)
@@ -242,13 +253,15 @@ async def start_run(session: AsyncSession, scope: RunScope, batch_id: int | None
     return run
 
 
-async def run_in_background(database: Database, settings: Settings, run_id: int) -> None:
+async def run_in_background(
+    database: Database, settings: Settings, run_id: int, reader: ComparisonReader | None = None
+) -> None:
     async with database.sessionmaker() as session:
         run = await session.get(ProcessingRun, run_id)
         if run is None:  # pragma: no cover
             return
         try:
-            await execute_run(session, run, settings)
+            await execute_run(session, run, settings, reader)
         except Exception as exc:
             log.exception("run_failed", run_id=run_id)
             await session.rollback()

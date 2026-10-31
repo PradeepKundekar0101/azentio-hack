@@ -5037,14 +5037,14 @@
       "claim_id": "CLM-900116",
       "expected_corrections": [
         {
-          "amount": "2500.00",
-          "line_id": "LN-9000792",
-          "type": "ADJUST_TO_DOCUMENT"
-        },
-        {
           "amount": "1200.00",
           "line_id": "LN-9000789",
           "type": "REMOVE_UNSUPPORTED_LINE"
+        },
+        {
+          "amount": "2500.00",
+          "line_id": "LN-9000792",
+          "type": "ADJUST_TO_DOCUMENT"
         },
         {
           "amount": "12000.00",

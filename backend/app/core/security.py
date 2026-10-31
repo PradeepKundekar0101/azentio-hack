@@ -113,6 +113,9 @@ async def session_username(principal: Annotated[Principal, Depends(session_princ
 
 
 CurrentPrincipal = Annotated[Principal, Depends(session_principal)]
+
+# The name the graph, document, correction and investigation routers guard themselves with.
+get_current_user = session_principal
 CurrentUser = Annotated[str, Depends(session_username)]
 
 
