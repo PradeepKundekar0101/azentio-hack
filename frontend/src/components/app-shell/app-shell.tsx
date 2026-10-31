@@ -22,7 +22,7 @@ import { TopBar } from "./top-bar";
  */
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-dvh bg-canvas">
+    <div className="canvas-glow min-h-dvh bg-canvas">
       {/* First in the tab order, ahead of the sidebar links. */}
       <a
         href="#main"
@@ -35,7 +35,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
       <div className="lg:pl-56">
         <TopBar />
-        <main id="main" tabIndex={-1} className="px-4 py-5 outline-none sm:px-6 lg:py-6 2xl:px-8">
+        <main id="main" tabIndex={-1} className="page-enter px-4 py-5 outline-none sm:px-6 lg:py-6 2xl:px-8">
           <Suspense fallback={<ContentSkeleton />}>
             <SessionGate>{children}</SessionGate>
           </Suspense>

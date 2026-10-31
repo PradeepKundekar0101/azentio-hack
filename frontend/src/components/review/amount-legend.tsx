@@ -8,7 +8,7 @@ export function AmountTypeLegend({ className }: { className?: string }) {
   return (
     <section
       aria-labelledby="amount-legend-title"
-      className={cn("rounded-lg border border-dashed px-4 py-3", className)}
+      className={cn("rounded-xl border border-dashed border-border px-4 py-3", className)}
     >
       <h2 id="amount-legend-title" className="text-xs font-semibold text-muted-foreground">
         Amount types

@@ -60,6 +60,13 @@
   --color-brand-on-ink: var(--brand-on-ink);
   --color-brand-on-ink-muted: var(--brand-on-ink-muted);
 
+  /* Elevation utilities: shadow-card, shadow-raised, shadow-pop, shadow-button, shadow-inset */
+  --shadow-card: var(--shadow-card);
+  --shadow-raised: var(--shadow-raised);
+  --shadow-pop: var(--shadow-pop);
+  --shadow-button: var(--shadow-button);
+  --shadow-inset: var(--shadow-inset);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -95,6 +102,36 @@
   /* Figures that line up in columns. Use on every amount, count and percentage. */
   .num {
     font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* A faint dot grid behind empty states and drop zones, fading out towards the edges. */
+  .surface-grid {
+    background-image: radial-gradient(circle, color-mix(in oklch, var(--foreground) 16%, transparent) 1px, transparent 1.4px);
+    background-size: 20px 20px;
+    mask-image: radial-gradient(ellipse 60% 80% at 50% 40%, black 10%, transparent 100%);
+  }
+
+  /* A soft primary-tinted glow in the top corner of the canvas, so the app is not a flat sheet. */
+  .canvas-glow {
+    background-image:
+      radial-gradient(900px 420px at 18% -10%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%),
+      radial-gradient(700px 360px at 100% 0%, color-mix(in oklch, var(--brand-signal) 6%, transparent), transparent 70%);
+  }
+
+  /* Page content settles in on navigation. */
+  .page-enter {
+    animation: page-enter 320ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
