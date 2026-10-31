@@ -2,300 +2,316 @@
   "invoice_01.pdf": {
     "claim_id": "CLM-950001",
     "claim_type": "outpatient",
-    "claimant_id": "MEM-900022",
-    "claimant_name": "Aditi Hegde",
+    "claimant_id": "MEM-900063",
+    "claimant_name": "Kavya Nair",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2025-08-15",
-    "invoice_date": "2025-08-16",
-    "invoice_reference": "INV-55493",
+    "incident_date": "2025-10-18",
+    "invoice_date": "2025-10-19",
+    "invoice_reference": "PHI/BILL/88925",
     "kind": "pdf",
     "layout": "A",
     "line_items": [
       {
-        "amount": "420.00",
-        "description": "Teleconsultation",
+        "amount": "1200.00",
+        "description": "Specialist consultation",
         "quantity": "1",
-        "service_code": "CON-TELE",
-        "service_date": "2025-08-15",
-        "unit_price": "420.00"
+        "service_code": "CON-SPL",
+        "service_date": "2025-10-18",
+        "unit_price": "1200.00"
       },
       {
-        "amount": "390.00",
-        "description": "Complete blood count",
-        "quantity": "1",
-        "service_code": "DX-CBC",
-        "service_date": "2025-08-15",
-        "unit_price": "390.00"
+        "amount": "300.00",
+        "description": "Analgesics",
+        "quantity": "2",
+        "service_code": "PHA-ANLG",
+        "service_date": "2025-10-18",
+        "unit_price": "150.00"
+      },
+      {
+        "amount": "1040.00",
+        "description": "Antibiotics",
+        "quantity": "2",
+        "service_code": "PHA-ABX",
+        "service_date": "2025-10-18",
+        "unit_price": "520.00"
       }
     ],
-    "policy_number": "POL-900008",
-    "provider_id": "PRV-0006",
-    "provider_name": "Sushruta Surgical Centre",
-    "total": "810.00"
+    "policy_number": "POL-900038",
+    "provider_id": "PRV-0011",
+    "provider_name": "Pranam Heart Institute",
+    "total": "2540.00"
   },
   "invoice_02.pdf": {
     "claim_id": "CLM-950002",
     "claim_type": "inpatient",
-    "claimant_id": "MEM-900022",
-    "claimant_name": "Aditi Hegde",
+    "claimant_id": "MEM-900064",
+    "claimant_name": "Farhan Verma",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2025-12-21",
-    "invoice_date": "2025-12-23",
-    "invoice_reference": "LPH0011326",
+    "incident_date": "2026-01-08",
+    "invoice_date": "2026-01-10",
+    "invoice_reference": "NH0038640",
     "kind": "pdf",
     "layout": "B",
     "line_items": [
       {
-        "amount": "1000.00",
+        "amount": "1050.00",
         "description": "Registration and admission charges",
         "quantity": "1",
         "service_code": "OTH-REG",
-        "service_date": "2025-12-21",
-        "unit_price": "1000.00"
+        "service_date": "2026-01-08",
+        "unit_price": "1050.00"
       },
       {
-        "amount": "4500.00",
+        "amount": "9000.00",
         "description": "General ward room (per day)",
-        "quantity": "3",
+        "quantity": "6",
         "service_code": "RM-GEN",
-        "service_date": "2025-12-21",
+        "service_date": "2026-01-08",
         "unit_price": "1500.00"
       },
       {
-        "amount": "2430.00",
+        "amount": "5100.00",
         "description": "Inpatient doctor visit (per day)",
-        "quantity": "3",
+        "quantity": "6",
         "service_code": "CON-VIS",
-        "service_date": "2025-12-21",
-        "unit_price": "810.00"
+        "service_date": "2026-01-08",
+        "unit_price": "850.00"
       },
       {
-        "amount": "2820.00",
+        "amount": "5460.00",
         "description": "Nursing charges (per day)",
-        "quantity": "3",
+        "quantity": "6",
         "service_code": "OTH-NURS",
-        "service_date": "2025-12-21",
-        "unit_price": "940.00"
+        "service_date": "2026-01-08",
+        "unit_price": "910.00"
       },
       {
-        "amount": "670.00",
-        "description": "Chest X-ray",
+        "amount": "800.00",
+        "description": "Liver function test",
         "quantity": "1",
-        "service_code": "DX-XRAY",
-        "service_date": "2025-12-21",
-        "unit_price": "670.00"
+        "service_code": "DX-LFT",
+        "service_date": "2026-01-08",
+        "unit_price": "800.00"
       },
       {
-        "amount": "1050.00",
+        "amount": "400.00",
+        "description": "Complete blood count",
+        "quantity": "1",
+        "service_code": "DX-CBC",
+        "service_date": "2026-01-08",
+        "unit_price": "400.00"
+      },
+      {
+        "amount": "370.00",
+        "description": "Electrocardiogram",
+        "quantity": "1",
+        "service_code": "DX-ECG",
+        "service_date": "2026-01-08",
+        "unit_price": "370.00"
+      },
+      {
+        "amount": "700.00",
         "description": "IV fluids",
-        "quantity": "3",
+        "quantity": "2",
         "service_code": "PHA-IVFL",
-        "service_date": "2025-12-21",
+        "service_date": "2026-01-08",
         "unit_price": "350.00"
       },
       {
-        "amount": "285.00",
+        "amount": "332.50",
         "description": "Syringes and needles",
-        "quantity": "6",
+        "quantity": "7",
         "service_code": "CS-SYR",
-        "service_date": "2025-12-21",
+        "service_date": "2026-01-08",
         "unit_price": "47.50"
       },
       {
-        "amount": "1350.00",
+        "amount": "900.00",
         "description": "Antibiotics",
-        "quantity": "3",
+        "quantity": "2",
         "service_code": "PHA-ABX",
-        "service_date": "2025-12-22",
+        "service_date": "2026-01-09",
         "unit_price": "450.00"
       },
       {
-        "amount": "236.00",
+        "amount": "256.00",
         "description": "Surgical gloves",
         "quantity": "8",
         "service_code": "CS-GLV",
-        "service_date": "2025-12-22",
-        "unit_price": "29.50"
+        "service_date": "2026-01-09",
+        "unit_price": "32.00"
       },
       {
-        "amount": "65650.00",
+        "amount": "66300.00",
         "description": "Laparoscopic appendectomy",
         "quantity": "1",
         "service_code": "PRC-APPX",
-        "service_date": "2025-12-22",
-        "unit_price": "65650.00"
+        "service_date": "2026-01-09",
+        "unit_price": "66300.00"
       }
     ],
-    "policy_number": "POL-900008",
-    "provider_id": "PRV-0005",
-    "provider_name": "Lotus Petal Hospital",
-    "total": "79991.00"
+    "policy_number": "POL-900038",
+    "provider_id": "PRV-0033",
+    "provider_name": "Neelkanth Hospital",
+    "total": "90668.50"
   },
   "invoice_03.pdf": {
     "claim_id": "CLM-950003",
     "claim_type": "diagnostics",
-    "claimant_id": "MEM-900015",
-    "claimant_name": "Manoj Verma",
+    "claimant_id": "MEM-900081",
+    "claimant_name": "Ramesh Mishra",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-04-04",
-    "invoice_date": "2026-04-05",
-    "invoice_reference": "INV-32418",
+    "incident_date": "2025-12-02",
+    "invoice_date": "2025-12-03",
+    "invoice_reference": "PHI/BILL/02355",
     "kind": "pdf",
     "layout": "A",
     "line_items": [
       {
-        "amount": "840.00",
-        "description": "Liver function test",
-        "quantity": "1",
-        "service_code": "DX-LFT",
-        "service_date": "2026-04-04",
-        "unit_price": "840.00"
-      },
-      {
         "amount": "850.00",
-        "description": "Kidney function test",
+        "description": "Chest X-ray",
         "quantity": "1",
-        "service_code": "DX-KFT",
-        "service_date": "2026-04-04",
+        "service_code": "DX-XRAY",
+        "service_date": "2025-12-02",
         "unit_price": "850.00"
       },
       {
-        "amount": "5100.00",
-        "description": "CT scan",
+        "amount": "2100.00",
+        "description": "Ultrasound abdomen",
         "quantity": "1",
-        "service_code": "DX-CT",
-        "service_date": "2026-04-04",
-        "unit_price": "5100.00"
+        "service_code": "DX-USG",
+        "service_date": "2025-12-02",
+        "unit_price": "2100.00"
       }
     ],
-    "policy_number": "POL-900006",
-    "provider_id": "PRV-0039",
-    "provider_name": "Saptagiri Hospital",
-    "total": "6790.00"
+    "policy_number": "POL-900053",
+    "provider_id": "PRV-0011",
+    "provider_name": "Pranam Heart Institute",
+    "total": "2950.00"
   },
   "invoice_04.pdf": {
     "claim_id": "CLM-950004",
     "claim_type": "pharmacy",
-    "claimant_id": "MEM-900009",
-    "claimant_name": "Usha Kapoor",
+    "claimant_id": "MEM-900051",
+    "claimant_name": "Rahul Iyer",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-10-20",
-    "invoice_date": "2026-10-21",
-    "invoice_reference": "INV-21410",
+    "incident_date": "2026-09-23",
+    "invoice_date": "2026-09-24",
+    "invoice_reference": "NH0078278",
     "kind": "pdf",
     "layout": "B",
     "line_items": [
       {
-        "amount": "1220.00",
-        "description": "Insulin",
-        "quantity": "2",
-        "service_code": "PHA-INS",
-        "service_date": "2026-10-20",
-        "unit_price": "610.00"
-      },
-      {
-        "amount": "480.00",
-        "description": "Analgesics",
-        "quantity": "4",
-        "service_code": "PHA-ANLG",
-        "service_date": "2026-10-20",
-        "unit_price": "120.00"
-      },
-      {
-        "amount": "1080.00",
-        "description": "IV fluids",
-        "quantity": "3",
-        "service_code": "PHA-IVFL",
-        "service_date": "2026-10-20",
-        "unit_price": "360.00"
-      },
-      {
-        "amount": "2250.00",
-        "description": "Antibiotics",
+        "amount": "477.50",
+        "description": "Over-the-counter medicines",
         "quantity": "5",
-        "service_code": "PHA-ABX",
-        "service_date": "2026-10-20",
-        "unit_price": "450.00"
+        "service_code": "PHA-OTC",
+        "service_date": "2026-09-23",
+        "unit_price": "95.50"
+      },
+      {
+        "amount": "350.00",
+        "description": "IV fluids",
+        "quantity": "1",
+        "service_code": "PHA-IVFL",
+        "service_date": "2026-09-23",
+        "unit_price": "350.00"
+      },
+      {
+        "amount": "780.00",
+        "description": "Cardiac medication",
+        "quantity": "2",
+        "service_code": "PHA-CARD",
+        "service_date": "2026-09-23",
+        "unit_price": "390.00"
       }
     ],
-    "policy_number": "POL-900004",
-    "provider_id": "PRV-0006",
-    "provider_name": "Sushruta Surgical Centre",
-    "total": "5030.00"
+    "policy_number": "POL-900027",
+    "provider_id": "PRV-0033",
+    "provider_name": "Neelkanth Hospital",
+    "total": "1607.50"
   },
   "invoice_05.pdf": {
     "claim_id": "CLM-950005",
     "claim_type": "daycare",
-    "claimant_id": "MEM-900023",
-    "claimant_name": "Divya Hegde",
+    "claimant_id": "MEM-900066",
+    "claimant_name": "Anjali Fernandes",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2025-09-29",
-    "invoice_date": "2025-09-30",
-    "invoice_reference": "INV-32722",
+    "incident_date": "2026-05-18",
+    "invoice_date": "2026-05-19",
+    "invoice_reference": "INV-43873",
     "kind": "pdf",
     "layout": "A",
     "line_items": [
       {
-        "amount": "34650.00",
+        "amount": "32500.00",
         "description": "Cataract surgery with lens implant",
         "quantity": "1",
         "service_code": "PRC-CATA",
-        "service_date": "2025-09-29",
-        "unit_price": "34650.00"
+        "service_date": "2026-05-18",
+        "unit_price": "32500.00"
       },
       {
-        "amount": "59.00",
+        "amount": "81.00",
         "description": "Surgical gloves",
-        "quantity": "2",
+        "quantity": "3",
         "service_code": "CS-GLV",
-        "service_date": "2025-09-29",
-        "unit_price": "29.50"
+        "service_date": "2026-05-18",
+        "unit_price": "27.00"
       },
       {
-        "amount": "235.00",
+        "amount": "252.00",
         "description": "Syringes and needles",
-        "quantity": "5",
+        "quantity": "6",
         "service_code": "CS-SYR",
-        "service_date": "2025-09-29",
-        "unit_price": "47.00"
+        "service_date": "2026-05-18",
+        "unit_price": "42.00"
       },
       {
-        "amount": "360.00",
+        "amount": "330.00",
         "description": "Analgesics",
         "quantity": "3",
         "service_code": "PHA-ANLG",
-        "service_date": "2025-09-29",
-        "unit_price": "120.00"
+        "service_date": "2026-05-18",
+        "unit_price": "110.00"
       },
       {
-        "amount": "980.00",
+        "amount": "910.00",
         "description": "Registration and admission charges",
         "quantity": "1",
         "service_code": "OTH-REG",
-        "service_date": "2025-09-29",
-        "unit_price": "980.00"
+        "service_date": "2026-05-18",
+        "unit_price": "910.00"
+      },
+      {
+        "amount": "380.00",
+        "description": "Complete blood count",
+        "quantity": "1",
+        "service_code": "DX-CBC",
+        "service_date": "2026-05-18",
+        "unit_price": "380.00"
       }
     ],
-    "policy_number": "POL-900008",
-    "provider_id": "PRV-0028",
-    "provider_name": "Ashirwad Hospital",
-    "total": "36284.00"
+    "policy_number": "POL-900040",
+    "provider_id": "PRV-0008",
+    "provider_name": "Nirmal Seva Hospital",
+    "total": "34453.00"
   },
   "invoice_06.pdf": {
     "claim_id": "CLM-950006",
     "claim_type": "inpatient",
-    "claimant_id": "MEM-900007",
-    "claimant_name": "Anil Nair",
+    "claimant_id": "MEM-900003",
+    "claimant_name": "Usha Kapoor",
     "duplicate_of_claim_id": null,
     "expected_findings": [
       {
@@ -304,374 +320,358 @@
         "expected_amount": "4500.00",
         "match_type": null,
         "matched_claim_id": null,
-        "policy_rule_id": "POL-900003-SL-01",
+        "policy_rule_id": "POL-900002-SL-01",
         "service_code": "RM-PVT"
       }
     ],
     "in_demo_files": false,
-    "incident_date": "2026-06-02",
-    "invoice_date": "2026-06-04",
-    "invoice_reference": "INV-47909",
+    "incident_date": "2026-04-16",
+    "invoice_date": "2026-04-18",
+    "invoice_reference": "THC/BILL/83451",
     "kind": "pdf",
     "layout": "B",
     "line_items": [
       {
-        "amount": "1000.00",
+        "amount": "930.00",
         "description": "Registration and admission charges",
         "quantity": "1",
         "service_code": "OTH-REG",
-        "service_date": "2026-06-02",
-        "unit_price": "1000.00"
+        "service_date": "2026-04-16",
+        "unit_price": "930.00"
       },
       {
-        "amount": "19500.00",
+        "amount": "13500.00",
         "description": "Private room (per day)",
         "quantity": "3",
         "service_code": "RM-PVT",
-        "service_date": "2026-06-02",
-        "unit_price": "6500.00"
+        "service_date": "2026-04-16",
+        "unit_price": "4500.00"
       },
       {
-        "amount": "2460.00",
+        "amount": "2340.00",
         "description": "Inpatient doctor visit (per day)",
         "quantity": "3",
         "service_code": "CON-VIS",
-        "service_date": "2026-06-02",
-        "unit_price": "820.00"
+        "service_date": "2026-04-16",
+        "unit_price": "780.00"
       },
       {
-        "amount": "2640.00",
+        "amount": "2580.00",
         "description": "Nursing charges (per day)",
         "quantity": "3",
         "service_code": "OTH-NURS",
-        "service_date": "2026-06-02",
-        "unit_price": "880.00"
+        "service_date": "2026-04-16",
+        "unit_price": "860.00"
       },
       {
-        "amount": "810.00",
-        "description": "Liver function test",
+        "amount": "410.00",
+        "description": "Complete blood count",
         "quantity": "1",
-        "service_code": "DX-LFT",
-        "service_date": "2026-06-02",
-        "unit_price": "810.00"
+        "service_code": "DX-CBC",
+        "service_date": "2026-04-16",
+        "unit_price": "410.00"
       },
       {
-        "amount": "370.00",
-        "description": "Electrocardiogram",
-        "quantity": "1",
-        "service_code": "DX-ECG",
-        "service_date": "2026-06-02",
-        "unit_price": "370.00"
-      },
-      {
-        "amount": "2220.00",
+        "amount": "1650.00",
         "description": "IV fluids",
-        "quantity": "6",
+        "quantity": "5",
         "service_code": "PHA-IVFL",
-        "service_date": "2026-06-02",
-        "unit_price": "370.00"
+        "service_date": "2026-04-16",
+        "unit_price": "330.00"
       },
       {
-        "amount": "352.00",
+        "amount": "270.00",
         "description": "Syringes and needles",
-        "quantity": "8",
+        "quantity": "6",
         "service_code": "CS-SYR",
-        "service_date": "2026-06-02",
-        "unit_price": "44.00"
+        "service_date": "2026-04-16",
+        "unit_price": "45.00"
       },
       {
-        "amount": "1350.00",
+        "amount": "430.00",
         "description": "Antibiotics",
-        "quantity": "3",
+        "quantity": "1",
         "service_code": "PHA-ABX",
-        "service_date": "2026-06-03",
-        "unit_price": "450.00"
+        "service_date": "2026-04-17",
+        "unit_price": "430.00"
       },
       {
-        "amount": "128.00",
+        "amount": "252.00",
         "description": "Surgical gloves",
-        "quantity": "4",
+        "quantity": "9",
         "service_code": "CS-GLV",
-        "service_date": "2026-06-03",
-        "unit_price": "32.00"
+        "service_date": "2026-04-17",
+        "unit_price": "28.00"
+      },
+      {
+        "amount": "145550.00",
+        "description": "Coronary angioplasty",
+        "quantity": "1",
+        "service_code": "PRC-ANGIO",
+        "service_date": "2026-04-17",
+        "unit_price": "145550.00"
+      },
+      {
+        "amount": "33600.00",
+        "description": "Coronary stent",
+        "quantity": "1",
+        "service_code": "CS-STENT",
+        "service_date": "2026-04-17",
+        "unit_price": "33600.00"
       }
     ],
-    "policy_number": "POL-900003",
-    "provider_id": "PRV-0004",
-    "provider_name": "Shanti Kunj Nursing Home",
-    "total": "30830.00"
+    "policy_number": "POL-900002",
+    "provider_id": "PRV-0035",
+    "provider_name": "Tulsi Health Centre",
+    "total": "201512.00"
   },
   "invoice_07.pdf": {
     "claim_id": "CLM-950007",
     "claim_type": "outpatient",
-    "claimant_id": "MEM-900018",
-    "claimant_name": "Venkatesh Verma",
+    "claimant_id": "MEM-900067",
+    "claimant_name": "Rekha Verma",
     "duplicate_of_claim_id": null,
     "expected_findings": [
       {
         "category": "EXCLUDED_SERVICE",
         "check_code": "C05",
-        "expected_amount": "1300.00",
+        "expected_amount": "900.00",
         "match_type": null,
         "matched_claim_id": null,
-        "policy_rule_id": "POL-900006-EX-01",
+        "policy_rule_id": "POL-900041-EX-01",
         "service_code": "PHA-VIT"
       }
     ],
     "in_demo_files": false,
-    "incident_date": "2026-05-05",
-    "invoice_date": "2026-05-06",
-    "invoice_reference": "INV-58581",
+    "incident_date": "2025-12-25",
+    "invoice_date": "2025-12-26",
+    "invoice_reference": "MMC/BILL/58954",
     "kind": "pdf",
     "layout": "A",
     "line_items": [
       {
-        "amount": "440.00",
+        "amount": "330.00",
         "description": "Teleconsultation",
         "quantity": "1",
         "service_code": "CON-TELE",
-        "service_date": "2026-05-05",
-        "unit_price": "440.00"
+        "service_date": "2025-12-25",
+        "unit_price": "330.00"
       },
       {
-        "amount": "420.00",
-        "description": "Analgesics",
-        "quantity": "3",
-        "service_code": "PHA-ANLG",
-        "service_date": "2026-05-05",
-        "unit_price": "140.00"
-      },
-      {
-        "amount": "1300.00",
+        "amount": "900.00",
         "description": "Vitamins and supplements",
         "quantity": "2",
         "service_code": "PHA-VIT",
-        "service_date": "2026-05-05",
-        "unit_price": "650.00"
+        "service_date": "2025-12-25",
+        "unit_price": "450.00"
       }
     ],
-    "policy_number": "POL-900006",
-    "provider_id": "PRV-0018",
-    "provider_name": "Prakriti Multispeciality Hospital",
-    "total": "2160.00"
+    "policy_number": "POL-900041",
+    "provider_id": "PRV-0029",
+    "provider_name": "Mitra Medical Centre",
+    "total": "1230.00"
   },
   "invoice_08.pdf": {
     "claim_id": "CLM-950008",
     "claim_type": "inpatient",
-    "claimant_id": "MEM-900024",
-    "claimant_name": "Ashok Mishra",
+    "claimant_id": "MEM-900068",
+    "claimant_name": "Pooja Das",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-06-07",
-    "invoice_date": "2026-06-09",
-    "invoice_reference": "INV-97430",
+    "incident_date": "2026-07-10",
+    "invoice_date": "2026-07-12",
+    "invoice_reference": "INV-03005",
     "kind": "pdf",
     "layout": "B",
     "line_items": [
       {
-        "amount": "1050.00",
+        "amount": "950.00",
         "description": "Registration and admission charges",
         "quantity": "1",
         "service_code": "OTH-REG",
-        "service_date": "2026-06-07",
-        "unit_price": "1050.00"
+        "service_date": "2026-07-10",
+        "unit_price": "950.00"
       },
       {
-        "amount": "8250.00",
-        "description": "General ward room (per day)",
-        "quantity": "5",
-        "service_code": "RM-GEN",
-        "service_date": "2026-06-07",
-        "unit_price": "1650.00"
+        "amount": "14100.00",
+        "description": "Semi-private room (per day)",
+        "quantity": "6",
+        "service_code": "RM-SEMI",
+        "service_date": "2026-07-10",
+        "unit_price": "2350.00"
       },
       {
-        "amount": "4600.00",
+        "amount": "4500.00",
         "description": "Inpatient doctor visit (per day)",
-        "quantity": "5",
+        "quantity": "6",
         "service_code": "CON-VIS",
-        "service_date": "2026-06-07",
-        "unit_price": "920.00"
+        "service_date": "2026-07-10",
+        "unit_price": "750.00"
       },
       {
-        "amount": "5250.00",
+        "amount": "4740.00",
         "description": "Nursing charges (per day)",
-        "quantity": "5",
+        "quantity": "6",
         "service_code": "OTH-NURS",
-        "service_date": "2026-06-07",
-        "unit_price": "1050.00"
+        "service_date": "2026-07-10",
+        "unit_price": "790.00"
       },
       {
-        "amount": "840.00",
-        "description": "Kidney function test",
+        "amount": "1700.00",
+        "description": "Ultrasound abdomen",
         "quantity": "1",
-        "service_code": "DX-KFT",
-        "service_date": "2026-06-07",
-        "unit_price": "840.00"
+        "service_code": "DX-USG",
+        "service_date": "2026-07-10",
+        "unit_price": "1700.00"
       },
       {
-        "amount": "460.00",
+        "amount": "370.00",
         "description": "Complete blood count",
         "quantity": "1",
         "service_code": "DX-CBC",
-        "service_date": "2026-06-07",
-        "unit_price": "460.00"
+        "service_date": "2026-07-10",
+        "unit_price": "370.00"
       },
       {
-        "amount": "410.00",
-        "description": "Electrocardiogram",
-        "quantity": "1",
-        "service_code": "DX-ECG",
-        "service_date": "2026-06-07",
-        "unit_price": "410.00"
-      },
-      {
-        "amount": "1200.00",
+        "amount": "1240.00",
         "description": "IV fluids",
-        "quantity": "3",
+        "quantity": "4",
         "service_code": "PHA-IVFL",
-        "service_date": "2026-06-07",
-        "unit_price": "400.00"
+        "service_date": "2026-07-10",
+        "unit_price": "310.00"
       },
       {
-        "amount": "544.50",
+        "amount": "486.00",
         "description": "Syringes and needles",
-        "quantity": "11",
+        "quantity": "12",
         "service_code": "CS-SYR",
-        "service_date": "2026-06-07",
-        "unit_price": "49.50"
+        "service_date": "2026-07-10",
+        "unit_price": "40.50"
       },
       {
-        "amount": "960.00",
+        "amount": "430.00",
         "description": "Antibiotics",
-        "quantity": "2",
+        "quantity": "1",
         "service_code": "PHA-ABX",
-        "service_date": "2026-06-08",
-        "unit_price": "480.00"
+        "service_date": "2026-07-11",
+        "unit_price": "430.00"
       },
       {
-        "amount": "306.00",
+        "amount": "140.00",
         "description": "Surgical gloves",
-        "quantity": "9",
+        "quantity": "5",
         "service_code": "CS-GLV",
-        "service_date": "2026-06-08",
-        "unit_price": "34.00"
+        "service_date": "2026-07-11",
+        "unit_price": "28.00"
       },
       {
-        "amount": "59750.00",
+        "amount": "50050.00",
         "description": "Inguinal hernia repair",
         "quantity": "1",
         "service_code": "PRC-HERN",
-        "service_date": "2026-06-08",
-        "unit_price": "59750.00"
+        "service_date": "2026-07-11",
+        "unit_price": "50050.00"
       }
     ],
-    "policy_number": "POL-900009",
-    "provider_id": "PRV-0012",
-    "provider_name": "Kalpataru Hospital",
-    "total": "83620.50"
+    "policy_number": "POL-900042",
+    "provider_id": "PRV-0008",
+    "provider_name": "Nirmal Seva Hospital",
+    "total": "78706.00"
   },
   "invoice_09.pdf": {
     "claim_id": "CLM-950009",
     "claim_type": "diagnostics",
-    "claimant_id": "MEM-900021",
-    "claimant_name": "Jaya Shetty",
+    "claimant_id": "MEM-900063",
+    "claimant_name": "Kavya Nair",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-06-26",
-    "invoice_date": "2026-06-27",
-    "invoice_reference": "INV-98786",
+    "incident_date": "2026-05-12",
+    "invoice_date": "2026-05-13",
+    "invoice_reference": "VH-040214",
     "kind": "pdf",
     "layout": "A",
     "line_items": [
       {
-        "amount": "460.00",
-        "description": "Complete blood count",
+        "amount": "370.00",
+        "description": "Electrocardiogram",
         "quantity": "1",
-        "service_code": "DX-CBC",
-        "service_date": "2026-06-26",
-        "unit_price": "460.00"
+        "service_code": "DX-ECG",
+        "service_date": "2026-05-12",
+        "unit_price": "370.00"
       },
       {
-        "amount": "790.00",
-        "description": "Chest X-ray",
+        "amount": "610.00",
+        "description": "HbA1c",
         "quantity": "1",
-        "service_code": "DX-XRAY",
-        "service_date": "2026-06-26",
-        "unit_price": "790.00"
+        "service_code": "DX-HBA1C",
+        "service_date": "2026-05-12",
+        "unit_price": "610.00"
       },
       {
-        "amount": "1000.00",
-        "description": "Lipid profile",
+        "amount": "760.00",
+        "description": "Kidney function test",
         "quantity": "1",
-        "service_code": "DX-LIPID",
-        "service_date": "2026-06-26",
-        "unit_price": "1000.00"
+        "service_code": "DX-KFT",
+        "service_date": "2026-05-12",
+        "unit_price": "760.00"
       }
     ],
-    "policy_number": "POL-900007",
-    "provider_id": "PRV-0012",
-    "provider_name": "Kalpataru Hospital",
-    "total": "2250.00"
+    "policy_number": "POL-900038",
+    "provider_id": "PRV-0036",
+    "provider_name": "Vrindavan Hospital",
+    "total": "1740.00"
   },
   "invoice_10.pdf": {
     "claim_id": "CLM-950010",
     "claim_type": "outpatient",
-    "claimant_id": "MEM-900022",
-    "claimant_name": "Aditi Hegde",
+    "claimant_id": "MEM-900042",
+    "claimant_name": "Divya Iyer",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-05-06",
-    "invoice_date": "2026-05-07",
-    "invoice_reference": "CAH-077426",
+    "incident_date": "2026-08-28",
+    "invoice_date": "2026-08-29",
+    "invoice_reference": "INV-65144",
     "kind": "pdf",
     "layout": "B",
     "line_items": [
       {
-        "amount": "500.00",
-        "description": "Teleconsultation",
+        "amount": "1250.00",
+        "description": "Emergency consultation",
         "quantity": "1",
-        "service_code": "CON-TELE",
-        "service_date": "2026-05-06",
-        "unit_price": "500.00"
+        "service_code": "CON-EMR",
+        "service_date": "2026-08-28",
+        "unit_price": "1250.00"
       },
       {
-        "amount": "110.00",
-        "description": "Over-the-counter medicines",
+        "amount": "480.00",
+        "description": "Antibiotics",
         "quantity": "1",
-        "service_code": "PHA-OTC",
-        "service_date": "2026-05-06",
-        "unit_price": "110.00"
-      },
-      {
-        "amount": "280.00",
-        "description": "Analgesics",
-        "quantity": "2",
-        "service_code": "PHA-ANLG",
-        "service_date": "2026-05-06",
-        "unit_price": "140.00"
+        "service_code": "PHA-ABX",
+        "service_date": "2026-08-28",
+        "unit_price": "480.00"
       }
     ],
-    "policy_number": "POL-900008",
-    "provider_id": "PRV-0027",
-    "provider_name": "Charak Ayur Hospital",
-    "total": "890.00"
+    "policy_number": "POL-900018",
+    "provider_id": "PRV-0028",
+    "provider_name": "Ashirwad Hospital",
+    "total": "1730.00"
   },
   "invoice_duplicate.pdf": {
     "claim_id": "CLM-950013",
     "claim_type": "inpatient",
     "claimant_id": "MEM-900009",
     "claimant_name": "Usha Kapoor",
-    "duplicate_of_claim_id": "CLM-900020",
+    "duplicate_of_claim_id": "CLM-900054",
     "expected_findings": [
       {
         "category": "EXACT_DUPLICATE_CLAIM",
         "check_code": null,
         "expected_amount": "62072.00",
         "match_type": "exact_claim",
-        "matched_claim_id": "CLM-900020",
+        "matched_claim_id": "CLM-900054",
         "policy_rule_id": null,
         "service_code": null
       }
@@ -788,89 +788,73 @@
   "scan_01.png": {
     "claim_id": "CLM-950011",
     "claim_type": "pharmacy",
-    "claimant_id": "MEM-900023",
-    "claimant_name": "Divya Hegde",
+    "claimant_id": "MEM-900080",
+    "claimant_name": "Joseph Khan",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2025-12-08",
-    "invoice_date": "2025-12-09",
-    "invoice_reference": "PHI/BILL/61165",
+    "incident_date": "2026-05-03",
+    "invoice_date": "2026-05-04",
+    "invoice_reference": "VH-088300",
     "kind": "scan",
     "layout": "scan",
     "line_items": [
       {
-        "amount": "480.00",
-        "description": "Over-the-counter medicines",
-        "quantity": "4",
-        "service_code": "PHA-OTC",
-        "service_date": "2025-12-08",
-        "unit_price": "120.00"
+        "amount": "1000.00",
+        "description": "Antibiotics",
+        "quantity": "2",
+        "service_code": "PHA-ABX",
+        "service_date": "2026-05-03",
+        "unit_price": "500.00"
       },
       {
-        "amount": "2200.00",
-        "description": "IV fluids",
-        "quantity": "5",
-        "service_code": "PHA-IVFL",
-        "service_date": "2025-12-08",
-        "unit_price": "440.00"
+        "amount": "1680.00",
+        "description": "Cardiac medication",
+        "quantity": "4",
+        "service_code": "PHA-CARD",
+        "service_date": "2026-05-03",
+        "unit_price": "420.00"
       }
     ],
-    "policy_number": "POL-900008",
-    "provider_id": "PRV-0011",
-    "provider_name": "Pranam Heart Institute",
+    "policy_number": "POL-900052",
+    "provider_id": "PRV-0036",
+    "provider_name": "Vrindavan Hospital",
     "total": "2680.00"
   },
   "scan_02.jpg": {
     "claim_id": "CLM-950012",
     "claim_type": "diagnostics",
-    "claimant_id": "MEM-900015",
-    "claimant_name": "Manoj Verma",
+    "claimant_id": "MEM-900053",
+    "claimant_name": "Mary Saxena",
     "duplicate_of_claim_id": null,
     "expected_findings": [],
     "in_demo_files": false,
-    "incident_date": "2026-10-09",
-    "invoice_date": "2026-10-10",
-    "invoice_reference": "INV-04983",
+    "incident_date": "2026-06-13",
+    "invoice_date": "2026-06-14",
+    "invoice_reference": "BNI/BILL/59679",
     "kind": "scan",
     "layout": "scan",
     "line_items": [
       {
-        "amount": "900.00",
-        "description": "Kidney function test",
+        "amount": "630.00",
+        "description": "Chest X-ray",
         "quantity": "1",
-        "service_code": "DX-KFT",
-        "service_date": "2026-10-09",
-        "unit_price": "900.00"
+        "service_code": "DX-XRAY",
+        "service_date": "2026-06-13",
+        "unit_price": "630.00"
       },
       {
-        "amount": "980.00",
-        "description": "Liver function test",
+        "amount": "560.00",
+        "description": "HbA1c",
         "quantity": "1",
-        "service_code": "DX-LFT",
-        "service_date": "2026-10-09",
-        "unit_price": "980.00"
-      },
-      {
-        "amount": "2850.00",
-        "description": "2D echocardiography",
-        "quantity": "1",
-        "service_code": "DX-ECHO",
-        "service_date": "2026-10-09",
-        "unit_price": "2850.00"
-      },
-      {
-        "amount": "490.00",
-        "description": "Complete blood count",
-        "quantity": "1",
-        "service_code": "DX-CBC",
-        "service_date": "2026-10-09",
-        "unit_price": "490.00"
+        "service_code": "DX-HBA1C",
+        "service_date": "2026-06-13",
+        "unit_price": "560.00"
       }
     ],
-    "policy_number": "POL-900006",
-    "provider_id": "PRV-0018",
-    "provider_name": "Prakriti Multispeciality Hospital",
-    "total": "5220.00"
+    "policy_number": "POL-900029",
+    "provider_id": "PRV-0030",
+    "provider_name": "Bodhi Neuro Institute",
+    "total": "1190.00"
   }
 }

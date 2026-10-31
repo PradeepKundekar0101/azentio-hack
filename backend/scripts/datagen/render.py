@@ -17,6 +17,7 @@ from openpyxl import Workbook
 from app.core.money import inr, q2
 from scripts.datagen.builder import BuildResult
 from scripts.datagen.common import DATASETS, ID_FIELDS, TODAY, parse_date, providers
+from scripts.datagen.investigation import investigation_key
 from scripts.datagen.model import Claim, Line, Policy, Rule, Settlement
 
 
@@ -634,7 +635,7 @@ class Renderer:
         for issue in invalid:
             if issue["severity"] == "error":
                 rejected[issue["dataset"]] += 1
-        return {
+        key: dict[str, Any] = {
             "seed": seed,
             "counts": {ds: len(self.rows[ds]) for ds in DATASETS},
             "accepted_counts": {ds: len(self.rows[ds]) - rejected[ds] for ds in DATASETS},
@@ -642,6 +643,9 @@ class Renderer:
             "legitimate_repeats": legit,
             "invalid_rows": invalid,
         }
+        if self.result.investigation is not None:
+            key["investigation"] = investigation_key(self.result.investigation, len(legit))
+        return key
 
 
 def render(result: BuildResult, seed: int, scale: float, demo: bool) -> tuple[dict[str, list[Row]], dict[str, Any]]:

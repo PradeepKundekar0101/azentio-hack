@@ -88,3 +88,21 @@ Each entry says what was chosen and why.
 - **Unresolved service codes are left for the reviewer** rather than classified by Claude: printed codes match exactly, otherwise a fuzzy description match (≥ 80) is proposed with its confidence.
 - **Confirmed documents become one-claim import batches** (`source = document`), so they pass the identical validation path and appear in import history; the claim ID is `CLM-8` plus the document number (skipping forward past any ID an import already used).
 - **The API instance is `apps-s-2vcpu-4gb`** in the deploy spec, because Docling's layout and table models need 2-3 GB while reading; its models are baked into the image.
+
+## Cross-claim, documents and corrections (docs/plan-investigation.md)
+
+- **Naming.** The original plan calls this "Level 2"; following rule 9 of `docs/plan.md`, nothing in code, docs, UI or tags uses that word.
+  The plan lives in `docs/plan-investigation.md`, the answer-key section is `investigation`, and its phases are tagged `phase-a` to `phase-e`.
+- **Scenarios are on by default.** `generate_data` plants the cross-claim, document and correction scenarios unless `--base-only` is passed, so the committed sample, the demo pack and the invoice manifest all describe one data set.
+  The base scenarios keep their exact counts; the new claims add findings of their own (`invoice_reused_across_policies`, `chain`, `multi_issue_*`, `showcase_room_rent`) where a base check rightly fires, so the independent checker still reproduces the answer key exactly.
+- **Relationship claims sit on their own policies.** Each relationship gets new single-member per-claim policies of one product and one benefit period, so the copied claims are clean under every policy check and the only connection between them is the planted one.
+  A reused invoice keeps its number but is spelled differently on the second claim (`INV-04521` and `inv 4521`); the base duplicate check flags its lines, which is correct.
+  Double insurance adds the claimant as a member of the second policy under a new member ID, re-issues the invoice numbers and leaves one or two pharmacy or consumable lines out, so the two claimed amounts differ.
+  Concurrent stays use per-day room lines, so the service dates on each claim show the whole stay.
+- **Documents exist only in the demo pack**, so the `DOCUMENT_REUSED` scenario is planted there (two byte-identical copies, one re-scan with different speckle noise and the same rotation) and not in the full set.
+  Document claims are new single-invoice claims on their own three-member Gold or Platinum policies, added as the existing ones fill up, so the base demo claims keep their budgets and their findings.
+- **Planted differences change only the document.** The claim record stays as generated, and the printed invoice or discharge summary differs (lower price, missing or extra line, other quantity, date, number or patient, shorter stay, missing procedure).
+  Differences that follow from a planted one are listed as `derived` (a changed line changes the invoice total; a reused bill shows the first claim's invoice number and patient).
+- **Discrepancy types for a single-quantity line.** When both sides show quantity 1 and only the price differs, the difference is an `AMOUNT_MISMATCH`; `UNIT_PRICE_MISMATCH` and `QUANTITY_MISMATCH` are for lines whose quantity is above 1.
+- **Busy provider control.** The busiest hospital of the full set is topped up with unrelated clean claims to 210; the demo pack is too small for a meaningful one.
+- **Perceptual hash.** A 64-bit DCT pHash (`app/documents/phash.py`, 32 × 32 greyscale, top-left 8 × 8 coefficients against their median), compared by Hamming distance; near-identical means a distance of 5 or less.

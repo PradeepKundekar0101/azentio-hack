@@ -157,6 +157,7 @@ class BuildResult:
     mismatched: list[Claim]
     ids: dict[str, int]
     builder: "Builder"
+    investigation: Any = None  # scripts.datagen.investigation.InvestigationData, when those scenarios are planted
 
 
 @dataclass
@@ -202,6 +203,8 @@ class Builder:
     seed: int
     scale: float = 1.0
     demo: bool = False
+    # Also plant the cross-claim, document and correction scenarios (scripts/datagen/investigation.py).
+    investigation: bool = True
     rng: random.Random = field(init=False)
     policies: list[Policy] = field(default_factory=list)
     claims: list[Claim] = field(default_factory=list)
@@ -724,8 +727,13 @@ class Builder:
         self.fill_clean()
         self.plant_mismatches()
         self.settle_per_period()
+        extra = None
+        if self.investigation:
+            from scripts.datagen.investigation import Investigation  # imports this module
+
+            extra = Investigation(self).plant()
         self.assign_ids()
-        return BuildResult(self.policies, self.claims, self.findings, self.legit, self.mismatched, {}, self)
+        return BuildResult(self.policies, self.claims, self.findings, self.legit, self.mismatched, {}, self, extra)
 
     def make_general_policies(self) -> None:
         if self.demo:

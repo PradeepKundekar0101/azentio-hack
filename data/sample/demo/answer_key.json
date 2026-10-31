@@ -1,24 +1,219 @@
 {
   "accepted_counts": {
-    "claims": 54,
-    "line_items": 385,
-    "policies": 14,
-    "policy_rules": 282,
-    "settlements": 16
+    "claims": 119,
+    "line_items": 811,
+    "policies": 53,
+    "policy_rules": 991,
+    "settlements": 20
   },
   "counts": {
-    "claims": 56,
-    "line_items": 392,
-    "policies": 14,
-    "policy_rules": 283,
-    "settlements": 17
+    "claims": 121,
+    "line_items": 818,
+    "policies": 53,
+    "policy_rules": 992,
+    "settlements": 21
   },
   "findings": [
     {
       "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "1050.00",
+      "line_id": "LN-9000349",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000262",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "2600.00",
+      "line_id": "LN-9000350",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000263",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "820.00",
+      "line_id": "LN-9000351",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000264",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "3560.00",
+      "line_id": "LN-9000352",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000265",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "370.00",
+      "line_id": "LN-9000353",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000266",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "700.00",
+      "line_id": "LN-9000354",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000267",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "660.00",
+      "line_id": "LN-9000355",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000268",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "2600.00",
+      "line_id": "LN-9000356",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000269",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "820.00",
+      "line_id": "LN-9000357",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000270",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "440.00",
+      "line_id": "LN-9000358",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000271",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "122.00",
+      "line_id": "LN-9000359",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000272",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "2600.00",
+      "line_id": "LN-9000360",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000273",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "820.00",
+      "line_id": "LN-9000361",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000274",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "2600.00",
+      "line_id": "LN-9000362",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000275",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900055",
+      "expected_amount": "820.00",
+      "line_id": "LN-9000363",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900041",
+      "matched_line_id": "LN-9000276",
+      "policy_rule_id": null,
+      "scenario": "chain"
+    },
+    {
+      "amount_type": "calculated",
       "category": "NOT_COVERED",
       "check_code": "C02",
-      "claim_id": "CLM-900042",
+      "claim_id": "CLM-900097",
       "expected_amount": "3307.50",
       "line_id": null,
       "match_type": null,
@@ -31,7 +226,7 @@
       "amount_type": "calculated",
       "category": "NOT_COVERED",
       "check_code": "C02",
-      "claim_id": "CLM-900047",
+      "claim_id": "CLM-900110",
       "expected_amount": "3258.50",
       "line_id": null,
       "match_type": null,
@@ -44,12 +239,12 @@
       "amount_type": "calculated",
       "category": "DUPLICATE_LINE_ITEM",
       "check_code": null,
-      "claim_id": "CLM-900011",
+      "claim_id": "CLM-900035",
       "expected_amount": "644.00",
-      "line_id": "LN-9000090",
+      "line_id": "LN-9000230",
       "match_type": "duplicate_line",
-      "matched_claim_id": "CLM-900010",
-      "matched_line_id": "LN-9000085",
+      "matched_claim_id": "CLM-900033",
+      "matched_line_id": "LN-9000220",
       "policy_rule_id": null,
       "scenario": "duplicate_line_across_claims"
     },
@@ -57,12 +252,12 @@
       "amount_type": "calculated",
       "category": "DUPLICATE_LINE_ITEM",
       "check_code": null,
-      "claim_id": "CLM-900031",
+      "claim_id": "CLM-900078",
       "expected_amount": "670.00",
-      "line_id": "LN-9000204",
+      "line_id": "LN-9000509",
       "match_type": "duplicate_line",
-      "matched_claim_id": "CLM-900029",
-      "matched_line_id": "LN-9000183",
+      "matched_claim_id": "CLM-900070",
+      "matched_line_id": "LN-9000464",
       "policy_rule_id": null,
       "scenario": "duplicate_line_across_claims"
     },
@@ -70,12 +265,12 @@
       "amount_type": "calculated",
       "category": "DUPLICATE_LINE_ITEM",
       "check_code": null,
-      "claim_id": "CLM-900033",
+      "claim_id": "CLM-900081",
       "expected_amount": "270.00",
-      "line_id": "LN-9000216",
+      "line_id": "LN-9000525",
       "match_type": "duplicate_line",
       "matched_claim_id": null,
-      "matched_line_id": "LN-9000215",
+      "matched_line_id": "LN-9000524",
       "policy_rule_id": null,
       "scenario": "duplicate_line_within_claim"
     },
@@ -83,12 +278,12 @@
       "amount_type": "calculated",
       "category": "DUPLICATE_LINE_ITEM",
       "check_code": null,
-      "claim_id": "CLM-900040",
+      "claim_id": "CLM-900094",
       "expected_amount": "370.00",
-      "line_id": "LN-9000266",
+      "line_id": "LN-9000617",
       "match_type": "duplicate_line",
       "matched_claim_id": null,
-      "matched_line_id": "LN-9000265",
+      "matched_line_id": "LN-9000616",
       "policy_rule_id": null,
       "scenario": "duplicate_line_within_claim"
     },
@@ -96,11 +291,11 @@
       "amount_type": "calculated",
       "category": "EXACT_DUPLICATE_CLAIM",
       "check_code": null,
-      "claim_id": "CLM-900009",
+      "claim_id": "CLM-900029",
       "expected_amount": "3926.00",
       "line_id": null,
       "match_type": "exact_claim",
-      "matched_claim_id": "CLM-900008",
+      "matched_claim_id": "CLM-900026",
       "matched_line_id": null,
       "policy_rule_id": null,
       "scenario": "exact_duplicate_claim"
@@ -109,11 +304,11 @@
       "amount_type": "calculated",
       "category": "EXACT_DUPLICATE_CLAIM",
       "check_code": null,
-      "claim_id": "CLM-900044",
+      "claim_id": "CLM-900103",
       "expected_amount": "83285.50",
       "line_id": null,
       "match_type": "exact_claim",
-      "matched_claim_id": "CLM-900035",
+      "matched_claim_id": "CLM-900084",
       "matched_line_id": null,
       "policy_rule_id": null,
       "scenario": "exact_duplicate_claim"
@@ -122,9 +317,9 @@
       "amount_type": "calculated",
       "category": "EXCLUDED_SERVICE",
       "check_code": "C05",
-      "claim_id": "CLM-900013",
+      "claim_id": "CLM-900037",
       "expected_amount": "83300.00",
-      "line_id": "LN-9000104",
+      "line_id": "LN-9000244",
       "match_type": null,
       "matched_claim_id": null,
       "matched_line_id": null,
@@ -135,9 +330,9 @@
       "amount_type": "calculated",
       "category": "EXCLUDED_SERVICE",
       "check_code": "C05",
-      "claim_id": "CLM-900052",
+      "claim_id": "CLM-900117",
       "expected_amount": "670.00",
-      "line_id": "LN-9000370",
+      "line_id": "LN-9000796",
       "match_type": null,
       "matched_claim_id": null,
       "matched_line_id": null,
@@ -145,14 +340,131 @@
       "scenario": "excluded_service"
     },
     {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900051",
+      "expected_amount": "1050.00",
+      "line_id": "LN-9000324",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900043",
+      "matched_line_id": "LN-9000279",
+      "policy_rule_id": null,
+      "scenario": "invoice_reused_across_policies"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900051",
+      "expected_amount": "600.00",
+      "line_id": "LN-9000325",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900043",
+      "matched_line_id": "LN-9000280",
+      "policy_rule_id": null,
+      "scenario": "invoice_reused_across_policies"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900077",
+      "expected_amount": "840.00",
+      "line_id": "LN-9000508",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900072",
+      "matched_line_id": "LN-9000485",
+      "policy_rule_id": null,
+      "scenario": "invoice_reused_across_policies"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900106",
+      "expected_amount": "900.00",
+      "line_id": "LN-9000716",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900082",
+      "matched_line_id": "LN-9000534",
+      "policy_rule_id": null,
+      "scenario": "invoice_reused_across_policies"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900106",
+      "expected_amount": "2850.00",
+      "line_id": "LN-9000717",
+      "match_type": "duplicate_line",
+      "matched_claim_id": "CLM-900082",
+      "matched_line_id": "LN-9000535",
+      "policy_rule_id": null,
+      "scenario": "invoice_reused_across_policies"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900040",
+      "expected_amount": "2520.00",
+      "line_id": "LN-9000258",
+      "match_type": "duplicate_line",
+      "matched_claim_id": null,
+      "matched_line_id": "LN-9000257",
+      "policy_rule_id": null,
+      "scenario": "multi_issue_duplicate_line"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "DUPLICATE_LINE_ITEM",
+      "check_code": null,
+      "claim_id": "CLM-900059",
+      "expected_amount": "560.00",
+      "line_id": "LN-9000392",
+      "match_type": "duplicate_line",
+      "matched_claim_id": null,
+      "matched_line_id": "LN-9000391",
+      "policy_rule_id": null,
+      "scenario": "multi_issue_duplicate_line"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "SUB_LIMIT_EXCEEDED",
+      "check_code": "C06",
+      "claim_id": "CLM-900040",
+      "expected_amount": "8000.00",
+      "line_id": "LN-9000253",
+      "match_type": null,
+      "matched_claim_id": null,
+      "matched_line_id": null,
+      "policy_rule_id": "POL-900003-SL-01",
+      "scenario": "multi_issue_room_rent"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "SUB_LIMIT_EXCEEDED",
+      "check_code": "C06",
+      "claim_id": "CLM-900059",
+      "expected_amount": "2000.00",
+      "line_id": "LN-9000383",
+      "match_type": null,
+      "matched_claim_id": null,
+      "matched_line_id": null,
+      "policy_rule_id": "POL-900005-SL-01",
+      "scenario": "multi_issue_room_rent"
+    },
+    {
       "amount_type": "estimated",
       "category": "NEAR_DUPLICATE",
       "check_code": null,
-      "claim_id": "CLM-900007",
+      "claim_id": "CLM-900023",
       "expected_amount": "3697.00",
       "line_id": null,
       "match_type": "near_duplicate",
-      "matched_claim_id": "CLM-900006",
+      "matched_claim_id": "CLM-900019",
       "matched_line_id": null,
       "policy_rule_id": null,
       "scenario": "near_duplicate"
@@ -161,11 +473,11 @@
       "amount_type": "estimated",
       "category": "NEAR_DUPLICATE",
       "check_code": null,
-      "claim_id": "CLM-900015",
+      "claim_id": "CLM-900045",
       "expected_amount": "1228.00",
       "line_id": null,
       "match_type": "near_duplicate",
-      "matched_claim_id": "CLM-900014",
+      "matched_claim_id": "CLM-900044",
       "matched_line_id": null,
       "policy_rule_id": null,
       "scenario": "near_duplicate"
@@ -174,7 +486,7 @@
       "amount_type": "calculated",
       "category": "NOT_COVERED",
       "check_code": "C03",
-      "claim_id": "CLM-900016",
+      "claim_id": "CLM-900046",
       "expected_amount": "44870.00",
       "line_id": null,
       "match_type": null,
@@ -187,9 +499,9 @@
       "amount_type": "calculated",
       "category": "NOT_COVERED",
       "check_code": "C04",
-      "claim_id": "CLM-900018",
+      "claim_id": "CLM-900050",
       "expected_amount": "900.00",
-      "line_id": "LN-9000117",
+      "line_id": "LN-9000323",
       "match_type": null,
       "matched_claim_id": null,
       "matched_line_id": null,
@@ -200,7 +512,7 @@
       "amount_type": "calculated",
       "category": "OUT_OF_BENEFIT_PERIOD",
       "check_code": "C01",
-      "claim_id": "CLM-900050",
+      "claim_id": "CLM-900113",
       "expected_amount": "5290.00",
       "line_id": null,
       "match_type": null,
@@ -213,7 +525,7 @@
       "amount_type": "calculated",
       "category": "OUT_OF_BENEFIT_PERIOD",
       "check_code": "C01",
-      "claim_id": "CLM-900053",
+      "claim_id": "CLM-900118",
       "expected_amount": "17716.50",
       "line_id": null,
       "match_type": null,
@@ -226,7 +538,7 @@
       "amount_type": "calculated",
       "category": "OVERALL_LIMIT_EXCEEDED",
       "check_code": "C11",
-      "claim_id": "CLM-900026",
+      "claim_id": "CLM-900066",
       "expected_amount": "68500.00",
       "line_id": null,
       "match_type": null,
@@ -239,7 +551,7 @@
       "amount_type": "calculated",
       "category": "OVERALL_LIMIT_EXCEEDED",
       "check_code": "C11",
-      "claim_id": "CLM-900043",
+      "claim_id": "CLM-900102",
       "expected_amount": "11500.80",
       "line_id": null,
       "match_type": null,
@@ -252,7 +564,7 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C07",
-      "claim_id": "CLM-900048",
+      "claim_id": "CLM-900111",
       "expected_amount": "1250.00",
       "line_id": null,
       "match_type": null,
@@ -265,7 +577,7 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C07",
-      "claim_id": "CLM-900054",
+      "claim_id": "CLM-900119",
       "expected_amount": "4000.00",
       "line_id": null,
       "match_type": null,
@@ -278,7 +590,7 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C08",
-      "claim_id": "CLM-900025",
+      "claim_id": "CLM-900064",
       "expected_amount": "2700.00",
       "line_id": null,
       "match_type": null,
@@ -291,7 +603,7 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C08",
-      "claim_id": "CLM-900027",
+      "claim_id": "CLM-900067",
       "expected_amount": "4150.00",
       "line_id": null,
       "match_type": null,
@@ -304,9 +616,9 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C06",
-      "claim_id": "CLM-900003",
+      "claim_id": "CLM-900010",
       "expected_amount": "6000.00",
-      "line_id": "LN-9000030",
+      "line_id": "LN-9000062",
       "match_type": null,
       "matched_claim_id": null,
       "matched_line_id": null,
@@ -317,9 +629,9 @@
       "amount_type": "calculated",
       "category": "SUB_LIMIT_EXCEEDED",
       "check_code": "C06",
-      "claim_id": "CLM-900051",
+      "claim_id": "CLM-900115",
       "expected_amount": "2000.00",
-      "line_id": "LN-9000358",
+      "line_id": "LN-9000772",
       "match_type": null,
       "matched_claim_id": null,
       "matched_line_id": null,
@@ -330,7 +642,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900004",
+      "claim_id": "CLM-900013",
       "expected_amount": "2500.00",
       "line_id": null,
       "match_type": null,
@@ -343,7 +655,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900049",
+      "claim_id": "CLM-900112",
       "expected_amount": "14000.00",
       "line_id": null,
       "match_type": null,
@@ -356,7 +668,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900001",
+      "claim_id": "CLM-900006",
       "expected_amount": "8400.00",
       "line_id": null,
       "match_type": null,
@@ -369,7 +681,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900046",
+      "claim_id": "CLM-900107",
       "expected_amount": "9044.40",
       "line_id": null,
       "match_type": null,
@@ -382,7 +694,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900021",
+      "claim_id": "CLM-900056",
       "expected_amount": "2700.00",
       "line_id": null,
       "match_type": null,
@@ -395,7 +707,7 @@
       "amount_type": "calculated",
       "category": "SETTLEMENT_OVERPAYMENT",
       "check_code": "C12",
-      "claim_id": "CLM-900045",
+      "claim_id": "CLM-900105",
       "expected_amount": "4500.00",
       "line_id": null,
       "match_type": null,
@@ -403,6 +715,19 @@
       "matched_line_id": null,
       "policy_rule_id": null,
       "scenario": "settled_without_deductible"
+    },
+    {
+      "amount_type": "calculated",
+      "category": "SUB_LIMIT_EXCEEDED",
+      "check_code": "C06",
+      "claim_id": "CLM-900116",
+      "expected_amount": "5000.00",
+      "line_id": "LN-9000782",
+      "match_type": null,
+      "matched_claim_id": null,
+      "matched_line_id": null,
+      "policy_rule_id": "POL-900004-SL-01",
+      "scenario": "showcase_room_rent"
     }
   ],
   "invalid_rows": [
@@ -410,8 +735,8 @@
       "dataset": "policy_rules",
       "error_code": "missing_field",
       "field": "clause_ref",
-      "record_id": "POL-900016-XR-01",
-      "row_index": 215,
+      "record_id": "POL-900045-XR-01",
+      "row_index": 178,
       "severity": "error"
     },
     {
@@ -419,7 +744,7 @@
       "error_code": "ambiguous_date",
       "field": "incident_date",
       "record_id": "CLM-980006",
-      "row_index": 10,
+      "row_index": 12,
       "severity": "error"
     },
     {
@@ -427,31 +752,23 @@
       "error_code": "negative_amount",
       "field": "requested_amount",
       "record_id": "CLM-980002",
-      "row_index": 29,
+      "row_index": 73,
       "severity": "error"
     },
     {
       "dataset": "claims",
       "error_code": "requested_amount_mismatch",
       "field": "requested_amount",
-      "record_id": "CLM-900037",
-      "row_index": 38,
+      "record_id": "CLM-900090",
+      "row_index": 91,
       "severity": "warning"
     },
     {
       "dataset": "line_items",
       "error_code": "parent_rejected",
       "field": "claim_id",
-      "record_id": "LN-9900005",
-      "row_index": 20,
-      "severity": "error"
-    },
-    {
-      "dataset": "line_items",
-      "error_code": "unknown_claim",
-      "field": "claim_id",
-      "record_id": "LN-9900010",
-      "row_index": 134,
+      "record_id": "LN-9900008",
+      "row_index": 218,
       "severity": "error"
     },
     {
@@ -459,7 +776,7 @@
       "error_code": "unknown_service_code",
       "field": "service_code",
       "record_id": "LN-9900013",
-      "row_index": 147,
+      "row_index": 298,
       "severity": "error"
     },
     {
@@ -467,7 +784,23 @@
       "error_code": "parent_rejected",
       "field": "claim_id",
       "record_id": "LN-9900009",
-      "row_index": 180,
+      "row_index": 421,
+      "severity": "error"
+    },
+    {
+      "dataset": "line_items",
+      "error_code": "parent_rejected",
+      "field": "claim_id",
+      "record_id": "LN-9900005",
+      "row_index": 491,
+      "severity": "error"
+    },
+    {
+      "dataset": "line_items",
+      "error_code": "unknown_claim",
+      "field": "claim_id",
+      "record_id": "LN-9900010",
+      "row_index": 540,
       "severity": "error"
     },
     {
@@ -475,7 +808,7 @@
       "error_code": "line_amount_mismatch",
       "field": "line_amount",
       "record_id": "LN-9900012",
-      "row_index": 253,
+      "row_index": 673,
       "severity": "error"
     },
     {
@@ -483,39 +816,4274 @@
       "error_code": "parent_rejected",
       "field": "claim_id",
       "record_id": "LN-9900004",
-      "row_index": 274,
-      "severity": "error"
-    },
-    {
-      "dataset": "line_items",
-      "error_code": "parent_rejected",
-      "field": "claim_id",
-      "record_id": "LN-9900008",
-      "row_index": 313,
+      "row_index": 787,
       "severity": "error"
     },
     {
       "dataset": "settlements",
       "error_code": "duplicate_id_in_file",
       "field": "settlement_id",
-      "record_id": "STL-900007",
-      "row_index": 14,
+      "record_id": "STL-900011",
+      "row_index": 11,
       "severity": "error"
     }
   ],
+  "investigation": {
+    "controls": {
+      "busy_provider": null,
+      "cleared_repeats": 2,
+      "family_policy": "POL-900006"
+    },
+    "document_discrepancies": [
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900001",
+        "expected_amount": null,
+        "file": "clm-900001_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "patient_name_differs",
+        "type": "PATIENT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900002",
+        "expected_amount": null,
+        "file": "clm-900002_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "only_in_document",
+        "type": "ONLY_IN_DOCUMENT"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900002",
+        "expected_amount": null,
+        "file": "clm-900002_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900003",
+        "expected_amount": null,
+        "file": "clm-900003_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900003",
+        "expected_amount": "536.00",
+        "file": "clm-900003_invoice.pdf",
+        "line_id": "LN-9000005",
+        "planted": true,
+        "scenario": "quantity_or_unit_price_mismatch",
+        "type": "UNIT_PRICE_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900004",
+        "expected_amount": null,
+        "file": "clm-900004_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900004",
+        "expected_amount": "188.00",
+        "file": "clm-900004_invoice.pdf",
+        "line_id": "LN-9000009",
+        "planted": true,
+        "scenario": "quantity_or_unit_price_mismatch",
+        "type": "UNIT_PRICE_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900005",
+        "expected_amount": null,
+        "file": "clm-900005_invoice.pdf",
+        "line_id": "LN-9000010",
+        "planted": true,
+        "scenario": "service_date_mismatch",
+        "type": "SERVICE_DATE_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900008",
+        "expected_amount": "3200.00",
+        "file": "clm-900008_discharge_summary.pdf",
+        "line_id": "LN-9000042",
+        "planted": true,
+        "scenario": "stay_shorter_than_billed",
+        "type": "STAY_LENGTH_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900009",
+        "expected_amount": "525.00",
+        "file": "clm-900009_invoice.pdf",
+        "line_id": "LN-9000060",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900009",
+        "expected_amount": null,
+        "file": "clm-900009_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900014",
+        "expected_amount": "2150.00",
+        "file": "clm-900014_invoice.pdf",
+        "line_id": "LN-9000113",
+        "planted": true,
+        "scenario": "only_in_claim",
+        "type": "ONLY_IN_CLAIM"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900014",
+        "expected_amount": null,
+        "file": "clm-900014_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "estimated",
+        "claim_id": "CLM-900015",
+        "expected_amount": "77250.00",
+        "file": "clm-900015_discharge_summary.pdf",
+        "line_id": "LN-9000125",
+        "planted": true,
+        "scenario": "procedure_not_documented",
+        "type": "PROCEDURE_NOT_DOCUMENTED"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900018",
+        "expected_amount": "510.00",
+        "file": "clm-900018_invoice.pdf",
+        "line_id": "LN-9000138",
+        "planted": true,
+        "scenario": "quantity_or_unit_price_mismatch",
+        "type": "QUANTITY_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900018",
+        "expected_amount": null,
+        "file": "clm-900018_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900020",
+        "expected_amount": null,
+        "file": "clm-900020_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "only_in_document",
+        "type": "ONLY_IN_DOCUMENT"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900020",
+        "expected_amount": null,
+        "file": "clm-900020_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900024",
+        "expected_amount": null,
+        "file": "clm-900024_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "only_in_document",
+        "type": "ONLY_IN_DOCUMENT"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900024",
+        "expected_amount": null,
+        "file": "clm-900024_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900025",
+        "expected_amount": "3160.00",
+        "file": "clm-900025_invoice.pdf",
+        "line_id": "LN-9000169",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900025",
+        "expected_amount": null,
+        "file": "clm-900025_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900027",
+        "expected_amount": "400.00",
+        "file": "clm-900027_invoice.pdf",
+        "line_id": "LN-9000178",
+        "planted": true,
+        "scenario": "quantity_or_unit_price_mismatch",
+        "type": "QUANTITY_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900027",
+        "expected_amount": null,
+        "file": "clm-900027_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900028",
+        "expected_amount": null,
+        "file": "clm-900028_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "patient_name_differs",
+        "type": "PATIENT_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900030",
+        "expected_amount": "8300.00",
+        "file": "clm-900030_discharge_summary.pdf",
+        "line_id": "LN-9000191",
+        "planted": true,
+        "scenario": "stay_shorter_than_billed",
+        "type": "STAY_LENGTH_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900031",
+        "expected_amount": "2800.00",
+        "file": "clm-900031_discharge_summary.pdf",
+        "line_id": "LN-9000200",
+        "planted": true,
+        "scenario": "stay_shorter_than_billed",
+        "type": "STAY_LENGTH_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900032",
+        "expected_amount": null,
+        "file": "clm-900032_invoice.pdf",
+        "line_id": "LN-9000209",
+        "planted": true,
+        "scenario": "service_date_mismatch",
+        "type": "SERVICE_DATE_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900034",
+        "expected_amount": "9287.50",
+        "file": "clm-900034_invoice.pdf",
+        "line_id": "LN-9000225",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900034",
+        "expected_amount": null,
+        "file": "clm-900034_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900038",
+        "expected_amount": "590.00",
+        "file": "clm-900038_invoice.pdf",
+        "line_id": "LN-9000247",
+        "planted": true,
+        "scenario": "only_in_claim",
+        "type": "ONLY_IN_CLAIM"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900038",
+        "expected_amount": null,
+        "file": "clm-900038_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900039",
+        "expected_amount": null,
+        "file": "clm-900039_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "invoice_number_differs",
+        "type": "INVOICE_REF_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900042",
+        "expected_amount": null,
+        "file": "clm-900042_invoice.pdf",
+        "line_id": null,
+        "planted": true,
+        "scenario": "invoice_number_differs",
+        "type": "INVOICE_REF_MISMATCH"
+      },
+      {
+        "amount_type": "estimated",
+        "claim_id": "CLM-900049",
+        "expected_amount": "85700.00",
+        "file": "clm-900049_discharge_summary.pdf",
+        "line_id": "LN-9000315",
+        "planted": true,
+        "scenario": "procedure_not_documented",
+        "type": "PROCEDURE_NOT_DOCUMENTED"
+      },
+      {
+        "amount_type": "estimated",
+        "claim_id": "CLM-900063",
+        "expected_amount": "64950.00",
+        "file": "clm-900063_discharge_summary.pdf",
+        "line_id": "LN-9000422",
+        "planted": true,
+        "scenario": "procedure_not_documented",
+        "type": "PROCEDURE_NOT_DOCUMENTED"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900069",
+        "expected_amount": "475.00",
+        "file": "clm-900069_invoice.pdf",
+        "line_id": "LN-9000458",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900069",
+        "expected_amount": null,
+        "file": "clm-900069_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900075",
+        "expected_amount": "500.00",
+        "file": "clm-900075_invoice.pdf",
+        "line_id": "LN-9000501",
+        "planted": true,
+        "scenario": "only_in_claim",
+        "type": "ONLY_IN_CLAIM"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900075",
+        "expected_amount": null,
+        "file": "clm-900075_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900076",
+        "expected_amount": null,
+        "file": "clm-900076_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "INVOICE_REF_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900076",
+        "expected_amount": null,
+        "file": "clm-900076_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "PATIENT_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900080",
+        "expected_amount": "1200.00",
+        "file": "clm-900080_invoice.pdf",
+        "line_id": "LN-9000515",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900080",
+        "expected_amount": null,
+        "file": "clm-900080_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900088",
+        "expected_amount": null,
+        "file": "clm-900088_invoice.pdf",
+        "line_id": "LN-9000581",
+        "planted": true,
+        "scenario": "service_date_mismatch",
+        "type": "SERVICE_DATE_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900099",
+        "expected_amount": "990.00",
+        "file": "clm-900099_invoice.pdf",
+        "line_id": "LN-9000639",
+        "planted": true,
+        "scenario": "only_in_claim",
+        "type": "ONLY_IN_CLAIM"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900099",
+        "expected_amount": null,
+        "file": "clm-900099_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900108",
+        "expected_amount": null,
+        "file": "clm-900108_invoice.png",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "INVOICE_REF_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900108",
+        "expected_amount": null,
+        "file": "clm-900108_invoice.png",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "PATIENT_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900114",
+        "expected_amount": null,
+        "file": "clm-900114_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "INVOICE_REF_MISMATCH"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900114",
+        "expected_amount": null,
+        "file": "clm-900114_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "PATIENT_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900116",
+        "expected_amount": "12000.00",
+        "file": "clm-900116_discharge_summary.pdf",
+        "line_id": "LN-9000782",
+        "planted": true,
+        "scenario": "stay_shorter_than_billed",
+        "type": "STAY_LENGTH_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900116",
+        "expected_amount": "2500.00",
+        "file": "clm-900116_invoice.pdf",
+        "line_id": "LN-9000792",
+        "planted": true,
+        "scenario": "amount_higher_than_invoice",
+        "type": "AMOUNT_MISMATCH"
+      },
+      {
+        "amount_type": "calculated",
+        "claim_id": "CLM-900116",
+        "expected_amount": "1200.00",
+        "file": "clm-900116_invoice.pdf",
+        "line_id": "LN-9000789",
+        "planted": true,
+        "scenario": "only_in_claim",
+        "type": "ONLY_IN_CLAIM"
+      },
+      {
+        "amount_type": null,
+        "claim_id": "CLM-900116",
+        "expected_amount": null,
+        "file": "clm-900116_invoice.pdf",
+        "line_id": null,
+        "planted": false,
+        "scenario": "derived",
+        "type": "TOTAL_MISMATCH"
+      }
+    ],
+    "documents": [
+      {
+        "claim_id": "CLM-900001",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-08-20",
+          "invoice_date": "2025-08-21",
+          "invoice_number": "SC/BILL/91233",
+          "lines": [
+            {
+              "amount": "1150.00",
+              "description": "Emergency consultation",
+              "line_id": "LN-9000001",
+              "quantity": "1",
+              "service_code": "CON-EMR",
+              "service_date": "2025-08-20",
+              "unit_price": "1150.00"
+            },
+            {
+              "amount": "630.00",
+              "description": "Insulin",
+              "line_id": "LN-9000002",
+              "quantity": "1",
+              "service_code": "PHA-INS",
+              "service_date": "2025-08-20",
+              "unit_price": "630.00"
+            },
+            {
+              "amount": "400.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000003",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2025-08-20",
+              "unit_price": "400.00"
+            }
+          ],
+          "patient_name": "Neha Ghosh",
+          "policy_number": "POL-900053",
+          "provider_name": "Swasthya Clinic",
+          "subtotal": "2180.00",
+          "taxes": "0.00",
+          "total": "2180.00"
+        },
+        "file": "clm-900001_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900002",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-08-14",
+          "invoice_date": "2025-08-15",
+          "invoice_number": "INV-41595",
+          "lines": [
+            {
+              "amount": "680.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000004",
+              "quantity": "2",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-08-14",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "450.00",
+              "description": "Dietician consultation",
+              "line_id": null,
+              "quantity": "1",
+              "service_code": "OTH-DIET",
+              "service_date": "2025-08-14",
+              "unit_price": "450.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "1130.00",
+          "taxes": "0.00",
+          "total": "1130.00"
+        },
+        "file": "clm-900002_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900003",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-09-09",
+          "invoice_date": "2025-09-10",
+          "invoice_number": "SC/BILL/24619",
+          "lines": [
+            {
+              "amount": "2144.00",
+              "description": "Insulin",
+              "line_id": "LN-9000005",
+              "quantity": "4",
+              "service_code": "PHA-INS",
+              "service_date": "2025-09-09",
+              "unit_price": "536.00"
+            },
+            {
+              "amount": "480.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000006",
+              "quantity": "4",
+              "service_code": "PHA-ANLG",
+              "service_date": "2025-09-09",
+              "unit_price": "120.00"
+            },
+            {
+              "amount": "93.50",
+              "description": "Over-the-counter medicines",
+              "line_id": "LN-9000007",
+              "quantity": "1",
+              "service_code": "PHA-OTC",
+              "service_date": "2025-09-09",
+              "unit_price": "93.50"
+            },
+            {
+              "amount": "1650.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000008",
+              "quantity": "5",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-09-09",
+              "unit_price": "330.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Swasthya Clinic",
+          "subtotal": "4367.50",
+          "taxes": "0.00",
+          "total": "4367.50"
+        },
+        "file": "clm-900003_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900004",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-09-03",
+          "invoice_date": "2025-09-04",
+          "invoice_number": "INV-09245",
+          "lines": [
+            {
+              "amount": "752.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000009",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-09-03",
+              "unit_price": "376.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "752.00",
+          "taxes": "0.00",
+          "total": "752.00"
+        },
+        "file": "clm-900004_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900005",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-09-10",
+          "invoice_date": "2025-09-11",
+          "invoice_number": "SC/BILL/23514",
+          "lines": [
+            {
+              "amount": "91.00",
+              "description": "Over-the-counter medicines",
+              "line_id": "LN-9000010",
+              "quantity": "1",
+              "service_code": "PHA-OTC",
+              "service_date": "2025-09-11",
+              "unit_price": "91.00"
+            },
+            {
+              "amount": "1800.00",
+              "description": "Cardiac medication",
+              "line_id": "LN-9000011",
+              "quantity": "5",
+              "service_code": "PHA-CARD",
+              "service_date": "2025-09-10",
+              "unit_price": "360.00"
+            },
+            {
+              "amount": "2200.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000012",
+              "quantity": "5",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-09-10",
+              "unit_price": "440.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Swasthya Clinic",
+          "subtotal": "4091.00",
+          "taxes": "0.00",
+          "total": "4091.00"
+        },
+        "file": "clm-900005_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900008",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-09-21",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2025-09-23",
+          "hospital_name": "Ashirwad Hospital",
+          "icd10": "A09",
+          "patient_name": "Radha Mishra",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Farah Khan"
+        },
+        "file": "clm-900008_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900008",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-09-21",
+          "invoice_date": "2025-09-25",
+          "invoice_number": "INV-21840",
+          "lines": [
+            {
+              "amount": "1000.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000041",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-09-21",
+              "unit_price": "1000.00"
+            },
+            {
+              "amount": "1600.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000042",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-09-21",
+              "unit_price": "1600.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000043",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-09-21",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "3680.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000044",
+              "quantity": "4",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-09-21",
+              "unit_price": "920.00"
+            },
+            {
+              "amount": "430.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000045",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2025-09-21",
+              "unit_price": "430.00"
+            },
+            {
+              "amount": "690.00",
+              "description": "Chest X-ray",
+              "line_id": "LN-9000046",
+              "quantity": "1",
+              "service_code": "DX-XRAY",
+              "service_date": "2025-09-21",
+              "unit_price": "690.00"
+            },
+            {
+              "amount": "2160.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000047",
+              "quantity": "6",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-09-21",
+              "unit_price": "360.00"
+            },
+            {
+              "amount": "616.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000048",
+              "quantity": "14",
+              "service_code": "CS-SYR",
+              "service_date": "2025-09-21",
+              "unit_price": "44.00"
+            },
+            {
+              "amount": "1600.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000049",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-09-22",
+              "unit_price": "1600.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000050",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-09-22",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "900.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000051",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-09-22",
+              "unit_price": "450.00"
+            },
+            {
+              "amount": "206.50",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000052",
+              "quantity": "7",
+              "service_code": "CS-GLV",
+              "service_date": "2025-09-22",
+              "unit_price": "29.50"
+            },
+            {
+              "amount": "1600.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000053",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-09-23",
+              "unit_price": "1600.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000054",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-09-23",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "1600.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000055",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-09-24",
+              "unit_price": "1600.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000056",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-09-24",
+              "unit_price": "780.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "19202.50",
+          "taxes": "0.00",
+          "total": "19202.50"
+        },
+        "file": "clm-900008_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900009",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-09-25",
+          "invoice_date": "2025-09-26",
+          "invoice_number": "HGH0051295",
+          "lines": [
+            {
+              "amount": "2550.00",
+              "description": "Treadmill test",
+              "line_id": "LN-9000057",
+              "quantity": "1",
+              "service_code": "DX-TMT",
+              "service_date": "2025-09-25",
+              "unit_price": "2550.00"
+            },
+            {
+              "amount": "980.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000058",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2025-09-25",
+              "unit_price": "980.00"
+            },
+            {
+              "amount": "420.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000059",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2025-09-25",
+              "unit_price": "420.00"
+            },
+            {
+              "amount": "4725.00",
+              "description": "CT scan",
+              "line_id": "LN-9000060",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2025-09-25",
+              "unit_price": "4725.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Hillview General Hospital",
+          "subtotal": "8675.00",
+          "taxes": "0.00",
+          "total": "8675.00"
+        },
+        "file": "clm-900009_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900011",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-04",
+          "invoice_date": "2025-10-05",
+          "invoice_number": "SMC/BILL/31777",
+          "lines": [
+            {
+              "amount": "980.00",
+              "description": "Emergency consultation",
+              "line_id": "LN-9000073",
+              "quantity": "1",
+              "service_code": "CON-EMR",
+              "service_date": "2025-10-04",
+              "unit_price": "980.00"
+            },
+            {
+              "amount": "1590.00",
+              "description": "Insulin",
+              "line_id": "LN-9000074",
+              "quantity": "3",
+              "service_code": "PHA-INS",
+              "service_date": "2025-10-04",
+              "unit_price": "530.00"
+            }
+          ],
+          "patient_name": "Aditi Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Suraksha Medical Centre",
+          "subtotal": "2570.00",
+          "taxes": "0.00",
+          "total": "2570.00"
+        },
+        "file": "clm-900011_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900012",
+        "clean": true,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-10-06",
+          "diagnosis": "Symptomatic cholelithiasis",
+          "discharge_date": "2025-10-11",
+          "hospital_name": "Amrit Dhara Hospital",
+          "icd10": "K80.20",
+          "patient_name": "Ramesh Ghosh",
+          "procedures_performed": [
+            "Laparoscopic cholecystectomy on 07/10/2025"
+          ],
+          "treating_doctor": "Dr. Farah Khan"
+        },
+        "file": "clm-900012_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900012",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-06",
+          "invoice_date": "2025-10-11",
+          "invoice_number": "ADH-050666",
+          "lines": [
+            {
+              "amount": "900.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000075",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-10-06",
+              "unit_price": "900.00"
+            },
+            {
+              "amount": "1250.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000076",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-06",
+              "unit_price": "1250.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000077",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-06",
+              "unit_price": "720.00"
+            },
+            {
+              "amount": "3800.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000078",
+              "quantity": "5",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-10-06",
+              "unit_price": "760.00"
+            },
+            {
+              "amount": "1500.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000079",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2025-10-06",
+              "unit_price": "1500.00"
+            },
+            {
+              "amount": "620.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000080",
+              "quantity": "2",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-10-06",
+              "unit_price": "310.00"
+            },
+            {
+              "amount": "269.50",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000081",
+              "quantity": "7",
+              "service_code": "CS-SYR",
+              "service_date": "2025-10-06",
+              "unit_price": "38.50"
+            },
+            {
+              "amount": "1250.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000082",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-07",
+              "unit_price": "1250.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000083",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-07",
+              "unit_price": "720.00"
+            },
+            {
+              "amount": "1170.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000084",
+              "quantity": "3",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-10-07",
+              "unit_price": "390.00"
+            },
+            {
+              "amount": "265.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000085",
+              "quantity": "10",
+              "service_code": "CS-GLV",
+              "service_date": "2025-10-07",
+              "unit_price": "26.50"
+            },
+            {
+              "amount": "63200.00",
+              "description": "Laparoscopic cholecystectomy",
+              "line_id": "LN-9000086",
+              "quantity": "1",
+              "service_code": "PRC-CHOL",
+              "service_date": "2025-10-07",
+              "unit_price": "63200.00"
+            },
+            {
+              "amount": "1250.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000087",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-08",
+              "unit_price": "1250.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000088",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-08",
+              "unit_price": "720.00"
+            },
+            {
+              "amount": "1250.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000089",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-09",
+              "unit_price": "1250.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000090",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-09",
+              "unit_price": "720.00"
+            },
+            {
+              "amount": "1250.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000091",
+              "quantity": "1",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-10",
+              "unit_price": "1250.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000092",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-10",
+              "unit_price": "720.00"
+            }
+          ],
+          "patient_name": "Ramesh Ghosh",
+          "policy_number": "POL-900055",
+          "provider_name": "Amrit Dhara Hospital",
+          "subtotal": "81574.50",
+          "taxes": "0.00",
+          "total": "81574.50"
+        },
+        "file": "clm-900012_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900014",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-15",
+          "invoice_date": "2025-10-16",
+          "invoice_number": "ANH-076520",
+          "lines": [
+            {
+              "amount": "3950.00",
+              "description": "CT scan",
+              "line_id": "LN-9000112",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2025-10-15",
+              "unit_price": "3950.00"
+            },
+            {
+              "amount": "720.00",
+              "description": "Kidney function test",
+              "line_id": "LN-9000114",
+              "quantity": "1",
+              "service_code": "DX-KFT",
+              "service_date": "2025-10-15",
+              "unit_price": "720.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Arogya Niketan Hospital",
+          "subtotal": "4670.00",
+          "taxes": "0.00",
+          "total": "4670.00"
+        },
+        "file": "clm-900014_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900015",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-10-16",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2025-10-21",
+          "hospital_name": "Neelkanth Hospital",
+          "icd10": "A09",
+          "patient_name": "Jaya Nair",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Meera Rao"
+        },
+        "file": "clm-900015_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900015",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-16",
+          "invoice_date": "2025-10-18",
+          "invoice_number": "NH0009106",
+          "lines": [
+            {
+              "amount": "1000.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000115",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-10-16",
+              "unit_price": "1000.00"
+            },
+            {
+              "amount": "12000.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000116",
+              "quantity": "5",
+              "service_code": "RM-SEMI",
+              "service_date": "2025-10-16",
+              "unit_price": "2400.00"
+            },
+            {
+              "amount": "4250.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000117",
+              "quantity": "5",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-16",
+              "unit_price": "850.00"
+            },
+            {
+              "amount": "4750.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000118",
+              "quantity": "5",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-10-16",
+              "unit_price": "950.00"
+            },
+            {
+              "amount": "420.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000119",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2025-10-16",
+              "unit_price": "420.00"
+            },
+            {
+              "amount": "840.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000120",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2025-10-16",
+              "unit_price": "840.00"
+            },
+            {
+              "amount": "1400.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000121",
+              "quantity": "4",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-10-16",
+              "unit_price": "350.00"
+            },
+            {
+              "amount": "697.50",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000122",
+              "quantity": "15",
+              "service_code": "CS-SYR",
+              "service_date": "2025-10-16",
+              "unit_price": "46.50"
+            },
+            {
+              "amount": "940.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000123",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-10-17",
+              "unit_price": "470.00"
+            },
+            {
+              "amount": "279.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000124",
+              "quantity": "9",
+              "service_code": "CS-GLV",
+              "service_date": "2025-10-17",
+              "unit_price": "31.00"
+            },
+            {
+              "amount": "77250.00",
+              "description": "Laparoscopic cholecystectomy",
+              "line_id": "LN-9000125",
+              "quantity": "1",
+              "service_code": "PRC-CHOL",
+              "service_date": "2025-10-17",
+              "unit_price": "77250.00"
+            }
+          ],
+          "patient_name": "Jaya Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Neelkanth Hospital",
+          "subtotal": "103826.50",
+          "taxes": "0.00",
+          "total": "103826.50"
+        },
+        "file": "clm-900015_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900017",
+        "clean": true,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-10-31",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2025-11-03",
+          "hospital_name": "Shanti Kunj Nursing Home",
+          "icd10": "A09",
+          "patient_name": "Aditi Nair",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Kavita Shah"
+        },
+        "file": "clm-900017_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900017",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-31",
+          "invoice_date": "2025-11-02",
+          "invoice_number": "INV-57008",
+          "lines": [
+            {
+              "amount": "1000.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000127",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-10-31",
+              "unit_price": "1000.00"
+            },
+            {
+              "amount": "4500.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000128",
+              "quantity": "3",
+              "service_code": "RM-GEN",
+              "service_date": "2025-10-31",
+              "unit_price": "1500.00"
+            },
+            {
+              "amount": "2370.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000129",
+              "quantity": "3",
+              "service_code": "CON-VIS",
+              "service_date": "2025-10-31",
+              "unit_price": "790.00"
+            },
+            {
+              "amount": "2790.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000130",
+              "quantity": "3",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-10-31",
+              "unit_price": "930.00"
+            },
+            {
+              "amount": "820.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000131",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2025-10-31",
+              "unit_price": "820.00"
+            },
+            {
+              "amount": "360.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000132",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2025-10-31",
+              "unit_price": "360.00"
+            },
+            {
+              "amount": "1750.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000133",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2025-10-31",
+              "unit_price": "1750.00"
+            },
+            {
+              "amount": "2160.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000134",
+              "quantity": "6",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-10-31",
+              "unit_price": "360.00"
+            },
+            {
+              "amount": "414.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000135",
+              "quantity": "9",
+              "service_code": "CS-SYR",
+              "service_date": "2025-10-31",
+              "unit_price": "46.00"
+            },
+            {
+              "amount": "920.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000136",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-11-01",
+              "unit_price": "460.00"
+            },
+            {
+              "amount": "279.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000137",
+              "quantity": "9",
+              "service_code": "CS-GLV",
+              "service_date": "2025-11-01",
+              "unit_price": "31.00"
+            }
+          ],
+          "patient_name": "Aditi Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Shanti Kunj Nursing Home",
+          "subtotal": "17363.00",
+          "taxes": "0.00",
+          "total": "17363.00"
+        },
+        "file": "clm-900017_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900018",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-11-01",
+          "invoice_date": "2025-11-02",
+          "invoice_number": "INV-48943",
+          "lines": [
+            {
+              "amount": "2040.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000138",
+              "quantity": "4",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-11-01",
+              "unit_price": "510.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Saptagiri Hospital",
+          "subtotal": "2040.00",
+          "taxes": "0.00",
+          "total": "2040.00"
+        },
+        "file": "clm-900018_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900020",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-10-29",
+          "invoice_date": "2025-10-30",
+          "invoice_number": "NH0074180",
+          "lines": [
+            {
+              "amount": "480.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000143",
+              "quantity": "4",
+              "service_code": "PHA-ANLG",
+              "service_date": "2025-10-29",
+              "unit_price": "120.00"
+            },
+            {
+              "amount": "3250.00",
+              "description": "Insulin",
+              "line_id": "LN-9000144",
+              "quantity": "5",
+              "service_code": "PHA-INS",
+              "service_date": "2025-10-29",
+              "unit_price": "650.00"
+            },
+            {
+              "amount": "760.00",
+              "description": "Cardiac medication",
+              "line_id": "LN-9000145",
+              "quantity": "2",
+              "service_code": "PHA-CARD",
+              "service_date": "2025-10-29",
+              "unit_price": "380.00"
+            },
+            {
+              "amount": "180.00",
+              "description": "Dressing material",
+              "line_id": null,
+              "quantity": "1",
+              "service_code": "CS-DRS",
+              "service_date": "2025-10-29",
+              "unit_price": "180.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Neelkanth Hospital",
+          "subtotal": "4670.00",
+          "taxes": "0.00",
+          "total": "4670.00"
+        },
+        "file": "clm-900020_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900021",
+        "clean": true,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-11-04",
+          "diagnosis": "Symptomatic cholelithiasis",
+          "discharge_date": "2025-11-06",
+          "hospital_name": "Jeevan Rekha Medical Centre",
+          "icd10": "K80.20",
+          "patient_name": "Ramesh Ghosh",
+          "procedures_performed": [
+            "Laparoscopic cholecystectomy on 05/11/2025"
+          ],
+          "treating_doctor": "Dr. Farah Khan"
+        },
+        "file": "clm-900021_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900021",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-11-04",
+          "invoice_date": "2025-11-06",
+          "invoice_number": "JRM-049716",
+          "lines": [
+            {
+              "amount": "830.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000146",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-11-04",
+              "unit_price": "830.00"
+            },
+            {
+              "amount": "2700.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000147",
+              "quantity": "2",
+              "service_code": "RM-GEN",
+              "service_date": "2025-11-04",
+              "unit_price": "1350.00"
+            },
+            {
+              "amount": "1320.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000148",
+              "quantity": "2",
+              "service_code": "CON-VIS",
+              "service_date": "2025-11-04",
+              "unit_price": "660.00"
+            },
+            {
+              "amount": "1600.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000149",
+              "quantity": "2",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-11-04",
+              "unit_price": "800.00"
+            },
+            {
+              "amount": "680.00",
+              "description": "Kidney function test",
+              "line_id": "LN-9000150",
+              "quantity": "1",
+              "service_code": "DX-KFT",
+              "service_date": "2025-11-04",
+              "unit_price": "680.00"
+            },
+            {
+              "amount": "1200.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000151",
+              "quantity": "4",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-11-04",
+              "unit_price": "300.00"
+            },
+            {
+              "amount": "296.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000152",
+              "quantity": "8",
+              "service_code": "CS-SYR",
+              "service_date": "2025-11-04",
+              "unit_price": "37.00"
+            },
+            {
+              "amount": "1140.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000153",
+              "quantity": "3",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-11-05",
+              "unit_price": "380.00"
+            },
+            {
+              "amount": "135.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000154",
+              "quantity": "5",
+              "service_code": "CS-GLV",
+              "service_date": "2025-11-05",
+              "unit_price": "27.00"
+            },
+            {
+              "amount": "65800.00",
+              "description": "Laparoscopic cholecystectomy",
+              "line_id": "LN-9000155",
+              "quantity": "1",
+              "service_code": "PRC-CHOL",
+              "service_date": "2025-11-05",
+              "unit_price": "65800.00"
+            }
+          ],
+          "patient_name": "Ramesh Ghosh",
+          "policy_number": "POL-900055",
+          "provider_name": "Jeevan Rekha Medical Centre",
+          "subtotal": "75701.00",
+          "taxes": "0.00",
+          "total": "75701.00"
+        },
+        "file": "clm-900021_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900022",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-11-01",
+          "invoice_date": "2025-11-02",
+          "invoice_number": "STC/BILL/08283",
+          "lines": [
+            {
+              "amount": "6500.00",
+              "description": "Upper GI endoscopy",
+              "line_id": "LN-9000156",
+              "quantity": "1",
+              "service_code": "PRC-ENDO",
+              "service_date": "2025-11-01",
+              "unit_price": "6500.00"
+            },
+            {
+              "amount": "69.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000157",
+              "quantity": "2",
+              "service_code": "CS-GLV",
+              "service_date": "2025-11-01",
+              "unit_price": "34.50"
+            },
+            {
+              "amount": "210.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000158",
+              "quantity": "4",
+              "service_code": "CS-SYR",
+              "service_date": "2025-11-01",
+              "unit_price": "52.50"
+            },
+            {
+              "amount": "130.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000159",
+              "quantity": "1",
+              "service_code": "PHA-ANLG",
+              "service_date": "2025-11-01",
+              "unit_price": "130.00"
+            },
+            {
+              "amount": "1100.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000160",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-11-01",
+              "unit_price": "1100.00"
+            },
+            {
+              "amount": "470.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000161",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2025-11-01",
+              "unit_price": "470.00"
+            }
+          ],
+          "patient_name": "Jaya Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Sarathi Trauma Centre",
+          "subtotal": "8479.00",
+          "taxes": "0.00",
+          "total": "8479.00"
+        },
+        "file": "clm-900022_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900024",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-11-13",
+          "invoice_date": "2025-11-14",
+          "invoice_number": "MMC/BILL/82476",
+          "lines": [
+            {
+              "amount": "830.00",
+              "description": "Specialist consultation",
+              "line_id": "LN-9000166",
+              "quantity": "1",
+              "service_code": "CON-SPL",
+              "service_date": "2025-11-13",
+              "unit_price": "830.00"
+            },
+            {
+              "amount": "330.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000167",
+              "quantity": "3",
+              "service_code": "PHA-ANLG",
+              "service_date": "2025-11-13",
+              "unit_price": "110.00"
+            },
+            {
+              "amount": "1110.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000168",
+              "quantity": "3",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-11-13",
+              "unit_price": "370.00"
+            },
+            {
+              "amount": "180.00",
+              "description": "Dressing material",
+              "line_id": null,
+              "quantity": "1",
+              "service_code": "CS-DRS",
+              "service_date": "2025-11-13",
+              "unit_price": "180.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Mitra Medical Centre",
+          "subtotal": "2450.00",
+          "taxes": "0.00",
+          "total": "2450.00"
+        },
+        "file": "clm-900024_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900025",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-11-19",
+          "invoice_date": "2025-11-20",
+          "invoice_number": "SCH-062308",
+          "lines": [
+            {
+              "amount": "28440.00",
+              "description": "Cataract surgery with lens implant",
+              "line_id": "LN-9000169",
+              "quantity": "1",
+              "service_code": "PRC-CATA",
+              "service_date": "2025-11-19",
+              "unit_price": "28440.00"
+            },
+            {
+              "amount": "56.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000170",
+              "quantity": "2",
+              "service_code": "CS-GLV",
+              "service_date": "2025-11-19",
+              "unit_price": "28.00"
+            },
+            {
+              "amount": "340.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000171",
+              "quantity": "8",
+              "service_code": "CS-SYR",
+              "service_date": "2025-11-19",
+              "unit_price": "42.50"
+            },
+            {
+              "amount": "360.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000172",
+              "quantity": "3",
+              "service_code": "PHA-ANLG",
+              "service_date": "2025-11-19",
+              "unit_price": "120.00"
+            },
+            {
+              "amount": "940.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000173",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-11-19",
+              "unit_price": "940.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Sanjeevani Care Hospital",
+          "subtotal": "30136.00",
+          "taxes": "0.00",
+          "total": "30136.00"
+        },
+        "file": "clm-900025_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900027",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-12-06",
+          "invoice_date": "2025-12-07",
+          "invoice_number": "VMC-003013",
+          "lines": [
+            {
+              "amount": "400.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000178",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-12-06",
+              "unit_price": "400.00"
+            },
+            {
+              "amount": "2320.00",
+              "description": "Insulin",
+              "line_id": "LN-9000179",
+              "quantity": "4",
+              "service_code": "PHA-INS",
+              "service_date": "2025-12-06",
+              "unit_price": "580.00"
+            },
+            {
+              "amount": "1750.00",
+              "description": "Cardiac medication",
+              "line_id": "LN-9000180",
+              "quantity": "5",
+              "service_code": "PHA-CARD",
+              "service_date": "2025-12-06",
+              "unit_price": "350.00"
+            },
+            {
+              "amount": "310.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000181",
+              "quantity": "1",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-12-06",
+              "unit_price": "310.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Vatsalya Mother and Child Hospital",
+          "subtotal": "4780.00",
+          "taxes": "0.00",
+          "total": "4780.00"
+        },
+        "file": "clm-900027_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900028",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-12-18",
+          "invoice_date": "2025-12-19",
+          "invoice_number": "INV-50800",
+          "lines": [
+            {
+              "amount": "4800.00",
+              "description": "CT scan",
+              "line_id": "LN-9000182",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2025-12-18",
+              "unit_price": "4800.00"
+            },
+            {
+              "amount": "870.00",
+              "description": "Lipid profile",
+              "line_id": "LN-9000183",
+              "quantity": "1",
+              "service_code": "DX-LIPID",
+              "service_date": "2025-12-18",
+              "unit_price": "870.00"
+            },
+            {
+              "amount": "340.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000184",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2025-12-18",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "2600.00",
+              "description": "2D echocardiography",
+              "line_id": "LN-9000185",
+              "quantity": "1",
+              "service_code": "DX-ECHO",
+              "service_date": "2025-12-18",
+              "unit_price": "2600.00"
+            }
+          ],
+          "patient_name": "Sneha Pillai",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "8610.00",
+          "taxes": "0.00",
+          "total": "8610.00"
+        },
+        "file": "clm-900028_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900030",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-12-28",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2025-12-30",
+          "hospital_name": "Saptagiri Hospital",
+          "icd10": "A09",
+          "patient_name": "Radha Mishra",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Kavita Shah"
+        },
+        "file": "clm-900030_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900030",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-12-28",
+          "invoice_date": "2025-12-30",
+          "invoice_number": "INV-10487",
+          "lines": [
+            {
+              "amount": "1050.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000190",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-12-28",
+              "unit_price": "1050.00"
+            },
+            {
+              "amount": "16600.00",
+              "description": "Private room (per day)",
+              "line_id": "LN-9000191",
+              "quantity": "4",
+              "service_code": "RM-PVT",
+              "service_date": "2025-12-28",
+              "unit_price": "4150.00"
+            },
+            {
+              "amount": "3680.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000192",
+              "quantity": "4",
+              "service_code": "CON-VIS",
+              "service_date": "2025-12-28",
+              "unit_price": "920.00"
+            },
+            {
+              "amount": "3720.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000193",
+              "quantity": "4",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-12-28",
+              "unit_price": "930.00"
+            },
+            {
+              "amount": "770.00",
+              "description": "Chest X-ray",
+              "line_id": "LN-9000194",
+              "quantity": "1",
+              "service_code": "DX-XRAY",
+              "service_date": "2025-12-28",
+              "unit_price": "770.00"
+            },
+            {
+              "amount": "2000.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000195",
+              "quantity": "5",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-12-28",
+              "unit_price": "400.00"
+            },
+            {
+              "amount": "658.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000196",
+              "quantity": "14",
+              "service_code": "CS-SYR",
+              "service_date": "2025-12-28",
+              "unit_price": "47.00"
+            },
+            {
+              "amount": "1560.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000197",
+              "quantity": "3",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-12-29",
+              "unit_price": "520.00"
+            },
+            {
+              "amount": "301.50",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000198",
+              "quantity": "9",
+              "service_code": "CS-GLV",
+              "service_date": "2025-12-29",
+              "unit_price": "33.50"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Saptagiri Hospital",
+          "subtotal": "30339.50",
+          "taxes": "0.00",
+          "total": "30339.50"
+        },
+        "file": "clm-900030_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900031",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2025-12-24",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2025-12-26",
+          "hospital_name": "Tulsi Health Centre",
+          "icd10": "A09",
+          "patient_name": "Ramesh Mishra",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Meera Rao"
+        },
+        "file": "clm-900031_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900031",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2025-12-24",
+          "invoice_date": "2025-12-26",
+          "invoice_number": "THC/BILL/14951",
+          "lines": [
+            {
+              "amount": "940.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000199",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2025-12-24",
+              "unit_price": "940.00"
+            },
+            {
+              "amount": "5600.00",
+              "description": "General ward room (per day)",
+              "line_id": "LN-9000200",
+              "quantity": "4",
+              "service_code": "RM-GEN",
+              "service_date": "2025-12-24",
+              "unit_price": "1400.00"
+            },
+            {
+              "amount": "2960.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000201",
+              "quantity": "4",
+              "service_code": "CON-VIS",
+              "service_date": "2025-12-24",
+              "unit_price": "740.00"
+            },
+            {
+              "amount": "3640.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000202",
+              "quantity": "4",
+              "service_code": "OTH-NURS",
+              "service_date": "2025-12-24",
+              "unit_price": "910.00"
+            },
+            {
+              "amount": "800.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000203",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2025-12-24",
+              "unit_price": "800.00"
+            },
+            {
+              "amount": "360.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000204",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2025-12-24",
+              "unit_price": "360.00"
+            },
+            {
+              "amount": "1750.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000205",
+              "quantity": "5",
+              "service_code": "PHA-IVFL",
+              "service_date": "2025-12-24",
+              "unit_price": "350.00"
+            },
+            {
+              "amount": "311.50",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000206",
+              "quantity": "7",
+              "service_code": "CS-SYR",
+              "service_date": "2025-12-24",
+              "unit_price": "44.50"
+            },
+            {
+              "amount": "880.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000207",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2025-12-25",
+              "unit_price": "440.00"
+            },
+            {
+              "amount": "145.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000208",
+              "quantity": "5",
+              "service_code": "CS-GLV",
+              "service_date": "2025-12-25",
+              "unit_price": "29.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Tulsi Health Centre",
+          "subtotal": "17386.50",
+          "taxes": "0.00",
+          "total": "17386.50"
+        },
+        "file": "clm-900031_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900032",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-01-09",
+          "invoice_date": "2026-01-10",
+          "invoice_number": "DHC0055877",
+          "lines": [
+            {
+              "amount": "110.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000209",
+              "quantity": "1",
+              "service_code": "PHA-ANLG",
+              "service_date": "2026-01-10",
+              "unit_price": "110.00"
+            },
+            {
+              "amount": "1720.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000210",
+              "quantity": "4",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-01-09",
+              "unit_price": "430.00"
+            },
+            {
+              "amount": "600.00",
+              "description": "Insulin",
+              "line_id": "LN-9000211",
+              "quantity": "1",
+              "service_code": "PHA-INS",
+              "service_date": "2026-01-09",
+              "unit_price": "600.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Dhanvantari Health Centre",
+          "subtotal": "2430.00",
+          "taxes": "0.00",
+          "total": "2430.00"
+        },
+        "file": "clm-900032_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900034",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-01-20",
+          "invoice_date": "2026-01-21",
+          "invoice_number": "INV-67659",
+          "lines": [
+            {
+              "amount": "27862.50",
+              "description": "Cataract surgery with lens implant",
+              "line_id": "LN-9000225",
+              "quantity": "1",
+              "service_code": "PRC-CATA",
+              "service_date": "2026-01-20",
+              "unit_price": "27862.50"
+            },
+            {
+              "amount": "64.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000226",
+              "quantity": "2",
+              "service_code": "CS-GLV",
+              "service_date": "2026-01-20",
+              "unit_price": "32.00"
+            },
+            {
+              "amount": "180.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000227",
+              "quantity": "4",
+              "service_code": "CS-SYR",
+              "service_date": "2026-01-20",
+              "unit_price": "45.00"
+            },
+            {
+              "amount": "120.00",
+              "description": "Analgesics",
+              "line_id": "LN-9000228",
+              "quantity": "1",
+              "service_code": "PHA-ANLG",
+              "service_date": "2026-01-20",
+              "unit_price": "120.00"
+            },
+            {
+              "amount": "1000.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000229",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2026-01-20",
+              "unit_price": "1000.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Shanti Kunj Nursing Home",
+          "subtotal": "29226.50",
+          "taxes": "0.00",
+          "total": "29226.50"
+        },
+        "file": "clm-900034_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900038",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-02-01",
+          "invoice_date": "2026-02-02",
+          "invoice_number": "INV-66508",
+          "lines": [
+            {
+              "amount": "1750.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000245",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2026-02-01",
+              "unit_price": "1750.00"
+            },
+            {
+              "amount": "930.00",
+              "description": "Lipid profile",
+              "line_id": "LN-9000246",
+              "quantity": "1",
+              "service_code": "DX-LIPID",
+              "service_date": "2026-02-01",
+              "unit_price": "930.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "2680.00",
+          "taxes": "0.00",
+          "total": "2680.00"
+        },
+        "file": "clm-900038_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900039",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-02-07",
+          "invoice_date": "2026-02-08",
+          "invoice_number": "CAH-063305",
+          "lines": [
+            {
+              "amount": "730.00",
+              "description": "HbA1c",
+              "line_id": "LN-9000248",
+              "quantity": "1",
+              "service_code": "DX-HBA1C",
+              "service_date": "2026-02-07",
+              "unit_price": "730.00"
+            },
+            {
+              "amount": "960.00",
+              "description": "Kidney function test",
+              "line_id": "LN-9000249",
+              "quantity": "1",
+              "service_code": "DX-KFT",
+              "service_date": "2026-02-07",
+              "unit_price": "960.00"
+            },
+            {
+              "amount": "1100.00",
+              "description": "Lipid profile",
+              "line_id": "LN-9000250",
+              "quantity": "1",
+              "service_code": "DX-LIPID",
+              "service_date": "2026-02-07",
+              "unit_price": "1100.00"
+            },
+            {
+              "amount": "2250.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000251",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2026-02-07",
+              "unit_price": "2250.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Charak Ayur Hospital",
+          "subtotal": "5040.00",
+          "taxes": "0.00",
+          "total": "5040.00"
+        },
+        "file": "clm-900039_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900042",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-02-22",
+          "invoice_date": "2026-02-23",
+          "invoice_number": "INV-81843",
+          "lines": [
+            {
+              "amount": "430.00",
+              "description": "Teleconsultation",
+              "line_id": "LN-9000277",
+              "quantity": "1",
+              "service_code": "CON-TELE",
+              "service_date": "2026-02-22",
+              "unit_price": "430.00"
+            },
+            {
+              "amount": "2190.00",
+              "description": "Insulin",
+              "line_id": "LN-9000278",
+              "quantity": "3",
+              "service_code": "PHA-INS",
+              "service_date": "2026-02-22",
+              "unit_price": "730.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Kalpataru Hospital",
+          "subtotal": "2620.00",
+          "taxes": "0.00",
+          "total": "2620.00"
+        },
+        "file": "clm-900042_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900049",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2026-03-07",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2026-03-12",
+          "hospital_name": "Sarathi Trauma Centre",
+          "icd10": "A09",
+          "patient_name": "Ramesh Mishra",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Suresh Pillai"
+        },
+        "file": "clm-900049_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900049",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-03-07",
+          "invoice_date": "2026-03-12",
+          "invoice_number": "STC/BILL/08466",
+          "lines": [
+            {
+              "amount": "1150.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000304",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2026-03-07",
+              "unit_price": "1150.00"
+            },
+            {
+              "amount": "2750.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000305",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-03-07",
+              "unit_price": "2750.00"
+            },
+            {
+              "amount": "890.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000306",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-03-07",
+              "unit_price": "890.00"
+            },
+            {
+              "amount": "4950.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000307",
+              "quantity": "5",
+              "service_code": "OTH-NURS",
+              "service_date": "2026-03-07",
+              "unit_price": "990.00"
+            },
+            {
+              "amount": "860.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000308",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2026-03-07",
+              "unit_price": "860.00"
+            },
+            {
+              "amount": "2280.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000309",
+              "quantity": "6",
+              "service_code": "PHA-IVFL",
+              "service_date": "2026-03-07",
+              "unit_price": "380.00"
+            },
+            {
+              "amount": "525.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000310",
+              "quantity": "10",
+              "service_code": "CS-SYR",
+              "service_date": "2026-03-07",
+              "unit_price": "52.50"
+            },
+            {
+              "amount": "2750.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000311",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-03-08",
+              "unit_price": "2750.00"
+            },
+            {
+              "amount": "890.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000312",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-03-08",
+              "unit_price": "890.00"
+            },
+            {
+              "amount": "980.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000313",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-03-08",
+              "unit_price": "490.00"
+            },
+            {
+              "amount": "340.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000314",
+              "quantity": "10",
+              "service_code": "CS-GLV",
+              "service_date": "2026-03-08",
+              "unit_price": "34.00"
+            },
+            {
+              "amount": "85700.00",
+              "description": "Laparoscopic cholecystectomy",
+              "line_id": "LN-9000315",
+              "quantity": "1",
+              "service_code": "PRC-CHOL",
+              "service_date": "2026-03-08",
+              "unit_price": "85700.00"
+            },
+            {
+              "amount": "2750.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000316",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-03-09",
+              "unit_price": "2750.00"
+            },
+            {
+              "amount": "890.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000317",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-03-09",
+              "unit_price": "890.00"
+            },
+            {
+              "amount": "2750.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000318",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-03-10",
+              "unit_price": "2750.00"
+            },
+            {
+              "amount": "890.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000319",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-03-10",
+              "unit_price": "890.00"
+            },
+            {
+              "amount": "2750.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000320",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-03-11",
+              "unit_price": "2750.00"
+            },
+            {
+              "amount": "890.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000321",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-03-11",
+              "unit_price": "890.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Sarathi Trauma Centre",
+          "subtotal": "114985.00",
+          "taxes": "0.00",
+          "total": "114985.00"
+        },
+        "file": "clm-900049_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900057",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-03-18",
+          "invoice_date": "2026-03-19",
+          "invoice_number": "CAH-094075",
+          "lines": [
+            {
+              "amount": "570.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000367",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-03-18",
+              "unit_price": "570.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Charak Ayur Hospital",
+          "subtotal": "570.00",
+          "taxes": "0.00",
+          "total": "570.00"
+        },
+        "file": "clm-900057_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900063",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2026-04-24",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2026-04-26",
+          "hospital_name": "Ashirwad Hospital",
+          "icd10": "A09",
+          "patient_name": "Karan Mishra",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Meera Rao"
+        },
+        "file": "clm-900063_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900063",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-04-24",
+          "invoice_date": "2026-04-26",
+          "invoice_number": "INV-47826",
+          "lines": [
+            {
+              "amount": "990.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000409",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2026-04-24",
+              "unit_price": "990.00"
+            },
+            {
+              "amount": "2650.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000410",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-04-24",
+              "unit_price": "2650.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000411",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-04-24",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "1880.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000412",
+              "quantity": "2",
+              "service_code": "OTH-NURS",
+              "service_date": "2026-04-24",
+              "unit_price": "940.00"
+            },
+            {
+              "amount": "340.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000413",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-04-24",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Kidney function test",
+              "line_id": "LN-9000414",
+              "quantity": "1",
+              "service_code": "DX-KFT",
+              "service_date": "2026-04-24",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "820.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000415",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2026-04-24",
+              "unit_price": "820.00"
+            },
+            {
+              "amount": "1700.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000416",
+              "quantity": "5",
+              "service_code": "PHA-IVFL",
+              "service_date": "2026-04-24",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "500.50",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000417",
+              "quantity": "11",
+              "service_code": "CS-SYR",
+              "service_date": "2026-04-24",
+              "unit_price": "45.50"
+            },
+            {
+              "amount": "2650.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000418",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-04-25",
+              "unit_price": "2650.00"
+            },
+            {
+              "amount": "780.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000419",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-04-25",
+              "unit_price": "780.00"
+            },
+            {
+              "amount": "960.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000420",
+              "quantity": "2",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-04-25",
+              "unit_price": "480.00"
+            },
+            {
+              "amount": "256.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000421",
+              "quantity": "8",
+              "service_code": "CS-GLV",
+              "service_date": "2026-04-25",
+              "unit_price": "32.00"
+            },
+            {
+              "amount": "64950.00",
+              "description": "Laparoscopic appendectomy",
+              "line_id": "LN-9000422",
+              "quantity": "1",
+              "service_code": "PRC-APPX",
+              "service_date": "2026-04-25",
+              "unit_price": "64950.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "80036.50",
+          "taxes": "0.00",
+          "total": "80036.50"
+        },
+        "file": "clm-900063_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900065",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-05-17",
+          "invoice_date": "2026-05-18",
+          "invoice_number": "STC/BILL/65739",
+          "lines": [
+            {
+              "amount": "700.00",
+              "description": "HbA1c",
+              "line_id": "LN-9000431",
+              "quantity": "1",
+              "service_code": "DX-HBA1C",
+              "service_date": "2026-05-17",
+              "unit_price": "700.00"
+            },
+            {
+              "amount": "4900.00",
+              "description": "CT scan",
+              "line_id": "LN-9000432",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-05-17",
+              "unit_price": "4900.00"
+            },
+            {
+              "amount": "400.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000433",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-05-17",
+              "unit_price": "400.00"
+            },
+            {
+              "amount": "2950.00",
+              "description": "2D echocardiography",
+              "line_id": "LN-9000434",
+              "quantity": "1",
+              "service_code": "DX-ECHO",
+              "service_date": "2026-05-17",
+              "unit_price": "2950.00"
+            }
+          ],
+          "patient_name": "Sneha Kapoor",
+          "policy_number": "POL-900049",
+          "provider_name": "Sarathi Trauma Centre",
+          "subtotal": "8950.00",
+          "taxes": "0.00",
+          "total": "8950.00"
+        },
+        "file": "clm-900065_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900069",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-06-04",
+          "invoice_date": "2026-06-05",
+          "invoice_number": "INV-26080",
+          "lines": [
+            {
+              "amount": "390.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000457",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2026-06-04",
+              "unit_price": "390.00"
+            },
+            {
+              "amount": "1425.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000458",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2026-06-04",
+              "unit_price": "1425.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Ashirwad Hospital",
+          "subtotal": "1815.00",
+          "taxes": "0.00",
+          "total": "1815.00"
+        },
+        "file": "clm-900069_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900073",
+        "clean": true,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2026-06-20",
+          "diagnosis": "Acute gastroenteritis with dehydration",
+          "discharge_date": "2026-06-22",
+          "hospital_name": "Prakriti Multispeciality Hospital",
+          "icd10": "A09",
+          "patient_name": "Aditi Nair",
+          "procedures_performed": [],
+          "treating_doctor": "Dr. Kavita Shah"
+        },
+        "file": "clm-900073_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900073",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-06-20",
+          "invoice_date": "2026-06-22",
+          "invoice_number": "INV-31148",
+          "lines": [
+            {
+              "amount": "1150.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000486",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2026-06-20",
+              "unit_price": "1150.00"
+            },
+            {
+              "amount": "3050.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000487",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-06-20",
+              "unit_price": "3050.00"
+            },
+            {
+              "amount": "940.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000488",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-06-20",
+              "unit_price": "940.00"
+            },
+            {
+              "amount": "2100.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000489",
+              "quantity": "2",
+              "service_code": "OTH-NURS",
+              "service_date": "2026-06-20",
+              "unit_price": "1050.00"
+            },
+            {
+              "amount": "860.00",
+              "description": "Kidney function test",
+              "line_id": "LN-9000490",
+              "quantity": "1",
+              "service_code": "DX-KFT",
+              "service_date": "2026-06-20",
+              "unit_price": "860.00"
+            },
+            {
+              "amount": "960.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000491",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2026-06-20",
+              "unit_price": "960.00"
+            },
+            {
+              "amount": "1600.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000492",
+              "quantity": "4",
+              "service_code": "PHA-IVFL",
+              "service_date": "2026-06-20",
+              "unit_price": "400.00"
+            },
+            {
+              "amount": "555.50",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000493",
+              "quantity": "11",
+              "service_code": "CS-SYR",
+              "service_date": "2026-06-20",
+              "unit_price": "50.50"
+            },
+            {
+              "amount": "3050.00",
+              "description": "Semi-private room (per day)",
+              "line_id": "LN-9000494",
+              "quantity": "1",
+              "service_code": "RM-SEMI",
+              "service_date": "2026-06-21",
+              "unit_price": "3050.00"
+            },
+            {
+              "amount": "940.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000495",
+              "quantity": "1",
+              "service_code": "CON-VIS",
+              "service_date": "2026-06-21",
+              "unit_price": "940.00"
+            },
+            {
+              "amount": "520.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000496",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-06-21",
+              "unit_price": "520.00"
+            },
+            {
+              "amount": "134.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000497",
+              "quantity": "4",
+              "service_code": "CS-GLV",
+              "service_date": "2026-06-21",
+              "unit_price": "33.50"
+            }
+          ],
+          "patient_name": "Aditi Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Prakriti Multispeciality Hospital",
+          "subtotal": "15859.50",
+          "taxes": "0.00",
+          "total": "15859.50"
+        },
+        "file": "clm-900073_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900074",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-06-18",
+          "invoice_date": "2026-06-19",
+          "invoice_number": "IVH0025395",
+          "lines": [
+            {
+              "amount": "370.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000498",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-06-18",
+              "unit_price": "370.00"
+            },
+            {
+              "amount": "4550.00",
+              "description": "CT scan",
+              "line_id": "LN-9000499",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-06-18",
+              "unit_price": "4550.00"
+            }
+          ],
+          "patient_name": "Jaya Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Indus Valley Hospital",
+          "subtotal": "4920.00",
+          "taxes": "0.00",
+          "total": "4920.00"
+        },
+        "file": "clm-900074_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900075",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-06-20",
+          "invoice_date": "2026-06-21",
+          "invoice_number": "RMI-041036",
+          "lines": [
+            {
+              "amount": "2200.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000500",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2026-06-20",
+              "unit_price": "2200.00"
+            },
+            {
+              "amount": "1000.00",
+              "description": "Lipid profile",
+              "line_id": "LN-9000502",
+              "quantity": "1",
+              "service_code": "DX-LIPID",
+              "service_date": "2026-06-20",
+              "unit_price": "1000.00"
+            },
+            {
+              "amount": "5350.00",
+              "description": "CT scan",
+              "line_id": "LN-9000503",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-06-20",
+              "unit_price": "5350.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Riverbend Medical Institute",
+          "subtotal": "8550.00",
+          "taxes": "0.00",
+          "total": "8550.00"
+        },
+        "file": "clm-900075_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900076",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-05-17",
+          "invoice_date": "2026-05-18",
+          "invoice_number": "STC/BILL/65739",
+          "lines": [
+            {
+              "amount": "700.00",
+              "description": "HbA1c",
+              "line_id": "LN-9000504",
+              "quantity": "1",
+              "service_code": "DX-HBA1C",
+              "service_date": "2026-05-17",
+              "unit_price": "700.00"
+            },
+            {
+              "amount": "4900.00",
+              "description": "CT scan",
+              "line_id": "LN-9000505",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-05-17",
+              "unit_price": "4900.00"
+            },
+            {
+              "amount": "400.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000506",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-05-17",
+              "unit_price": "400.00"
+            },
+            {
+              "amount": "2950.00",
+              "description": "2D echocardiography",
+              "line_id": "LN-9000507",
+              "quantity": "1",
+              "service_code": "DX-ECHO",
+              "service_date": "2026-05-17",
+              "unit_price": "2950.00"
+            }
+          ],
+          "patient_name": "Sneha Kapoor",
+          "policy_number": "POL-900049",
+          "provider_name": "Sarathi Trauma Centre",
+          "subtotal": "8950.00",
+          "taxes": "0.00",
+          "total": "8950.00"
+        },
+        "file": "clm-900076_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": "clm-900065_invoice.pdf"
+      },
+      {
+        "claim_id": "CLM-900080",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-06-26",
+          "invoice_date": "2026-06-27",
+          "invoice_number": "INV-58001",
+          "lines": [
+            {
+              "amount": "440.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000514",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2026-06-26",
+              "unit_price": "440.00"
+            },
+            {
+              "amount": "3600.00",
+              "description": "CT scan",
+              "line_id": "LN-9000515",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-06-26",
+              "unit_price": "3600.00"
+            },
+            {
+              "amount": "380.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000516",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-06-26",
+              "unit_price": "380.00"
+            },
+            {
+              "amount": "960.00",
+              "description": "Lipid profile",
+              "line_id": "LN-9000517",
+              "quantity": "1",
+              "service_code": "DX-LIPID",
+              "service_date": "2026-06-26",
+              "unit_price": "960.00"
+            }
+          ],
+          "patient_name": "Radha Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Kalpataru Hospital",
+          "subtotal": "5380.00",
+          "taxes": "0.00",
+          "total": "5380.00"
+        },
+        "file": "clm-900080_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900087",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-07-16",
+          "invoice_date": "2026-07-17",
+          "invoice_number": "SMC/BILL/35241",
+          "lines": [
+            {
+              "amount": "450.00",
+              "description": "Complete blood count",
+              "line_id": "LN-9000577",
+              "quantity": "1",
+              "service_code": "DX-CBC",
+              "service_date": "2026-07-16",
+              "unit_price": "450.00"
+            },
+            {
+              "amount": "2650.00",
+              "description": "Treadmill test",
+              "line_id": "LN-9000578",
+              "quantity": "1",
+              "service_code": "DX-TMT",
+              "service_date": "2026-07-16",
+              "unit_price": "2650.00"
+            },
+            {
+              "amount": "3050.00",
+              "description": "2D echocardiography",
+              "line_id": "LN-9000579",
+              "quantity": "1",
+              "service_code": "DX-ECHO",
+              "service_date": "2026-07-16",
+              "unit_price": "3050.00"
+            },
+            {
+              "amount": "800.00",
+              "description": "Chest X-ray",
+              "line_id": "LN-9000580",
+              "quantity": "1",
+              "service_code": "DX-XRAY",
+              "service_date": "2026-07-16",
+              "unit_price": "800.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Seashore Medical Centre",
+          "subtotal": "6950.00",
+          "taxes": "0.00",
+          "total": "6950.00"
+        },
+        "file": "clm-900087_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900088",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-07-17",
+          "invoice_date": "2026-07-18",
+          "invoice_number": "MMC-019982",
+          "lines": [
+            {
+              "amount": "425.00",
+              "description": "Over-the-counter medicines",
+              "line_id": "LN-9000581",
+              "quantity": "5",
+              "service_code": "PHA-OTC",
+              "service_date": "2026-07-19",
+              "unit_price": "85.00"
+            }
+          ],
+          "patient_name": "Ramesh Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Meghdoot Medical College Hospital",
+          "subtotal": "425.00",
+          "taxes": "0.00",
+          "total": "425.00"
+        },
+        "file": "clm-900088_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900095",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-07-29",
+          "invoice_date": "2026-07-30",
+          "invoice_number": "SMC/BILL/91691",
+          "lines": [
+            {
+              "amount": "450.00",
+              "description": "General physician consultation",
+              "line_id": "LN-9000619",
+              "quantity": "1",
+              "service_code": "CON-GP",
+              "service_date": "2026-07-29",
+              "unit_price": "450.00"
+            }
+          ],
+          "patient_name": "Jaya Nair",
+          "policy_number": "POL-900054",
+          "provider_name": "Suraksha Medical Centre",
+          "subtotal": "450.00",
+          "taxes": "0.00",
+          "total": "450.00"
+        },
+        "file": "clm-900095_invoice.png",
+        "kind": "scan",
+        "layout": "scan",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900099",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-08-02",
+          "invoice_date": "2026-08-03",
+          "invoice_number": "INV-22956",
+          "lines": [
+            {
+              "amount": "5250.00",
+              "description": "CT scan",
+              "line_id": "LN-9000638",
+              "quantity": "1",
+              "service_code": "DX-CT",
+              "service_date": "2026-08-02",
+              "unit_price": "5250.00"
+            }
+          ],
+          "patient_name": "Karan Mishra",
+          "policy_number": "POL-900053",
+          "provider_name": "Kalpataru Hospital",
+          "subtotal": "5250.00",
+          "taxes": "0.00",
+          "total": "5250.00"
+        },
+        "file": "clm-900099_invoice.pdf",
+        "kind": "pdf",
+        "layout": "B",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900104",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-08-03",
+          "invoice_date": "2026-08-04",
+          "invoice_number": "BNI/BILL/40605",
+          "lines": [
+            {
+              "amount": "390.00",
+              "description": "Teleconsultation",
+              "line_id": "LN-9000700",
+              "quantity": "1",
+              "service_code": "CON-TELE",
+              "service_date": "2026-08-03",
+              "unit_price": "390.00"
+            },
+            {
+              "amount": "430.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000701",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-08-03",
+              "unit_price": "430.00"
+            },
+            {
+              "amount": "330.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000702",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-08-03",
+              "unit_price": "330.00"
+            }
+          ],
+          "patient_name": "Joseph Rao",
+          "policy_number": "POL-900051",
+          "provider_name": "Bodhi Neuro Institute",
+          "subtotal": "1150.00",
+          "taxes": "0.00",
+          "total": "1150.00"
+        },
+        "file": "clm-900104_invoice.png",
+        "kind": "scan",
+        "layout": "scan",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900108",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-08-03",
+          "invoice_date": "2026-08-04",
+          "invoice_number": "BNI/BILL/40605",
+          "lines": [
+            {
+              "amount": "390.00",
+              "description": "Teleconsultation",
+              "line_id": "LN-9000729",
+              "quantity": "1",
+              "service_code": "CON-TELE",
+              "service_date": "2026-08-03",
+              "unit_price": "390.00"
+            },
+            {
+              "amount": "430.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000730",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-08-03",
+              "unit_price": "430.00"
+            },
+            {
+              "amount": "330.00",
+              "description": "Electrocardiogram",
+              "line_id": "LN-9000731",
+              "quantity": "1",
+              "service_code": "DX-ECG",
+              "service_date": "2026-08-03",
+              "unit_price": "330.00"
+            }
+          ],
+          "patient_name": "Joseph Rao",
+          "policy_number": "POL-900051",
+          "provider_name": "Bodhi Neuro Institute",
+          "subtotal": "1150.00",
+          "taxes": "0.00",
+          "total": "1150.00"
+        },
+        "file": "clm-900108_invoice.png",
+        "kind": "scan",
+        "layout": "scan",
+        "reuse_of": "clm-900104_invoice.png"
+      },
+      {
+        "claim_id": "CLM-900109",
+        "clean": true,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-08-26",
+          "invoice_date": "2026-08-27",
+          "invoice_number": "BNI/BILL/61641",
+          "lines": [
+            {
+              "amount": "970.00",
+              "description": "Specialist consultation",
+              "line_id": "LN-9000732",
+              "quantity": "1",
+              "service_code": "CON-SPL",
+              "service_date": "2026-08-26",
+              "unit_price": "970.00"
+            },
+            {
+              "amount": "680.00",
+              "description": "Cardiac medication",
+              "line_id": "LN-9000733",
+              "quantity": "2",
+              "service_code": "PHA-CARD",
+              "service_date": "2026-08-26",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "630.00",
+              "description": "Insulin",
+              "line_id": "LN-9000734",
+              "quantity": "1",
+              "service_code": "PHA-INS",
+              "service_date": "2026-08-26",
+              "unit_price": "630.00"
+            },
+            {
+              "amount": "650.00",
+              "description": "Chest X-ray",
+              "line_id": "LN-9000735",
+              "quantity": "1",
+              "service_code": "DX-XRAY",
+              "service_date": "2026-08-26",
+              "unit_price": "650.00"
+            }
+          ],
+          "patient_name": "Imran Verma",
+          "policy_number": "POL-900047",
+          "provider_name": "Bodhi Neuro Institute",
+          "subtotal": "2930.00",
+          "taxes": "0.00",
+          "total": "2930.00"
+        },
+        "file": "clm-900109_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900114",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-08-26",
+          "invoice_date": "2026-08-27",
+          "invoice_number": "BNI/BILL/61641",
+          "lines": [
+            {
+              "amount": "970.00",
+              "description": "Specialist consultation",
+              "line_id": "LN-9000767",
+              "quantity": "1",
+              "service_code": "CON-SPL",
+              "service_date": "2026-08-26",
+              "unit_price": "970.00"
+            },
+            {
+              "amount": "680.00",
+              "description": "Cardiac medication",
+              "line_id": "LN-9000768",
+              "quantity": "2",
+              "service_code": "PHA-CARD",
+              "service_date": "2026-08-26",
+              "unit_price": "340.00"
+            },
+            {
+              "amount": "630.00",
+              "description": "Insulin",
+              "line_id": "LN-9000769",
+              "quantity": "1",
+              "service_code": "PHA-INS",
+              "service_date": "2026-08-26",
+              "unit_price": "630.00"
+            },
+            {
+              "amount": "650.00",
+              "description": "Chest X-ray",
+              "line_id": "LN-9000770",
+              "quantity": "1",
+              "service_code": "DX-XRAY",
+              "service_date": "2026-08-26",
+              "unit_price": "650.00"
+            }
+          ],
+          "patient_name": "Imran Verma",
+          "policy_number": "POL-900047",
+          "provider_name": "Bodhi Neuro Institute",
+          "subtotal": "2930.00",
+          "taxes": "0.00",
+          "total": "2930.00"
+        },
+        "file": "clm-900114_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": "clm-900109_invoice.pdf"
+      },
+      {
+        "claim_id": "CLM-900116",
+        "clean": false,
+        "doc_type": "discharge_summary",
+        "expected": {
+          "admission_date": "2026-10-11",
+          "diagnosis": "Unilateral inguinal hernia",
+          "discharge_date": "2026-10-14",
+          "hospital_name": "Sanjeevani Care Hospital",
+          "icd10": "K40.90",
+          "patient_name": "Usha Kapoor",
+          "procedures_performed": [
+            "Inguinal hernia repair on 12/10/2026"
+          ],
+          "treating_doctor": "Dr. Arvind Menon"
+        },
+        "file": "clm-900116_discharge_summary.pdf",
+        "kind": "pdf",
+        "layout": "summary",
+        "reuse_of": null
+      },
+      {
+        "claim_id": "CLM-900116",
+        "clean": false,
+        "doc_type": "invoice",
+        "expected": {
+          "admission_date": "2026-10-11",
+          "invoice_date": "2026-10-13",
+          "invoice_number": "SCH-009537",
+          "lines": [
+            {
+              "amount": "940.00",
+              "description": "Registration and admission charges",
+              "line_id": "LN-9000781",
+              "quantity": "1",
+              "service_code": "OTH-REG",
+              "service_date": "2026-10-11",
+              "unit_price": "940.00"
+            },
+            {
+              "amount": "30000.00",
+              "description": "Private room (per day)",
+              "line_id": "LN-9000782",
+              "quantity": "5",
+              "service_code": "RM-PVT",
+              "service_date": "2026-10-11",
+              "unit_price": "6000.00"
+            },
+            {
+              "amount": "3650.00",
+              "description": "Inpatient doctor visit (per day)",
+              "line_id": "LN-9000783",
+              "quantity": "5",
+              "service_code": "CON-VIS",
+              "service_date": "2026-10-11",
+              "unit_price": "730.00"
+            },
+            {
+              "amount": "4350.00",
+              "description": "Nursing charges (per day)",
+              "line_id": "LN-9000784",
+              "quantity": "5",
+              "service_code": "OTH-NURS",
+              "service_date": "2026-10-11",
+              "unit_price": "870.00"
+            },
+            {
+              "amount": "1750.00",
+              "description": "Ultrasound abdomen",
+              "line_id": "LN-9000785",
+              "quantity": "1",
+              "service_code": "DX-USG",
+              "service_date": "2026-10-11",
+              "unit_price": "1750.00"
+            },
+            {
+              "amount": "750.00",
+              "description": "Liver function test",
+              "line_id": "LN-9000786",
+              "quantity": "1",
+              "service_code": "DX-LFT",
+              "service_date": "2026-10-11",
+              "unit_price": "750.00"
+            },
+            {
+              "amount": "1860.00",
+              "description": "IV fluids",
+              "line_id": "LN-9000787",
+              "quantity": "6",
+              "service_code": "PHA-IVFL",
+              "service_date": "2026-10-11",
+              "unit_price": "310.00"
+            },
+            {
+              "amount": "246.00",
+              "description": "Syringes and needles",
+              "line_id": "LN-9000788",
+              "quantity": "6",
+              "service_code": "CS-SYR",
+              "service_date": "2026-10-11",
+              "unit_price": "41.00"
+            },
+            {
+              "amount": "440.00",
+              "description": "Antibiotics",
+              "line_id": "LN-9000790",
+              "quantity": "1",
+              "service_code": "PHA-ABX",
+              "service_date": "2026-10-12",
+              "unit_price": "440.00"
+            },
+            {
+              "amount": "108.00",
+              "description": "Surgical gloves",
+              "line_id": "LN-9000791",
+              "quantity": "4",
+              "service_code": "CS-GLV",
+              "service_date": "2026-10-12",
+              "unit_price": "27.00"
+            },
+            {
+              "amount": "9500.00",
+              "description": "Inguinal hernia repair",
+              "line_id": "LN-9000792",
+              "quantity": "1",
+              "service_code": "PRC-HERN",
+              "service_date": "2026-10-12",
+              "unit_price": "9500.00"
+            }
+          ],
+          "patient_name": "Usha Kapoor",
+          "policy_number": "POL-900004",
+          "provider_name": "Sanjeevani Care Hospital",
+          "subtotal": "53594.00",
+          "taxes": "0.00",
+          "total": "53594.00"
+        },
+        "file": "clm-900116_invoice.pdf",
+        "kind": "pdf",
+        "layout": "A",
+        "reuse_of": null
+      }
+    ],
+    "multi_issue_claims": [
+      {
+        "claim_id": "CLM-900040",
+        "expected_corrections": [
+          {
+            "amount": "2520.00",
+            "line_id": "LN-9000258",
+            "type": "REMOVE_DUPLICATE_LINE"
+          },
+          {
+            "amount": "8000.00",
+            "line_id": "LN-9000253",
+            "type": "CAP_AT_SUB_LIMIT"
+          },
+          {
+            "amount": "3000.00",
+            "line_id": null,
+            "type": "APPLY_DEDUCTIBLE"
+          },
+          {
+            "amount": "3310.40",
+            "line_id": null,
+            "type": "APPLY_COPAY"
+          }
+        ],
+        "recommended_payable": "29793.60",
+        "requested_amount": "46624.00"
+      },
+      {
+        "claim_id": "CLM-900059",
+        "expected_corrections": [
+          {
+            "amount": "560.00",
+            "line_id": "LN-9000392",
+            "type": "REMOVE_DUPLICATE_LINE"
+          },
+          {
+            "amount": "2000.00",
+            "line_id": "LN-9000383",
+            "type": "CAP_AT_SUB_LIMIT"
+          },
+          {
+            "amount": "5000.00",
+            "line_id": null,
+            "type": "APPLY_DEDUCTIBLE"
+          },
+          {
+            "amount": "9570.10",
+            "line_id": null,
+            "type": "APPLY_COPAY"
+          }
+        ],
+        "recommended_payable": "86130.90",
+        "requested_amount": "103261.00"
+      }
+    ],
+    "relationships": [
+      {
+        "claim_ids": [
+          "CLM-900041",
+          "CLM-900055",
+          "CLM-900058"
+        ],
+        "scenario": "chain",
+        "shared": {
+          "incident": "ADM-005273",
+          "invoice": "INV-44893"
+        },
+        "tags": [
+          "INCIDENT_CLAIMED_TWICE",
+          "INVOICE_REUSED_ACROSS_POLICIES"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900091",
+          "CLM-900098"
+        ],
+        "scenario": "concurrent_stays",
+        "shared": {
+          "claimant": "MEM-900065"
+        },
+        "tags": [
+          "CONCURRENT_STAYS"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900100",
+          "CLM-900101"
+        ],
+        "scenario": "concurrent_stays",
+        "shared": {
+          "claimant": "MEM-900066"
+        },
+        "tags": [
+          "CONCURRENT_STAYS"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900065",
+          "CLM-900076"
+        ],
+        "scenario": "document_reused",
+        "shared": {
+          "document": "STC/BILL/65739"
+        },
+        "tags": [
+          "DOCUMENT_REUSED"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900104",
+          "CLM-900108"
+        ],
+        "scenario": "document_reused",
+        "shared": {
+          "document": "BNI/BILL/40605"
+        },
+        "tags": [
+          "DOCUMENT_REUSED"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900109",
+          "CLM-900114"
+        ],
+        "scenario": "document_reused",
+        "shared": {
+          "document": "BNI/BILL/61641"
+        },
+        "tags": [
+          "DOCUMENT_REUSED"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900048",
+          "CLM-900053"
+        ],
+        "scenario": "incident_claimed_twice",
+        "shared": {
+          "incident": "ADM-061165"
+        },
+        "tags": [
+          "INCIDENT_CLAIMED_TWICE"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900086",
+          "CLM-900089"
+        ],
+        "scenario": "incident_claimed_twice",
+        "shared": {
+          "incident": "ADM-024942"
+        },
+        "tags": [
+          "INCIDENT_CLAIMED_TWICE"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900043",
+          "CLM-900051"
+        ],
+        "scenario": "invoice_reused_across_policies",
+        "shared": {
+          "invoice": "INV-77604"
+        },
+        "tags": [
+          "INVOICE_REUSED_ACROSS_POLICIES"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900072",
+          "CLM-900077"
+        ],
+        "scenario": "invoice_reused_across_policies",
+        "shared": {
+          "invoice": "INV-61381"
+        },
+        "tags": [
+          "INVOICE_REUSED_ACROSS_POLICIES"
+        ]
+      },
+      {
+        "claim_ids": [
+          "CLM-900082",
+          "CLM-900106"
+        ],
+        "scenario": "invoice_reused_across_policies",
+        "shared": {
+          "invoice": "INV-32418"
+        },
+        "tags": [
+          "INVOICE_REUSED_ACROSS_POLICIES"
+        ]
+      }
+    ],
+    "showcase": {
+      "claim_id": "CLM-900116",
+      "expected_corrections": [
+        {
+          "amount": "2500.00",
+          "line_id": "LN-9000792",
+          "type": "ADJUST_TO_DOCUMENT"
+        },
+        {
+          "amount": "1200.00",
+          "line_id": "LN-9000789",
+          "type": "REMOVE_UNSUPPORTED_LINE"
+        },
+        {
+          "amount": "12000.00",
+          "line_id": "LN-9000782",
+          "type": "REDUCE_ROOM_DAYS"
+        },
+        {
+          "amount": "3000.00",
+          "line_id": "LN-9000782",
+          "type": "CAP_AT_SUB_LIMIT"
+        },
+        {
+          "amount": "5000.00",
+          "line_id": null,
+          "type": "APPLY_DEDUCTIBLE"
+        },
+        {
+          "amount": "3359.40",
+          "line_id": null,
+          "type": "APPLY_COPAY"
+        }
+      ],
+      "recommended_payable": "30234.60",
+      "requested_amount": "57294.00"
+    }
+  },
   "legitimate_repeats": [
     {
-      "claim_id": "CLM-900019",
-      "line_id": "LN-9000118",
-      "matched_claim_id": "CLM-900017",
-      "matched_line_id": "LN-9000115",
+      "claim_id": "CLM-900052",
+      "line_id": "LN-9000326",
+      "matched_claim_id": "CLM-900047",
+      "matched_line_id": "LN-9000291",
       "service_code": "PHY-SES"
     },
     {
-      "claim_id": "CLM-900041",
-      "line_id": "LN-9000268",
-      "matched_claim_id": "CLM-900038",
-      "matched_line_id": "LN-9000257",
+      "claim_id": "CLM-900096",
+      "line_id": "LN-9000620",
+      "matched_claim_id": "CLM-900092",
+      "matched_line_id": "LN-9000608",
       "service_code": "PRC-DIAL"
     }
   ],

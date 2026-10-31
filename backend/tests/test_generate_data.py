@@ -84,14 +84,21 @@ def full() -> tuple[dict, dict]:
 
 
 def tree(directory: Path) -> dict[str, bytes]:
-    return {str(p.relative_to(directory)): p.read_bytes() for p in sorted(directory.rglob("*")) if p.is_file()}
+    """Every generated file by relative path; hidden files (e.g. macOS .DS_Store) are not generator output."""
+    return {
+        str(p.relative_to(directory)): p.read_bytes()
+        for p in sorted(directory.rglob("*"))
+        if p.is_file() and not p.name.startswith(".")
+    }
 
 
 def test_same_seed_produces_identical_files(small: Path, tmp_path: Path) -> None:
     generate(tmp_path / "again", seed=42, scale=SMALL)
     first, second = tree(small), tree(tmp_path / "again")
     assert sorted(first) == sorted(second)
-    assert len(first) == 16  # 5 csv + xlsx + json + key, for the full set and the demo pack
+    documents = json.loads((small / "demo" / "answer_key.json").read_text())["investigation"]["documents"]
+    # 5 csv + xlsx + json + key, for the full set and the demo pack, plus the demo pack's supporting documents
+    assert len(first) == 16 + len(documents)
     assert first == second
 
 
@@ -130,15 +137,16 @@ def test_checker_catches_a_wrong_answer_key_and_a_tampered_row(small: Path) -> N
 def test_full_scale_matches_the_plan(full: tuple[dict, dict]) -> None:
     rows, key = full
     assert verify(rows, key) == []
-    scenarios = Counter(f["scenario"] for f in key["findings"])
+    # The investigation scenarios (tests/test_investigation_data.py) add their own findings and claims on top.
+    scenarios = Counter(f["scenario"] for f in key["findings"] if f["scenario"] in PLAN_COUNTS)
     expected = {s: n for s, n in PLAN_COUNTS.items() if s != "legitimate_repeat"}
     assert dict(scenarios) == expected
     assert len(key["legitimate_repeats"]) == PLAN_COUNTS["legitimate_repeat"]
     accepted = key["accepted_counts"]
-    assert accepted["policies"] == 300
+    assert 300 <= accepted["policies"] <= 360
     claims = [r for r in rows["claims"] if r["status"] in ("open", "settled")]
     statuses = Counter(r["status"] for r in claims)
-    assert 1450 <= statuses["open"] <= 1650 and 1450 <= statuses["settled"] <= 1550
+    assert 1450 <= statuses["open"] <= 1750 and 1450 <= statuses["settled"] <= 1600
     assert 11000 <= accepted["line_items"] <= 14000
     total = sum(key["counts"].values())
     rejected = sum(1 for i in key["invalid_rows"] if i["severity"] == "error")
@@ -168,6 +176,10 @@ def test_finding_entries_have_the_contract_shape(full: tuple[dict, dict]) -> Non
         "duplicate_line_within_claim": ("DUPLICATE_LINE_ITEM", {None}),
         "duplicate_line_across_claims": ("DUPLICATE_LINE_ITEM", {None}),
         "near_duplicate": ("NEAR_DUPLICATE", {None}),
+        "invoice_reused_across_policies": ("DUPLICATE_LINE_ITEM", {None}),
+        "chain": ("DUPLICATE_LINE_ITEM", {None}),
+        "multi_issue_room_rent": ("SUB_LIMIT_EXCEEDED", {"C06"}),
+        "multi_issue_duplicate_line": ("DUPLICATE_LINE_ITEM", {None}),
     }
     for finding in key["findings"]:
         category, codes = checks[finding["scenario"]]
@@ -176,9 +188,15 @@ def test_finding_entries_have_the_contract_shape(full: tuple[dict, dict]) -> Non
         assert finding["amount_type"] == ("estimated" if finding["scenario"] == "near_duplicate" else "calculated")
         assert Decimal(finding["expected_amount"]) > 0
         assert re.fullmatch(r"\d+\.\d{2}", finding["expected_amount"])
-        if finding["scenario"] in ("exact_duplicate_claim", "near_duplicate", "duplicate_line_across_claims"):
+        across = (
+            "exact_duplicate_claim",
+            "near_duplicate",
+            "duplicate_line_across_claims",
+            "invoice_reused_across_policies",
+        )
+        if finding["scenario"] in (*across, "chain"):
             assert finding["matched_claim_id"] and finding["matched_claim_id"] != finding["claim_id"]
-        if finding["check_code"] in ("C04", "C05", "C06") or finding["scenario"].startswith("duplicate_line"):
+        if finding["check_code"] in ("C04", "C05", "C06") or finding["category"] == "DUPLICATE_LINE_ITEM":
             assert finding["line_id"]
         if finding["check_code"] in ("C05", "C06", "C07", "C08"):
             assert finding["policy_rule_id"]
@@ -268,8 +286,9 @@ def test_demo_pack_is_small_self_contained_and_covers_every_scenario(small: Path
     rows = read_csv_dir(demo / "csv")
     key = json.loads((demo / "answer_key.json").read_text())
     assert verify(rows, key) == []
-    assert 45 <= key["accepted_counts"]["claims"] <= 60
-    scenarios = Counter(f["scenario"] for f in key["findings"])
+    # About 55 base claims, plus about 65 for the cross-claim scenarios and the supporting documents.
+    assert 100 <= key["accepted_counts"]["claims"] <= 140
+    scenarios = Counter(f["scenario"] for f in key["findings"] if f["scenario"] in PLAN_COUNTS)
     assert set(scenarios) == set(PLAN_COUNTS) - {"legitimate_repeat"}
     assert min(scenarios.values()) >= 2
     assert len(key["legitimate_repeats"]) >= 2

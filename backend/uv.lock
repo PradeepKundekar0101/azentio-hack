@@ -123,6 +123,8 @@ dependencies = [
     { name = "boto3" },
     { name = "docling" },
     { name = "fastapi", extra = ["standard"] },
+    { name = "networkx" },
+    { name = "numpy" },
     { name = "openpyxl" },
     { name = "pillow" },
     { name = "psycopg", extra = ["binary", "pool"] },
@@ -131,6 +133,7 @@ dependencies = [
     { name = "pypdfium2" },
     { name = "rapidfuzz" },
     { name = "reportlab" },
+    { name = "scipy" },
     { name = "sqlalchemy", extra = ["asyncio"] },
     { name = "structlog" },
 ]
@@ -148,6 +151,8 @@ requires-dist = [
     { name = "boto3", specifier = ">=1.43.123" },
     { name = "docling", specifier = ">=2.145.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.162.0" },
+    { name = "networkx", specifier = ">=3.7" },
+    { name = "numpy", specifier = ">=2.5.4" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pillow", specifier = ">=13.0.0" },
     { name = "psycopg", extras = ["binary", "pool"], specifier = ">=3.3.6" },
@@ -156,6 +161,7 @@ requires-dist = [
     { name = "pypdfium2", specifier = ">=5.14.0" },
     { name = "rapidfuzz", specifier = ">=3.14.6" },
     { name = "reportlab", specifier = ">=5.1.0" },
+    { name = "scipy", specifier = ">=1.18.1" },
     { name = "sqlalchemy", extras = ["asyncio"], specifier = ">=2.1.6" },
     { name = "structlog", specifier = ">=26.1.0" },
 ]

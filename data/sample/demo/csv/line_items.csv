@@ -1,393 +1,819 @@
 Line ID,Claim ID,Invoice No,Provider ID,Hospital Name,Service Date,Service Code,Service Description,Category,Qty,Unit Price,Line Amount
-LN-9000001,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,OTH-REG,Registration and admission charges,other,1,820,₹820
-LN-9000002,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,ICU-STD,ICU bed (per day),icu,1,"₹7,800","7,800"
-LN-9000003,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,₹720
-LN-9000004,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,OTH-NURS,Nursing charges (per day),other,2,810,"1,620"
-LN-9000005,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,DX-LFT,Liver function test,diagnostics,1,670,670
-LN-9000006,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12-09-2025,DX-CBC,Complete blood count,diagnostics,1,₹360,360
-LN-9000007,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12/09/2025,DX-KFT,Kidney function test,diagnostics,1,₹680,₹680
-LN-9000008,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,PHA-IVFL,IV fluids,pharmacy,2,320,640
-LN-9000009,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12/09/2025,CS-SYR,Syringes and needles,consumables,5,39,₹195
-LN-9000010,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,13-09-2025,RM-GEN,General ward room (per day),room,1,"1,300","1,300"
-LN-9000011,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,720
-LN-9000012,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,13/09/2025,PHA-ABX,Antibiotics,pharmacy,1,₹390,390
-LN-9000013,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,CS-GLV,Surgical gloves,consumables,9,26.5,238.50
-LN-9000014,CLM-900001,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,13/09/2025,PRC-HERN,Inguinal hernia repair,procedure,1,70846.5,70846.5
-LN-9000015,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,25/09/2025,OTH-REG,Registration and admission charges,other,1,1200,"₹1,200"
-LN-9000016,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,ICU-STD,ICU bed (per day),icu,1,10800,10800
-LN-9000017,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,CON-VIS,Inpatient doctor visit (per day),consultation,1,910,910
-LN-9000018,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,25/09/2025,OTH-NURS,Nursing charges (per day),other,3,"₹1,150","3,450"
-LN-9000019,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,DX-ECG,Electrocardiogram,diagnostics,1,₹420,₹420
-LN-9000020,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,25/09/2025,PHA-IVFL,IV fluids,pharmacy,5,400,"₹2,000"
-LN-9900005,CLM-980002,CAH-970003,PRV-0027,Charak Ayur Hospital,2026-08-11,CON-GP,General physician consultation,consultation,1,₹620,620
-LN-9000021,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,25/09/2025,CS-SYR,Syringes and needles,consumables,8,55.5,444
-LN-9000022,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-26,RM-GEN,General ward room (per day),room,1,"1,800",1800
-LN-9000023,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-26,CON-VIS,Inpatient doctor visit (per day),consultation,1,910,910
-LN-9000024,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,26/09/2025,PHA-ABX,Antibiotics,pharmacy,3,530,"₹1,590"
-LN-9000025,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,26-09-2025,CS-GLV,Surgical gloves,consumables,8,37,296
-LN-9000026,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,26/09/2025,PRC-APPX,Laparoscopic appendectomy,procedure,1,320970,320970
-LN-9000027,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-27,RM-GEN,General ward room (per day),room,1,"1,800",1800
-LN-9000028,CLM-900002,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-27,CON-VIS,Inpatient doctor visit (per day),consultation,1,910,910
-LN-9000029,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,3/10/2025,OTH-REG,Registration and admission charges,other,1,980,980
-LN-9000030,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,03-10-2025,RM-PVT,Private room (per day),room,3,7000,21000
-LN-9000031,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,03-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,3,800,"2,400"
-LN-9000032,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,03/10/2025,OTH-NURS,Nursing charges (per day),other,3,840,2520
-LN-9000033,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,DX-ECG,Electrocardiogram,diagnostics,1,330,330
-LN-9000034,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,DX-KFT,Kidney function test,diagnostics,1,700,700
-LN-9000035,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,DX-LFT,Liver function test,diagnostics,1,780,₹780
-LN-9000036,CLM-900003,THC/BILL/59256,PRV-0035,Tulsi Health Centre,03-10-2025,PHA-IVFL,IV fluids,pharmacy,5,330,1650
-LN-9000037,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,03-10-2025,CS-SYR,Syringes and needles,consumables,13,₹46,598
-LN-9000038,CLM-900003,THC/BILL/59256,PRV-0035,Tulsi Health Centre,2025-10-04,PHA-ABX,Antibiotics,pharmacy,2,460,920
-LN-9000039,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-04,CS-GLV,Surgical gloves,consumables,8,₹28.50,₹228
-LN-9000040,CLM-900003,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-04,PRC-APPX,Laparoscopic appendectomy,procedure,1,64350,"64,350"
-LN-9000041,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,OTH-REG,Registration and admission charges,other,1,900,₹900
-LN-9000042,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10/10/2025,RM-GEN,General ward room (per day),room,1,1250,"1,250"
-LN-9000043,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
-LN-9000044,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,OTH-NURS,Nursing charges (per day),other,5,790,"3,950"
-LN-9000045,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,DX-KFT,Kidney function test,diagnostics,1,660,660
-LN-9000046,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,DX-ECG,Electrocardiogram,diagnostics,1,290,290
-LN-9000047,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,DX-CBC,Complete blood count,diagnostics,1,340,340
-LN-9000048,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,PHA-IVFL,IV fluids,pharmacy,4,300,1200
-LN-9000049,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,CS-SYR,Syringes and needles,consumables,14,38.50,₹539
-LN-9000050,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-11,RM-GEN,General ward room (per day),room,1,1250,1250
-LN-9000051,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,11-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,₹720
-LN-9000052,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,11/10/2025,PHA-ABX,Antibiotics,pharmacy,1,₹410,410
-LN-9000053,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-11,CS-GLV,Surgical gloves,consumables,5,25,125
-LN-9000054,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,12/10/2025,RM-GEN,General ward room (per day),room,1,"₹1,250","₹1,250"
-LN-9000055,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,12/10/2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
-LN-9000056,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,13-10-2025,RM-GEN,General ward room (per day),room,1,1250,"₹1,250"
-LN-9000057,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-13,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
-LN-9000058,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-14,RM-GEN,General ward room (per day),room,1,"1,250",1250
-LN-9000059,CLM-900004,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,14-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,720
-LN-9000060,CLM-900005,INV-64224,PRV-0006,Sushruta Surgical Centre,24-10-2025,CON-TELE,Teleconsultation,consultation,1,₹410,410
-LN-9000061,CLM-900006,INV-82833,PRV-0006,Sushruta Surgical Centre,04-11-2025,PHA-INS,Insulin,pharmacy,1,₹660,660
-LN-9000062,CLM-900006,INV-82833,PRV-0006,Sushruta Surgical Centre,2025-11-04,PHA-IVFL,IV fluids,pharmacy,2,350,700
-LN-9000063,CLM-900006,INV-82833,PRV-0006,Sushruta Surgical Centre,2025-11-04,PHA-CARD,Cardiac medication,pharmacy,4,360,"1,440"
-LN-9000064,CLM-900006,INV-82833,PRV-0006,Sushruta Surgical Centre,04/11/2025,PHA-ABX,Antibiotics,pharmacy,2,430,860
-LN-9000065,CLM-900007,INV/82833A,PRV-0006,Sushruta Surgical Centre,06/11/2025,PHA-INS,Insulin,pharmacy,1,697,697
-LN-9000066,CLM-900007,INV/82833A,PRV-0006,Sushruta Surgical Centre,2025-11-06,PHA-IVFL,IV fluids,pharmacy,2,₹350,700
-LN-9000067,CLM-900007,INV/82833A,PRV-0006,Sushruta Surgical Centre,06-11-2025,PHA-CARD,Cardiac medication,pharmacy,4,360,"₹1,440"
-LN-9000068,CLM-900007,INV/82833A,PRV-0006,Sushruta Surgical Centre,06/11/2025,PHA-ABX,Antibiotics,pharmacy,2,430,860
-LN-9000069,CLM-900008,INV-66791,PRV-0004,Shanti Kunj Nursing Home,02-12-2025,PHA-ABX,Antibiotics,pharmacy,1,480,₹480
-LN-9000070,CLM-900008,INV-66791,PRV-0004,Shanti Kunj Nursing Home,02/12/2025,PHA-OTC,Over-the-counter medicines,pharmacy,4,89,356
-LN-9000071,CLM-900008,INV-66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-INS,Insulin,pharmacy,4,680,"2,720"
-LN-9000072,CLM-900008,INV-66791,PRV-0004,Shanti Kunj Nursing Home,02/12/2025,PHA-IVFL,IV fluids,pharmacy,1,370,₹370
-LN-9000073,CLM-900009,INV 66791,PRV-0004,Shanti Kunj Nursing Home,02-12-2025,PHA-ABX,Antibiotics,pharmacy,1,480,₹480
-LN-9000074,CLM-900009,INV 66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-OTC,Over-the-counter medicines,pharmacy,4,89,356
-LN-9000075,CLM-900009,INV 66791,PRV-0004,Shanti Kunj Nursing Home,02/12/2025,PHA-INS,Insulin,pharmacy,4,680,2720
-LN-9000076,CLM-900009,INV 66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-IVFL,IV fluids,pharmacy,1,370,370
-LN-9000077,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,OTH-REG,Registration and admission charges,other,1,1100,1100
-LN-9000078,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,ICU-STD,ICU bed (per day),icu,1,9850,9850
-LN-9000079,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,₹890
-LN-9000080,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,12/01/2026,OTH-NURS,Nursing charges (per day),other,2,990,"₹1,980"
-LN-9000081,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,DX-LFT,Liver function test,diagnostics,1,840,840
-LN-9000082,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,DX-CBC,Complete blood count,diagnostics,1,₹410,410
-LN-9000083,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,DX-KFT,Kidney function test,diagnostics,1,780,₹780
-LN-9000084,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,PHA-IVFL,IV fluids,pharmacy,5,360,"₹1,800"
-LN-9000085,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,CS-SYR,Syringes and needles,consumables,14,46,644
-LN-9000086,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,13/01/2026,RM-GEN,General ward room (per day),room,1,"1,600","₹1,600"
-LN-9000087,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,13/01/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,890
-LN-9000088,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,13-01-2026,PHA-ABX,Antibiotics,pharmacy,3,460,1380
-LN-9000089,CLM-900010,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-13,CS-GLV,Surgical gloves,consumables,5,32.5,162.5
-LN-9000090,CLM-900011,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,CS-SYR,Syringes and needles,consumables,14,46,644
-LN-9000091,CLM-900011,IVH0074785,PRV-0032,Indus Valley Hospital,23-01-2026,CON-GP,General physician consultation,consultation,1,520,₹520
-LN-9000092,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,15/01/2026,PRC-CATA,Cataract surgery with lens implant,procedure,1,"43,150","₹43,150"
-LN-9000093,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,15-1-2026,CS-GLV,Surgical gloves,consumables,4,38,152
-LN-9000094,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,CS-SYR,Syringes and needles,consumables,7,57.50,402.5
-LN-9000095,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,PHA-ANLG,Analgesics,pharmacy,1,150,150
-LN-9000096,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,OTH-REG,Registration and admission charges,other,1,"1,150",1150
-LN-9000097,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,15/01/2026,DX-CBC,Complete blood count,diagnostics,1,480,480
-LN-9000098,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-01-2026,PRC-ENDO,Upper GI endoscopy,procedure,1,5800,5800
-LN-9000099,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,CS-GLV,Surgical gloves,consumables,3,30.5,91.5
-LN-9000100,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,CS-SYR,Syringes and needles,consumables,8,44,352
-LN-9000101,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-1-2026,PHA-ANLG,Analgesics,pharmacy,2,₹110,₹220
-LN-9000102,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,OTH-REG,Registration and admission charges,other,1,990,990
-LN-9000103,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-1-2026,DX-CBC,Complete blood count,diagnostics,1,400,400
-LN-9000104,CLM-900013,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-01-2026,PRC-COSM,Cosmetic rhinoplasty,procedure,1,83300,83300
-LN-9000105,CLM-900014,INV-00452,PRV-0003,Jeevan Rekha Medical Centre,2026-03-02,CON-SPL,Specialist consultation,consultation,1,₹860,860
-LN-9000106,CLM-900014,INV-00452,PRV-0003,Jeevan Rekha Medical Centre,02/03/2026,DX-CBC,Complete blood count,diagnostics,1,350,350
-LN-9000107,CLM-900015,INV452A,PRV-0003,Jeevan Rekha Medical Centre,2026-03-04,CON-SPL,Specialist consultation,consultation,1,878,878
-LN-9000108,CLM-900015,INV452A,PRV-0003,Jeevan Rekha Medical Centre,04/03/2026,DX-CBC,Complete blood count,diagnostics,1,₹350,₹350
-LN-9000109,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,2026-03-06,PRC-CATA,Cataract surgery with lens implant,procedure,1,"₹42,400",42400
-LN-9000110,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,CS-GLV,Surgical gloves,consumables,2,34,68
-LN-9000111,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,CS-SYR,Syringes and needles,consumables,8,₹56.50,452
-LN-9000112,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,PHA-ANLG,Analgesics,pharmacy,2,₹140,280
-LN-9000113,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,OTH-REG,Registration and admission charges,other,1,"₹1,200","₹1,200"
-LN-9000114,CLM-900016,HGH0092767,PRV-0021,Hillview General Hospital,6-3-2026,DX-CBC,Complete blood count,diagnostics,1,470,470
-LN-9000115,CLM-900017,MMC/BILL/77910,PRV-0029,Mitra Medical Centre,08/03/2026,PHY-SES,Physiotherapy session,physiotherapy,1,₹810,810
-LN-9000116,CLM-900018,INV-93551,PRV-0013,Navjeevan Hospital,11/03/2026,CON-GP,General physician consultation,consultation,1,420,420
-LN-9000117,CLM-900018,INV-93551,PRV-0013,Navjeevan Hospital,2026-03-11,PHY-SES,Physiotherapy session,physiotherapy,1,900,900
-LN-9000118,CLM-900019,MMC/BILL/71684,PRV-0029,Mitra Medical Centre,2026-03-15,PHY-SES,Physiotherapy session,physiotherapy,1,810,₹810
-LN-9000119,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,OTH-REG,Registration and admission charges,other,1,930,₹930
-LN-9000120,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,RM-GEN,General ward room (per day),room,1,1350,1350
-LN-9000121,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹700,700
-LN-9000122,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,OTH-NURS,Nursing charges (per day),other,2,790,"1,580"
-LN-9000123,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,13-03-2026,DX-XRAY,Chest X-ray,diagnostics,1,610,610
-LN-9000124,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,PHA-IVFL,IV fluids,pharmacy,6,₹310,1860
-LN-9000125,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,CS-SYR,Syringes and needles,consumables,13,41.5,₹539.50
-LN-9000126,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-14,RM-GEN,General ward room (per day),room,1,1350,1350
-LN-9000127,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-14,CON-VIS,Inpatient doctor visit (per day),consultation,1,700,700
-LN-9000128,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,14-03-2026,PHA-ABX,Antibiotics,pharmacy,2,410,820
-LN-9000129,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,14-03-2026,CS-GLV,Surgical gloves,consumables,5,₹26.50,132.5
-LN-9000130,CLM-900020,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-14,PRC-HERN,Inguinal hernia repair,procedure,1,51500,51500
-LN-9000131,CLM-900021,CAH-055003,PRV-0027,Charak Ayur Hospital,2026-03-24,DX-USG,Ultrasound abdomen,diagnostics,1,2250,2250
-LN-9000132,CLM-900021,CAH-055003,PRV-0027,Charak Ayur Hospital,24-03-2026,DX-CT,CT scan,diagnostics,1,5700,5700
-LN-9000133,CLM-900021,CAH-055003,PRV-0027,Charak Ayur Hospital,24/03/2026,DX-ECG,Electrocardiogram,diagnostics,1,₹450,₹450
-LN-9900010,CLM-960011,THC/BILL/34635,PRV-0035,Tulsi Health Centre,2026-04-20,CON-GP,General physician consultation,consultation,1,490,₹490
-LN-9000134,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-11,PHY-SES,Physiotherapy session,physiotherapy,1,1150,"₹1,150"
-LN-9000135,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-15,PHY-SES,Physiotherapy session,physiotherapy,1,1150,1150
-LN-9000136,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-19,PHY-SES,Physiotherapy session,physiotherapy,1,"1,150","1,150"
-LN-9000137,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,23-03-2026,PHY-SES,Physiotherapy session,physiotherapy,1,1150,1150
-LN-9000138,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-27,PHY-SES,Physiotherapy session,physiotherapy,1,"1,150","₹1,150"
-LN-9000139,CLM-900022,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,30-03-2026,PHY-SES,Physiotherapy session,physiotherapy,1,1150,"1,150"
-LN-9000140,CLM-900023,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-02,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
-LN-9000141,CLM-900023,NH0066480,PRV-0033,Neelkanth Hospital,5/4/2026,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
-LN-9000142,CLM-900023,NH0066480,PRV-0033,Neelkanth Hospital,08/04/2026,PHY-SES,Physiotherapy session,physiotherapy,1,₹990,₹990
-LN-9000143,CLM-900023,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-12,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
-LN-9000144,CLM-900023,NH0066480,PRV-0033,Neelkanth Hospital,15/04/2026,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
-LN-9000145,CLM-900024,THC/BILL/34635,PRV-0035,Tulsi Health Centre,2026-04-20,PHA-INS,Insulin,pharmacy,4,660,"2,640"
-LN-9900013,CLM-900012,CAH-084888,PRV-0027,Charak Ayur Hospital,15-01-2026,OTH-SPA,Wellness spa package,other,1,610,610
-LN-9000146,CLM-900024,THC/BILL/34635,PRV-0035,Tulsi Health Centre,20-04-2026,PHA-IVFL,IV fluids,pharmacy,3,330,990
-LN-9000147,CLM-900024,THC/BILL/34635,PRV-0035,Tulsi Health Centre,2026-04-20,PHA-OTC,Over-the-counter medicines,pharmacy,1,₹85.50,85.5
-LN-9000148,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,16-04-2026,PHY-SES,Physiotherapy session,physiotherapy,1,2600,2600
-LN-9000149,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,19-04-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600",2600
-LN-9000150,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,23-04-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600","2,600"
-LN-9000151,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,2026-04-27,PHY-SES,Physiotherapy session,physiotherapy,1,2600,"₹2,600"
-LN-9000152,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,30-04-2026,PHY-SES,Physiotherapy session,physiotherapy,1,2600,"₹2,600"
-LN-9000153,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,03/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,600",2600
-LN-9000154,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,06-05-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,600","2,600"
-LN-9000155,CLM-900025,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,09/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600","₹2,600"
-LN-9000156,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,21/05/2026,OTH-REG,Registration and admission charges,other,1,1050,1050
-LN-9000157,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,RM-GEN,General ward room (per day),room,6,"₹1,650","9,900"
-LN-9000158,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,CON-VIS,Inpatient doctor visit (per day),consultation,6,830,"₹4,980"
-LN-9000159,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,OTH-NURS,Nursing charges (per day),other,6,950,"₹5,700"
-LN-9000160,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,DX-ECG,Electrocardiogram,diagnostics,1,380,₹380
-LN-9000161,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,21/05/2026,PHA-IVFL,IV fluids,pharmacy,2,370,740
-LN-9000162,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,CS-SYR,Syringes and needles,consumables,11,49.5,₹544.50
-LN-9000163,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-22,PHA-ABX,Antibiotics,pharmacy,1,₹470,470
-LN-9000164,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,22-05-2026,CS-GLV,Surgical gloves,consumables,10,33,330
-LN-9000165,CLM-900026,IVH0072766,PRV-0032,Indus Valley Hospital,22/05/2026,PRC-APPX,Laparoscopic appendectomy,procedure,1,"₹1,09,030.50",109030.5
-LN-9000166,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,04/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,2400,2400
-LN-9000167,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,07/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,2400,2400
-LN-9000168,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,10-05-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400","₹2,400"
-LN-9000169,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-14,PHY-SES,Physiotherapy session,physiotherapy,1,"2,400",2400
-LN-9000170,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-17,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400","₹2,400"
-LN-9000171,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-20,PHY-SES,Physiotherapy session,physiotherapy,1,2400,2400
-LN-9000172,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,24-5-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,400","₹2,400"
-LN-9000173,CLM-900027,NH0014503,PRV-0033,Neelkanth Hospital,28/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,400","2,400"
-LN-9000174,CLM-900028,INV-20828,PRV-0008,Nirmal Seva Hospital,25/05/2026,PHA-IVFL,IV fluids,pharmacy,3,₹310,930
-LN-9000175,CLM-900028,INV-20828,PRV-0008,Nirmal Seva Hospital,2026-05-25,PHA-OTC,Over-the-counter medicines,pharmacy,3,₹86,₹258
-LN-9000176,CLM-900028,INV-20828,PRV-0008,Nirmal Seva Hospital,2026-05-25,PHA-CARD,Cardiac medication,pharmacy,3,360,"₹1,080"
-LN-9000177,CLM-900028,INV-20828,PRV-0008,Nirmal Seva Hospital,25-05-2026,PHA-ABX,Antibiotics,pharmacy,4,₹390,1560
-LN-9900009,CLM-980006,AH-970007,PRV-0028,Ashirwad Hospital,2026-08-13,PHA-ANLG,Analgesics,pharmacy,1,₹120,120
-LN-9000178,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,OTH-REG,Registration and admission charges,other,1,880,880
-LN-9000179,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,RM-PVT,Private room (per day),room,1,"₹3,800","3,800"
-LN-9000180,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04/06/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,750
-LN-9000181,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,OTH-NURS,Nursing charges (per day),other,3,780,"₹2,340"
-LN-9000182,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-KFT,Kidney function test,diagnostics,1,₹660,660
-LN-9000183,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04-06-2026,DX-XRAY,Chest X-ray,diagnostics,1,₹670,₹670
-LN-9000184,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04/06/2026,DX-ECG,Electrocardiogram,diagnostics,1,310,310
-LN-9000185,CLM-900029,MMC-071201,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,PHA-IVFL,IV fluids,pharmacy,5,₹310,"1,550"
-LN-9000186,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,CS-SYR,Syringes and needles,consumables,6,41.5,249
-LN-9000187,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-05,RM-PVT,Private room (per day),room,1,"₹3,800","₹3,800"
-LN-9000188,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,05-06-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,₹750
-LN-9000189,CLM-900029,MMC-071201,PRV-0040,Meghdoot Medical College Hospital,2026-06-05,PHA-ABX,Antibiotics,pharmacy,1,430,₹430
-LN-9000190,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,05-06-2026,CS-GLV,Surgical gloves,consumables,9,26,₹234
-LN-9000191,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,05-06-2026,PRC-APPX,Laparoscopic appendectomy,procedure,1,"57,950","57,950"
-LN-9000192,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,06/06/2026,RM-PVT,Private room (per day),room,1,"3,800",3800
-LN-9000193,CLM-900029,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,06/06/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,₹750
-LN-9000194,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,OTH-REG,Registration and admission charges,other,1,880,880
-LN-9000195,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,RM-PVT,Private room (per day),room,4,"₹3,300","₹13,200"
-LN-9000196,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,CON-VIS,Inpatient doctor visit (per day),consultation,4,670,"₹2,680"
-LN-9000197,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-11,OTH-NURS,Nursing charges (per day),other,4,810,"₹3,240"
-LN-9000198,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11-06-2026,DX-CBC,Complete blood count,diagnostics,1,₹330,330
-LN-9000199,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-11,DX-USG,Ultrasound abdomen,diagnostics,1,1550,"₹1,550"
-LN-9000200,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,PHA-IVFL,IV fluids,pharmacy,5,300,1500
-LN-9000201,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,CS-SYR,Syringes and needles,consumables,7,₹37,259
-LN-9000202,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,12-06-2026,PHA-ABX,Antibiotics,pharmacy,1,380,₹380
-LN-9000203,CLM-900030,INV-52528,PRV-0013,Navjeevan Hospital,12-06-2026,CS-GLV,Surgical gloves,consumables,4,26.5,106
-LN-9000204,CLM-900031,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-XRAY,Chest X-ray,diagnostics,1,670,670
-LN-9000205,CLM-900031,MMC-068186,PRV-0040,Meghdoot Medical College Hospital,19-06-2026,CON-SPL,Specialist consultation,consultation,1,900,₹900
-LN-9000206,CLM-900032,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,PHA-ANLG,Analgesics,pharmacy,5,120,₹600
-LN-9000207,CLM-900032,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,PHA-OTC,Over-the-counter medicines,pharmacy,3,₹92,276
-LN-9000208,CLM-900032,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,PHA-CARD,Cardiac medication,pharmacy,3,370,1110
-LN-9000209,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,20/06/2026,OTH-REG,Registration and admission charges,other,1,1050,"₹1,050"
-LN-9000210,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,20-06-2026,RM-PVT,Private room (per day),room,1,4250,4250
-LN-9000211,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
-LN-9000212,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,OTH-NURS,Nursing charges (per day),other,4,950,"₹3,800"
-LN-9000213,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,DX-USG,Ultrasound abdomen,diagnostics,1,1800,1800
-LN-9000214,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,PHA-IVFL,IV fluids,pharmacy,3,360,"1,080"
-LN-9000215,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,20-06-2026,CS-SYR,Syringes and needles,consumables,6,45,270
-LN-9000216,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,CS-SYR,Syringes and needles,consumables,6,45,270
-LN-9000217,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,21-06-2026,RM-PVT,Private room (per day),room,1,4250,4250
-LN-9000218,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-21,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
-LN-9000219,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-21,PHA-ABX,Antibiotics,pharmacy,1,480,₹480
-LN-9000220,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,21-06-2026,CS-GLV,Surgical gloves,consumables,6,32,₹192
-LN-9000221,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-22,RM-PVT,Private room (per day),room,1,4250,"₹4,250"
-LN-9000222,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-22,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
-LN-9000223,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-23,RM-PVT,Private room (per day),room,1,"₹4,250",4250
-LN-9000224,CLM-900033,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-23,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
-LN-9000225,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,03-07-2026,OTH-REG,Registration and admission charges,other,1,"1,000",1000
-LN-9000226,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,RM-GEN,General ward room (per day),room,1,"1,500","₹1,500"
-LN-9000227,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
-LN-9000228,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,3/7/2026,OTH-NURS,Nursing charges (per day),other,4,860,3440
-LN-9000229,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,03/07/2026,DX-ECG,Electrocardiogram,diagnostics,1,₹360,360
-LN-9000230,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,03-07-2026,DX-USG,Ultrasound abdomen,diagnostics,1,1700,1700
-LN-9000231,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,DX-XRAY,Chest X-ray,diagnostics,1,660,660
-LN-9000232,CLM-900034,INV-39260,PRV-0006,Sushruta Surgical Centre,2026-07-03,PHA-IVFL,IV fluids,pharmacy,4,350,1400
-LN-9000233,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,CS-SYR,Syringes and needles,consumables,14,46,644
-LN-9000234,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,04/07/2026,RM-GEN,General ward room (per day),room,1,1500,"1,500"
-LN-9000235,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,04/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
-LN-9000236,CLM-900034,INV-39260,PRV-0006,Sushruta Surgical Centre,2026-07-04,PHA-ABX,Antibiotics,pharmacy,2,440,880
-LN-9000237,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,04/07/2026,CS-GLV,Surgical gloves,consumables,10,28.5,285
-LN-9000238,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,04-07-2026,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,"2,43,511","₹2,43,511"
-LN-9000239,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-05,RM-GEN,General ward room (per day),room,1,"1,500","1,500"
-LN-9000240,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-05,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
-LN-9000241,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,06/07/2026,RM-GEN,General ward room (per day),room,1,1500,"₹1,500"
-LN-9000242,CLM-900034,INV-54602,PRV-0006,Sushruta Surgical Centre,06-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
-LN-9000243,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,6/7/2026,OTH-REG,Registration and admission charges,other,1,840,840
-LN-9000244,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,RM-PVT,Private room (per day),room,5,3550,17750
-LN-9000245,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,CON-VIS,Inpatient doctor visit (per day),consultation,5,680,"3,400"
-LN-9000246,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,OTH-NURS,Nursing charges (per day),other,5,750,3750
-LN-9000247,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06/07/2026,DX-ECG,Electrocardiogram,diagnostics,1,310,₹310
-LN-9000248,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06-07-2026,DX-KFT,Kidney function test,diagnostics,1,640,640
-LN-9000249,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06/07/2026,PHA-IVFL,IV fluids,pharmacy,6,300,1800
-LN-9900012,CLM-900028,INV-20828,PRV-0008,Nirmal Seva Hospital,2026-05-25,CS-DRS,Dressing material,consumables,1,220,270
-LN-9000250,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06-07-2026,CS-SYR,Syringes and needles,consumables,11,36.5,401.5
-LN-9000251,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,07-07-2026,PHA-ABX,Antibiotics,pharmacy,3,₹370,"1,110"
-LN-9000252,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-07,CS-GLV,Surgical gloves,consumables,9,26,₹234
-LN-9000253,CLM-900035,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PRC-CSEC,Caesarean section,procedure,1,"53,050","53,050"
-LN-9000254,CLM-900036,ADH-082784,PRV-0020,Amrit Dhara Hospital,2026-07-01,CON-TELE,Teleconsultation,consultation,1,340,₹340
-LN-9000255,CLM-900037,SHR-079529,PRV-0010,Sahyog Hospital and Research Centre,2026-07-25,DX-USG,Ultrasound abdomen,diagnostics,1,"1,700",1700
-LN-9000256,CLM-900037,SHR-079529,PRV-0010,Sahyog Hospital and Research Centre,2026-07-25,DX-CT,CT scan,diagnostics,1,4200,4200
-LN-9000257,CLM-900038,STC/BILL/37050,PRV-0031,Sarathi Trauma Centre,2026-07-28,PRC-DIAL,Haemodialysis session,procedure,1,"₹3,250",3250
-LN-9000258,CLM-900039,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,22-07-2026,PRC-CATA,Cataract surgery with lens implant,procedure,1,"₹40,950","40,950"
-LN-9000259,CLM-900039,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,CS-GLV,Surgical gloves,consumables,3,33.5,100.50
-LN-9000260,CLM-900039,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,CS-SYR,Syringes and needles,consumables,5,52.5,262.5
-LN-9000261,CLM-900039,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,22-07-2026,PHA-ANLG,Analgesics,pharmacy,2,130,260
-LN-9000262,CLM-900039,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,OTH-REG,Registration and admission charges,other,1,"₹1,150",1150
-LN-9000263,CLM-900040,NH0073043,PRV-0033,Neelkanth Hospital,2026-07-26,CON-TELE,Teleconsultation,consultation,1,390,390
-LN-9000264,CLM-900040,NH0073043,PRV-0033,Neelkanth Hospital,26/07/2026,PHA-ABX,Antibiotics,pharmacy,1,480,480
-LN-9000265,CLM-900040,NH0073043,PRV-0033,Neelkanth Hospital,26/07/2026,PHA-CARD,Cardiac medication,pharmacy,1,370,370
-LN-9000266,CLM-900040,NH0073043,PRV-0033,Neelkanth Hospital,26/07/2026,PHA-CARD,Cardiac medication,pharmacy,1,370,370
-LN-9000267,CLM-900040,NH0073043,PRV-0033,Neelkanth Hospital,2026-07-26,DX-CBC,Complete blood count,diagnostics,1,400,400
-LN-9000268,CLM-900041,STC/BILL/26063,PRV-0031,Sarathi Trauma Centre,30/07/2026,PRC-DIAL,Haemodialysis session,procedure,1,"3,250",3250
-LN-9000269,CLM-900042,INV-78398,PRV-0004,Shanti Kunj Nursing Home,2026-07-23,CON-SPL,Specialist consultation,consultation,1,"₹1,050","1,050"
-LN-9900004,CLM-980002,CAH-970003,PRV-0027,Charak Ayur Hospital,2026-08-11,PHA-ANLG,Analgesics,pharmacy,1,₹140,140
-LN-9000270,CLM-900042,INV-78398,PRV-0004,Shanti Kunj Nursing Home,2026-07-23,PHA-OTC,Over-the-counter medicines,pharmacy,3,₹92.50,277.5
-LN-9000271,CLM-900042,INV-78398,PRV-0004,Shanti Kunj Nursing Home,23-07-2026,PHA-INS,Insulin,pharmacy,3,660,1980
-LN-9000272,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,OTH-REG,Registration and admission charges,other,1,1200,1200
-LN-9000273,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,RM-GEN,General ward room (per day),room,1,1750,"₹1,750"
-LN-9000274,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-30,CON-VIS,Inpatient doctor visit (per day),consultation,1,"₹1,000",1000
-LN-9000275,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-30,OTH-NURS,Nursing charges (per day),other,5,"₹1,050","₹5,250"
-LN-9000276,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,30/07/2026,DX-LFT,Liver function test,diagnostics,1,"₹1,000",1000
-LN-9000277,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,DX-ECG,Electrocardiogram,diagnostics,1,420,₹420
-LN-9000278,CLM-900043,CAH-072277,PRV-0027,Charak Ayur Hospital,30-07-2026,PHA-IVFL,IV fluids,pharmacy,2,₹410,820
-LN-9000279,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-30,CS-SYR,Syringes and needles,consumables,15,54.5,817.50
-LN-9000280,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-31,RM-GEN,General ward room (per day),room,1,1750,"₹1,750"
-LN-9000281,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,31-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,"₹1,000"
-LN-9000282,CLM-900043,CAH-072277,PRV-0027,Charak Ayur Hospital,2026-07-31,PHA-ABX,Antibiotics,pharmacy,1,550,₹550
-LN-9000283,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,31-07-2026,CS-GLV,Surgical gloves,consumables,4,38.5,154
-LN-9000284,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-31,PRC-APPX,Laparoscopic appendectomy,procedure,1,65150.5,65150.5
-LN-9000285,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,01/08/2026,RM-GEN,General ward room (per day),room,1,"1,750","1,750"
-LN-9000286,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,1/8/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,"1,000"
-LN-9000287,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,02-08-2026,RM-GEN,General ward room (per day),room,1,"1,750",1750
-LN-9000288,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-08-02,CON-VIS,Inpatient doctor visit (per day),consultation,1,"₹1,000",1000
-LN-9000289,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,03-08-2026,RM-GEN,General ward room (per day),room,1,"₹1,750",1750
-LN-9000290,CLM-900043,CAH-056563,PRV-0027,Charak Ayur Hospital,03-08-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,1000
-LN-9000291,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,6-7-2026,OTH-REG,Registration and admission charges,other,1,840,₹840
-LN-9000292,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,RM-PVT,Private room (per day),room,5,"₹3,550","17,750"
-LN-9000293,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,CON-VIS,Inpatient doctor visit (per day),consultation,5,680,"₹3,400"
-LN-9000294,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,OTH-NURS,Nursing charges (per day),other,5,750,3750
-LN-9000295,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,DX-ECG,Electrocardiogram,diagnostics,1,310,310
-LN-9000296,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,06/07/2026,DX-KFT,Kidney function test,diagnostics,1,₹640,₹640
-LN-9000297,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,PHA-IVFL,IV fluids,pharmacy,6,300,"₹1,800"
-LN-9000298,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,CS-SYR,Syringes and needles,consumables,11,36.50,401.5
-LN-9000299,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,07/07/2026,PHA-ABX,Antibiotics,pharmacy,3,370,1110
-LN-9000300,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-07,CS-GLV,Surgical gloves,consumables,9,26,234
-LN-9000301,CLM-900044,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PRC-CSEC,Caesarean section,procedure,1,"53,050",53050
-LN-9000302,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31-07-2026,OTH-REG,Registration and admission charges,other,1,1000,1000
-LN-9000303,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31-07-2026,RM-GEN,General ward room (per day),room,1,1500,"1,500"
-LN-9000304,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,750
-LN-9000305,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,OTH-NURS,Nursing charges (per day),other,2,840,1680
-LN-9000306,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,800",1800
-LN-9000307,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,DX-LFT,Liver function test,diagnostics,1,820,820
-LN-9900008,CLM-980006,AH-970007,PRV-0028,Ashirwad Hospital,2026-08-13,DX-CBC,Complete blood count,diagnostics,1,₹400,400
-LN-9000308,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,PHA-IVFL,IV fluids,pharmacy,4,330,"1,320"
-LN-9000309,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,CS-SYR,Syringes and needles,consumables,13,44.5,578.5
-LN-9000310,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-08-01,RM-GEN,General ward room (per day),room,1,1500,1500
-LN-9000311,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,01/08/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,₹750
-LN-9000312,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-08-01,PHA-ABX,Antibiotics,pharmacy,2,₹460,920
-LN-9000313,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,01-08-2026,CS-GLV,Surgical gloves,consumables,10,29,₹290
-LN-9000314,CLM-900045,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-08-01,PRC-HERN,Inguinal hernia repair,procedure,1,"₹51,750",51750
-LN-9000315,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,OTH-REG,Registration and admission charges,other,1,1250,"₹1,250"
-LN-9000316,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,ICU-STD,ICU bed (per day),icu,1,"10,700","₹10,700"
-LN-9000317,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,CON-VIS,Inpatient doctor visit (per day),consultation,3,930,"2,790"
-LN-9000318,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,OTH-NURS,Nursing charges (per day),other,3,"1,100",3300
-LN-9000319,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,17-08-2026,DX-CBC,Complete blood count,diagnostics,1,480,480
-LN-9000320,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,17/8/2026,PHA-IVFL,IV fluids,pharmacy,5,400,2000
-LN-9000321,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,17-08-2026,CS-SYR,Syringes and needles,consumables,14,54,756
-LN-9000322,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,18-08-2026,RM-GEN,General ward room (per day),room,2,"1,800",3600
-LN-9000323,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,18/08/2026,PHA-ABX,Antibiotics,pharmacy,2,540,1080
-LN-9000324,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,18/08/2026,CS-GLV,Surgical gloves,consumables,7,34,238
-LN-9000325,CLM-900046,RMI-059349,PRV-0009,Riverbend Medical Institute,18/08/2026,PRC-CSEC,Caesarean section,procedure,1,"₹69,250",69250
-LN-9000326,CLM-900047,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,27/08/2026,PHA-ANLG,Analgesics,pharmacy,2,140,280
-LN-9000327,CLM-900047,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,2026-08-27,PHA-OTC,Over-the-counter medicines,pharmacy,1,98.50,98.5
-LN-9000328,CLM-900047,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,27/08/2026,PHA-ABX,Antibiotics,pharmacy,2,490,980
-LN-9000329,CLM-900047,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,27/08/2026,PHA-IVFL,IV fluids,pharmacy,5,₹380,1900
-LN-9000330,CLM-900048,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-MRI,MRI scan,diagnostics,1,"7,620",7620
-LN-9000331,CLM-900048,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-LFT,Liver function test,diagnostics,1,740,740
-LN-9000332,CLM-900048,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-KFT,Kidney function test,diagnostics,1,690,690
-LN-9000333,CLM-900048,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-ECHO,2D echocardiography,diagnostics,1,"₹2,200","₹2,200"
-LN-9000334,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,26/08/2026,OTH-REG,Registration and admission charges,other,1,860,₹860
-LN-9000335,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,26-08-2026,ICU-STD,ICU bed (per day),icu,1,7500,"₹7,500"
-LN-9000336,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,26/08/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,₹680
-LN-9000337,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,26/08/2026,OTH-NURS,Nursing charges (per day),other,6,750,"₹4,500"
-LN-9000338,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,DX-ECG,Electrocardiogram,diagnostics,1,300,300
-LN-9000339,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,DX-USG,Ultrasound abdomen,diagnostics,1,1650,"1,650"
-LN-9000340,CLM-900049,ADH-051270,PRV-0020,Amrit Dhara Hospital,26-08-2026,PHA-IVFL,IV fluids,pharmacy,6,300,1800
-LN-9000341,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,26/08/2026,CS-SYR,Syringes and needles,consumables,11,₹40,440
-LN-9000342,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-27,RM-GEN,General ward room (per day),room,1,1250,1250
-LN-9000343,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-27,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
-LN-9000344,CLM-900049,ADH-051270,PRV-0020,Amrit Dhara Hospital,27-8-2026,PHA-ABX,Antibiotics,pharmacy,3,390,"1,170"
-LN-9000345,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-27,CS-GLV,Surgical gloves,consumables,7,27,189
-LN-9000346,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-28,RM-GEN,General ward room (per day),room,1,1250,1250
-LN-9000347,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,28/08/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
-LN-9000348,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-29,RM-GEN,General ward room (per day),room,1,"₹1,250","₹1,250"
-LN-9000349,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,29-08-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,₹680
-LN-9000350,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-30,RM-GEN,General ward room (per day),room,1,1250,1250
-LN-9000351,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-30,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,₹680
-LN-9000352,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-31,RM-GEN,General ward room (per day),room,1,1250,1250
-LN-9000353,CLM-900049,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-31,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
-LN-9000354,CLM-900050,LPH0084742,PRV-0005,Lotus Petal Hospital,2026-09-16,PHA-IVFL,IV fluids,pharmacy,5,₹330,"₹1,650"
-LN-9000355,CLM-900050,LPH0084742,PRV-0005,Lotus Petal Hospital,2026-09-16,PHA-INS,Insulin,pharmacy,3,680,"₹2,040"
-LN-9000356,CLM-900050,LPH0084742,PRV-0005,Lotus Petal Hospital,16-09-2026,PHA-CARD,Cardiac medication,pharmacy,4,₹400,1600
-LN-9000357,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,OTH-REG,Registration and admission charges,other,1,"1,050","₹1,050"
-LN-9000358,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,RM-PVT,Private room (per day),room,4,3500,"₹14,000"
-LN-9000359,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,27-09-2026,CON-VIS,Inpatient doctor visit (per day),consultation,4,860,"3,440"
-LN-9000360,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,OTH-NURS,Nursing charges (per day),other,4,"1,000",4000
-LN-9000361,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,DX-LFT,Liver function test,diagnostics,1,830,830
-LN-9000362,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,DX-KFT,Kidney function test,diagnostics,1,820,820
-LN-9000363,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,PHA-IVFL,IV fluids,pharmacy,2,370,740
-LN-9000364,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,27-09-2026,CS-SYR,Syringes and needles,consumables,13,47,611
-LN-9000365,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,28-09-2026,PHA-ABX,Antibiotics,pharmacy,1,₹500,500
-LN-9000366,CLM-900051,INV-57779,PRV-0039,Saptagiri Hospital,28/09/2026,CS-GLV,Surgical gloves,consumables,10,34,340
-LN-9000367,CLM-900052,INV-98622,PRV-0018,Prakriti Multispeciality Hospital,2026-10-17,CON-GP,General physician consultation,consultation,1,₹610,610
-LN-9000368,CLM-900052,INV-01410,PRV-0018,Prakriti Multispeciality Hospital,2026-10-17,PHA-CARD,Cardiac medication,pharmacy,2,₹470,940
-LN-9000369,CLM-900052,INV-01410,PRV-0018,Prakriti Multispeciality Hospital,17/10/2026,PHA-ANLG,Analgesics,pharmacy,2,140,280
-LN-9000370,CLM-900052,INV-98622,PRV-0018,Prakriti Multispeciality Hospital,17-10-2026,PHA-VIT,Vitamins and supplements,pharmacy,1,₹670,670
-LN-9000371,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,18/10/2026,OTH-REG,Registration and admission charges,other,1,₹950,₹950
-LN-9000372,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,RM-GEN,General ward room (per day),room,4,"1,450",5800
-LN-9000373,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,CON-VIS,Inpatient doctor visit (per day),consultation,4,790,"₹3,160"
-LN-9000374,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,OTH-NURS,Nursing charges (per day),other,4,₹860,"3,440"
-LN-9000375,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,18/10/2026,DX-ECG,Electrocardiogram,diagnostics,1,₹330,330
-LN-9000376,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,DX-XRAY,Chest X-ray,diagnostics,1,690,690
-LN-9000377,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,DX-CBC,Complete blood count,diagnostics,1,380,380
-LN-9000378,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,PHA-IVFL,IV fluids,pharmacy,4,340,"1,360"
-LN-9000379,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,18-10-2026,CS-SYR,Syringes and needles,consumables,11,₹43.50,478.5
-LN-9000380,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-19,PHA-ABX,Antibiotics,pharmacy,2,440,880
-LN-9000381,CLM-900053,INV-44904,PRV-0006,Sushruta Surgical Centre,19/10/2026,CS-GLV,Surgical gloves,consumables,8,31,248
-LN-9000382,CLM-900054,ADH-042873,PRV-0020,Amrit Dhara Hospital,26-10-2026,DX-MRI,MRI scan,diagnostics,1,12920,12920
-LN-9000383,CLM-900054,ADH-042873,PRV-0020,Amrit Dhara Hospital,2026-10-26,DX-TMT,Treadmill test,diagnostics,1,"₹1,900",1900
-LN-9000384,CLM-900054,ADH-042873,PRV-0020,Amrit Dhara Hospital,2026-10-26,DX-CBC,Complete blood count,diagnostics,1,330,330
-LN-9000385,CLM-900054,ADH-042873,PRV-0020,Amrit Dhara Hospital,26-10-2026,DX-CT,CT scan,diagnostics,1,3850,3850
+LN-9000001,CLM-900001,SC/BILL/91233,PRV-0017,Swasthya Clinic,2025-08-20,CON-EMR,Emergency consultation,consultation,1,1150,"1,150"
+LN-9000002,CLM-900001,SC/BILL/91233,PRV-0017,Swasthya Clinic,2025-08-20,PHA-INS,Insulin,pharmacy,1,630,₹630
+LN-9000003,CLM-900001,SC/BILL/91233,PRV-0017,Swasthya Clinic,2025-08-20,DX-CBC,Complete blood count,diagnostics,1,400,400
+LN-9000004,CLM-900002,INV-41595,PRV-0028,Ashirwad Hospital,2025-08-14,PHA-IVFL,IV fluids,pharmacy,2,340,680
+LN-9000005,CLM-900003,SC/BILL/24619,PRV-0017,Swasthya Clinic,09/09/2025,PHA-INS,Insulin,pharmacy,4,670,"2,680"
+LN-9000006,CLM-900003,SC/BILL/24619,PRV-0017,Swasthya Clinic,2025-09-09,PHA-ANLG,Analgesics,pharmacy,4,120,480
+LN-9000007,CLM-900003,SC/BILL/24619,PRV-0017,Swasthya Clinic,2025-09-09,PHA-OTC,Over-the-counter medicines,pharmacy,1,93.5,93.5
+LN-9000008,CLM-900003,SC/BILL/24619,PRV-0017,Swasthya Clinic,09/09/2025,PHA-IVFL,IV fluids,pharmacy,5,330,"₹1,650"
+LN-9000009,CLM-900004,INV-09245,PRV-0028,Ashirwad Hospital,2025-09-03,PHA-ABX,Antibiotics,pharmacy,2,470,₹940
+LN-9000010,CLM-900005,SC/BILL/23514,PRV-0017,Swasthya Clinic,2025-09-10,PHA-OTC,Over-the-counter medicines,pharmacy,1,91,₹91
+LN-9000011,CLM-900005,SC/BILL/23514,PRV-0017,Swasthya Clinic,2025-09-10,PHA-CARD,Cardiac medication,pharmacy,5,360,"₹1,800"
+LN-9000012,CLM-900005,SC/BILL/23514,PRV-0017,Swasthya Clinic,2025-09-10,PHA-ABX,Antibiotics,pharmacy,5,440,2200
+LN-9000013,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12/09/2025,OTH-REG,Registration and admission charges,other,1,820,₹820
+LN-9000014,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12-09-2025,ICU-STD,ICU bed (per day),icu,1,7800,"₹7,800"
+LN-9000015,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
+LN-9000016,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,OTH-NURS,Nursing charges (per day),other,2,₹810,1620
+LN-9000017,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12-09-2025,DX-LFT,Liver function test,diagnostics,1,670,₹670
+LN-9000018,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,DX-CBC,Complete blood count,diagnostics,1,360,360
+LN-9000019,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-12,DX-KFT,Kidney function test,diagnostics,1,680,₹680
+LN-9000020,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12-09-2025,PHA-IVFL,IV fluids,pharmacy,2,320,₹640
+LN-9000021,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,12-09-2025,CS-SYR,Syringes and needles,consumables,5,₹39,195
+LN-9000022,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,RM-GEN,General ward room (per day),room,1,"1,300","1,300"
+LN-9000023,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
+LN-9000024,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,PHA-ABX,Antibiotics,pharmacy,1,390,390
+LN-9000025,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,2025-09-13,CS-GLV,Surgical gloves,consumables,9,26.50,238.5
+LN-9000026,CLM-900006,JRM-024647,PRV-0003,Jeevan Rekha Medical Centre,13/09/2025,PRC-HERN,Inguinal hernia repair,procedure,1,"70,846.50",70846.5
+LN-9000027,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,25-09-2025,OTH-REG,Registration and admission charges,other,1,1200,1200
+LN-9000028,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,ICU-STD,ICU bed (per day),icu,1,10800,10800
+LN-9000029,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,CON-VIS,Inpatient doctor visit (per day),consultation,1,910,910
+LN-9000030,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,25-9-2025,OTH-NURS,Nursing charges (per day),other,3,"₹1,150","₹3,450"
+LN-9000031,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-25,DX-ECG,Electrocardiogram,diagnostics,1,420,420
+LN-9000032,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,25-9-2025,PHA-IVFL,IV fluids,pharmacy,5,400,2000
+LN-9000033,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,25-09-2025,CS-SYR,Syringes and needles,consumables,8,55.5,444
+LN-9000034,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,26-09-2025,RM-GEN,General ward room (per day),room,1,"₹1,800","₹1,800"
+LN-9000035,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-26,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹910,910
+LN-9000036,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,26/09/2025,PHA-ABX,Antibiotics,pharmacy,3,530,1590
+LN-9000037,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-26,CS-GLV,Surgical gloves,consumables,8,37,296
+LN-9000038,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,26-09-2025,PRC-APPX,Laparoscopic appendectomy,procedure,1,"₹3,20,970",320970
+LN-9000039,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,27/09/2025,RM-GEN,General ward room (per day),room,1,"1,800","1,800"
+LN-9000040,CLM-900007,HGH0074413,PRV-0021,Hillview General Hospital,2025-09-27,CON-VIS,Inpatient doctor visit (per day),consultation,1,910,910
+LN-9000041,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-21,OTH-REG,Registration and admission charges,other,1,1000,"1,000"
+LN-9000042,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-21,RM-GEN,General ward room (per day),room,1,"₹1,600",1600
+LN-9000043,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21-09-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹780,780
+LN-9000044,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21-09-2025,OTH-NURS,Nursing charges (per day),other,4,₹920,"₹3,680"
+LN-9000045,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21-9-2025,DX-CBC,Complete blood count,diagnostics,1,430,430
+LN-9000046,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21-09-2025,DX-XRAY,Chest X-ray,diagnostics,1,₹690,₹690
+LN-9000047,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21/09/2025,PHA-IVFL,IV fluids,pharmacy,6,₹360,2160
+LN-9000048,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,21-09-2025,CS-SYR,Syringes and needles,consumables,14,44,₹616
+LN-9000049,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-22,RM-GEN,General ward room (per day),room,1,1600,1600
+LN-9000050,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-22,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000051,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,22-9-2025,PHA-ABX,Antibiotics,pharmacy,2,450,900
+LN-9000052,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-22,CS-GLV,Surgical gloves,consumables,7,₹29.50,206.50
+LN-9000053,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-23,RM-GEN,General ward room (per day),room,1,1600,1600
+LN-9000054,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-23,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹780,780
+LN-9000055,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,2025-09-24,RM-GEN,General ward room (per day),room,1,1600,1600
+LN-9000056,CLM-900008,INV-21840,PRV-0028,Ashirwad Hospital,24/09/2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000057,CLM-900009,HGH0051295,PRV-0021,Hillview General Hospital,2025-09-25,DX-TMT,Treadmill test,diagnostics,1,2550,"₹2,550"
+LN-9000058,CLM-900009,HGH0051295,PRV-0021,Hillview General Hospital,2025-09-25,DX-LFT,Liver function test,diagnostics,1,980,980
+LN-9000059,CLM-900009,HGH0051295,PRV-0021,Hillview General Hospital,25/09/2025,DX-ECG,Electrocardiogram,diagnostics,1,420,420
+LN-9000060,CLM-900009,HGH0051295,PRV-0021,Hillview General Hospital,2025-09-25,DX-CT,CT scan,diagnostics,1,5250,5250
+LN-9000061,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,03-10-2025,OTH-REG,Registration and admission charges,other,1,980,₹980
+LN-9000062,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,RM-PVT,Private room (per day),room,3,7000,21000
+LN-9000063,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,CON-VIS,Inpatient doctor visit (per day),consultation,3,800,"₹2,400"
+LN-9000064,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,OTH-NURS,Nursing charges (per day),other,3,840,2520
+LN-9000065,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,DX-ECG,Electrocardiogram,diagnostics,1,330,330
+LN-9000066,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,DX-KFT,Kidney function test,diagnostics,1,700,₹700
+LN-9000067,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,3/10/2025,DX-LFT,Liver function test,diagnostics,1,₹780,780
+LN-9000068,CLM-900010,THC/BILL/59256,PRV-0035,Tulsi Health Centre,03/10/2025,PHA-IVFL,IV fluids,pharmacy,5,330,"₹1,650"
+LN-9000069,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-03,CS-SYR,Syringes and needles,consumables,13,46,598
+LN-9000070,CLM-900010,THC/BILL/59256,PRV-0035,Tulsi Health Centre,2025-10-04,PHA-ABX,Antibiotics,pharmacy,2,460,920
+LN-9000071,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,04-10-2025,CS-GLV,Surgical gloves,consumables,8,28.5,228
+LN-9000072,CLM-900010,THC/BILL/50053,PRV-0035,Tulsi Health Centre,2025-10-04,PRC-APPX,Laparoscopic appendectomy,procedure,1,"64,350","₹64,350"
+LN-9000073,CLM-900011,SMC/BILL/31777,PRV-0014,Suraksha Medical Centre,04-10-2025,CON-EMR,Emergency consultation,consultation,1,980,980
+LN-9000074,CLM-900011,SMC/BILL/31777,PRV-0014,Suraksha Medical Centre,2025-10-04,PHA-INS,Insulin,pharmacy,3,530,"₹1,590"
+LN-9000075,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-06,OTH-REG,Registration and admission charges,other,1,₹900,900
+LN-9000076,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,06/10/2025,RM-GEN,General ward room (per day),room,1,1250,"1,250"
+LN-9000077,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-06,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,720
+LN-9000078,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,06-10-2025,OTH-NURS,Nursing charges (per day),other,5,760,"3,800"
+LN-9000079,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-06,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,500",1500
+LN-9000080,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-06,PHA-IVFL,IV fluids,pharmacy,2,310,620
+LN-9000081,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,06-10-2025,CS-SYR,Syringes and needles,consumables,7,38.5,269.5
+LN-9000082,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-07,RM-GEN,General ward room (per day),room,1,"₹1,250",1250
+LN-9000083,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-07,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,720
+LN-9000084,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,07-10-2025,PHA-ABX,Antibiotics,pharmacy,3,390,1170
+LN-9000085,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,07-10-2025,CS-GLV,Surgical gloves,consumables,10,₹26.50,265
+LN-9000086,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,07-10-2025,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,"₹63,200","63,200"
+LN-9000087,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,2025-10-08,RM-GEN,General ward room (per day),room,1,1250,"₹1,250"
+LN-9000088,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,08-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,₹720
+LN-9000089,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,09/10/2025,RM-GEN,General ward room (per day),room,1,"1,250",1250
+LN-9000090,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,09-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
+LN-9000091,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,10/10/2025,RM-GEN,General ward room (per day),room,1,"₹1,250","₹1,250"
+LN-9000092,CLM-900012,ADH-050666,PRV-0020,Amrit Dhara Hospital,10/10/2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
+LN-9000093,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,OTH-REG,Registration and admission charges,other,1,900,₹900
+LN-9000094,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,RM-GEN,General ward room (per day),room,1,"1,250","₹1,250"
+LN-9000095,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,₹720
+LN-9000096,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,OTH-NURS,Nursing charges (per day),other,5,790,"₹3,950"
+LN-9000097,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10/10/2025,DX-KFT,Kidney function test,diagnostics,1,660,660
+LN-9000098,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,DX-ECG,Electrocardiogram,diagnostics,1,290,₹290
+LN-9000099,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-10,DX-CBC,Complete blood count,diagnostics,1,₹340,340
+LN-9000100,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10-10-2025,PHA-IVFL,IV fluids,pharmacy,4,300,1200
+LN-9000101,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,10/10/2025,CS-SYR,Syringes and needles,consumables,14,₹38.50,539
+LN-9000102,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-11,RM-GEN,General ward room (per day),room,1,1250,"₹1,250"
+LN-9000103,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,11-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,720
+LN-9000104,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,11/10/2025,PHA-ABX,Antibiotics,pharmacy,1,410,410
+LN-9000105,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,11-10-2025,CS-GLV,Surgical gloves,consumables,5,₹25,₹125
+LN-9000106,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-12,RM-GEN,General ward room (per day),room,1,"1,250",1250
+LN-9000107,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-12,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹720,₹720
+LN-9000108,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-13,RM-GEN,General ward room (per day),room,1,1250,1250
+LN-9000109,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,13-10-2025,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,₹720
+LN-9000110,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,14/10/2025,RM-GEN,General ward room (per day),room,1,"1,250","1,250"
+LN-9000111,CLM-900013,SMC/BILL/91208,PRV-0014,Suraksha Medical Centre,2025-10-14,CON-VIS,Inpatient doctor visit (per day),consultation,1,720,₹720
+LN-9000112,CLM-900014,ANH-076520,PRV-0002,Arogya Niketan Hospital,15/10/2025,DX-CT,CT scan,diagnostics,1,3950,"₹3,950"
+LN-9000113,CLM-900014,ANH-076520,PRV-0002,Arogya Niketan Hospital,15-10-2025,DX-TMT,Treadmill test,diagnostics,1,"₹2,150",2150
+LN-9000114,CLM-900014,ANH-076520,PRV-0002,Arogya Niketan Hospital,15-10-2025,DX-KFT,Kidney function test,diagnostics,1,₹720,720
+LN-9000115,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-16,OTH-REG,Registration and admission charges,other,1,1000,"₹1,000"
+LN-9000116,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,16-10-2025,RM-SEMI,Semi-private room (per day),room,5,"2,400","₹12,000"
+LN-9000117,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-16,CON-VIS,Inpatient doctor visit (per day),consultation,5,850,4250
+LN-9000118,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,16/10/2025,OTH-NURS,Nursing charges (per day),other,5,₹950,4750
+LN-9000119,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,16-10-2025,DX-CBC,Complete blood count,diagnostics,1,₹420,₹420
+LN-9000120,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,16/10/2025,DX-LFT,Liver function test,diagnostics,1,840,840
+LN-9000121,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-16,PHA-IVFL,IV fluids,pharmacy,4,₹350,"1,400"
+LN-9000122,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-16,CS-SYR,Syringes and needles,consumables,15,46.5,697.50
+LN-9000123,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-17,PHA-ABX,Antibiotics,pharmacy,2,₹470,₹940
+LN-9000124,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,17-10-2025,CS-GLV,Surgical gloves,consumables,9,₹31,₹279
+LN-9000125,CLM-900015,NH0009106,PRV-0033,Neelkanth Hospital,2025-10-17,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,77250,"₹77,250"
+LN-9000126,CLM-900016,INV-64224,PRV-0006,Sushruta Surgical Centre,24/10/2025,CON-TELE,Teleconsultation,consultation,1,410,410
+LN-9000127,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,2025-10-31,OTH-REG,Registration and admission charges,other,1,"₹1,000","1,000"
+LN-9000128,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31/10/2025,RM-GEN,General ward room (per day),room,3,1500,"4,500"
+LN-9000129,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31/10/2025,CON-VIS,Inpatient doctor visit (per day),consultation,3,790,2370
+LN-9000130,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31/10/2025,OTH-NURS,Nursing charges (per day),other,3,₹930,"₹2,790"
+LN-9000131,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31/10/2025,DX-LFT,Liver function test,diagnostics,1,820,₹820
+LN-9000132,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,2025-10-31,DX-ECG,Electrocardiogram,diagnostics,1,360,₹360
+LN-9000133,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31-10-2025,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,750",1750
+LN-9000134,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,2025-10-31,PHA-IVFL,IV fluids,pharmacy,6,360,"₹2,160"
+LN-9000135,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,31/10/2025,CS-SYR,Syringes and needles,consumables,9,46,414
+LN-9000136,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,01/11/2025,PHA-ABX,Antibiotics,pharmacy,2,₹460,920
+LN-9000137,CLM-900017,INV-57008,PRV-0004,Shanti Kunj Nursing Home,01-11-2025,CS-GLV,Surgical gloves,consumables,9,31,₹279
+LN-9000138,CLM-900018,INV-48943,PRV-0039,Saptagiri Hospital,01-11-2025,PHA-ABX,Antibiotics,pharmacy,5,510,"₹2,550"
+LN-9000139,CLM-900019,INV-82833,PRV-0006,Sushruta Surgical Centre,2025-11-04,PHA-INS,Insulin,pharmacy,1,660,₹660
+LN-9000140,CLM-900019,INV-82833,PRV-0006,Sushruta Surgical Centre,2025-11-04,PHA-IVFL,IV fluids,pharmacy,2,₹350,₹700
+LN-9000141,CLM-900019,INV-82833,PRV-0006,Sushruta Surgical Centre,04-11-2025,PHA-CARD,Cardiac medication,pharmacy,4,₹360,1440
+LN-9000142,CLM-900019,INV-82833,PRV-0006,Sushruta Surgical Centre,2025-11-04,PHA-ABX,Antibiotics,pharmacy,2,₹430,860
+LN-9000143,CLM-900020,NH0074180,PRV-0033,Neelkanth Hospital,2025-10-29,PHA-ANLG,Analgesics,pharmacy,4,120,480
+LN-9000144,CLM-900020,NH0074180,PRV-0033,Neelkanth Hospital,2025-10-29,PHA-INS,Insulin,pharmacy,5,650,"₹3,250"
+LN-9000145,CLM-900020,NH0074180,PRV-0033,Neelkanth Hospital,29-10-2025,PHA-CARD,Cardiac medication,pharmacy,2,380,₹760
+LN-9000146,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-04,OTH-REG,Registration and admission charges,other,1,830,830
+LN-9000147,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,04-11-2025,RM-GEN,General ward room (per day),room,2,"1,350","₹2,700"
+LN-9000148,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-04,CON-VIS,Inpatient doctor visit (per day),consultation,2,660,1320
+LN-9000149,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-04,OTH-NURS,Nursing charges (per day),other,2,800,"1,600"
+LN-9000150,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,04-11-2025,DX-KFT,Kidney function test,diagnostics,1,680,680
+LN-9000151,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-04,PHA-IVFL,IV fluids,pharmacy,4,300,1200
+LN-9000152,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,04-11-2025,CS-SYR,Syringes and needles,consumables,8,37,296
+LN-9000153,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-05,PHA-ABX,Antibiotics,pharmacy,3,380,"1,140"
+LN-9000154,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,2025-11-05,CS-GLV,Surgical gloves,consumables,5,27,₹135
+LN-9000155,CLM-900021,JRM-049716,PRV-0003,Jeevan Rekha Medical Centre,05-11-2025,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,65800,"₹65,800"
+LN-9000156,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,01/11/2025,PRC-ENDO,Upper GI endoscopy,procedure,1,6500,6500
+LN-9000157,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,2025-11-01,CS-GLV,Surgical gloves,consumables,2,₹34.50,69
+LN-9000158,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,2025-11-01,CS-SYR,Syringes and needles,consumables,4,52.50,210
+LN-9000159,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,01/11/2025,PHA-ANLG,Analgesics,pharmacy,1,130,₹130
+LN-9000160,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,01-11-2025,OTH-REG,Registration and admission charges,other,1,"1,100",1100
+LN-9000161,CLM-900022,STC/BILL/08283,PRV-0031,Sarathi Trauma Centre,2025-11-01,DX-CBC,Complete blood count,diagnostics,1,470,₹470
+LN-9000162,CLM-900023,INV/82833A,PRV-0006,Sushruta Surgical Centre,2025-11-06,PHA-INS,Insulin,pharmacy,1,₹697,697
+LN-9000163,CLM-900023,INV/82833A,PRV-0006,Sushruta Surgical Centre,2025-11-06,PHA-IVFL,IV fluids,pharmacy,2,350,₹700
+LN-9000164,CLM-900023,INV/82833A,PRV-0006,Sushruta Surgical Centre,06-11-2025,PHA-CARD,Cardiac medication,pharmacy,4,360,"1,440"
+LN-9000165,CLM-900023,INV/82833A,PRV-0006,Sushruta Surgical Centre,2025-11-06,PHA-ABX,Antibiotics,pharmacy,2,430,860
+LN-9000166,CLM-900024,MMC/BILL/82476,PRV-0029,Mitra Medical Centre,2025-11-13,CON-SPL,Specialist consultation,consultation,1,830,830
+LN-9000167,CLM-900024,MMC/BILL/82476,PRV-0029,Mitra Medical Centre,2025-11-13,PHA-ANLG,Analgesics,pharmacy,3,110,330
+LN-9000168,CLM-900024,MMC/BILL/82476,PRV-0029,Mitra Medical Centre,13-11-2025,PHA-ABX,Antibiotics,pharmacy,3,₹370,1110
+LN-9000169,CLM-900025,SCH-062308,PRV-0034,Sanjeevani Care Hospital,2025-11-19,PRC-CATA,Cataract surgery with lens implant,procedure,1,31600,31600
+LN-9000170,CLM-900025,SCH-062308,PRV-0034,Sanjeevani Care Hospital,2025-11-19,CS-GLV,Surgical gloves,consumables,2,28,56
+LN-9000171,CLM-900025,SCH-062308,PRV-0034,Sanjeevani Care Hospital,19/11/2025,CS-SYR,Syringes and needles,consumables,8,42.5,340
+LN-9000172,CLM-900025,SCH-062308,PRV-0034,Sanjeevani Care Hospital,2025-11-19,PHA-ANLG,Analgesics,pharmacy,3,120,₹360
+LN-9000173,CLM-900025,SCH-062308,PRV-0034,Sanjeevani Care Hospital,2025-11-19,OTH-REG,Registration and admission charges,other,1,940,940
+LN-9000174,CLM-900026,INV-66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-ABX,Antibiotics,pharmacy,1,₹480,₹480
+LN-9000175,CLM-900026,INV-66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-OTC,Over-the-counter medicines,pharmacy,4,89,356
+LN-9000176,CLM-900026,INV-66791,PRV-0004,Shanti Kunj Nursing Home,02-12-2025,PHA-INS,Insulin,pharmacy,4,₹680,2720
+LN-9000177,CLM-900026,INV-66791,PRV-0004,Shanti Kunj Nursing Home,02-12-2025,PHA-IVFL,IV fluids,pharmacy,1,370,₹370
+LN-9000178,CLM-900027,VMC-003013,PRV-0015,Vatsalya Mother and Child Hospital,2025-12-06,PHA-ABX,Antibiotics,pharmacy,2,400,800
+LN-9000179,CLM-900027,VMC-003013,PRV-0015,Vatsalya Mother and Child Hospital,2025-12-06,PHA-INS,Insulin,pharmacy,4,580,"2,320"
+LN-9000180,CLM-900027,VMC-003013,PRV-0015,Vatsalya Mother and Child Hospital,2025-12-06,PHA-CARD,Cardiac medication,pharmacy,5,350,1750
+LN-9000181,CLM-900027,VMC-003013,PRV-0015,Vatsalya Mother and Child Hospital,06/12/2025,PHA-IVFL,IV fluids,pharmacy,1,310,₹310
+LN-9000182,CLM-900028,INV-50800,PRV-0028,Ashirwad Hospital,2025-12-18,DX-CT,CT scan,diagnostics,1,"₹4,800",4800
+LN-9000183,CLM-900028,INV-50800,PRV-0028,Ashirwad Hospital,2025-12-18,DX-LIPID,Lipid profile,diagnostics,1,870,870
+LN-9000184,CLM-900028,INV-50800,PRV-0028,Ashirwad Hospital,18/12/2025,DX-ECG,Electrocardiogram,diagnostics,1,340,340
+LN-9000185,CLM-900028,INV-50800,PRV-0028,Ashirwad Hospital,18-12-2025,DX-ECHO,2D echocardiography,diagnostics,1,"₹2,600","2,600"
+LN-9000186,CLM-900029,INV 66791,PRV-0004,Shanti Kunj Nursing Home,02/12/2025,PHA-ABX,Antibiotics,pharmacy,1,480,480
+LN-9000187,CLM-900029,INV 66791,PRV-0004,Shanti Kunj Nursing Home,02-12-2025,PHA-OTC,Over-the-counter medicines,pharmacy,4,89,356
+LN-9000188,CLM-900029,INV 66791,PRV-0004,Shanti Kunj Nursing Home,2025-12-02,PHA-INS,Insulin,pharmacy,4,₹680,"2,720"
+LN-9000189,CLM-900029,INV 66791,PRV-0004,Shanti Kunj Nursing Home,02/12/2025,PHA-IVFL,IV fluids,pharmacy,1,370,370
+LN-9000190,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,2025-12-28,OTH-REG,Registration and admission charges,other,1,1050,1050
+LN-9000191,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,2025-12-28,RM-PVT,Private room (per day),room,4,4150,"₹16,600"
+LN-9000192,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,2025-12-28,CON-VIS,Inpatient doctor visit (per day),consultation,4,920,3680
+LN-9000193,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,28/12/2025,OTH-NURS,Nursing charges (per day),other,4,₹930,"₹3,720"
+LN-9000194,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,28/12/2025,DX-XRAY,Chest X-ray,diagnostics,1,770,770
+LN-9000195,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,28-12-2025,PHA-IVFL,IV fluids,pharmacy,5,400,2000
+LN-9000196,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,28-12-2025,CS-SYR,Syringes and needles,consumables,14,47,658
+LN-9000197,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,2025-12-29,PHA-ABX,Antibiotics,pharmacy,3,₹520,1560
+LN-9000198,CLM-900030,INV-10487,PRV-0039,Saptagiri Hospital,2025-12-29,CS-GLV,Surgical gloves,consumables,9,₹33.50,301.5
+LN-9000199,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24/12/2025,OTH-REG,Registration and admission charges,other,1,940,940
+LN-9000200,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24/12/2025,RM-GEN,General ward room (per day),room,4,"1,400","5,600"
+LN-9000201,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24/12/2025,CON-VIS,Inpatient doctor visit (per day),consultation,4,740,2960
+LN-9000202,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,2025-12-24,OTH-NURS,Nursing charges (per day),other,4,910,3640
+LN-9000203,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,2025-12-24,DX-LFT,Liver function test,diagnostics,1,800,₹800
+LN-9000204,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24/12/2025,DX-ECG,Electrocardiogram,diagnostics,1,360,360
+LN-9000205,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24/12/2025,PHA-IVFL,IV fluids,pharmacy,5,350,"₹1,750"
+LN-9000206,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,24-12-2025,CS-SYR,Syringes and needles,consumables,7,₹44.50,311.5
+LN-9000207,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,25-12-2025,PHA-ABX,Antibiotics,pharmacy,2,440,880
+LN-9000208,CLM-900031,THC/BILL/14951,PRV-0035,Tulsi Health Centre,25-12-2025,CS-GLV,Surgical gloves,consumables,5,₹29,145
+LN-9000209,CLM-900032,DHC0055877,PRV-0007,Dhanvantari Health Centre,2026-01-09,PHA-ANLG,Analgesics,pharmacy,1,₹110,110
+LN-9000210,CLM-900032,DHC0055877,PRV-0007,Dhanvantari Health Centre,09/01/2026,PHA-ABX,Antibiotics,pharmacy,4,₹430,"₹1,720"
+LN-9000211,CLM-900032,DHC0055877,PRV-0007,Dhanvantari Health Centre,2026-01-09,PHA-INS,Insulin,pharmacy,1,600,₹600
+LN-9000212,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,12/01/2026,OTH-REG,Registration and admission charges,other,1,"1,100","1,100"
+LN-9000213,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,ICU-STD,ICU bed (per day),icu,1,"9,850","₹9,850"
+LN-9000214,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,12/01/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹890,890
+LN-9000215,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,OTH-NURS,Nursing charges (per day),other,2,990,1980
+LN-9000216,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,DX-LFT,Liver function test,diagnostics,1,₹840,840
+LN-9000217,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,12/01/2026,DX-CBC,Complete blood count,diagnostics,1,₹410,₹410
+LN-9000218,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,DX-KFT,Kidney function test,diagnostics,1,780,₹780
+LN-9900008,CLM-980006,MOC-970007,PRV-0022,Mangalam Ortho Centre,13-09-2026,CON-GP,General physician consultation,consultation,1,470,470
+LN-9000219,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,12-01-2026,PHA-IVFL,IV fluids,pharmacy,5,360,"1,800"
+LN-9000220,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,CS-SYR,Syringes and needles,consumables,14,46,644
+LN-9000221,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,13/01/2026,RM-GEN,General ward room (per day),room,1,"1,600","1,600"
+LN-9000222,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,13/1/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,890
+LN-9000223,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,13-01-2026,PHA-ABX,Antibiotics,pharmacy,3,460,1380
+LN-9000224,CLM-900033,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-13,CS-GLV,Surgical gloves,consumables,5,₹32.50,162.5
+LN-9000225,CLM-900034,INV-67659,PRV-0004,Shanti Kunj Nursing Home,2026-01-20,PRC-CATA,Cataract surgery with lens implant,procedure,1,"37,150","37,150"
+LN-9000226,CLM-900034,INV-67659,PRV-0004,Shanti Kunj Nursing Home,2026-01-20,CS-GLV,Surgical gloves,consumables,2,32,64
+LN-9000227,CLM-900034,INV-67659,PRV-0004,Shanti Kunj Nursing Home,2026-01-20,CS-SYR,Syringes and needles,consumables,4,₹45,180
+LN-9000228,CLM-900034,INV-67659,PRV-0004,Shanti Kunj Nursing Home,2026-01-20,PHA-ANLG,Analgesics,pharmacy,1,120,₹120
+LN-9000229,CLM-900034,INV-67659,PRV-0004,Shanti Kunj Nursing Home,2026-01-20,OTH-REG,Registration and admission charges,other,1,"₹1,000","1,000"
+LN-9000230,CLM-900035,IVH0047652,PRV-0032,Indus Valley Hospital,2026-01-12,CS-SYR,Syringes and needles,consumables,14,46,644
+LN-9000231,CLM-900035,IVH0074785,PRV-0032,Indus Valley Hospital,2026-01-23,CON-GP,General physician consultation,consultation,1,520,520
+LN-9000232,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,PRC-CATA,Cataract surgery with lens implant,procedure,1,"43,150","₹43,150"
+LN-9000233,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,CS-GLV,Surgical gloves,consumables,4,38,152
+LN-9000234,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,15/01/2026,CS-SYR,Syringes and needles,consumables,7,57.5,402.5
+LN-9000235,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,PHA-ANLG,Analgesics,pharmacy,1,150,150
+LN-9000236,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,2026-01-15,OTH-REG,Registration and admission charges,other,1,"1,150",1150
+LN-9000237,CLM-900036,CAH-084888,PRV-0027,Charak Ayur Hospital,15/01/2026,DX-CBC,Complete blood count,diagnostics,1,480,480
+LN-9000238,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20/01/2026,PRC-ENDO,Upper GI endoscopy,procedure,1,5800,"5,800"
+LN-9000239,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-01-2026,CS-GLV,Surgical gloves,consumables,3,₹30.50,₹91.50
+LN-9000240,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,20-01-2026,CS-SYR,Syringes and needles,consumables,8,44,352
+LN-9000241,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,PHA-ANLG,Analgesics,pharmacy,2,₹110,220
+LN-9000242,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,OTH-REG,Registration and admission charges,other,1,990,990
+LN-9000243,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,DX-CBC,Complete blood count,diagnostics,1,400,400
+LN-9000244,CLM-900037,THC/BILL/01801,PRV-0035,Tulsi Health Centre,2026-01-20,PRC-COSM,Cosmetic rhinoplasty,procedure,1,83300,83300
+LN-9000245,CLM-900038,INV-66508,PRV-0028,Ashirwad Hospital,2026-02-01,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,750",1750
+LN-9000246,CLM-900038,INV-66508,PRV-0028,Ashirwad Hospital,01-02-2026,DX-LIPID,Lipid profile,diagnostics,1,930,930
+LN-9000247,CLM-900038,INV-66508,PRV-0028,Ashirwad Hospital,01-02-2026,DX-HBA1C,HbA1c,diagnostics,1,590,₹590
+LN-9000248,CLM-900039,CAH-029143,PRV-0027,Charak Ayur Hospital,2026-02-07,DX-HBA1C,HbA1c,diagnostics,1,730,730
+LN-9000249,CLM-900039,CAH-029143,PRV-0027,Charak Ayur Hospital,2026-02-07,DX-KFT,Kidney function test,diagnostics,1,960,₹960
+LN-9000250,CLM-900039,CAH-029143,PRV-0027,Charak Ayur Hospital,2026-02-07,DX-LIPID,Lipid profile,diagnostics,1,"1,100","₹1,100"
+LN-9000251,CLM-900039,CAH-029143,PRV-0027,Charak Ayur Hospital,2026-02-07,DX-USG,Ultrasound abdomen,diagnostics,1,2250,"2,250"
+LN-9000252,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,2026-02-09,OTH-REG,Registration and admission charges,other,1,"1,300",1300
+LN-9000253,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,09-02-2026,RM-PVT,Private room (per day),room,4,7000,28000
+LN-9000254,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,2026-02-09,CON-VIS,Inpatient doctor visit (per day),consultation,4,"1,050",4200
+LN-9000255,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,2026-02-09,OTH-NURS,Nursing charges (per day),other,4,1200,"4,800"
+LN-9000256,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,2026-02-09,DX-CBC,Complete blood count,diagnostics,1,510,510
+LN-9000257,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,09/02/2026,PHA-IVFL,IV fluids,pharmacy,6,420,2520
+LN-9000258,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,09/02/2026,PHA-IVFL,IV fluids,pharmacy,6,420,"2,520"
+LN-9000259,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,09/02/2026,CS-SYR,Syringes and needles,consumables,15,₹54.50,817.5
+LN-9000260,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,10-02-2026,PHA-ABX,Antibiotics,pharmacy,3,560,"₹1,680"
+LN-9000261,CLM-900040,GMH-006632,PRV-0001,Greenleaf Multispeciality Hospital,2026-02-10,CS-GLV,Surgical gloves,consumables,7,39.5,276.50
+LN-9000262,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,22/02/2026,OTH-REG,Registration and admission charges,other,1,"1,050","1,050"
+LN-9000263,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,22/02/2026,RM-SEMI,Semi-private room (per day),room,1,"₹2,600",2600
+LN-9000264,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,22-02-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000265,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,OTH-NURS,Nursing charges (per day),other,4,890,3560
+LN-9000266,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,DX-ECG,Electrocardiogram,diagnostics,1,370,370
+LN-9000267,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,PHA-IVFL,IV fluids,pharmacy,2,350,700
+LN-9000268,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,CS-SYR,Syringes and needles,consumables,15,₹44,₹660
+LN-9000269,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,RM-SEMI,Semi-private room (per day),room,1,"₹2,600",2600
+LN-9000270,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,23/02/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,₹820
+LN-9000271,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,23-02-2026,PHA-ABX,Antibiotics,pharmacy,1,440,₹440
+LN-9000272,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,23/02/2026,CS-GLV,Surgical gloves,consumables,4,30.5,₹122
+LN-9000273,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,24/02/2026,RM-SEMI,Semi-private room (per day),room,1,2600,"₹2,600"
+LN-9000274,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-24,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000275,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-25,RM-SEMI,Semi-private room (per day),room,1,2600,"2,600"
+LN-9000276,CLM-900041,INV-44893,PRV-0004,Shanti Kunj Nursing Home,25-02-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000277,CLM-900042,INV-50481,PRV-0012,Kalpataru Hospital,2026-02-22,CON-TELE,Teleconsultation,consultation,1,430,430
+LN-9000278,CLM-900042,INV-50481,PRV-0012,Kalpataru Hospital,2026-02-22,PHA-INS,Insulin,pharmacy,3,730,2190
+LN-9000279,CLM-900043,INV-77604,PRV-0013,Navjeevan Hospital,2026-03-02,CON-EMR,Emergency consultation,consultation,1,"1,050",1050
+LN-9000280,CLM-900043,INV-77604,PRV-0013,Navjeevan Hospital,02-03-2026,DX-XRAY,Chest X-ray,diagnostics,1,600,600
+LN-9000281,CLM-900044,INV-00452,PRV-0003,Jeevan Rekha Medical Centre,02-03-2026,CON-SPL,Specialist consultation,consultation,1,860,860
+LN-9000282,CLM-900044,INV-00452,PRV-0003,Jeevan Rekha Medical Centre,2026-03-02,DX-CBC,Complete blood count,diagnostics,1,₹350,₹350
+LN-9000283,CLM-900045,INV452A,PRV-0003,Jeevan Rekha Medical Centre,04/03/2026,CON-SPL,Specialist consultation,consultation,1,878,878
+LN-9000284,CLM-900045,INV452A,PRV-0003,Jeevan Rekha Medical Centre,2026-03-04,DX-CBC,Complete blood count,diagnostics,1,350,₹350
+LN-9000285,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,PRC-CATA,Cataract surgery with lens implant,procedure,1,"42,400","42,400"
+LN-9000286,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,2026-03-06,CS-GLV,Surgical gloves,consumables,2,34,68
+LN-9000287,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,06/03/2026,CS-SYR,Syringes and needles,consumables,8,₹56.50,452
+LN-9000288,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,06/03/2026,PHA-ANLG,Analgesics,pharmacy,2,140,280
+LN-9000289,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,2026-03-06,OTH-REG,Registration and admission charges,other,1,"1,200",1200
+LN-9000290,CLM-900046,HGH0092767,PRV-0021,Hillview General Hospital,06-03-2026,DX-CBC,Complete blood count,diagnostics,1,₹470,470
+LN-9000291,CLM-900047,MMC/BILL/77910,PRV-0029,Mitra Medical Centre,08-03-2026,PHY-SES,Physiotherapy session,physiotherapy,1,810,810
+LN-9000292,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,OTH-REG,Registration and admission charges,other,1,1050,"1,050"
+LN-9000293,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,2026-03-02,RM-SEMI,Semi-private room (per day),room,1,2450,"2,450"
+LN-9000294,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
+LN-9000295,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,OTH-NURS,Nursing charges (per day),other,2,₹900,1800
+LN-9000296,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,02/03/2026,DX-ECG,Electrocardiogram,diagnostics,1,350,350
+LN-9000297,CLM-900048,INV-54567,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,PHA-IVFL,IV fluids,pharmacy,4,350,1400
+LN-9900013,CLM-900085,ADH-082784,PRV-0020,Amrit Dhara Hospital,01/07/2026,CON-HOME,Home visit consultation,consultation,1,₹420,420
+LN-9000298,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,02/03/2026,CS-SYR,Syringes and needles,consumables,9,47.5,₹427.50
+LN-9000299,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,2026-03-03,RM-SEMI,Semi-private room (per day),room,1,"₹2,450","₹2,450"
+LN-9000300,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,03-03-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
+LN-9000301,CLM-900048,INV-54567,PRV-0004,Shanti Kunj Nursing Home,2026-03-03,PHA-ABX,Antibiotics,pharmacy,2,₹480,960
+LN-9000302,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,03/03/2026,CS-GLV,Surgical gloves,consumables,6,₹31,₹186
+LN-9000303,CLM-900048,INV-77426,PRV-0004,Shanti Kunj Nursing Home,2026-03-03,PRC-HERN,Inguinal hernia repair,procedure,1,"₹56,650","₹56,650"
+LN-9000304,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-07,OTH-REG,Registration and admission charges,other,1,1150,"₹1,150"
+LN-9000305,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-07,RM-SEMI,Semi-private room (per day),room,1,"₹2,750","2,750"
+LN-9000306,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,07/03/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹890,890
+LN-9000307,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-07,OTH-NURS,Nursing charges (per day),other,5,990,"4,950"
+LN-9000308,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-07,DX-LFT,Liver function test,diagnostics,1,860,860
+LN-9000309,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-07,PHA-IVFL,IV fluids,pharmacy,6,380,"2,280"
+LN-9000310,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,07-03-2026,CS-SYR,Syringes and needles,consumables,10,₹52.50,525
+LN-9000311,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-08,RM-SEMI,Semi-private room (per day),room,1,"2,750","2,750"
+LN-9000312,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,08/03/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,890
+LN-9000313,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-08,PHA-ABX,Antibiotics,pharmacy,2,490,980
+LN-9000314,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,08/03/2026,CS-GLV,Surgical gloves,consumables,10,34,340
+LN-9000315,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-08,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,"₹85,700",85700
+LN-9000316,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-09,RM-SEMI,Semi-private room (per day),room,1,"2,750","2,750"
+LN-9000317,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,09-03-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,890
+LN-9000318,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,10/3/2026,RM-SEMI,Semi-private room (per day),room,1,"₹2,750","₹2,750"
+LN-9000319,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,10/03/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,₹890
+LN-9000320,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-11,RM-SEMI,Semi-private room (per day),room,1,2750,2750
+LN-9000321,CLM-900049,STC/BILL/08466,PRV-0031,Sarathi Trauma Centre,2026-03-11,CON-VIS,Inpatient doctor visit (per day),consultation,1,890,890
+LN-9000322,CLM-900050,INV-93551,PRV-0013,Navjeevan Hospital,2026-03-11,CON-GP,General physician consultation,consultation,1,₹420,420
+LN-9000323,CLM-900050,INV-93551,PRV-0013,Navjeevan Hospital,2026-03-11,PHY-SES,Physiotherapy session,physiotherapy,1,₹900,900
+LN-9000324,CLM-900051,INV 77604,PRV-0013,Navjeevan Hospital,02/03/2026,CON-EMR,Emergency consultation,consultation,1,"₹1,050",1050
+LN-9000325,CLM-900051,INV 77604,PRV-0013,Navjeevan Hospital,2026-03-02,DX-XRAY,Chest X-ray,diagnostics,1,600,₹600
+LN-9000326,CLM-900052,MMC/BILL/71684,PRV-0029,Mitra Medical Centre,15/03/2026,PHY-SES,Physiotherapy session,physiotherapy,1,₹810,810
+LN-9000327,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,OTH-REG,Registration and admission charges,other,1,1050,1050
+LN-9000328,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,02/03/2026,RM-SEMI,Semi-private room (per day),room,1,"2,450","₹2,450"
+LN-9000329,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,₹850
+LN-9000330,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,2026-03-02,OTH-NURS,Nursing charges (per day),other,2,900,"₹1,800"
+LN-9000331,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,02-03-2026,DX-ECG,Electrocardiogram,diagnostics,1,350,₹350
+LN-9000332,CLM-900053,INV-04983,PRV-0004,Shanti Kunj Nursing Home,02/03/2026,PHA-IVFL,IV fluids,pharmacy,4,₹350,1400
+LN-9000333,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,2026-03-03,RM-SEMI,Semi-private room (per day),room,1,2450,"2,450"
+LN-9000334,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,03/03/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹850,850
+LN-9000335,CLM-900053,INV-04983,PRV-0004,Shanti Kunj Nursing Home,03/03/2026,PHA-ABX,Antibiotics,pharmacy,2,480,₹960
+LN-9000336,CLM-900053,INV-41485,PRV-0004,Shanti Kunj Nursing Home,03-03-2026,PRC-HERN,Inguinal hernia repair,procedure,1,"₹56,650",56650
+LN-9000337,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,OTH-REG,Registration and admission charges,other,1,₹930,930
+LN-9000338,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,13/03/2026,RM-GEN,General ward room (per day),room,1,"1,350",1350
+LN-9000339,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,CON-VIS,Inpatient doctor visit (per day),consultation,1,700,700
+LN-9000340,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-13,OTH-NURS,Nursing charges (per day),other,2,790,"₹1,580"
+LN-9000341,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,13/03/2026,DX-XRAY,Chest X-ray,diagnostics,1,610,₹610
+LN-9000342,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,13-03-2026,PHA-IVFL,IV fluids,pharmacy,6,310,"1,860"
+LN-9000343,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,13-03-2026,CS-SYR,Syringes and needles,consumables,13,41.50,539.5
+LN-9000344,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-14,RM-GEN,General ward room (per day),room,1,1350,"₹1,350"
+LN-9000345,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,2026-03-14,CON-VIS,Inpatient doctor visit (per day),consultation,1,700,700
+LN-9000346,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,14/03/2026,PHA-ABX,Antibiotics,pharmacy,2,410,₹820
+LN-9000347,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,14/03/2026,CS-GLV,Surgical gloves,consumables,5,26.5,132.5
+LN-9000348,CLM-900054,VMC-071913,PRV-0015,Vatsalya Mother and Child Hospital,14-03-2026,PRC-HERN,Inguinal hernia repair,procedure,1,51500,51500
+LN-9000349,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,OTH-REG,Registration and admission charges,other,1,1050,1050
+LN-9000350,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,RM-SEMI,Semi-private room (per day),room,1,"2,600","₹2,600"
+LN-9000351,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,22-02-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000352,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,OTH-NURS,Nursing charges (per day),other,4,890,3560
+LN-9000353,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,DX-ECG,Electrocardiogram,diagnostics,1,370,370
+LN-9000354,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,PHA-IVFL,IV fluids,pharmacy,2,350,700
+LN-9000355,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,CS-SYR,Syringes and needles,consumables,15,44,660
+LN-9000356,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,RM-SEMI,Semi-private room (per day),room,1,2600,"₹2,600"
+LN-9000357,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000358,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,PHA-ABX,Antibiotics,pharmacy,1,440,440
+LN-9000359,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,CS-GLV,Surgical gloves,consumables,4,₹30.50,122
+LN-9000360,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,24/2/2026,RM-SEMI,Semi-private room (per day),room,1,2600,"2,600"
+LN-9000361,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-24,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000362,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,25/02/2026,RM-SEMI,Semi-private room (per day),room,1,2600,"₹2,600"
+LN-9000363,CLM-900055,INV 44893,PRV-0004,Shanti Kunj Nursing Home,2026-02-25,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹820,₹820
+LN-9000364,CLM-900056,CAH-055003,PRV-0027,Charak Ayur Hospital,24/03/2026,DX-USG,Ultrasound abdomen,diagnostics,1,"2,250","2,250"
+LN-9000365,CLM-900056,CAH-055003,PRV-0027,Charak Ayur Hospital,2026-03-24,DX-CT,CT scan,diagnostics,1,5700,5700
+LN-9000366,CLM-900056,CAH-055003,PRV-0027,Charak Ayur Hospital,2026-03-24,DX-ECG,Electrocardiogram,diagnostics,1,₹450,₹450
+LN-9000367,CLM-900057,CAH-094075,PRV-0027,Charak Ayur Hospital,18-03-2026,PHA-ABX,Antibiotics,pharmacy,1,570,₹570
+LN-9000368,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,OTH-REG,Registration and admission charges,other,1,1050,1050
+LN-9000369,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,RM-SEMI,Semi-private room (per day),room,1,2600,"₹2,600"
+LN-9000370,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,22/02/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000371,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,OTH-NURS,Nursing charges (per day),other,4,890,"₹3,560"
+LN-9000372,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,22-02-2026,DX-ECG,Electrocardiogram,diagnostics,1,370,370
+LN-9000373,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-22,PHA-IVFL,IV fluids,pharmacy,2,350,₹700
+LN-9000374,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,RM-SEMI,Semi-private room (per day),room,1,"₹2,600","₹2,600"
+LN-9000375,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000376,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,PHA-ABX,Antibiotics,pharmacy,1,440,440
+LN-9000377,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-23,CS-GLV,Surgical gloves,consumables,4,₹30.50,₹122
+LN-9000378,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,24-02-2026,RM-SEMI,Semi-private room (per day),room,1,"₹2,600",2600
+LN-9000379,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,24-2-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹820,₹820
+LN-9000380,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-25,RM-SEMI,Semi-private room (per day),room,1,2600,2600
+LN-9000381,CLM-900058,INV-00815,PRV-0004,Shanti Kunj Nursing Home,2026-02-25,CON-VIS,Inpatient doctor visit (per day),consultation,1,820,820
+LN-9000382,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04-04-2026,OTH-REG,Registration and admission charges,other,1,1200,"₹1,200"
+LN-9000383,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04-04-2026,RM-PVT,Private room (per day),room,4,5500,22000
+LN-9000384,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,2026-04-04,CON-VIS,Inpatient doctor visit (per day),consultation,4,940,"₹3,760"
+LN-9000385,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04/04/2026,OTH-NURS,Nursing charges (per day),other,4,1150,"₹4,600"
+LN-9000386,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04-04-2026,DX-KFT,Kidney function test,diagnostics,1,960,960
+LN-9000387,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04/04/2026,DX-XRAY,Chest X-ray,diagnostics,1,840,840
+LN-9000388,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04/04/2026,DX-LFT,Liver function test,diagnostics,1,"₹1,000","₹1,000"
+LN-9000389,CLM-900059,CAH-075563,PRV-0027,Charak Ayur Hospital,2026-04-04,PHA-IVFL,IV fluids,pharmacy,2,420,840
+LN-9000390,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,04/04/2026,CS-SYR,Syringes and needles,consumables,5,55,275
+LN-9000391,CLM-900059,CAH-075563,PRV-0027,Charak Ayur Hospital,2026-04-05,PHA-ABX,Antibiotics,pharmacy,1,560,560
+LN-9000392,CLM-900059,CAH-075563,PRV-0027,Charak Ayur Hospital,05/04/2026,PHA-ABX,Antibiotics,pharmacy,1,560,560
+LN-9000393,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,2026-04-05,CS-GLV,Surgical gloves,consumables,6,36,216
+LN-9000394,CLM-900059,CAH-061569,PRV-0027,Charak Ayur Hospital,05-04-2026,PRC-HERN,Inguinal hernia repair,procedure,1,"₹66,450",66450
+LN-9000395,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-11,PHY-SES,Physiotherapy session,physiotherapy,1,1150,1150
+LN-9000396,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,15/03/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹1,150","₹1,150"
+LN-9000397,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,2026-03-19,PHY-SES,Physiotherapy session,physiotherapy,1,1150,"₹1,150"
+LN-9000398,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,23-03-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹1,150","₹1,150"
+LN-9000399,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,27/03/2026,PHY-SES,Physiotherapy session,physiotherapy,1,1150,1150
+LN-9000400,CLM-900060,SMC/BILL/00148,PRV-0023,Seashore Medical Centre,30-03-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"1,150","1,150"
+LN-9000401,CLM-900061,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-02,PHY-SES,Physiotherapy session,physiotherapy,1,990,₹990
+LN-9000402,CLM-900061,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-05,PHY-SES,Physiotherapy session,physiotherapy,1,990,₹990
+LN-9000403,CLM-900061,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-08,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
+LN-9000404,CLM-900061,NH0066480,PRV-0033,Neelkanth Hospital,2026-04-12,PHY-SES,Physiotherapy session,physiotherapy,1,990,₹990
+LN-9000405,CLM-900061,NH0066480,PRV-0033,Neelkanth Hospital,15/04/2026,PHY-SES,Physiotherapy session,physiotherapy,1,990,990
+LN-9000406,CLM-900062,THC/BILL/34635,PRV-0035,Tulsi Health Centre,20/04/2026,PHA-INS,Insulin,pharmacy,4,660,2640
+LN-9000407,CLM-900062,THC/BILL/34635,PRV-0035,Tulsi Health Centre,2026-04-20,PHA-IVFL,IV fluids,pharmacy,3,330,990
+LN-9000408,CLM-900062,THC/BILL/34635,PRV-0035,Tulsi Health Centre,20-04-2026,PHA-OTC,Over-the-counter medicines,pharmacy,1,85.5,85.50
+LN-9000409,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24-04-2026,OTH-REG,Registration and admission charges,other,1,990,990
+LN-9000410,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24-04-2026,RM-SEMI,Semi-private room (per day),room,1,2650,2650
+LN-9000411,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-24,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000412,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24-4-2026,OTH-NURS,Nursing charges (per day),other,2,940,1880
+LN-9000413,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24/04/2026,DX-ECG,Electrocardiogram,diagnostics,1,340,340
+LN-9000414,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24-04-2026,DX-KFT,Kidney function test,diagnostics,1,780,780
+LN-9000415,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24-4-2026,DX-LFT,Liver function test,diagnostics,1,₹820,820
+LN-9000416,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-24,PHA-IVFL,IV fluids,pharmacy,5,₹340,1700
+LN-9000417,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,24/04/2026,CS-SYR,Syringes and needles,consumables,11,45.5,500.5
+LN-9000418,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,25-04-2026,RM-SEMI,Semi-private room (per day),room,1,2650,2650
+LN-9000419,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-25,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9900009,CLM-980006,MOC-970007,PRV-0022,Mangalam Ortho Centre,2026-09-13,PHA-ABX,Antibiotics,pharmacy,1,450,450
+LN-9000420,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-25,PHA-ABX,Antibiotics,pharmacy,2,480,₹960
+LN-9000421,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-25,CS-GLV,Surgical gloves,consumables,8,32,256
+LN-9000422,CLM-900063,INV-47826,PRV-0028,Ashirwad Hospital,2026-04-25,PRC-APPX,Laparoscopic appendectomy,procedure,1,64950,64950
+LN-9000423,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,16/04/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600","2,600"
+LN-9000424,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,2026-04-19,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600",2600
+LN-9000425,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,23-04-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,600","2,600"
+LN-9000426,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,2026-04-27,PHY-SES,Physiotherapy session,physiotherapy,1,2600,2600
+LN-9000427,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,30/04/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,600",2600
+LN-9000428,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,03-05-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"2,600",2600
+LN-9000429,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,06-05-2026,PHY-SES,Physiotherapy session,physiotherapy,1,2600,"₹2,600"
+LN-9000430,CLM-900064,SMC/BILL/27886,PRV-0023,Seashore Medical Centre,2026-05-09,PHY-SES,Physiotherapy session,physiotherapy,1,2600,"₹2,600"
+LN-9000431,CLM-900065,STC/BILL/65739,PRV-0031,Sarathi Trauma Centre,2026-05-17,DX-HBA1C,HbA1c,diagnostics,1,700,700
+LN-9000432,CLM-900065,STC/BILL/65739,PRV-0031,Sarathi Trauma Centre,2026-05-17,DX-CT,CT scan,diagnostics,1,4900,4900
+LN-9000433,CLM-900065,STC/BILL/65739,PRV-0031,Sarathi Trauma Centre,2026-05-17,DX-ECG,Electrocardiogram,diagnostics,1,₹400,400
+LN-9000434,CLM-900065,STC/BILL/65739,PRV-0031,Sarathi Trauma Centre,17/05/2026,DX-ECHO,2D echocardiography,diagnostics,1,"₹2,950","2,950"
+LN-9000435,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,21/05/2026,OTH-REG,Registration and admission charges,other,1,1050,"1,050"
+LN-9000436,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,RM-GEN,General ward room (per day),room,6,1650,9900
+LN-9000437,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,21/5/2026,CON-VIS,Inpatient doctor visit (per day),consultation,6,830,4980
+LN-9000438,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,OTH-NURS,Nursing charges (per day),other,6,950,"₹5,700"
+LN-9000439,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,DX-ECG,Electrocardiogram,diagnostics,1,380,380
+LN-9000440,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,PHA-IVFL,IV fluids,pharmacy,2,370,₹740
+LN-9000441,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-21,CS-SYR,Syringes and needles,consumables,11,49.50,544.5
+LN-9000442,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,22/05/2026,PHA-ABX,Antibiotics,pharmacy,1,470,470
+LN-9000443,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,2026-05-22,CS-GLV,Surgical gloves,consumables,10,33,330
+LN-9000444,CLM-900066,IVH0072766,PRV-0032,Indus Valley Hospital,22/05/2026,PRC-APPX,Laparoscopic appendectomy,procedure,1,"₹1,09,030.50","1,09,030.50"
+LN-9000445,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,04/05/2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400","₹2,400"
+LN-9000446,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-07,PHY-SES,Physiotherapy session,physiotherapy,1,2400,2400
+LN-9000447,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-10,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400","₹2,400"
+LN-9000448,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-14,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400",2400
+LN-9000449,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,17-05-2026,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400",2400
+LN-9000450,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-20,PHY-SES,Physiotherapy session,physiotherapy,1,"2,400",2400
+LN-9000451,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-24,PHY-SES,Physiotherapy session,physiotherapy,1,"₹2,400","2,400"
+LN-9000452,CLM-900067,NH0014503,PRV-0033,Neelkanth Hospital,2026-05-28,PHY-SES,Physiotherapy session,physiotherapy,1,2400,"₹2,400"
+LN-9000453,CLM-900068,INV-20828,PRV-0008,Nirmal Seva Hospital,25/05/2026,PHA-IVFL,IV fluids,pharmacy,3,310,930
+LN-9000454,CLM-900068,INV-20828,PRV-0008,Nirmal Seva Hospital,25-05-2026,PHA-OTC,Over-the-counter medicines,pharmacy,3,86,258
+LN-9000455,CLM-900068,INV-20828,PRV-0008,Nirmal Seva Hospital,2026-05-25,PHA-CARD,Cardiac medication,pharmacy,3,360,"1,080"
+LN-9000456,CLM-900068,INV-20828,PRV-0008,Nirmal Seva Hospital,2026-05-25,PHA-ABX,Antibiotics,pharmacy,4,390,1560
+LN-9000457,CLM-900069,INV-26080,PRV-0028,Ashirwad Hospital,2026-06-04,DX-CBC,Complete blood count,diagnostics,1,390,390
+LN-9000458,CLM-900069,INV-26080,PRV-0028,Ashirwad Hospital,2026-06-04,DX-USG,Ultrasound abdomen,diagnostics,1,"1,900",1900
+LN-9000459,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04-06-2026,OTH-REG,Registration and admission charges,other,1,880,₹880
+LN-9000460,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04-06-2026,RM-PVT,Private room (per day),room,1,"3,800",3800
+LN-9000461,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04-06-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,750
+LN-9000462,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04/06/2026,OTH-NURS,Nursing charges (per day),other,3,780,"2,340"
+LN-9000463,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-KFT,Kidney function test,diagnostics,1,660,₹660
+LN-9000464,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-XRAY,Chest X-ray,diagnostics,1,₹670,670
+LN-9000465,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-ECG,Electrocardiogram,diagnostics,1,₹310,310
+LN-9000466,CLM-900070,MMC-071201,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,PHA-IVFL,IV fluids,pharmacy,5,310,1550
+LN-9000467,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,04-06-2026,CS-SYR,Syringes and needles,consumables,6,41.5,₹249
+LN-9000468,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,05/06/2026,RM-PVT,Private room (per day),room,1,3800,3800
+LN-9000469,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-05,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,750
+LN-9000470,CLM-900070,MMC-071201,PRV-0040,Meghdoot Medical College Hospital,05-06-2026,PHA-ABX,Antibiotics,pharmacy,1,₹430,430
+LN-9000471,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,5-6-2026,CS-GLV,Surgical gloves,consumables,9,26,234
+LN-9000472,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-05,PRC-APPX,Laparoscopic appendectomy,procedure,1,57950,"₹57,950"
+LN-9000473,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,06-06-2026,RM-PVT,Private room (per day),room,1,3800,3800
+LN-9000474,CLM-900070,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-06,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,₹750
+LN-9000475,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,11-06-2026,OTH-REG,Registration and admission charges,other,1,₹880,880
+LN-9000476,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-11,RM-PVT,Private room (per day),room,4,"3,300","13,200"
+LN-9000477,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,11/6/2026,CON-VIS,Inpatient doctor visit (per day),consultation,4,670,"₹2,680"
+LN-9000478,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,OTH-NURS,Nursing charges (per day),other,4,810,3240
+LN-9000479,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-11,DX-CBC,Complete blood count,diagnostics,1,330,330
+LN-9000480,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-11,DX-USG,Ultrasound abdomen,diagnostics,1,"1,550","1,550"
+LN-9000481,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,PHA-IVFL,IV fluids,pharmacy,5,300,1500
+LN-9000482,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,11/06/2026,CS-SYR,Syringes and needles,consumables,7,37,259
+LN-9000483,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,12-06-2026,PHA-ABX,Antibiotics,pharmacy,1,380,380
+LN-9000484,CLM-900071,INV-52528,PRV-0013,Navjeevan Hospital,2026-06-12,CS-GLV,Surgical gloves,consumables,4,26.50,₹106
+LN-9000485,CLM-900072,INV-61381,PRV-0013,Navjeevan Hospital,14/06/2026,CON-SPL,Specialist consultation,consultation,1,840,840
+LN-9000486,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,20/06/2026,OTH-REG,Registration and admission charges,other,1,"1,150","₹1,150"
+LN-9000487,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,20/6/2026,RM-SEMI,Semi-private room (per day),room,1,"3,050",3050
+LN-9000488,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,2026-06-20,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹940,₹940
+LN-9900005,CLM-980002,SC-970003,PRV-0017,Swasthya Clinic,2026-08-18,CON-GP,General physician consultation,consultation,1,520,520
+LN-9000489,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,20/06/2026,OTH-NURS,Nursing charges (per day),other,2,"₹1,050",2100
+LN-9000490,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,20/06/2026,DX-KFT,Kidney function test,diagnostics,1,860,860
+LN-9000491,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,2026-06-20,DX-LFT,Liver function test,diagnostics,1,960,960
+LN-9000492,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,20-06-2026,PHA-IVFL,IV fluids,pharmacy,4,400,"₹1,600"
+LN-9000493,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,2026-06-20,CS-SYR,Syringes and needles,consumables,11,50.5,555.50
+LN-9000494,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,2026-06-21,RM-SEMI,Semi-private room (per day),room,1,3050,"3,050"
+LN-9000495,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,21/06/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹940,940
+LN-9000496,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,2026-06-21,PHA-ABX,Antibiotics,pharmacy,1,520,520
+LN-9000497,CLM-900073,INV-31148,PRV-0018,Prakriti Multispeciality Hospital,21/06/2026,CS-GLV,Surgical gloves,consumables,4,33.5,134
+LN-9000498,CLM-900074,IVH0025395,PRV-0032,Indus Valley Hospital,18-06-2026,DX-ECG,Electrocardiogram,diagnostics,1,370,₹370
+LN-9000499,CLM-900074,IVH0025395,PRV-0032,Indus Valley Hospital,2026-06-18,DX-CT,CT scan,diagnostics,1,4550,4550
+LN-9000500,CLM-900075,RMI-041036,PRV-0009,Riverbend Medical Institute,2026-06-20,DX-USG,Ultrasound abdomen,diagnostics,1,2200,"2,200"
+LN-9000501,CLM-900075,RMI-041036,PRV-0009,Riverbend Medical Institute,2026-06-20,DX-CBC,Complete blood count,diagnostics,1,500,500
+LN-9000502,CLM-900075,RMI-041036,PRV-0009,Riverbend Medical Institute,20-06-2026,DX-LIPID,Lipid profile,diagnostics,1,1000,1000
+LN-9000503,CLM-900075,RMI-041036,PRV-0009,Riverbend Medical Institute,2026-06-20,DX-CT,CT scan,diagnostics,1,"5,350",5350
+LN-9000504,CLM-900076,STC/BILL/02270,PRV-0031,Sarathi Trauma Centre,17-05-2026,DX-HBA1C,HbA1c,diagnostics,1,₹700,₹700
+LN-9000505,CLM-900076,STC/BILL/02270,PRV-0031,Sarathi Trauma Centre,17-05-2026,DX-CT,CT scan,diagnostics,1,4900,"₹4,900"
+LN-9000506,CLM-900076,STC/BILL/02270,PRV-0031,Sarathi Trauma Centre,17-05-2026,DX-ECG,Electrocardiogram,diagnostics,1,400,400
+LN-9000507,CLM-900076,STC/BILL/02270,PRV-0031,Sarathi Trauma Centre,17/05/2026,DX-ECHO,2D echocardiography,diagnostics,1,2950,"₹2,950"
+LN-9000508,CLM-900077,INV61381,PRV-0013,Navjeevan Hospital,14/6/2026,CON-SPL,Specialist consultation,consultation,1,840,840
+LN-9000509,CLM-900078,MMC-098041,PRV-0040,Meghdoot Medical College Hospital,2026-06-04,DX-XRAY,Chest X-ray,diagnostics,1,670,670
+LN-9000510,CLM-900078,MMC-068186,PRV-0040,Meghdoot Medical College Hospital,19/06/2026,CON-SPL,Specialist consultation,consultation,1,900,900
+LN-9000511,CLM-900079,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,PHA-ANLG,Analgesics,pharmacy,5,120,600
+LN-9000512,CLM-900079,INV-42024,PRV-0006,Sushruta Surgical Centre,22/06/2026,PHA-OTC,Over-the-counter medicines,pharmacy,3,92,₹276
+LN-9000513,CLM-900079,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,PHA-CARD,Cardiac medication,pharmacy,3,₹370,"1,110"
+LN-9000514,CLM-900080,INV-58001,PRV-0012,Kalpataru Hospital,26/06/2026,DX-CBC,Complete blood count,diagnostics,1,440,₹440
+LN-9000515,CLM-900080,INV-58001,PRV-0012,Kalpataru Hospital,26/06/2026,DX-CT,CT scan,diagnostics,1,4800,4800
+LN-9000516,CLM-900080,INV-58001,PRV-0012,Kalpataru Hospital,26-06-2026,DX-ECG,Electrocardiogram,diagnostics,1,380,380
+LN-9000517,CLM-900080,INV-58001,PRV-0012,Kalpataru Hospital,26-06-2026,DX-LIPID,Lipid profile,diagnostics,1,₹960,960
+LN-9000518,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,OTH-REG,Registration and admission charges,other,1,"₹1,050",1050
+LN-9000519,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,RM-PVT,Private room (per day),room,1,"4,250",4250
+LN-9000520,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
+LN-9000521,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,20/6/2026,OTH-NURS,Nursing charges (per day),other,4,₹950,"3,800"
+LN-9000522,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,20-06-2026,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,800","1,800"
+LN-9000523,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,PHA-IVFL,IV fluids,pharmacy,3,₹360,1080
+LN-9000524,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,CS-SYR,Syringes and needles,consumables,6,45,270
+LN-9000525,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-20,CS-SYR,Syringes and needles,consumables,6,45,270
+LN-9000526,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,21/06/2026,RM-PVT,Private room (per day),room,1,4250,"₹4,250"
+LN-9000527,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-21,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,₹850
+LN-9000528,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-21,PHA-ABX,Antibiotics,pharmacy,1,480,₹480
+LN-9000529,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,21/06/2026,CS-GLV,Surgical gloves,consumables,6,32,192
+LN-9000530,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-22,RM-PVT,Private room (per day),room,1,4250,4250
+LN-9000531,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,2026-06-22,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹850,₹850
+LN-9000532,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,23-06-2026,RM-PVT,Private room (per day),room,1,"₹4,250","₹4,250"
+LN-9000533,CLM-900081,NH0083636,PRV-0033,Neelkanth Hospital,23/06/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,850,850
+LN-9000534,CLM-900082,INV-32418,PRV-0018,Prakriti Multispeciality Hospital,04/07/2026,DX-KFT,Kidney function test,diagnostics,1,900,900
+LN-9000535,CLM-900082,INV-32418,PRV-0018,Prakriti Multispeciality Hospital,04-07-2026,DX-ECHO,2D echocardiography,diagnostics,1,"2,850",2850
+LN-9000536,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,03-07-2026,OTH-REG,Registration and admission charges,other,1,1000,1000
+LN-9900010,CLM-960011,INV-20828,PRV-0008,Nirmal Seva Hospital,25/05/2026,CS-DRS,Dressing material,consumables,1,230,230
+LN-9000537,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,RM-GEN,General ward room (per day),room,1,1500,"1,500"
+LN-9000538,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,03/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000539,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,OTH-NURS,Nursing charges (per day),other,4,860,"₹3,440"
+LN-9000540,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,DX-ECG,Electrocardiogram,diagnostics,1,360,360
+LN-9000541,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,DX-USG,Ultrasound abdomen,diagnostics,1,"1,700","1,700"
+LN-9000542,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-03,DX-XRAY,Chest X-ray,diagnostics,1,660,660
+LN-9000543,CLM-900083,INV-39260,PRV-0006,Sushruta Surgical Centre,2026-07-03,PHA-IVFL,IV fluids,pharmacy,4,350,"1,400"
+LN-9000544,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,03/07/2026,CS-SYR,Syringes and needles,consumables,14,46,644
+LN-9000545,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-04,RM-GEN,General ward room (per day),room,1,"₹1,500","₹1,500"
+LN-9000546,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-04,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000547,CLM-900083,INV-39260,PRV-0006,Sushruta Surgical Centre,2026-07-04,PHA-ABX,Antibiotics,pharmacy,2,₹440,880
+LN-9000548,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,04/07/2026,CS-GLV,Surgical gloves,consumables,10,28.5,285
+LN-9000549,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,04-07-2026,PRC-CHOL,Laparoscopic cholecystectomy,procedure,1,"2,43,511","2,43,511"
+LN-9000550,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,05/07/2026,RM-GEN,General ward room (per day),room,1,1500,"₹1,500"
+LN-9000551,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,05-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,780
+LN-9000552,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,2026-07-06,RM-GEN,General ward room (per day),room,1,1500,"1,500"
+LN-9000553,CLM-900083,INV-54602,PRV-0006,Sushruta Surgical Centre,06/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,780,₹780
+LN-9000554,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06/07/2026,OTH-REG,Registration and admission charges,other,1,₹840,₹840
+LN-9000555,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06-07-2026,RM-PVT,Private room (per day),room,5,3550,17750
+LN-9000556,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,5,₹680,3400
+LN-9000557,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06/07/2026,OTH-NURS,Nursing charges (per day),other,5,750,"₹3,750"
+LN-9000558,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,DX-ECG,Electrocardiogram,diagnostics,1,310,₹310
+LN-9000559,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,DX-KFT,Kidney function test,diagnostics,1,640,640
+LN-9000560,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,06/07/2026,PHA-IVFL,IV fluids,pharmacy,6,300,1800
+LN-9000561,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-06,CS-SYR,Syringes and needles,consumables,11,₹36.50,401.5
+LN-9000562,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PHA-ABX,Antibiotics,pharmacy,3,370,"1,110"
+LN-9000563,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,07/07/2026,CS-GLV,Surgical gloves,consumables,9,26,₹234
+LN-9000564,CLM-900084,MMC/BILL/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PRC-CSEC,Caesarean section,procedure,1,"53,050",53050
+LN-9000565,CLM-900085,ADH-082784,PRV-0020,Amrit Dhara Hospital,01-07-2026,CON-TELE,Teleconsultation,consultation,1,₹340,340
+LN-9000566,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-05,OTH-REG,Registration and admission charges,other,1,960,₹960
+LN-9000567,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,05/07/2026,RM-SEMI,Semi-private room (per day),room,6,2250,13500
+LN-9000568,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,05/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,6,730,4380
+LN-9000569,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-05,OTH-NURS,Nursing charges (per day),other,6,800,"₹4,800"
+LN-9000570,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-05,DX-CBC,Complete blood count,diagnostics,1,370,370
+LN-9000571,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-05,DX-KFT,Kidney function test,diagnostics,1,680,680
+LN-9000572,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-05,PHA-IVFL,IV fluids,pharmacy,4,330,"1,320"
+LN-9000573,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,05/07/2026,CS-SYR,Syringes and needles,consumables,10,42,420
+LN-9000574,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,2026-07-06,PHA-ABX,Antibiotics,pharmacy,2,390,780
+LN-9000575,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,6/7/2026,CS-GLV,Surgical gloves,consumables,7,27,189
+LN-9000576,CLM-900086,INV-39137,PRV-0008,Nirmal Seva Hospital,6-7-2026,PRC-HERN,Inguinal hernia repair,procedure,1,"49,550","₹49,550"
+LN-9000577,CLM-900087,SMC/BILL/35241,PRV-0023,Seashore Medical Centre,2026-07-16,DX-CBC,Complete blood count,diagnostics,1,450,450
+LN-9000578,CLM-900087,SMC/BILL/35241,PRV-0023,Seashore Medical Centre,16-7-2026,DX-TMT,Treadmill test,diagnostics,1,"₹2,650",2650
+LN-9000579,CLM-900087,SMC/BILL/35241,PRV-0023,Seashore Medical Centre,16/07/2026,DX-ECHO,2D echocardiography,diagnostics,1,3050,3050
+LN-9000580,CLM-900087,SMC/BILL/35241,PRV-0023,Seashore Medical Centre,16/07/2026,DX-XRAY,Chest X-ray,diagnostics,1,₹800,800
+LN-9000581,CLM-900088,MMC-019982,PRV-0040,Meghdoot Medical College Hospital,2026-07-17,PHA-OTC,Over-the-counter medicines,pharmacy,5,85,425
+LN-9000582,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,2026-07-05,OTH-REG,Registration and admission charges,other,1,960,960
+LN-9000583,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05/07/2026,RM-SEMI,Semi-private room (per day),room,6,"2,250","₹13,500"
+LN-9000584,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,6,730,"₹4,380"
+LN-9000585,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05-07-2026,OTH-NURS,Nursing charges (per day),other,6,₹800,"₹4,800"
+LN-9000586,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05/07/2026,DX-CBC,Complete blood count,diagnostics,1,370,370
+LN-9000587,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05-07-2026,DX-KFT,Kidney function test,diagnostics,1,₹680,680
+LN-9000588,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,05/07/2026,PHA-IVFL,IV fluids,pharmacy,4,330,"1,320"
+LN-9000589,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,2026-07-06,PHA-ABX,Antibiotics,pharmacy,2,390,780
+LN-9000590,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,2026-07-06,CS-GLV,Surgical gloves,consumables,7,27,189
+LN-9000591,CLM-900089,INV-51956,PRV-0008,Nirmal Seva Hospital,06-07-2026,PRC-HERN,Inguinal hernia repair,procedure,1,49550,49550
+LN-9000592,CLM-900090,SHR-079529,PRV-0010,Sahyog Hospital and Research Centre,2026-07-25,DX-USG,Ultrasound abdomen,diagnostics,1,"₹1,700",1700
+LN-9000593,CLM-900090,SHR-079529,PRV-0010,Sahyog Hospital and Research Centre,2026-07-25,DX-CT,CT scan,diagnostics,1,4200,"₹4,200"
+LN-9000594,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,26/07/2026,OTH-REG,Registration and admission charges,other,1,"₹1,300","1,300"
+LN-9000595,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,26/07/2026,RM-GEN,General ward room (per day),room,1,"₹1,900","1,900"
+LN-9000596,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,26-7-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,"₹1,050","1,050"
+LN-9000597,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,2026-07-26,OTH-NURS,Nursing charges (per day),other,3,1100,3300
+LN-9000598,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,26-07-2026,DX-ECG,Electrocardiogram,diagnostics,1,450,₹450
+LN-9000599,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,2026-07-26,DX-CBC,Complete blood count,diagnostics,1,510,₹510
+LN-9000600,CLM-900091,GMH-081699,PRV-0001,Greenleaf Multispeciality Hospital,26/7/2026,PHA-IVFL,IV fluids,pharmacy,5,460,2300
+LN-9000601,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,26/7/2026,CS-SYR,Syringes and needles,consumables,10,₹57.50,575
+LN-9000602,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,27-07-2026,RM-GEN,General ward room (per day),room,1,1900,"₹1,900"
+LN-9000603,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,2026-07-27,CON-VIS,Inpatient doctor visit (per day),consultation,1,"1,050",1050
+LN-9000604,CLM-900091,GMH-081699,PRV-0001,Greenleaf Multispeciality Hospital,27-07-2026,PHA-ABX,Antibiotics,pharmacy,3,540,1620
+LN-9000605,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,27/07/2026,CS-GLV,Surgical gloves,consumables,6,38.5,₹231
+LN-9000606,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,2026-07-28,RM-GEN,General ward room (per day),room,1,1900,"₹1,900"
+LN-9000607,CLM-900091,GMH-077232,PRV-0001,Greenleaf Multispeciality Hospital,28-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1050,1050
+LN-9000608,CLM-900092,STC/BILL/37050,PRV-0031,Sarathi Trauma Centre,2026-07-28,PRC-DIAL,Haemodialysis session,procedure,1,3250,3250
+LN-9000609,CLM-900093,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,22-07-2026,PRC-CATA,Cataract surgery with lens implant,procedure,1,"₹40,950","40,950"
+LN-9000610,CLM-900093,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,22-07-2026,CS-GLV,Surgical gloves,consumables,3,₹33.50,100.50
+LN-9000611,CLM-900093,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,CS-SYR,Syringes and needles,consumables,5,₹52.50,262.50
+LN-9000612,CLM-900093,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,PHA-ANLG,Analgesics,pharmacy,2,130,260
+LN-9000613,CLM-900093,INV-31235,PRV-0018,Prakriti Multispeciality Hospital,2026-07-22,OTH-REG,Registration and admission charges,other,1,"1,150","1,150"
+LN-9000614,CLM-900094,NH0073043,PRV-0033,Neelkanth Hospital,26/07/2026,CON-TELE,Teleconsultation,consultation,1,390,390
+LN-9000615,CLM-900094,NH0073043,PRV-0033,Neelkanth Hospital,26/07/2026,PHA-ABX,Antibiotics,pharmacy,1,₹480,₹480
+LN-9000616,CLM-900094,NH0073043,PRV-0033,Neelkanth Hospital,2026-07-26,PHA-CARD,Cardiac medication,pharmacy,1,370,₹370
+LN-9000617,CLM-900094,NH0073043,PRV-0033,Neelkanth Hospital,26-07-2026,PHA-CARD,Cardiac medication,pharmacy,1,₹370,₹370
+LN-9000618,CLM-900094,NH0073043,PRV-0033,Neelkanth Hospital,2026-07-26,DX-CBC,Complete blood count,diagnostics,1,400,₹400
+LN-9000619,CLM-900095,SMC/BILL/91691,PRV-0014,Suraksha Medical Centre,2026-07-29,CON-GP,General physician consultation,consultation,1,450,450
+LN-9000620,CLM-900096,STC/BILL/26063,PRV-0031,Sarathi Trauma Centre,2026-07-30,PRC-DIAL,Haemodialysis session,procedure,1,3250,3250
+LN-9000621,CLM-900097,INV-78398,PRV-0004,Shanti Kunj Nursing Home,2026-07-23,CON-SPL,Specialist consultation,consultation,1,"1,050","₹1,050"
+LN-9000622,CLM-900097,INV-78398,PRV-0004,Shanti Kunj Nursing Home,2026-07-23,PHA-OTC,Over-the-counter medicines,pharmacy,3,92.5,₹277.50
+LN-9000623,CLM-900097,INV-78398,PRV-0004,Shanti Kunj Nursing Home,2026-07-23,PHA-INS,Insulin,pharmacy,3,660,1980
+LN-9000624,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,27-07-2026,OTH-REG,Registration and admission charges,other,1,1050,1050
+LN-9000625,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,27-07-2026,RM-GEN,General ward room (per day),room,1,1550,1550
+LN-9000626,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,27/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,750
+LN-9000627,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,27-07-2026,OTH-NURS,Nursing charges (per day),other,3,₹860,2580
+LN-9000628,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,2026-07-27,DX-XRAY,Chest X-ray,diagnostics,1,670,670
+LN-9000629,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,2026-07-27,DX-ECG,Electrocardiogram,diagnostics,1,340,340
+LN-9000630,CLM-900098,INV-50012,PRV-0006,Sushruta Surgical Centre,27/7/2026,PHA-IVFL,IV fluids,pharmacy,4,360,1440
+LN-9000631,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,27-07-2026,CS-SYR,Syringes and needles,consumables,8,44,352
+LN-9000632,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,28/07/2026,RM-GEN,General ward room (per day),room,1,1550,"₹1,550"
+LN-9000633,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,28/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,₹750
+LN-9000634,CLM-900098,INV-50012,PRV-0006,Sushruta Surgical Centre,28/7/2026,PHA-ABX,Antibiotics,pharmacy,1,₹460,460
+LN-9000635,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,28-07-2026,CS-GLV,Surgical gloves,consumables,5,₹30.50,152.50
+LN-9000636,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,2026-07-29,RM-GEN,General ward room (per day),room,1,"₹1,550",1550
+LN-9000637,CLM-900098,INV-69998,PRV-0006,Sushruta Surgical Centre,2026-07-29,CON-VIS,Inpatient doctor visit (per day),consultation,1,750,750
+LN-9000638,CLM-900099,INV-22956,PRV-0012,Kalpataru Hospital,02-08-2026,DX-CT,CT scan,diagnostics,1,5250,5250
+LN-9000639,CLM-900099,INV-22956,PRV-0012,Kalpataru Hospital,02/08/2026,DX-LIPID,Lipid profile,diagnostics,1,990,990
+LN-9000640,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,02/08/2026,OTH-REG,Registration and admission charges,other,1,960,960
+LN-9000641,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,02-08-2026,RM-SEMI,Semi-private room (per day),room,1,2450,"2,450"
+LN-9000642,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,02-08-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,810,810
+LN-9000643,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2026-08-02,OTH-NURS,Nursing charges (per day),other,4,910,"₹3,640"
+LN-9000644,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2/8/2026,DX-USG,Ultrasound abdomen,diagnostics,1,1800,"1,800"
+LN-9000645,CLM-900100,MOC-014810,PRV-0022,Mangalam Ortho Centre,02/08/2026,PHA-IVFL,IV fluids,pharmacy,3,350,"1,050"
+LN-9000646,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2026-08-02,CS-SYR,Syringes and needles,consumables,7,41.50,290.50
+LN-9000647,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,03/08/2026,RM-SEMI,Semi-private room (per day),room,1,2450,"₹2,450"
+LN-9000648,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,3/8/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,810,₹810
+LN-9000649,CLM-900100,MOC-014810,PRV-0022,Mangalam Ortho Centre,2026-08-03,PHA-ABX,Antibiotics,pharmacy,3,440,1320
+LN-9000650,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2026-08-03,CS-GLV,Surgical gloves,consumables,6,₹28.50,171
+LN-9000651,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,04/08/2026,RM-SEMI,Semi-private room (per day),room,1,2450,2450
+LN-9000652,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2026-08-04,CON-VIS,Inpatient doctor visit (per day),consultation,1,810,810
+LN-9000653,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,05/08/2026,RM-SEMI,Semi-private room (per day),room,1,"₹2,450","₹2,450"
+LN-9000654,CLM-900100,MOC-075833,PRV-0022,Mangalam Ortho Centre,2026-08-05,CON-VIS,Inpatient doctor visit (per day),consultation,1,810,810
+LN-9000655,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,03/08/2026,OTH-REG,Registration and admission charges,other,1,"₹1,000","₹1,000"
+LN-9000656,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,2026-08-03,RM-GEN,General ward room (per day),room,1,"₹1,500",1500
+LN-9000657,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,2026-08-03,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹800,800
+LN-9000658,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,03/08/2026,OTH-NURS,Nursing charges (per day),other,3,940,"₹2,820"
+LN-9000659,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,2026-08-03,DX-USG,Ultrasound abdomen,diagnostics,1,1850,"1,850"
+LN-9000660,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,03/08/2026,DX-XRAY,Chest X-ray,diagnostics,1,720,₹720
+LN-9000661,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,03-08-2026,DX-LFT,Liver function test,diagnostics,1,790,790
+LN-9000662,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,2026-08-03,PHA-IVFL,IV fluids,pharmacy,5,370,"₹1,850"
+LN-9000663,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,03/08/2026,CS-SYR,Syringes and needles,consumables,13,45,585
+LN-9000664,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,04/08/2026,RM-GEN,General ward room (per day),room,1,"₹1,500",1500
+LN-9000665,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,04-08-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,800,800
+LN-9000666,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,04-08-2026,PHA-ABX,Antibiotics,pharmacy,3,₹450,1350
+LN-9000667,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,04-08-2026,CS-GLV,Surgical gloves,consumables,7,30.50,213.5
+LN-9000668,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,05-08-2026,RM-GEN,General ward room (per day),room,1,1500,1500
+LN-9900012,CLM-900079,INV-42024,PRV-0006,Sushruta Surgical Centre,2026-06-22,CON-GP,General physician consultation,consultation,1,₹470,₹770
+LN-9000669,CLM-900101,LPH0088788,PRV-0005,Lotus Petal Hospital,2026-08-05,CON-VIS,Inpatient doctor visit (per day),consultation,1,800,800
+LN-9000670,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,30/07/2026,OTH-REG,Registration and admission charges,other,1,"₹1,200","1,200"
+LN-9000671,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-30,RM-GEN,General ward room (per day),room,1,1750,"1,750"
+LN-9000672,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,1000
+LN-9000673,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-30,OTH-NURS,Nursing charges (per day),other,5,"1,050",5250
+LN-9000674,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,DX-LFT,Liver function test,diagnostics,1,"1,000",1000
+LN-9000675,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,30-07-2026,DX-ECG,Electrocardiogram,diagnostics,1,420,₹420
+LN-9000676,CLM-900102,CAH-072277,PRV-0027,Charak Ayur Hospital,30-07-2026,PHA-IVFL,IV fluids,pharmacy,2,410,820
+LN-9000677,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,30/07/2026,CS-SYR,Syringes and needles,consumables,15,₹54.50,817.5
+LN-9000678,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,31/07/2026,RM-GEN,General ward room (per day),room,1,"1,750","1,750"
+LN-9000679,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-31,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,"₹1,000"
+LN-9000680,CLM-900102,CAH-072277,PRV-0027,Charak Ayur Hospital,31/07/2026,PHA-ABX,Antibiotics,pharmacy,1,550,550
+LN-9000681,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-31,CS-GLV,Surgical gloves,consumables,4,38.5,154
+LN-9000682,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-07-31,PRC-APPX,Laparoscopic appendectomy,procedure,1,65150.5,65150.5
+LN-9000683,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-08-01,RM-GEN,General ward room (per day),room,1,"1,750","1,750"
+LN-9000684,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-08-01,CON-VIS,Inpatient doctor visit (per day),consultation,1,"₹1,000","₹1,000"
+LN-9000685,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-08-02,RM-GEN,General ward room (per day),room,1,1750,1750
+LN-9000686,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,2026-08-02,CON-VIS,Inpatient doctor visit (per day),consultation,1,"1,000","1,000"
+LN-9000687,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,3/8/2026,RM-GEN,General ward room (per day),room,1,"₹1,750","1,750"
+LN-9000688,CLM-900102,CAH-056563,PRV-0027,Charak Ayur Hospital,03/08/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,1000,"1,000"
+LN-9000689,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,OTH-REG,Registration and admission charges,other,1,₹840,₹840
+LN-9000690,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,RM-PVT,Private room (per day),room,5,3550,17750
+LN-9000691,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,06/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,5,680,3400
+LN-9000692,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,OTH-NURS,Nursing charges (per day),other,5,750,3750
+LN-9000693,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,DX-ECG,Electrocardiogram,diagnostics,1,310,310
+LN-9000694,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,06/07/2026,DX-KFT,Kidney function test,diagnostics,1,640,640
+LN-9000695,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,PHA-IVFL,IV fluids,pharmacy,6,₹300,"1,800"
+LN-9000696,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-06,CS-SYR,Syringes and needles,consumables,11,36.5,₹401.50
+LN-9000697,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PHA-ABX,Antibiotics,pharmacy,3,370,"₹1,110"
+LN-9000698,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-07,CS-GLV,Surgical gloves,consumables,9,26,234
+LN-9000699,CLM-900103,mmc/bill/22168,PRV-0029,Mitra Medical Centre,2026-07-07,PRC-CSEC,Caesarean section,procedure,1,53050,"₹53,050"
+LN-9000700,CLM-900104,BNI/BILL/40605,PRV-0030,Bodhi Neuro Institute,03/08/2026,CON-TELE,Teleconsultation,consultation,1,₹390,390
+LN-9000701,CLM-900104,BNI/BILL/40605,PRV-0030,Bodhi Neuro Institute,2026-08-03,PHA-ABX,Antibiotics,pharmacy,1,430,430
+LN-9000702,CLM-900104,BNI/BILL/40605,PRV-0030,Bodhi Neuro Institute,2026-08-03,DX-ECG,Electrocardiogram,diagnostics,1,330,330
+LN-9000703,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31-07-2026,OTH-REG,Registration and admission charges,other,1,"₹1,000",1000
+LN-9000704,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,RM-GEN,General ward room (per day),room,1,1500,1500
+LN-9000705,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31/07/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,750
+LN-9000706,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,OTH-NURS,Nursing charges (per day),other,2,840,1680
+LN-9000707,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,DX-USG,Ultrasound abdomen,diagnostics,1,1800,1800
+LN-9000708,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31/07/2026,DX-LFT,Liver function test,diagnostics,1,820,820
+LN-9000709,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-07-31,PHA-IVFL,IV fluids,pharmacy,4,330,1320
+LN-9000710,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,31-07-2026,CS-SYR,Syringes and needles,consumables,13,44.5,578.5
+LN-9000711,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-08-01,RM-GEN,General ward room (per day),room,1,"₹1,500",1500
+LN-9000712,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,01/08/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,₹750,750
+LN-9000713,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,2026-08-01,PHA-ABX,Antibiotics,pharmacy,2,460,₹920
+LN-9000714,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,01/08/2026,CS-GLV,Surgical gloves,consumables,10,29,290
+LN-9000715,CLM-900105,THC/BILL/26310,PRV-0035,Tulsi Health Centre,01-08-2026,PRC-HERN,Inguinal hernia repair,procedure,1,"₹51,750","₹51,750"
+LN-9000716,CLM-900106,INV 32418,PRV-0018,Prakriti Multispeciality Hospital,04-07-2026,DX-KFT,Kidney function test,diagnostics,1,900,900
+LN-9000717,CLM-900106,INV 32418,PRV-0018,Prakriti Multispeciality Hospital,2026-07-04,DX-ECHO,2D echocardiography,diagnostics,1,2850,"₹2,850"
+LN-9000718,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,17/8/2026,OTH-REG,Registration and admission charges,other,1,1250,"₹1,250"
+LN-9000719,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,17/08/2026,ICU-STD,ICU bed (per day),icu,1,"₹10,700","10,700"
+LN-9000720,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,CON-VIS,Inpatient doctor visit (per day),consultation,3,₹930,2790
+LN-9000721,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,17-08-2026,OTH-NURS,Nursing charges (per day),other,3,1100,"₹3,300"
+LN-9000722,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,17-08-2026,DX-CBC,Complete blood count,diagnostics,1,480,480
+LN-9000723,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-17,PHA-IVFL,IV fluids,pharmacy,5,400,2000
+LN-9000724,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,17-08-2026,CS-SYR,Syringes and needles,consumables,14,₹54,756
+LN-9000725,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,18-08-2026,RM-GEN,General ward room (per day),room,2,1800,3600
+LN-9000726,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,18/08/2026,PHA-ABX,Antibiotics,pharmacy,2,540,"₹1,080"
+LN-9000727,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-18,CS-GLV,Surgical gloves,consumables,7,₹34,238
+LN-9000728,CLM-900107,RMI-059349,PRV-0009,Riverbend Medical Institute,2026-08-18,PRC-CSEC,Caesarean section,procedure,1,69250,69250
+LN-9000729,CLM-900108,BNI/BILL/78476,PRV-0030,Bodhi Neuro Institute,2026-08-03,CON-TELE,Teleconsultation,consultation,1,390,390
+LN-9000730,CLM-900108,BNI/BILL/78476,PRV-0030,Bodhi Neuro Institute,03/08/2026,PHA-ABX,Antibiotics,pharmacy,1,430,430
+LN-9000731,CLM-900108,BNI/BILL/78476,PRV-0030,Bodhi Neuro Institute,2026-08-03,DX-ECG,Electrocardiogram,diagnostics,1,330,330
+LN-9000732,CLM-900109,BNI/BILL/61641,PRV-0030,Bodhi Neuro Institute,26-08-2026,CON-SPL,Specialist consultation,consultation,1,970,970
+LN-9000733,CLM-900109,BNI/BILL/61641,PRV-0030,Bodhi Neuro Institute,26-08-2026,PHA-CARD,Cardiac medication,pharmacy,2,340,680
+LN-9000734,CLM-900109,BNI/BILL/61641,PRV-0030,Bodhi Neuro Institute,2026-08-26,PHA-INS,Insulin,pharmacy,1,630,630
+LN-9000735,CLM-900109,BNI/BILL/61641,PRV-0030,Bodhi Neuro Institute,26-08-2026,DX-XRAY,Chest X-ray,diagnostics,1,₹650,650
+LN-9000736,CLM-900110,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,2026-08-27,PHA-ANLG,Analgesics,pharmacy,2,140,280
+LN-9000737,CLM-900110,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,27/08/2026,PHA-OTC,Over-the-counter medicines,pharmacy,1,98.5,98.5
+LN-9000738,CLM-900110,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,27-08-2026,PHA-ABX,Antibiotics,pharmacy,2,490,980
+LN-9000739,CLM-900110,PFC/BILL/15517,PRV-0026,Parivar Family Clinic,2026-08-27,PHA-IVFL,IV fluids,pharmacy,5,380,1900
+LN-9000740,CLM-900111,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-MRI,MRI scan,diagnostics,1,7620,7620
+LN-9000741,CLM-900111,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-LFT,Liver function test,diagnostics,1,740,740
+LN-9000742,CLM-900111,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,2026-08-29,DX-KFT,Kidney function test,diagnostics,1,690,₹690
+LN-9000743,CLM-900111,MMC-028498,PRV-0040,Meghdoot Medical College Hospital,29/08/2026,DX-ECHO,2D echocardiography,diagnostics,1,"₹2,200","₹2,200"
+LN-9000744,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,OTH-REG,Registration and admission charges,other,1,₹860,₹860
+LN-9000745,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,26-08-2026,ICU-STD,ICU bed (per day),icu,1,"7,500","7,500"
+LN-9000746,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
+LN-9000747,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,26-08-2026,OTH-NURS,Nursing charges (per day),other,6,750,4500
+LN-9000748,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,DX-ECG,Electrocardiogram,diagnostics,1,300,₹300
+LN-9000749,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,26/08/2026,DX-USG,Ultrasound abdomen,diagnostics,1,"1,650","1,650"
+LN-9000750,CLM-900112,ADH-051270,PRV-0020,Amrit Dhara Hospital,26/08/2026,PHA-IVFL,IV fluids,pharmacy,6,300,"1,800"
+LN-9000751,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-26,CS-SYR,Syringes and needles,consumables,11,40,₹440
+LN-9000752,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,27/08/2026,RM-GEN,General ward room (per day),room,1,"1,250",1250
+LN-9000753,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-27,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
+LN-9000754,CLM-900112,ADH-051270,PRV-0020,Amrit Dhara Hospital,2026-08-27,PHA-ABX,Antibiotics,pharmacy,3,390,1170
+LN-9000755,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-27,CS-GLV,Surgical gloves,consumables,7,27,189
+LN-9000756,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,28-08-2026,RM-GEN,General ward room (per day),room,1,"1,250",1250
+LN-9000757,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,28/8/2026,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,₹680
+LN-9000758,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,29/08/2026,RM-GEN,General ward room (per day),room,1,1250,1250
+LN-9000759,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-29,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
+LN-9000760,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,30-08-2026,RM-GEN,General ward room (per day),room,1,"1,250","₹1,250"
+LN-9000761,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-30,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
+LN-9000762,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-31,RM-GEN,General ward room (per day),room,1,"1,250",1250
+LN-9000763,CLM-900112,ADH-073442,PRV-0020,Amrit Dhara Hospital,2026-08-31,CON-VIS,Inpatient doctor visit (per day),consultation,1,680,680
+LN-9000764,CLM-900113,LPH0084742,PRV-0005,Lotus Petal Hospital,16-09-2026,PHA-IVFL,IV fluids,pharmacy,5,330,"₹1,650"
+LN-9000765,CLM-900113,LPH0084742,PRV-0005,Lotus Petal Hospital,16/09/2026,PHA-INS,Insulin,pharmacy,3,₹680,2040
+LN-9000766,CLM-900113,LPH0084742,PRV-0005,Lotus Petal Hospital,2026-09-16,PHA-CARD,Cardiac medication,pharmacy,4,400,1600
+LN-9000767,CLM-900114,BNI/BILL/06760,PRV-0030,Bodhi Neuro Institute,2026-08-26,CON-SPL,Specialist consultation,consultation,1,970,970
+LN-9000768,CLM-900114,BNI/BILL/06760,PRV-0030,Bodhi Neuro Institute,26-08-2026,PHA-CARD,Cardiac medication,pharmacy,2,₹340,680
+LN-9000769,CLM-900114,BNI/BILL/06760,PRV-0030,Bodhi Neuro Institute,2026-08-26,PHA-INS,Insulin,pharmacy,1,630,630
+LN-9000770,CLM-900114,BNI/BILL/06760,PRV-0030,Bodhi Neuro Institute,2026-08-26,DX-XRAY,Chest X-ray,diagnostics,1,650,650
+LN-9000771,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,OTH-REG,Registration and admission charges,other,1,"₹1,050",1050
+LN-9000772,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,27/09/2026,RM-PVT,Private room (per day),room,4,"₹3,500",14000
+LN-9000773,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,27-9-2026,CON-VIS,Inpatient doctor visit (per day),consultation,4,₹860,3440
+LN-9000774,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,OTH-NURS,Nursing charges (per day),other,4,"₹1,000",4000
+LN-9000775,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,27/09/2026,DX-LFT,Liver function test,diagnostics,1,830,830
+LN-9000776,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,DX-KFT,Kidney function test,diagnostics,1,820,₹820
+LN-9000777,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,27-09-2026,PHA-IVFL,IV fluids,pharmacy,2,₹370,₹740
+LN-9000778,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-27,CS-SYR,Syringes and needles,consumables,13,₹47,611
+LN-9000779,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,2026-09-28,PHA-ABX,Antibiotics,pharmacy,1,500,500
+LN-9000780,CLM-900115,INV-57779,PRV-0039,Saptagiri Hospital,28-9-2026,CS-GLV,Surgical gloves,consumables,10,34,₹340
+LN-9000781,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,11-10-2026,OTH-REG,Registration and admission charges,other,1,940,940
+LN-9900004,CLM-980002,SC-970003,PRV-0017,Swasthya Clinic,2026-08-18,DX-CBC,Complete blood count,diagnostics,1,410,410
+LN-9000782,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,11/10/2026,RM-PVT,Private room (per day),room,5,"₹6,000",30000
+LN-9000783,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-11,CON-VIS,Inpatient doctor visit (per day),consultation,5,730,3650
+LN-9000784,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,11-10-2026,OTH-NURS,Nursing charges (per day),other,5,870,4350
+LN-9000785,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-11,DX-USG,Ultrasound abdomen,diagnostics,1,1750,1750
+LN-9000786,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,11/10/2026,DX-LFT,Liver function test,diagnostics,1,750,750
+LN-9000787,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-11,PHA-IVFL,IV fluids,pharmacy,6,310,1860
+LN-9000788,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-11,CS-SYR,Syringes and needles,consumables,6,₹41,246
+LN-9000789,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,11-10-2026,OTH-AMB,Ambulance charges,other,1,1200,"1,200"
+LN-9000790,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-12,PHA-ABX,Antibiotics,pharmacy,1,440,₹440
+LN-9000791,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,12-10-2026,CS-GLV,Surgical gloves,consumables,4,27,₹108
+LN-9000792,CLM-900116,SCH-009537,PRV-0034,Sanjeevani Care Hospital,2026-10-12,PRC-HERN,Inguinal hernia repair,procedure,1,12000,"12,000"
+LN-9000793,CLM-900117,INV-98622,PRV-0018,Prakriti Multispeciality Hospital,17/10/2026,CON-GP,General physician consultation,consultation,1,610,₹610
+LN-9000794,CLM-900117,INV-01410,PRV-0018,Prakriti Multispeciality Hospital,17-10-2026,PHA-CARD,Cardiac medication,pharmacy,2,470,940
+LN-9000795,CLM-900117,INV-01410,PRV-0018,Prakriti Multispeciality Hospital,2026-10-17,PHA-ANLG,Analgesics,pharmacy,2,₹140,₹280
+LN-9000796,CLM-900117,INV-98622,PRV-0018,Prakriti Multispeciality Hospital,2026-10-17,PHA-VIT,Vitamins and supplements,pharmacy,1,670,670
+LN-9000797,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,18/10/2026,OTH-REG,Registration and admission charges,other,1,₹950,950
+LN-9000798,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,18/10/2026,RM-GEN,General ward room (per day),room,4,"1,450",5800
+LN-9000799,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,18-10-2026,CON-VIS,Inpatient doctor visit (per day),consultation,4,₹790,"3,160"
+LN-9000800,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,18-10-2026,OTH-NURS,Nursing charges (per day),other,4,860,"3,440"
+LN-9000801,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,DX-ECG,Electrocardiogram,diagnostics,1,330,330
+LN-9000802,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,DX-XRAY,Chest X-ray,diagnostics,1,₹690,690
+LN-9000803,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,DX-CBC,Complete blood count,diagnostics,1,380,380
+LN-9000804,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,2026-10-18,PHA-IVFL,IV fluids,pharmacy,4,340,"₹1,360"
+LN-9000805,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,18-10-2026,CS-SYR,Syringes and needles,consumables,11,43.5,478.5
+LN-9000806,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,19-10-2026,PHA-ABX,Antibiotics,pharmacy,2,440,₹880
+LN-9000807,CLM-900118,INV-44904,PRV-0006,Sushruta Surgical Centre,19-10-2026,CS-GLV,Surgical gloves,consumables,8,₹31,248
+LN-9000808,CLM-900119,ADH-042873,PRV-0020,Amrit Dhara Hospital,2026-10-26,DX-MRI,MRI scan,diagnostics,1,"₹12,920","12,920"
+LN-9000809,CLM-900119,ADH-042873,PRV-0020,Amrit Dhara Hospital,26-10-2026,DX-TMT,Treadmill test,diagnostics,1,1900,1900
+LN-9000810,CLM-900119,ADH-042873,PRV-0020,Amrit Dhara Hospital,26/10/2026,DX-CBC,Complete blood count,diagnostics,1,330,330
+LN-9000811,CLM-900119,ADH-042873,PRV-0020,Amrit Dhara Hospital,26/10/2026,DX-CT,CT scan,diagnostics,1,3850,3850

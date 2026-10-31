@@ -1,0 +1,135 @@
+%PDF-1.3
+%“Œ‹ž ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+5 0 obj
+<<
+/Contents 9 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 8 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+6 0 obj
+<<
+/PageMode /UseNone /Pages 8 0 R /Type /Catalog
+>>
+endobj
+7 0 obj
+<<
+/Author (anonymous) /CreationDate (D:20000101000000+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20000101000000+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (Invoice VMC-003013) /Trapped /False
+>>
+endobj
+8 0 obj
+<<
+/Count 1 /Kids [ 5 0 R ] /Type /Pages
+>>
+endobj
+9 0 obj
+<<
+/Length 2570
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 16 Tf 19.2 TL ET
+BT 1 0 0 1 40 791.8898 Tm (Vatsalya Mother and Child Hospital) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 40 775.8898 Tm (Chandigarh, India    Provider ID: PRV-0015) Tj T* ET
+BT /F2 13 Tf 15.6 TL ET
+BT 1 0 0 1 472.2056 791.8898 Tm (TAX INVOICE) Tj T* ET
+n 40 681.8898 515.2756 78 re S
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 50 739.8898 Tm (Invoice No: VMC-003013) Tj T* ET
+BT 1 0 0 1 307.6378 739.8898 Tm (Patient: Karan Mishra) Tj T* ET
+BT 1 0 0 1 50 721.8898 Tm (Invoice Date: 07/12/2025) Tj T* ET
+BT 1 0 0 1 307.6378 721.8898 Tm (Member ID: MEM-900083) Tj T* ET
+BT 1 0 0 1 50 703.8898 Tm (Admission / Visit Date: 06/12/2025) Tj T* ET
+BT 1 0 0 1 307.6378 703.8898 Tm (Policy No: POL-900053) Tj T* ET
+BT /F2 9 Tf 10.8 TL ET
+BT 1 0 0 1 40 651.8898 Tm (Code) Tj T* ET
+BT 1 0 0 1 105 651.8898 Tm (Description) Tj T* ET
+BT 1 0 0 1 300 651.8898 Tm (Date) Tj T* ET
+BT 1 0 0 1 370 651.8898 Tm (Qty) Tj T* ET
+BT 1 0 0 1 410 651.8898 Tm (Rate \(Rs\)) Tj T* ET
+BT 1 0 0 1 480 651.8898 Tm (Amount \(Rs\)) Tj T* ET
+n 40 647.8898 m 555.2756 647.8898 l S
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 40 635.8898 Tm (PHA-ABX) Tj T* ET
+BT 1 0 0 1 105 635.8898 Tm (Antibiotics) Tj T* ET
+BT 1 0 0 1 300 635.8898 Tm (06/12/2025) Tj T* ET
+BT 1 0 0 1 389.996 635.8898 Tm (1) Tj T* ET
+BT 1 0 0 1 442.478 635.8898 Tm (400.00) Tj T* ET
+BT 1 0 0 1 527.7536 635.8898 Tm (400.00) Tj T* ET
+BT 1 0 0 1 40 619.8898 Tm (PHA-INS) Tj T* ET
+BT 1 0 0 1 105 619.8898 Tm (Insulin) Tj T* ET
+BT 1 0 0 1 300 619.8898 Tm (06/12/2025) Tj T* ET
+BT 1 0 0 1 389.996 619.8898 Tm (4) Tj T* ET
+BT 1 0 0 1 442.478 619.8898 Tm (580.00) Tj T* ET
+BT 1 0 0 1 520.2476 619.8898 Tm (2,320.00) Tj T* ET
+BT 1 0 0 1 40 603.8898 Tm (PHA-CARD) Tj T* ET
+BT 1 0 0 1 105 603.8898 Tm (Cardiac medication) Tj T* ET
+BT 1 0 0 1 300 603.8898 Tm (06/12/2025) Tj T* ET
+BT 1 0 0 1 389.996 603.8898 Tm (5) Tj T* ET
+BT 1 0 0 1 442.478 603.8898 Tm (350.00) Tj T* ET
+BT 1 0 0 1 520.2476 603.8898 Tm (1,750.00) Tj T* ET
+BT 1 0 0 1 40 587.8898 Tm (PHA-IVFL) Tj T* ET
+BT 1 0 0 1 105 587.8898 Tm (IV fluids) Tj T* ET
+BT 1 0 0 1 300 587.8898 Tm (06/12/2025) Tj T* ET
+BT 1 0 0 1 389.996 587.8898 Tm (1) Tj T* ET
+BT 1 0 0 1 442.478 587.8898 Tm (310.00) Tj T* ET
+BT 1 0 0 1 527.7536 587.8898 Tm (310.00) Tj T* ET
+n 40 579.8898 m 555.2756 579.8898 l S
+BT /F2 11 Tf 13.2 TL ET
+BT 1 0 0 1 370 561.8898 Tm (Total \(Rs\)) Tj T* ET
+BT 1 0 0 1 512.4636 561.8898 Tm (4,780.00) Tj T* ET
+BT /F3 8 Tf 9.6 TL ET
+BT 1 0 0 1 40 40 Tm (This is a computer-generated invoice. Synthetic sample data for testing.) Tj T* ET
+ 
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000061 00000 n 
+0000000112 00000 n 
+0000000219 00000 n 
+0000000331 00000 n 
+0000000446 00000 n 
+0000000649 00000 n 
+0000000717 00000 n 
+0000000988 00000 n 
+0000001047 00000 n 
+trailer
+<<
+/ID 
+[<bca229b58ed32d67e7b475fb83a2a5e7><bca229b58ed32d67e7b475fb83a2a5e7>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 7 0 R
+/Root 6 0 R
+/Size 10
+>>
+startxref
+3668
+%%EOF
