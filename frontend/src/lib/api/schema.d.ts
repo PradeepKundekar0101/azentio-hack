@@ -21,6 +21,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/auth/demo-accounts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Demo Accounts
+         * @description The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN
+         *     is on, and lists only accounts that still exist and are active.
+         */
+        get: operations["demo_accounts_api_v1_auth_demo_accounts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/auth/login": {
         parameters: {
             query?: never;
@@ -790,6 +811,16 @@ export interface components {
             /** Rejected */
             rejected: number;
         };
+        /** DemoAccount */
+        DemoAccount: {
+            /** Username */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Password */
+            password: string;
+        };
         /** DocumentDetail */
         DocumentDetail: {
             /** Id */
@@ -1428,6 +1459,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HealthOut"];
+                };
+            };
+        };
+    };
+    demo_accounts_api_v1_auth_demo_accounts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DemoAccount"][];
                 };
             };
         };

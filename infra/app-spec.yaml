@@ -44,6 +44,8 @@ services:
       - { key: SESSION_SECRET, type: SECRET, value: "${DEPLOY_SESSION_SECRET}" }
       - { key: DEMO_USERNAME, value: "${DEMO_USERNAME}" }
       - { key: DEMO_PASSWORD, type: SECRET, value: "${DEPLOY_DEMO_PASSWORD}" }
+      # The judging demo shows the three demo accounts on the sign-in page for one-click sign-in.
+      - { key: DEMO_QUICK_LOGIN, value: "true" }
       - { key: COOKIE_SECURE, value: "true" }
       - { key: CORS_ORIGINS, value: "${APP_URL}" }
       - { key: ANTHROPIC_API_KEY, type: SECRET, value: "${ANTHROPIC_API_KEY}" }

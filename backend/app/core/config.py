@@ -42,6 +42,10 @@ class Settings(BaseSettings):
     cookie_secure: bool = True
     demo_username: str = "demo"
     demo_password: SecretStr
+    # With no users yet, the first start seeds three demo accounts (admin, senior reviewer, analyst)
+    # that all use DEMO_PASSWORD. When true, the sign-in page lists them with their passwords for
+    # one-click sign-in during demos and testing. Never enable it for real data.
+    demo_quick_login: bool = False
 
     # Deductible and co-pay are normal policy application; set true to raise alerts for them on open claims too.
     alert_on_adjustments: bool = False

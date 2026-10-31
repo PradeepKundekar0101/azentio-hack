@@ -3,6 +3,7 @@ right person is allowed."""
 
 from fastapi.testclient import TestClient
 
+from app.main import create_app
 from tests.conftest import DEMO_PASSWORD, DEMO_USERNAME
 from tests.ingest_fixtures import BASE, to_csv_files
 from tests.test_imports_api import api, upload  # noqa: F401 - fixture reuse
@@ -41,7 +42,12 @@ def first_alert(admin: TestClient) -> dict:
 def test_environment_login_bootstraps_the_first_admin_only_once(client: TestClient) -> None:
     first = client.post("/api/v1/auth/login", json={"username": DEMO_USERNAME, "password": DEMO_PASSWORD})
     assert first.json()["role"] == "admin"
-    assert client.get(USERS).json()[0]["username"] == DEMO_USERNAME
+    seeded = client.get(USERS).json()
+    assert [(u["username"], u["role"]) for u in seeded] == [
+        (DEMO_USERNAME, "admin"),
+        ("reviewer", "senior_reviewer"),
+        ("analyst", "analyst"),
+    ]
 
     onboard(client, "asha", "analyst")
     # Deactivating the bootstrap admin is refused for the admin themselves, so make a second admin do it.
@@ -200,4 +206,41 @@ def test_every_decision_is_audited_with_the_actor_and_role(api: TestClient, sql)
         (DEMO_USERNAME, "escalated", "reviewed", "admin"),
     ]
     onboarding = sql("select action, actor from audit_log where entity = 'user' order by id")
-    assert [tuple(r) for r in onboarding] == [("user_bootstrapped", DEMO_USERNAME), ("user_created", DEMO_USERNAME)]
+    assert [tuple(r) for r in onboarding] == [("demo_accounts_seeded", DEMO_USERNAME), ("user_created", DEMO_USERNAME)]
+
+
+# Quick sign-in for demos
+
+
+def test_demo_accounts_are_hidden_unless_quick_login_is_on(client: TestClient) -> None:
+    client.post("/api/v1/auth/login", json={"username": DEMO_USERNAME, "password": DEMO_PASSWORD})
+    # No session needed, but with the switch off nothing is listed.
+    assert TestClient(client.app).get("/api/v1/auth/demo-accounts").json() == []
+
+
+def test_demo_accounts_list_live_seeded_accounts_with_the_demo_password(settings, db_url: str) -> None:
+    from tests.conftest import make_settings
+
+    quick = make_settings(database_url=db_url, demo_quick_login=True)
+    with TestClient(create_app(quick)) as client:
+        client.post("/api/v1/auth/login", json={"username": DEMO_USERNAME, "password": DEMO_PASSWORD})
+        listed = TestClient(client.app).get("/api/v1/auth/demo-accounts").json()
+        assert [(a["username"], a["role"], a["password"]) for a in listed] == [
+            (DEMO_USERNAME, "admin", DEMO_PASSWORD),
+            ("reviewer", "senior_reviewer", DEMO_PASSWORD),
+            ("analyst", "analyst", DEMO_PASSWORD),
+        ]
+        # Each listed account really signs in with that password.
+        for account in listed:
+            assert (
+                sign_in(client, account["username"], account["password"]).get("/api/v1/auth/me").json()["role"]
+                == account["role"]
+            )
+
+        # A deactivated demo account drops off the list.
+        analyst_id = next(u["id"] for u in client.get(USERS).json() if u["username"] == "analyst")
+        client.patch(f"{USERS}/{analyst_id}", json={"is_active": False})
+        assert [a["username"] for a in TestClient(client.app).get("/api/v1/auth/demo-accounts").json()] == [
+            DEMO_USERNAME,
+            "reviewer",
+        ]
