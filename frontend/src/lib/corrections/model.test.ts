@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { correctionLabel, evidenceKind, reconciles, splitCorrections, type CorrectionSetOut } from "./model";
+import { correctionLabel, evidenceKind, reconciles, settlementSummary, splitCorrections, type CorrectionSetOut } from "./model";
 
 const set = {
   requested_amount: "57294.00",
@@ -37,5 +37,22 @@ describe("labels", () => {
     expect(evidenceKind("REL-1")).toBe("Related claims");
     expect(evidenceKind("ALR-9")).toBe("Alert");
     expect(evidenceKind("STL-000001")).toBe("Settlement");
+  });
+});
+
+describe("settlementSummary", () => {
+  it("splits the reduction into document findings, policy limits and normal policy terms", () => {
+    const demo = {
+      ...set,
+      corrections: [
+        { type: "REMOVE_UNSUPPORTED_LINE", difference: "1200.00", applied: true },
+        { type: "ADJUST_TO_DOCUMENT", difference: "2500.00", applied: true },
+        { type: "REDUCE_ROOM_DAYS", difference: "12000.00", applied: true },
+        { type: "CAP_AT_SUB_LIMIT", difference: "3000.00", applied: true },
+        { type: "APPLY_DEDUCTIBLE", difference: "5000.00", applied: true },
+        { type: "APPLY_COPAY", difference: "3359.40", applied: true },
+      ],
+    } as unknown as CorrectionSetOut;
+    expect(settlementSummary(demo)).toEqual({ documents: "15700.00", policyLimits: "3000.00", policyTerms: "8359.40" });
   });
 });
