@@ -243,6 +243,22 @@ def test_demo_accounts_are_hidden_unless_quick_login_is_on(client: TestClient) -
     assert TestClient(client.app).get("/api/v1/auth/demo-accounts").json() == []
 
 
+def test_quick_login_on_a_fresh_database_lists_the_demo_accounts_before_anyone_signs_in(settings, db_url: str) -> None:
+    from tests.conftest import make_settings
+
+    quick = make_settings(database_url=db_url, demo_quick_login=True)
+    with TestClient(create_app(quick)) as client:
+        listed = client.get("/api/v1/auth/demo-accounts").json()
+        assert [(a["username"], a["role"]) for a in listed] == [
+            (DEMO_USERNAME, "admin"),
+            ("reviewer", "senior_reviewer"),
+            ("analyst", "analyst"),
+        ]
+        # Listing again does not seed twice, and each account signs in.
+        assert len(client.get("/api/v1/auth/demo-accounts").json()) == 3
+        assert sign_in(client, "analyst", DEMO_PASSWORD).get("/api/v1/auth/me").json()["role"] == "analyst"
+
+
 def test_demo_accounts_list_live_seeded_accounts_with_the_demo_password(settings, db_url: str) -> None:
     from tests.conftest import make_settings
 

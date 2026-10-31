@@ -32,7 +32,7 @@
           "auth"
         ],
         "summary": "Demo Accounts",
-        "description": "The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN\nis on, and lists only accounts that still exist and are active.",
+        "description": "The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN\nis on, and lists only accounts that still exist and are active. On a database with no users yet it\nseeds them first; otherwise the list would stay empty until someone typed the environment login.",
         "operationId": "demo_accounts_api_v1_auth_demo_accounts_get",
         "responses": {
           "200": {

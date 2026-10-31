@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request, Response
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
+from sqlalchemy.exc import IntegrityError
 
 from app.core import audit
 from app.core.config import Settings
@@ -50,10 +51,18 @@ async def _bootstrap_demo_accounts(
 ) -> User | None:
     """With no users yet, the environment's demo login seeds the demo accounts, so a fresh deployment
     can sign in and onboard everyone else. Once any user exists, the environment login stops working."""
-    count = await session.scalar(select(func.count()).select_from(User))
-    if count or not credentials_match(settings, username, password):
+    if not credentials_match(settings, username, password):
         return None
-    password_hash = hash_password(password)
+    return await _seed_demo_accounts(session, settings)
+
+
+async def _seed_demo_accounts(session: SessionDep, settings: Settings) -> User | None:
+    """Create the demo accounts with DEMO_PASSWORD if the users table is empty. Returns the admin, or None
+    when users already exist."""
+    count = await session.scalar(select(func.count()).select_from(User))
+    if count:
+        return None
+    password_hash = hash_password(settings.demo_password.get_secret_value())
     users = [
         User(
             username=name or settings.demo_username,
@@ -84,10 +93,16 @@ class DemoAccount(BaseModel):
 @router.get("/demo-accounts")
 async def demo_accounts(request: Request, session: SessionDep) -> list[DemoAccount]:
     """The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN
-    is on, and lists only accounts that still exist and are active."""
+    is on, and lists only accounts that still exist and are active. On a database with no users yet it
+    seeds them first; otherwise the list would stay empty until someone typed the environment login."""
     settings: Settings = request.app.state.settings
     if not settings.demo_quick_login:
         return []
+    try:
+        await _seed_demo_accounts(session, settings)
+    except IntegrityError:
+        # A concurrent request seeded them first.
+        await session.rollback()
     users = await session.scalars(
         select(User).where(User.username.in_(demo_usernames(settings)), User.is_active.is_(True))
     )
