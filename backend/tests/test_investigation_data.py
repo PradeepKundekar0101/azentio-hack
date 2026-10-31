@@ -13,7 +13,7 @@ import pytest
 from PIL import Image
 
 from app.core.money import parse_amount
-from app.documents.phash import phash, phash_distance
+from app.documents.phash import NEAR_IDENTICAL_DISTANCE, phash, phash_distance
 from scripts.datagen.common import norm_ref, parse_date
 from scripts.datagen.investigation import (
     BUSY_PROVIDER_CLAIMS,
@@ -84,10 +84,12 @@ def check_relationship(rel: dict, claims: dict[str, dict], lines: dict[str, list
     elif rel["scenario"] == "concurrent_stays":
         assert a["claimant_id"] == b["claimant_id"] and a["claim_type"] == b["claim_type"] == "inpatient"
         spans = [
-            (min(day(ln["service_date"]) for ln in lines[c["claim_id"]]),
-             max(day(ln["service_date"]) for ln in lines[c["claim_id"]]))
+            (
+                min(day(ln["service_date"]) for ln in lines[c["claim_id"]]),
+                max(day(ln["service_date"]) for ln in lines[c["claim_id"]]),
+            )
             for c in members
-        ]  # fmt: skip
+        ]
         assert spans[0][0] <= spans[1][1] and spans[1][0] <= spans[0][1]
         providers = [{ln["provider_id"] for ln in lines[c["claim_id"]]} for c in members]
         assert not providers[0] & providers[1]
@@ -232,7 +234,7 @@ def test_reused_documents_are_identical_or_near_identical(demo: Path) -> None:
             exact += 1
         else:
             with Image.open(original) as a, Image.open(copy) as b:
-                assert phash_distance(phash(a), phash(b)) <= 5
+                assert phash_distance(phash(a), phash(b)) <= NEAR_IDENTICAL_DISTANCE
             near += 1
     assert (exact, near) == (2, 1)
 

@@ -29,6 +29,7 @@ from app.db.models import (
 )
 from app.db.session import Database
 from app.duplicates.detect import detect_duplicates
+from app.graph.service import build_graph
 from app.rules.context import ClaimData, Evaluation, LineData, PolicyData, RuleData, SettlementData
 from app.rules.payable import RULES_VERSION, evaluate_policy
 
@@ -206,6 +207,9 @@ async def execute_run(session: AsyncSession, run: ProcessingRun, settings: Setti
     await _insert(session, DuplicateMatch, matches)
     await _insert(session, Alert, alerts)
     lap("insert")
+    # Cross-claim correlation over every claim (links cross policies), in the same transaction.
+    await build_graph(session, settings, run_id=run.id)
+    lap("graph")
 
     run.claims_processed = len(evaluations)
     run.claims_failed = len(failures)

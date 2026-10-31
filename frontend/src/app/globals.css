@@ -212,3 +212,33 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Related-claims graph (React Flow): links coloured and dashed by strength, themed with the app's tokens. */
+.related-graph {
+  --xy-background-color: var(--card);
+  --xy-edge-label-background-color: var(--card);
+  --xy-edge-label-color: var(--foreground);
+  --xy-controls-button-background-color: var(--card);
+  --xy-controls-button-color: var(--foreground);
+  --xy-controls-button-border-color: var(--border);
+}
+.related-graph .edge-structural .react-flow__edge-path {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.related-graph .edge-strong .react-flow__edge-path {
+  stroke: var(--destructive);
+  stroke-width: 2.5;
+}
+.related-graph .edge-weak .react-flow__edge-path {
+  stroke: var(--warning);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+.related-graph .react-flow__edge.selected .react-flow__edge-path {
+  stroke-width: 3.5;
+}
+.related-graph .react-flow__edge-text {
+  font-size: 11px;
+  font-weight: 600;
+}

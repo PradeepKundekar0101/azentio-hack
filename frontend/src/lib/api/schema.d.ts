@@ -384,6 +384,97 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/graph/rebuild": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Rebuild */
+        post: operations["rebuild_api_v1_graph_rebuild_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/relationship-groups": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Groups */
+        get: operations["list_groups_api_v1_relationship_groups_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/relationship-groups/{group_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Group Detail */
+        get: operations["group_detail_api_v1_relationship_groups__group_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/claims/{claim_id}/related": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Related
+         * @description The claim's groups and its subgraph: entities up to two hops away, with hubs shown but not expanded.
+         */
+        get: operations["related_api_v1_claims__claim_id__related_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/graph/nodes/{node_id}/records": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Node Records
+         * @description The records behind a node: its claims, their lines (only the invoice's lines for an invoice) and documents.
+         */
+        get: operations["node_records_api_v1_graph_nodes__node_id__records_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -413,7 +504,7 @@ export interface components {
          * AlertCategory
          * @enum {string}
          */
-        AlertCategory: "NOT_COVERED" | "OUT_OF_BENEFIT_PERIOD" | "EXCLUDED_SERVICE" | "SUB_LIMIT_EXCEEDED" | "OVERALL_LIMIT_EXCEEDED" | "SETTLEMENT_OVERPAYMENT" | "EXACT_DUPLICATE_CLAIM" | "DUPLICATE_LINE_ITEM" | "NEAR_DUPLICATE" | "EXCESS_FREQUENCY";
+        AlertCategory: "NOT_COVERED" | "OUT_OF_BENEFIT_PERIOD" | "EXCLUDED_SERVICE" | "SUB_LIMIT_EXCEEDED" | "OVERALL_LIMIT_EXCEEDED" | "SETTLEMENT_OVERPAYMENT" | "EXACT_DUPLICATE_CLAIM" | "DUPLICATE_LINE_ITEM" | "NEAR_DUPLICATE" | "EXCESS_FREQUENCY" | "CROSS_POLICY_INVOICE_REUSE" | "INCIDENT_CLAIMED_TWICE" | "CONCURRENT_STAYS" | "DOCUMENT_REUSED" | "DOCUMENT_DISCREPANCY";
         /** AlertDetail */
         AlertDetail: {
             alert: components["schemas"]["AlertOut"];
@@ -425,8 +516,12 @@ export interface components {
         AlertOut: {
             /** Id */
             id: number;
+            /** Finding Id */
+            finding_id: string;
             /** Run Id */
-            run_id: number;
+            run_id: number | null;
+            /** Graph Build Id */
+            graph_build_id: number | null;
             /** Claim Id */
             claim_id: string;
             /** Line Id */
@@ -530,6 +625,28 @@ export interface components {
              * @description Invoice as PDF, PNG or JPEG, up to 15 MB
              */
             file: string;
+        };
+        /** BuildOut */
+        BuildOut: {
+            /** Build Id */
+            build_id: number;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Finished At */
+            finished_at: string | null;
+            /** Scope */
+            scope: {
+                [key: string]: unknown;
+            };
+            /** Node Count */
+            node_count: number;
+            /** Edge Count */
+            edge_count: number;
+            /** Group Count */
+            group_count: number;
         };
         /** CategoryRow */
         CategoryRow: {
@@ -798,6 +915,96 @@ export interface components {
              */
             created_at: string;
         };
+        /** DocumentRef */
+        DocumentRef: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string | null;
+            /** File Name */
+            file_name: string;
+            /** Sha256 */
+            sha256: string;
+            /** Phash */
+            phash: string | null;
+        };
+        /** EdgeOut */
+        EdgeOut: {
+            /** Edge Id */
+            edge_id: number;
+            /** From Node */
+            from_node: string;
+            /** To Node */
+            to_node: string;
+            /** Edge Type */
+            edge_type: string;
+            /** Strength */
+            strength: string;
+            /** Evidence */
+            evidence: {
+                [key: string]: unknown;
+            } | null;
+            /** Score */
+            score: string | null;
+            /**
+             * Generated By
+             * @default rule
+             * @constant
+             */
+            generated_by: "rule";
+        };
+        /** GroupDetail */
+        GroupDetail: {
+            /** Group Id */
+            group_id: string;
+            /** Version */
+            version: number;
+            /** Build Id */
+            build_id: number;
+            /** Claim Ids */
+            claim_ids: string[];
+            /** Policy Count */
+            policy_count: number;
+            /** Tags */
+            tags: string[];
+            /** Total Requested */
+            total_requested: string;
+            /** Summary */
+            summary: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Members */
+            members: components["schemas"]["MemberOut"][];
+            /** Edges */
+            edges: components["schemas"]["EdgeOut"][];
+        };
+        /** GroupOut */
+        GroupOut: {
+            /** Group Id */
+            group_id: string;
+            /** Version */
+            version: number;
+            /** Build Id */
+            build_id: number;
+            /** Claim Ids */
+            claim_ids: string[];
+            /** Policy Count */
+            policy_count: number;
+            /** Tags */
+            tags: string[];
+            /** Total Requested */
+            total_requested: string;
+            /** Summary */
+            summary: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -988,6 +1195,65 @@ export interface components {
             /** Reason */
             reason: string;
         };
+        /** MemberOut */
+        MemberOut: {
+            /** Claim Id */
+            claim_id: string;
+            /** Policy Number */
+            policy_number: string;
+            /** Claimant Id */
+            claimant_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /** Claim Type */
+            claim_type: string;
+            /** Status */
+            status: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /**
+             * Submission Date
+             * Format: date
+             */
+            submission_date: string;
+            /** Requested Amount */
+            requested_amount: string;
+        };
+        /** NodeOut */
+        NodeOut: {
+            /** Node Id */
+            node_id: string;
+            /** Node Type */
+            node_type: string;
+            /** Node Key */
+            node_key: string;
+            /** Label */
+            label: string;
+            /** Attributes */
+            attributes: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Expanded
+             * @default true
+             */
+            expanded: boolean;
+        };
+        /** NodeRecords */
+        NodeRecords: {
+            node: components["schemas"]["NodeOut"];
+            /** Claims */
+            claims: components["schemas"]["MemberOut"][];
+            /** Lines */
+            lines: components["schemas"]["LineOut"][];
+            /** Documents */
+            documents: components["schemas"]["DocumentRef"][];
+            /** Truncated */
+            truncated: boolean;
+        };
         /** Page[AlertRow] */
         Page_AlertRow_: {
             /** Items */
@@ -1013,6 +1279,13 @@ export interface components {
         Page_DocumentOut_: {
             /** Items */
             items: components["schemas"]["DocumentOut"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[GroupOut] */
+        Page_GroupOut_: {
+            /** Items */
+            items: components["schemas"]["GroupOut"][];
             /** Total */
             total: number;
         };
@@ -1118,6 +1391,24 @@ export interface components {
             calculated_amount: string;
             /** Alerts */
             alerts: number;
+        };
+        /** RebuildIn */
+        RebuildIn: {
+            /** Claim Ids */
+            claim_ids?: string[] | null;
+        };
+        /** RelatedOut */
+        RelatedOut: {
+            /** Claim Id */
+            claim_id: string;
+            /** Build Id */
+            build_id: number | null;
+            /** Groups */
+            groups: components["schemas"]["GroupOut"][];
+            /** Nodes */
+            nodes: components["schemas"]["NodeOut"][];
+            /** Edges */
+            edges: components["schemas"]["EdgeOut"][];
         };
         /** ResultOut */
         ResultOut: {
@@ -2085,6 +2376,170 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConfirmOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    rebuild_api_v1_graph_rebuild_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RebuildIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BuildOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_groups_api_v1_relationship_groups_get: {
+        parameters: {
+            query?: {
+                tag?: string | null;
+                min_claims?: number | null;
+                min_policies?: number | null;
+                min_amount?: number | string | null;
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_GroupOut_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    group_detail_api_v1_relationship_groups__group_id__get: {
+        parameters: {
+            query?: {
+                version?: number | null;
+            };
+            header?: never;
+            path: {
+                group_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GroupDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    related_api_v1_claims__claim_id__related_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RelatedOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    node_records_api_v1_graph_nodes__node_id__records_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NodeRecords"];
                 };
             };
             /** @description Validation Error */

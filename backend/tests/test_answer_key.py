@@ -74,7 +74,12 @@ def check_against_key(api: TestClient, sql, root: Path, outcome: dict) -> None:
     assert not missing, missing[:5]
 
     # Every planted finding has its alert with the expected amount and type, and nothing else is flagged.
-    alerts = sql("select claim_id, line_id, category, amount_type, amount, policy_rule_id from alerts")
+    # Cross-claim and document alerts are checked against the answer key's investigation section elsewhere
+    # (tests/test_graph.py and the document comparison tests).
+    alerts = sql(
+        "select claim_id, line_id, category, amount_type, amount, policy_rule_id from alerts "
+        "where graph_build_id is null and category <> 'DOCUMENT_DISCREPANCY'"
+    )
     by_claim: dict[tuple, list] = {}
     for claim_id, line_id, category, amount_type, amount, rule_id in alerts:
         by_claim.setdefault((claim_id, category), []).append((line_id, amount_type, amount, rule_id))

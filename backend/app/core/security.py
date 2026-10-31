@@ -6,6 +6,7 @@ from typing import Annotated
 
 import jwt
 from fastapi import Depends, Request
+from pydantic import BaseModel
 
 from app.core.config import Settings
 from app.core.errors import AppError
@@ -43,3 +44,17 @@ def session_username(request: Request) -> str:
 
 
 CurrentUser = Annotated[str, Depends(session_username)]
+
+
+class User(BaseModel):
+    """The person using the API. For now always the demo user behind the session cookie; real accounts and roles
+    replace get_current_user() later without changing the routes that depend on it."""
+
+    username: str
+
+
+def get_current_user(username: Annotated[str, Depends(session_username)]) -> User:
+    return User(username=username)
+
+
+CurrentUserDep = Annotated[User, Depends(get_current_user)]

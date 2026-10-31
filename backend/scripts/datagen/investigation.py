@@ -333,8 +333,9 @@ class Investigation:
         b = self.b
         product = self.rng.choice(["Silver", "Gold", "Platinum"])
         first, second = self.policies(product, 2)
-        original = b.draft(first, "inpatient", "open", tag="incident_twice_original", icu=False,
-                           max_amount=first.budget_left / 3)  # fmt: skip
+        original = b.draft(
+            first, "inpatient", "open", tag="incident_twice_original", icu=False, max_amount=first.budget_left / 3
+        )
         if original is None:
             return None
         again = self.claim_incident_again(original, second, "incident_claimed_twice")
@@ -352,8 +353,19 @@ class Investigation:
         prov_a, prov_b = self.rng.sample(hospitals[: len(hospitals) - 5] or hospitals, 2)
         los = self.rng.randint(3, 5)
         # Per-day room lines (format B), so the service dates on each claim show the whole stay.
-        first = b.draft(policy, "inpatient", "open", claimant=member, tag="concurrent_stay", provider=prov_a, los=los,
-                        fmt="B", icu=False, max_amount=policy.budget_left / 3, extra_span=3)  # fmt: skip
+        first = b.draft(
+            policy,
+            "inpatient",
+            "open",
+            claimant=member,
+            tag="concurrent_stay",
+            provider=prov_a,
+            los=los,
+            fmt="B",
+            icu=False,
+            max_amount=policy.budget_left / 3,
+            extra_span=3,
+        )
         if first is None:
             return None
         start = first.incident_date + _days(self.rng.randint(1, los - 1))
@@ -398,8 +410,9 @@ class Investigation:
             return None
         ref = b.ref(original.provider)
         lines = [ln.copy(invoice_ref=ref) for ln in original.lines]
-        copy = b.new_claim(second, member, original.incident_date, original.claim_type, "open", lines,
-                           "document_reused")  # fmt: skip
+        copy = b.new_claim(
+            second, member, original.incident_date, original.claim_type, "open", lines, "document_reused"
+        )
         if not self.later(copy, original) or not b.fits(second, copy):
             return None
         b.commit(original)
@@ -407,8 +420,7 @@ class Investigation:
         scan = index == 2
         doc = self.invoice_document(original, kind="scan" if scan else "pdf", layout="scan" if scan else "AB"[index])
         content = dict(doc.content, lines=[DocLine.of(ln) for ln in copy.lines])  # same print, the copy's lines
-        reused = Document("invoice", doc.kind, doc.layout, copy, content, clean=False, reuse_of=doc,
-                          near_copy=scan)  # fmt: skip
+        reused = Document("invoice", doc.kind, doc.layout, copy, content, clean=False, reuse_of=doc, near_copy=scan)
         self.data.documents.append(reused)
         self.data.discrepancies += [
             Discrepancy("derived", "INVOICE_REF_MISMATCH", reused),
@@ -421,8 +433,19 @@ class Investigation:
     def room_claim(self, los: int, rate: Decimal, tag: str, **opts: Any) -> Claim | None:
         policy = self.rng.choice(self.hosts("Gold"))
         code = "RM-PVT" if rate <= 7000 else "RM-DLX"
-        claim = self.b.draft(policy, "inpatient", "open", tag=tag, los=los, fmt="A", icu=False, room_rate=rate,
-                             room_code=code, max_amount=policy.budget_left, **opts)  # fmt: skip
+        claim = self.b.draft(
+            policy,
+            "inpatient",
+            "open",
+            tag=tag,
+            los=los,
+            fmt="A",
+            icu=False,
+            room_rate=rate,
+            room_code=code,
+            max_amount=policy.budget_left,
+            **opts,
+        )
         return claim
 
     def policy_steps(self, claim: Claim, total: Decimal, items: list[tuple[str, Decimal, Line | None]]) -> None:
@@ -450,10 +473,24 @@ class Investigation:
             return None
         self.b.commit(claim)
         rule = claim.policy.room_rule
-        self.b.add_finding("multi_issue_room_rent", "SUB_LIMIT_EXCEEDED", excess * los, claim, check_code="C06",
-                           line=room, policy_rule_id=rule.rule_id)  # type: ignore[union-attr]  # fmt: skip
-        self.b.add_finding("multi_issue_duplicate_line", "DUPLICATE_LINE_ITEM", repeat.amount, claim,
-                           match_type="duplicate_line", line=repeat, matched_line=original)  # fmt: skip
+        self.b.add_finding(
+            "multi_issue_room_rent",
+            "SUB_LIMIT_EXCEEDED",
+            excess * los,
+            claim,
+            check_code="C06",
+            line=room,
+            policy_rule_id=rule.rule_id,
+        )  # type: ignore[union-attr]
+        self.b.add_finding(
+            "multi_issue_duplicate_line",
+            "DUPLICATE_LINE_ITEM",
+            repeat.amount,
+            claim,
+            match_type="duplicate_line",
+            line=repeat,
+            matched_line=original,
+        )
         items: list[tuple[str, Decimal, Line | None]] = [
             ("REMOVE_DUPLICATE_LINE", repeat.amount, repeat),
             ("CAP_AT_SUB_LIMIT", excess * los, room),
@@ -479,8 +516,15 @@ class Investigation:
         self.b.commit(claim)
         room = next(ln for ln in claim.lines if ln.category == "room")
         limit = claim.policy.room_rule.limit_amount  # type: ignore[union-attr]
-        self.b.add_finding("showcase_room_rent", "SUB_LIMIT_EXCEEDED", (rate - limit) * los, claim, check_code="C06",
-                           line=room, policy_rule_id=claim.policy.room_rule.rule_id)  # type: ignore[union-attr,operator]  # fmt: skip
+        self.b.add_finding(
+            "showcase_room_rent",
+            "SUB_LIMIT_EXCEEDED",
+            (rate - limit) * los,
+            claim,
+            check_code="C06",
+            line=room,
+            policy_rule_id=claim.policy.room_rule.rule_id,
+        )  # type: ignore[union-attr,operator]
         invoice_price = Decimal("9500.00")
         doc = self.invoice_document(claim, layout="A", clean=False)
         doc_lines = []
@@ -493,13 +537,20 @@ class Investigation:
         doc.content["lines"] = doc_lines
         summary = self.summary_document(claim, stay_days=stay, clean=False)
         self.data.discrepancies += [
-            Discrepancy("amount_higher_than_invoice", "AMOUNT_MISMATCH", doc, procedure,
-                        procedure.amount - invoice_price, "calculated"),
+            Discrepancy(
+                "amount_higher_than_invoice",
+                "AMOUNT_MISMATCH",
+                doc,
+                procedure,
+                procedure.amount - invoice_price,
+                "calculated",
+            ),
             Discrepancy("only_in_claim", "ONLY_IN_CLAIM", doc, extra, extra.amount, "calculated"),
             Discrepancy("derived", "TOTAL_MISMATCH", doc),
-            Discrepancy("stay_shorter_than_billed", "STAY_LENGTH_MISMATCH", summary, room,
-                        (los - stay) * rate, "calculated"),
-        ]  # fmt: skip
+            Discrepancy(
+                "stay_shorter_than_billed", "STAY_LENGTH_MISMATCH", summary, room, (los - stay) * rate, "calculated"
+            ),
+        ]
         reduced_room = rate * stay
         items: list[tuple[str, Decimal, Line | None]] = [
             ("ADJUST_TO_DOCUMENT", procedure.amount - invoice_price, procedure),
@@ -513,8 +564,9 @@ class Investigation:
 
     # ---- documents -------------------------------------------------------------------------------------------
 
-    def invoice_document(self, claim: Claim, kind: str = "pdf", layout: str | None = None,
-                         clean: bool = True) -> Document:  # fmt: skip
+    def invoice_document(
+        self, claim: Claim, kind: str = "pdf", layout: str | None = None, clean: bool = True
+    ) -> Document:
         ref = claim.lines[0].invoice_ref
         lines = [DocLine.of(ln) for ln in claim.lines if ln.invoice_ref == ref]
         content = {
@@ -534,8 +586,9 @@ class Investigation:
         self.data.documents.append(doc)
         return doc
 
-    def summary_document(self, claim: Claim, stay_days: int | None = None, drop_procedures: bool = False,
-                         clean: bool = True) -> Document:  # fmt: skip
+    def summary_document(
+        self, claim: Claim, stay_days: int | None = None, drop_procedures: bool = False, clean: bool = True
+    ) -> Document:
         billed = self.billed_days(claim)
         procedures = [ln for ln in claim.lines if ln.category == "procedure"]
         diagnosis, icd = DIAGNOSES.get(procedures[0].code, DEFAULT_DIAGNOSIS) if procedures else DEFAULT_DIAGNOSIS
@@ -551,11 +604,11 @@ class Investigation:
             "discharge_date": claim.incident_date + _days(stay_days if stay_days is not None else billed),
             "diagnosis": diagnosis,
             "icd10": icd,
-            "procedures": [] if drop_procedures else [
-                f"{ln.description} on {ln.service_date.strftime('%d/%m/%Y')}" for ln in procedures
-            ],
+            "procedures": []
+            if drop_procedures
+            else [f"{ln.description} on {ln.service_date.strftime('%d/%m/%Y')}" for ln in procedures],
             "treating_doctor": self.rng.choice(DOCTORS),
-        }  # fmt: skip
+        }
         doc = Document("discharge_summary", "pdf", "summary", claim, content, clean=clean)
         self.data.documents.append(doc)
         return doc
@@ -604,8 +657,14 @@ class Investigation:
         rng = self.rng
         disc = self.data.discrepancies
 
-        def planted(scenario: str, kind: str, doc: Document, line: Line | None = None,
-                    amount: Decimal | None = None, amount_type: str | None = None) -> None:  # fmt: skip
+        def planted(
+            scenario: str,
+            kind: str,
+            doc: Document,
+            line: Line | None = None,
+            amount: Decimal | None = None,
+            amount_type: str | None = None,
+        ) -> None:
             disc.append(Discrepancy(scenario, kind, doc, line, amount, amount_type))
             doc.clean = False
 
@@ -622,8 +681,9 @@ class Investigation:
             line = max((ln for ln in claim.lines if ln.qty == 1), key=lambda ln: ln.amount)
             printed = doc_line(doc, line)
             printed.unit_price = q2(line.unit_price * Decimal(rng.choice([75, 80, 85, 90])) / 100)
-            planted("amount_higher_than_invoice", "AMOUNT_MISMATCH", doc, line, line.amount - printed.amount,
-                    "calculated")  # fmt: skip
+            planted(
+                "amount_higher_than_invoice", "AMOUNT_MISMATCH", doc, line, line.amount - printed.amount, "calculated"
+            )
             planted("derived", "TOTAL_MISMATCH", doc)
         # Line in the claim but not on the invoice.
         for _ in range(DEMO_DISCREPANCY_COUNTS["only_in_claim"] - 1):
@@ -651,12 +711,24 @@ class Investigation:
             printed = doc_line(doc, line)
             if k % 2 == 0:
                 printed.qty = line.qty - 1
-                planted("quantity_or_unit_price_mismatch", "QUANTITY_MISMATCH", doc, line,
-                        (line.qty - printed.qty) * line.unit_price, "calculated")  # fmt: skip
+                planted(
+                    "quantity_or_unit_price_mismatch",
+                    "QUANTITY_MISMATCH",
+                    doc,
+                    line,
+                    (line.qty - printed.qty) * line.unit_price,
+                    "calculated",
+                )
             else:
                 printed.unit_price = q2(line.unit_price * Decimal("0.8"))
-                planted("quantity_or_unit_price_mismatch", "UNIT_PRICE_MISMATCH", doc, line,
-                        q2((line.unit_price - printed.unit_price) * line.qty), "calculated")  # fmt: skip
+                planted(
+                    "quantity_or_unit_price_mismatch",
+                    "UNIT_PRICE_MISMATCH",
+                    doc,
+                    line,
+                    q2((line.unit_price - printed.unit_price) * line.qty),
+                    "calculated",
+                )
             planted("derived", "TOTAL_MISMATCH", doc)
         # Service date mismatch (informational).
         for _ in range(DEMO_DISCREPANCY_COUNTS["service_date_mismatch"]):
@@ -684,8 +756,9 @@ class Investigation:
             billed = self.billed_days(claim)
             summary = self.summary_document(claim, stay_days=billed - 2, clean=False)
             room = next(ln for ln in claim.lines if ln.category == "room")
-            planted("stay_shorter_than_billed", "STAY_LENGTH_MISMATCH", summary, room, 2 * room.unit_price,
-                    "calculated")  # fmt: skip
+            planted(
+                "stay_shorter_than_billed", "STAY_LENGTH_MISMATCH", summary, room, 2 * room.unit_price, "calculated"
+            )
         # Procedure billed but not mentioned in the discharge summary.
         for _ in range(DEMO_DISCREPANCY_COUNTS["procedure_not_documented"]):
             claim = self.document_claim("inpatient", procedure=rng.choice(["PRC-APPX", "PRC-CHOL", "PRC-HERN"]))
@@ -744,7 +817,7 @@ class Investigation:
         family = sorted(
             (p for p in b.policies if len(p.members) == 4 and p.kind == "general" and p.number not in self.dedicated),
             key=lambda p: (-len(claimants.get(p.number, set())), p.number),
-        )  # fmt: skip
+        )
         policy = family[0]
         for member in policy.members:
             if member in claimants.get(policy.number, set()):

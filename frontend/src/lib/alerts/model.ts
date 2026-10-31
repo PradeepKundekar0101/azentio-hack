@@ -17,7 +17,7 @@ export type ClaimType = Schemas["ClaimType"];
 export type ClearedRow = Schemas["ClearedRow"];
 export type DashboardSummary = Schemas["Summary"];
 
-/** Categories in the order the plan lists them: policy checks first, then duplicates. */
+/** Categories in the order the plan lists them: policy checks, duplicates, then cross-claim and document findings. */
 export const CATEGORIES = [
   "NOT_COVERED",
   "OUT_OF_BENEFIT_PERIOD",
@@ -29,6 +29,11 @@ export const CATEGORIES = [
   "DUPLICATE_LINE_ITEM",
   "NEAR_DUPLICATE",
   "EXCESS_FREQUENCY",
+  "CROSS_POLICY_INVOICE_REUSE",
+  "INCIDENT_CLAIMED_TWICE",
+  "CONCURRENT_STAYS",
+  "DOCUMENT_REUSED",
+  "DOCUMENT_DISCREPANCY",
 ] as const satisfies readonly AlertCategory[];
 
 export const CATEGORY_LABELS: Record<AlertCategory, string> = {
@@ -42,6 +47,11 @@ export const CATEGORY_LABELS: Record<AlertCategory, string> = {
   DUPLICATE_LINE_ITEM: "Duplicate line item",
   NEAR_DUPLICATE: "Near-duplicate",
   EXCESS_FREQUENCY: "Excess frequency",
+  CROSS_POLICY_INVOICE_REUSE: "Invoice reused across policies",
+  INCIDENT_CLAIMED_TWICE: "Incident claimed twice",
+  CONCURRENT_STAYS: "Concurrent stays",
+  DOCUMENT_REUSED: "Document reused",
+  DOCUMENT_DISCREPANCY: "Document discrepancy",
 };
 
 /** Duplicate categories show the matched claim side by side. */
@@ -124,6 +134,11 @@ const PATTERN_NAMES: Record<string, string> = {
   NEAR_DUPLICATE: "Near-duplicate",
   LEGITIMATE_REPEAT: "Legitimate repeat",
   EXCESS_FREQUENCY: "Excess frequency",
+  CROSS_POLICY_INVOICE_REUSE: "Invoice reused across policies",
+  INCIDENT_CLAIMED_TWICE: "Incident claimed twice",
+  CONCURRENT_STAYS: "Concurrent stays",
+  DOCUMENT_REUSED: "Document reused",
+  DOCUMENT_DISCREPANCY: "Document discrepancy",
 };
 
 function humanize(value: string): string {

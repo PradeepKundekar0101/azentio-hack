@@ -43,7 +43,9 @@ class AlertRow(BaseModel):
 
 class AlertOut(BaseModel):
     id: int
-    run_id: int
+    finding_id: str
+    run_id: int | None
+    graph_build_id: int | None
     claim_id: str
     line_id: str | None
     category: str

@@ -9,6 +9,7 @@ alert is the C12 overpayment (paid minus entitlement).
 from decimal import Decimal
 from typing import Any
 
+from app.alerts.finding import alert_finding_id
 from app.alerts.severity import severity
 from app.core.config import Settings
 from app.core.enums import AlertCategory, AlertStatus, AmountType, ClaimStatus, MatchDecision, MatchType, Outcome
@@ -58,8 +59,18 @@ def _alert(
     settings: Settings,
     **fields: Any,
 ) -> dict[str, Any]:
+    finding_id = alert_finding_id(
+        claim_id,
+        category.value,
+        fields.get("line_id"),
+        fields["rule_or_pattern"],
+        fields.get("policy_rule_id"),
+        fields["supporting"].get("matched_claim_id"),
+    )
     return {
+        "finding_id": finding_id,
         "run_id": run_id,
+        "graph_build_id": None,
         "claim_id": claim_id,
         "category": category.value,
         "severity": severity(category, amount_type, amount, settings).value,

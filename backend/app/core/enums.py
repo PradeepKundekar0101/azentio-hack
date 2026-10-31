@@ -119,6 +119,12 @@ class AlertCategory(StrEnum):
     DUPLICATE_LINE_ITEM = "DUPLICATE_LINE_ITEM"
     NEAR_DUPLICATE = "NEAR_DUPLICATE"
     EXCESS_FREQUENCY = "EXCESS_FREQUENCY"
+    # Cross-claim correlation (app/graph/alerts.py) and document comparison.
+    CROSS_POLICY_INVOICE_REUSE = "CROSS_POLICY_INVOICE_REUSE"
+    INCIDENT_CLAIMED_TWICE = "INCIDENT_CLAIMED_TWICE"
+    CONCURRENT_STAYS = "CONCURRENT_STAYS"
+    DOCUMENT_REUSED = "DOCUMENT_REUSED"
+    DOCUMENT_DISCREPANCY = "DOCUMENT_DISCREPANCY"
 
 
 class Severity(StrEnum):
@@ -147,3 +153,42 @@ class ParseStatus(StrEnum):
     NEEDS_REVIEW = "needs_review"
     CONFIRMED = "confirmed"
     FAILED = "failed"
+
+
+class NodeType(StrEnum):
+    CLAIM = "claim"
+    POLICY = "policy"
+    CLAIMANT = "claimant"
+    PROVIDER = "provider"
+    INVOICE = "invoice"
+    INCIDENT = "incident"
+    DOCUMENT = "document"
+
+
+class EdgeStrength(StrEnum):
+    STRUCTURAL = "structural"
+    STRONG = "strong"
+    WEAK = "weak"
+
+
+class GroupTag(StrEnum):
+    INVOICE_REUSED_ACROSS_POLICIES = "INVOICE_REUSED_ACROSS_POLICIES"
+    INCIDENT_CLAIMED_TWICE = "INCIDENT_CLAIMED_TWICE"
+    CONCURRENT_STAYS = "CONCURRENT_STAYS"
+    DOCUMENT_REUSED = "DOCUMENT_REUSED"
+    DUPLICATE_CLUSTER = "DUPLICATE_CLUSTER"
+    WEAK_PATTERN = "WEAK_PATTERN"
+
+
+class ActorType(StrEnum):
+    SYSTEM = "system"
+    AI = "ai"
+
+
+class EventType(StrEnum):
+    EXTRACTION_CREATED = "extraction_created"
+    COMPARISON_CREATED = "comparison_created"
+    GRAPH_BUILT = "graph_built"
+    GROUP_CREATED = "group_created"
+    CORRECTION_SET_CREATED = "correction_set_created"
+    CROSS_CLAIM_ALERT_RAISED = "cross_claim_alert_raised"

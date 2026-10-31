@@ -320,12 +320,17 @@ class Alert(Base):
         one_of("severity", enums.Severity),
         one_of("amount_type", enums.AmountType),
         one_of("status", enums.AlertStatus),
+        CheckConstraint("run_id is not null or graph_build_id is not null", name="raised_by"),
         Index("ix_alerts_category_severity", "category", "severity"),
         Index("ix_alerts_claim_id", "claim_id"),
     )
 
     id: Mapped[IntId]
-    run_id: Mapped[int] = run_fk()
+    # Stable across runs ("ALR-" + a hash of what the alert is about), so decisions can reference it.
+    finding_id: Mapped[str] = mapped_column(String(20), index=True)
+    # Raised by a processing run (rules, duplicates, documents) or by a graph build (cross-claim alerts).
+    run_id: Mapped[int | None] = mapped_column(ForeignKey("processing_runs.id", ondelete="CASCADE"))
+    graph_build_id: Mapped[int | None] = mapped_column(ForeignKey("graph_builds.build_id", ondelete="CASCADE"))
     claim_id: Mapped[str] = claim_fk()
     line_id: Mapped[str | None] = mapped_column(String(30), ForeignKey("line_items.line_id", ondelete="CASCADE"))
     category: Mapped[str] = mapped_column(String(30))
@@ -343,6 +348,95 @@ class Alert(Base):
     created_at: Mapped[CreatedAt]
 
 
+class GraphBuild(Base):
+    """One build of the correlation graph. `groups` lists the (group_id, version) pairs current in this build."""
+
+    __tablename__ = "graph_builds"
+
+    build_id: Mapped[IntId]
+    started_at: Mapped[CreatedAt]
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    scope: Mapped[Json]  # {"claim_ids": [...]} or {"all": true}
+    node_count: Mapped[int] = mapped_column(Integer, server_default="0")
+    edge_count: Mapped[int] = mapped_column(Integer, server_default="0")
+    group_count: Mapped[int] = mapped_column(Integer, server_default="0")
+    config: Mapped[Json]
+    groups: Mapped[Json | None]  # [{"group_id", "version"}]
+    run_id: Mapped[int | None] = mapped_column(ForeignKey("processing_runs.id", ondelete="SET NULL"))
+
+
+class GraphNode(Base):
+    """One distinct entity, keyed on normalised identifiers: node_id is "<node_type>:<node_key>"."""
+
+    __tablename__ = "graph_nodes"
+    __table_args__ = (one_of("node_type", enums.NodeType),)
+
+    node_id: Mapped[str] = mapped_column(Text, primary_key=True)
+    node_type: Mapped[str] = mapped_column(String(20))
+    node_key: Mapped[str] = mapped_column(Text)
+    label: Mapped[str] = mapped_column(Text)
+    attributes: Mapped[Json | None]
+
+
+class GraphEdge(Base):
+    """Claim-to-entity edges are structural; claim-to-claim edges are links with the evidence that made them."""
+
+    __tablename__ = "graph_edges"
+    __table_args__ = (
+        one_of("strength", enums.EdgeStrength),
+        Index("ix_graph_edges_build_id_from_node", "build_id", "from_node"),
+        Index("ix_graph_edges_build_id_to_node", "build_id", "to_node"),
+    )
+
+    edge_id: Mapped[IntId]
+    build_id: Mapped[int] = mapped_column(ForeignKey("graph_builds.build_id", ondelete="CASCADE"))
+    from_node: Mapped[str] = mapped_column(Text)
+    to_node: Mapped[str] = mapped_column(Text)
+    edge_type: Mapped[str] = mapped_column(String(40))
+    strength: Mapped[str] = mapped_column(String(20))
+    evidence: Mapped[Json | None]  # {"fields": [...], "values": {...}, "source_records": {...}}
+    score: Mapped[Decimal | None] = mapped_column(Numeric(5, 4))
+
+
+class RelationshipGroup(Base):
+    """A related-claim group; a new version is written only when its content changes."""
+
+    __tablename__ = "relationship_groups"
+
+    group_id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    version: Mapped[int] = mapped_column(Integer, primary_key=True)
+    build_id: Mapped[int] = mapped_column(ForeignKey("graph_builds.build_id", ondelete="CASCADE"))
+    claim_ids: Mapped[list[str]] = mapped_column(ARRAY(Text))
+    policy_count: Mapped[int] = mapped_column(Integer)
+    tags: Mapped[list[str]] = mapped_column(ARRAY(Text))
+    total_requested: Mapped[Money]
+    summary: Mapped[str] = mapped_column(Text)
+    content_hash: Mapped[str] = mapped_column(String(64))
+    created_at: Mapped[CreatedAt]
+
+
+class AnalysisEvent(Base):
+    """Every system and AI analysis step, for the audit trail (append-only)."""
+
+    __tablename__ = "analysis_events"
+    __table_args__ = (
+        one_of("event_type", enums.EventType),
+        one_of("actor_type", enums.ActorType),
+        Index("ix_analysis_events_claim_id", "claim_id"),
+    )
+
+    event_id: Mapped[IntId]
+    event_type: Mapped[str] = mapped_column(String(40))
+    claim_id: Mapped[str | None] = mapped_column(String(20))
+    entity_type: Mapped[str] = mapped_column(String(40))
+    entity_id: Mapped[str] = mapped_column(Text)
+    actor_type: Mapped[str] = mapped_column(String(10))
+    model: Mapped[str | None] = mapped_column(Text)
+    prompt_version: Mapped[str | None] = mapped_column(String(40))
+    payload: Mapped[Json | None]
+    created_at: Mapped[CreatedAt]
+
+
 class Document(Base):
     __tablename__ = "documents"
     __table_args__ = (one_of("parse_status", enums.ParseStatus),)
@@ -351,6 +445,7 @@ class Document(Base):
     claim_id: Mapped[str | None] = mapped_column(String(20), ForeignKey("claims.claim_id", ondelete="SET NULL"))
     storage_key: Mapped[str] = mapped_column(Text)
     sha256: Mapped[str] = mapped_column(String(64), index=True)
+    phash: Mapped[str | None] = mapped_column(String(64))  # images only (app/documents/phash.py)
     file_name: Mapped[str] = mapped_column(Text)
     file_type: Mapped[str] = mapped_column(String(20))
     size_bytes: Mapped[int] = mapped_column(Integer)

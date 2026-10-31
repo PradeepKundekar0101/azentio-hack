@@ -18,6 +18,11 @@ BY_CATEGORY = {
     AlertCategory.DUPLICATE_LINE_ITEM: Severity.MEDIUM,
     AlertCategory.NEAR_DUPLICATE: Severity.REVIEW,
     AlertCategory.EXCESS_FREQUENCY: Severity.REVIEW,
+    AlertCategory.CROSS_POLICY_INVOICE_REUSE: Severity.CRITICAL,
+    AlertCategory.DOCUMENT_REUSED: Severity.CRITICAL,
+    AlertCategory.INCIDENT_CLAIMED_TWICE: Severity.REVIEW,
+    AlertCategory.CONCURRENT_STAYS: Severity.REVIEW,
+    AlertCategory.DOCUMENT_DISCREPANCY: Severity.MEDIUM,
 }
 
 
