@@ -4,14 +4,20 @@
  * until these values match it.
  */
 export const brand = {
-  ink: "#070b16",
-  inkRaised: "#0f1630",
-  blue: "#2c41ab",
-  blueBright: "#5b6ff0",
+  ink: "#07090b",
   signal: "#f2a33a",
-  onInk: "#f4f6fb",
-  onInkMuted: "#a3acc2",
+  onInk: "#f5f1ea",
+  onInkMuted: "#b4ada3",
+  meshSky: "#0f3236",
+  meshEmber: "#c4501a",
+  meshWine: "#4a1a10",
+  meshShadow: "#120d0c",
 } as const;
+
+export type BrandColor = keyof typeof brand;
+
+/** `meshSky` -> `var(--brand-mesh-sky)`, for markup that can read CSS variables. */
+export const brandVar = (color: BrandColor) => `var(--brand-${color.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)})`;
 
 /**
  * The logo: three ledger lines of a claim, the last one missing a block, and that block
@@ -40,7 +46,7 @@ const rect = (x: number, y: number, width: number, height: number) => `M${x} ${y
 export const logoMark = {
   viewBox: `0 0 ${SIZE} ${SIZE}`,
   size: SIZE,
-  /** Corner radius of the tile. */
+  /** Corner radius of the tile, drawn in brand.ink. */
   radius: 8,
   /** The ledger lines, drawn on the tile in brand.onInk. */
   lines: LINES.flatMap((segments, row) =>
@@ -50,14 +56,36 @@ export const logoMark = {
   leak: rect(LEAK_X, top + LINES.length * (BAR + LINE_GAP), BAR, BAR),
 } as const;
 
-const NEAR_RIDGE = "M0 790C300 760 560 690 860 640C1030 612 1190 606 1440 640";
+/**
+ * The mesh gradient behind the landing page and the share image, in a 1440 x 1000 scene.
+ * Soft colour fields are blurred into each other (the mesh), a dark dune rises on the left
+ * where the text sits, and its ridge catches the glow. Film grain is added on top by each
+ * renderer. Both renderers read this one definition.
+ */
+const DUNE_RIDGE = "M-80 540C220 505 520 525 800 600C1060 668 1280 775 1520 900";
 
-/** The landing backdrop: dune outlines in a 1440 x 1000 scene, anchored to the bottom edge. */
 export const scene = {
   width: 1440,
   height: 1000,
   viewBox: "0 0 1440 1000",
-  farDune: "M0 640C260 600 520 548 820 552C1040 555 1250 590 1440 612V1000H0Z",
-  nearRidge: NEAR_RIDGE,
-  nearDune: `${NEAR_RIDGE}V1000H0Z`,
+  /** Blur radius that melts the colour fields into a mesh. */
+  meshBlur: 110,
+  fields: [
+    { color: "meshSky", cx: 260, cy: 180, rx: 950, ry: 560, rotate: 0, opacity: 1 },
+    { color: "meshWine", cx: 760, cy: 760, rx: 700, ry: 200, rotate: -8, opacity: 0.9 },
+    { color: "meshEmber", cx: 1220, cy: 520, rx: 600, ry: 270, rotate: -14, opacity: 1 },
+    { color: "signal", cx: 1310, cy: 470, rx: 250, ry: 105, rotate: -14, opacity: 0.85 },
+  ] satisfies ReadonlyArray<{
+    color: BrandColor;
+    cx: number;
+    cy: number;
+    rx: number;
+    ry: number;
+    rotate: number;
+    opacity: number;
+  }>,
+  /** The dune: a lighter blur keeps its edge soft but readable. */
+  duneBlur: 14,
+  dune: `${DUNE_RIDGE}V1080H-80Z`,
+  ridge: DUNE_RIDGE,
 } as const;

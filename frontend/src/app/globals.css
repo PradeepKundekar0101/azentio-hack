@@ -53,9 +53,6 @@
 
   /* Brand tokens: bg-brand-ink, text-brand-signal, ... (fixed in both themes) */
   --color-brand-ink: var(--brand-ink);
-  --color-brand-ink-raised: var(--brand-ink-raised);
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-blue-bright: var(--brand-blue-bright);
   --color-brand-signal: var(--brand-signal);
   --color-brand-on-ink: var(--brand-on-ink);
   --color-brand-on-ink-muted: var(--brand-on-ink-muted);

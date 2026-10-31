@@ -47,7 +47,7 @@ export default function WelcomePage() {
         <h1 className="max-w-[16ch] animate-in font-pixel text-[clamp(2.375rem,min(5.4vw,9.5svh),5rem)] leading-[1.02] font-medium text-balance uppercase delay-150 duration-700 fill-mode-both fade-in slide-in-from-bottom-3">
           Find the leakage in every claim
         </h1>
-        <p className="mt-6 max-w-[38rem] animate-in text-[17px] leading-[1.6] text-brand-on-ink-muted delay-300 duration-700 fill-mode-both fade-in slide-in-from-bottom-2 sm:text-[19px]">
+        <p className="mt-6 max-w-[38rem] animate-in text-[17px] leading-[1.6] text-brand-on-ink/90 delay-300 duration-700 fill-mode-both fade-in slide-in-from-bottom-2 sm:text-[19px]">
           {PRODUCT_NAME} checks each health insurance claim against its policy, flags duplicates and puts a rupee
           figure on every problem, with the rule and record behind it.
         </p>

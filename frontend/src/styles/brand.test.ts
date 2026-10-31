@@ -30,7 +30,7 @@ describe("favicon", () => {
   });
 
   it("uses the brand colours", () => {
-    expect(icon).toContain(`fill="${brand.blue}"`);
+    expect(icon).toContain(`fill="${brand.ink}"`);
     expect(icon).toContain(`fill="${brand.onInk}"`);
     expect(icon).toContain(`fill="${brand.signal}"`);
   });

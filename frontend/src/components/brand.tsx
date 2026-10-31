@@ -10,7 +10,17 @@ export const PRODUCT_NAME = "Claims Leakage";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox={logoMark.viewBox} aria-hidden="true" className={cn("size-6 shrink-0", className)}>
-      <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} className="fill-brand-blue" />
+      <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} className="fill-brand-ink" />
+      {/* A hairline edge keeps the tile defined on near-black surfaces (dark theme, landing). */}
+      <rect
+        x="0.5"
+        y="0.5"
+        width={logoMark.size - 1}
+        height={logoMark.size - 1}
+        rx={logoMark.radius - 0.5}
+        fill="none"
+        className="stroke-brand-on-ink/15"
+      />
       <path d={logoMark.lines} className="fill-brand-on-ink" />
       <path d={logoMark.leak} className="fill-brand-signal" />
     </svg>

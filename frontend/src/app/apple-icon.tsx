@@ -8,7 +8,7 @@ export const contentType = "image/png";
 
 export default function AppleIcon() {
   return new ImageResponse(
-    <div style={{ width: "100%", height: "100%", display: "flex", backgroundColor: brand.blue }}>
+    <div style={{ width: "100%", height: "100%", display: "flex", backgroundColor: brand.ink }}>
       <svg width="180" height="180" viewBox={logoMark.viewBox}>
         <path d={logoMark.lines} fill={brand.onInk} />
         <path d={logoMark.leak} fill={brand.signal} />

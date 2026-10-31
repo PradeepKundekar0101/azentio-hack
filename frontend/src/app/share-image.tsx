@@ -20,38 +20,32 @@ export const shareImage = {
 // ImageResponse reads ttf, not woff2; the .ttf is the same vendored Geist Pixel face.
 const geistPixel = readFile(join(process.cwd(), "src/styles/fonts/GeistPixel-Square.ttf"));
 
-const backdrop = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${scene.viewBox}" width="${shareImage.size.width}" height="${shareImage.size.height}" preserveAspectRatio="xMidYMax slice">
+// The landing backdrop as a standalone SVG: same mesh fields, dune and ridge, with grain.
+const fields = scene.fields
+  .map(
+    (f) =>
+      `<ellipse cx="${f.cx}" cy="${f.cy}" rx="${f.rx}" ry="${f.ry}" transform="rotate(${f.rotate} ${f.cx} ${f.cy})" fill="${brand[f.color]}" opacity="${f.opacity}"/>`,
+  )
+  .join("");
+
+const backdrop = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${scene.viewBox}" width="${shareImage.size.width}" height="${shareImage.size.height}" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="${brand.ink}"/><stop offset="0.62" stop-color="${brand.inkRaised}"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.74" cy="0.64" r="0.55" gradientTransform="translate(0.74 0.64) scale(1 0.62) translate(-0.74 -0.64)">
-      <stop offset="0" stop-color="${brand.blueBright}" stop-opacity="0.9"/>
-      <stop offset="0.45" stop-color="${brand.blue}" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="${brand.blue}" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="sun" cx="0.76" cy="0.63" r="0.16" gradientTransform="translate(0.76 0.63) scale(1 0.5) translate(-0.76 -0.63)">
-      <stop offset="0" stop-color="${brand.signal}" stop-opacity="0.55"/><stop offset="1" stop-color="${brand.signal}" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="${brand.inkRaised}"/><stop offset="0.5" stop-color="${brand.ink}"/>
-    </linearGradient>
-    <linearGradient id="near" x1="0" y1="0.62" x2="0" y2="1">
-      <stop offset="0" stop-color="${brand.inkRaised}"/><stop offset="0.35" stop-color="${brand.ink}"/>
-    </linearGradient>
+    <filter id="mesh" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${scene.meshBlur}"/></filter>
+    <filter id="dune" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="${scene.duneBlur}"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
     <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0.45" stop-color="${brand.blueBright}" stop-opacity="0"/>
-      <stop offset="0.62" stop-color="${brand.blueBright}" stop-opacity="0.5"/>
-      <stop offset="0.78" stop-color="${brand.signal}" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="${brand.signal}" stop-opacity="0.35"/>
+      <stop offset="0.3" stop-color="${brand.meshEmber}" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="${brand.meshEmber}" stop-opacity="0.9"/>
+      <stop offset="0.9" stop-color="${brand.signal}" stop-opacity="0.8"/>
     </linearGradient>
   </defs>
-  <rect width="${scene.width}" height="${scene.height}" fill="url(#sky)"/>
-  <rect width="${scene.width}" height="${scene.height}" fill="url(#glow)"/>
-  <rect width="${scene.width}" height="${scene.height}" fill="url(#sun)"/>
-  <path d="${scene.farDune}" fill="url(#far)"/>
-  <path d="${scene.nearDune}" fill="url(#near)"/>
-  <path d="${scene.nearRidge}" fill="none" stroke="url(#ridge)" stroke-width="2"/>
+  <rect x="-200" y="-200" width="${scene.width + 400}" height="${scene.height + 400}" fill="${brand.ink}"/>
+  <g filter="url(#mesh)">${fields}</g>
+  <g filter="url(#dune)">
+    <path d="${scene.ridge}" fill="none" stroke="url(#ridge)" stroke-width="10"/>
+    <path d="${scene.dune}" fill="${brand.meshShadow}"/>
+  </g>
+  <rect width="${scene.width}" height="${scene.height}" filter="url(#grain)" opacity="0.07"/>
 </svg>`;
 
 const backdropSrc = `data:image/svg+xml;base64,${Buffer.from(backdrop).toString("base64")}`;
@@ -82,7 +76,7 @@ export async function renderShareImage() {
       />
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
         <svg width="56" height="56" viewBox={logoMark.viewBox}>
-          <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} fill={brand.blue} />
+          <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} fill={brand.ink} />
           <path d={logoMark.lines} fill={brand.onInk} />
           <path d={logoMark.leak} fill={brand.signal} />
         </svg>

@@ -15,13 +15,16 @@
 
 :root {
   /* Brand (fixed in both themes) */
-  --brand-ink: #070b16; /* landing canvas, share-image background */
-  --brand-ink-raised: #0f1630; /* top of the landing gradient */
-  --brand-blue: #2c41ab; /* stamp blue: logo tile, glow */
-  --brand-blue-bright: #5b6ff0; /* glow highlight on ink */
-  --brand-signal: #f2a33a; /* the leaked pixel: one per view, never decoration */
-  --brand-on-ink: #f4f6fb; /* text on ink (18:1) */
-  --brand-on-ink-muted: #a3acc2; /* secondary text on ink (8.7:1) */
+  --brand-ink: #07090b; /* logo tile, landing canvas, share-image background */
+  --brand-signal: #f2a33a; /* amber: the leaked block, the hottest point of the glow */
+  --brand-on-ink: #f5f1ea; /* text on ink (17.7:1) */
+  --brand-on-ink-muted: #b4ada3; /* secondary text on ink (9:1) */
+
+  /* Mesh gradient behind the landing page and share image (src/styles/brand.ts places them) */
+  --brand-mesh-sky: #0f3236; /* deep teal, upper left */
+  --brand-mesh-ember: #c4501a; /* burnt orange glow */
+  --brand-mesh-wine: #4a1a10; /* dark red where the glow meets the dune */
+  --brand-mesh-shadow: #120d0c; /* the dune */
 }
 
 :root {
