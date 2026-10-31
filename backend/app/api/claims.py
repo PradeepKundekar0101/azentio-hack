@@ -1,11 +1,12 @@
 from datetime import date
 from decimal import Decimal
-from typing import Any
+from typing import Annotated, Any, Literal
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from pydantic import BaseModel, ConfigDict
-from sqlalchemy import select
+from sqlalchemy import case, exists, func, or_, select
 
+from app.api.pagination import Page, PageDep
 from app.core.errors import not_found
 from app.db.models import Alert, Claim, Document, DuplicateMatch, LineItem, PayableStep, Policy, PolicyRule, Settlement
 from app.db.models import ValidationResult as ValidationResultRow
@@ -201,6 +202,121 @@ async def claim_detail(session: Any, claim_id: str) -> ClaimDetail:
         duplicates=[MatchOut.model_validate(m) for m in matches],
         alerts=[AlertBrief.model_validate(a) for a in alerts],
     )
+
+
+ClaimReview = Literal["clean", "flagged", "not_validated"]
+SEVERITY_ORDER = ("critical", "high", "medium", "low", "review")
+
+
+class ClaimRow(BaseModel):
+    claim_id: str
+    claimant: str
+    policy_number: str
+    claim_type: str
+    incident_date: date
+    submission_date: date
+    status: str
+    requested_amount: Decimal
+    payable: Decimal | None
+    review: ClaimReview
+    alerts: int
+    open_alerts: int
+    top_severity: str | None
+    calculated_leakage: Decimal
+    estimated_leakage: Decimal
+
+
+@router.get("")
+async def list_claims(
+    session: SessionDep,
+    page: PageDep,
+    status: Literal["open", "settled", "all"] = "open",
+    review: Literal["clean", "flagged", "not_validated", "all"] = "all",
+    q: Annotated[str | None, Query(max_length=60, description="Claim ID, claimant ID or policy number")] = None,
+    sort: Annotated[str, Query(pattern=r"^-?(claim_id|incident_date|requested_amount|leakage)$")] = "-incident_date",
+) -> Page[ClaimRow]:
+    """Claims with their review state: clean (validated, no alerts: ready to pay), flagged, or not validated yet."""
+    from app.api.alerts import mask_name
+    from app.db.models import Alert
+
+    alerts = (
+        select(
+            Alert.claim_id,
+            func.count().label("alerts"),
+            func.count().filter(Alert.status == "open").label("open_alerts"),
+            func.min(func.array_position(func.string_to_array(",".join(SEVERITY_ORDER), ","), Alert.severity)).label(
+                "rank"
+            ),
+            func.coalesce(func.sum(Alert.amount).filter(Alert.amount_type == "calculated"), 0).label("calculated"),
+            func.coalesce(func.sum(Alert.amount).filter(Alert.amount_type == "estimated"), 0).label("estimated"),
+        )
+        .group_by(Alert.claim_id)
+        .subquery()
+    )
+    last_step = (
+        select(PayableStep.claim_id, func.max(PayableStep.step_no).label("step_no"))
+        .group_by(PayableStep.claim_id)
+        .subquery()
+    )
+    validated = exists().where(ValidationResultRow.claim_id == Claim.claim_id)
+    review_state = case((alerts.c.alerts > 0, "flagged"), (validated, "clean"), else_="not_validated")
+    query = (
+        select(
+            Claim,
+            PayableStep.amount_after,
+            review_state.label("review"),
+            func.coalesce(alerts.c.alerts, 0),
+            func.coalesce(alerts.c.open_alerts, 0),
+            alerts.c.rank,
+            func.coalesce(alerts.c.calculated, 0),
+            func.coalesce(alerts.c.estimated, 0),
+        )
+        .outerjoin(alerts, alerts.c.claim_id == Claim.claim_id)
+        .outerjoin(last_step, last_step.c.claim_id == Claim.claim_id)
+        .outerjoin(
+            PayableStep,
+            (PayableStep.claim_id == Claim.claim_id) & (PayableStep.step_no == last_step.c.step_no),
+        )
+    )
+    if status != "all":
+        query = query.where(Claim.status == status)
+    if review != "all":
+        query = query.where(review_state == review)
+    if q and q.strip():
+        term = f"%{q.strip()}%"
+        query = query.where(
+            or_(Claim.claim_id.ilike(term), Claim.claimant_id.ilike(term), Claim.policy_number.ilike(term))
+        )
+    total = await session.scalar(select(func.count()).select_from(query.subquery()))
+    column = {
+        "claim_id": Claim.claim_id,
+        "incident_date": Claim.incident_date,
+        "requested_amount": Claim.requested_amount,
+        "leakage": func.coalesce(alerts.c.calculated, 0),
+    }[sort.lstrip("-")]
+    order = column.desc() if sort.startswith("-") else column.asc()
+    rows = await session.execute(query.order_by(order, Claim.claim_id).offset(page.offset).limit(page.page_size))
+    items = [
+        ClaimRow(
+            claim_id=c.claim_id,
+            claimant=mask_name(c.claimant_name),
+            policy_number=c.policy_number,
+            claim_type=c.claim_type,
+            incident_date=c.incident_date,
+            submission_date=c.submission_date,
+            status=c.status,
+            requested_amount=c.requested_amount,
+            payable=payable,
+            review=state,
+            alerts=count,
+            open_alerts=open_count,
+            top_severity=SEVERITY_ORDER[rank - 1] if rank else None,
+            calculated_leakage=calculated,
+            estimated_leakage=estimated,
+        )
+        for c, payable, state, count, open_count, rank, calculated, estimated in rows
+    ]
+    return Page(items=items, total=total or 0)
 
 
 @router.get("/{claim_id}")

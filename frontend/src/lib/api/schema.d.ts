@@ -226,6 +226,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/claims": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Claims
+         * @description Claims with their review state: clean (validated, no alerts: ready to pay), flagged, or not validated yet.
+         */
+        get: operations["list_claims_api_v1_claims_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/claims/{claim_id}": {
         parameters: {
             query?: never;
@@ -575,6 +595,48 @@ export interface components {
             document_id?: number | null;
             /** Payable */
             payable?: string | null;
+        };
+        /** ClaimRow */
+        ClaimRow: {
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant */
+            claimant: string;
+            /** Policy Number */
+            policy_number: string;
+            /** Claim Type */
+            claim_type: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /**
+             * Submission Date
+             * Format: date
+             */
+            submission_date: string;
+            /** Status */
+            status: string;
+            /** Requested Amount */
+            requested_amount: string;
+            /** Payable */
+            payable: string | null;
+            /**
+             * Review
+             * @enum {string}
+             */
+            review: "clean" | "flagged" | "not_validated";
+            /** Alerts */
+            alerts: number;
+            /** Open Alerts */
+            open_alerts: number;
+            /** Top Severity */
+            top_severity: string | null;
+            /** Calculated Leakage */
+            calculated_leakage: string;
+            /** Estimated Leakage */
+            estimated_leakage: string;
         };
         /**
          * ClaimType
@@ -930,6 +992,13 @@ export interface components {
         Page_AlertRow_: {
             /** Items */
             items: components["schemas"]["AlertRow"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[ClaimRow] */
+        Page_ClaimRow_: {
+            /** Items */
+            items: components["schemas"]["ClaimRow"][];
             /** Total */
             total: number;
         };
@@ -1636,6 +1705,43 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RunOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_claims_api_v1_claims_get: {
+        parameters: {
+            query?: {
+                status?: "open" | "settled" | "all";
+                review?: "clean" | "flagged" | "not_validated" | "all";
+                /** @description Claim ID, claimant ID or policy number */
+                q?: string | null;
+                sort?: string;
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_ClaimRow_"];
                 };
             };
             /** @description Validation Error */

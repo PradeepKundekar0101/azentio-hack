@@ -76,3 +76,24 @@ def test_alerts_and_dashboard_agree_and_filter(api: TestClient) -> None:  # noqa
     assert patched["status"] == "reviewed" and patched["review_note"] == "Recovered"
     assert api.get("/api/v1/dashboard/summary").json()["kpis"]["open_alerts"] == 0
     assert api.get("/api/v1/duplicates/cleared").json() == {"items": [], "total": 0}
+
+
+def test_claims_list_shows_clean_and_flagged_open_claims(api: TestClient) -> None:  # noqa: F811
+    batch = upload(api, to_csv_files(BASE)).json()
+    before = api.get("/api/v1/claims").json()
+    api.post("/api/v1/runs", json={"scope": "batch", "batch_id": batch["id"]})
+
+    open_claims = api.get("/api/v1/claims").json()
+    settled = api.get("/api/v1/claims", params={"status": "settled"}).json()
+    clean = api.get("/api/v1/claims", params={"status": "all", "review": "clean"}).json()
+    search = api.get("/api/v1/claims", params={"status": "all", "q": "clm-000001"}).json()
+
+    assert before["items"][0]["review"] == "not_validated"
+    assert [(c["claim_id"], c["review"]) for c in open_claims["items"]] == [("CLM-000002", "clean")]
+    row = open_claims["items"][0]
+    assert row["claimant"] == "A*** K***" and Decimal(row["payable"]) == Decimal("14400")
+    assert settled["items"][0]["review"] == "flagged"
+    assert settled["items"][0]["top_severity"] == "high"
+    assert Decimal(settled["items"][0]["calculated_leakage"]) == Decimal("4500")
+    assert [c["claim_id"] for c in clean["items"]] == ["CLM-000002"]
+    assert search["total"] == 1

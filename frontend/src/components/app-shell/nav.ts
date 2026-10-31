@@ -1,4 +1,4 @@
-import { FileSpreadsheet, LayoutDashboard, type LucideIcon, ReceiptText, ShieldAlert } from "lucide-react";
+import { FileSpreadsheet, LayoutDashboard, type LucideIcon, ReceiptText, ShieldAlert, Wallet } from "lucide-react";
 
 export interface NavItem {
   href: string;
@@ -8,13 +8,14 @@ export interface NavItem {
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/claims", label: "Claims", icon: Wallet },
   { href: "/alerts", label: "Alerts", icon: ShieldAlert },
   { href: "/imports", label: "Imports", icon: FileSpreadsheet },
   { href: "/documents", label: "Documents", icon: ReceiptText },
 ];
 
-/** Pages reached from a section that live outside its path: claims are opened from alerts. */
-const SECTION_ALIASES: Record<string, string> = { "/claims": "/alerts" };
+/** Pages reached from a section that live outside its path. */
+const SECTION_ALIASES: Record<string, string> = {};
 
 /** The nav section a path belongs to (`/alerts/123` -> Alerts). Home matches only itself. */
 export function navItemForPath(pathname: string): NavItem | undefined {
