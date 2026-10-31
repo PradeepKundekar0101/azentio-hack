@@ -16,6 +16,7 @@ from app.core.errors import not_found
 from app.core.security import CurrentUser
 from app.db.models import Alert, Claim, DuplicateMatch, LineItem
 from app.db.session import SessionDep
+from app.evidence import service as evidence
 
 router = APIRouter(tags=["alerts"])
 
@@ -188,9 +189,11 @@ async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, use
         status=body.status,
         note=body.note,
     )
+    previous = alert.status
     alert.status = body.status
     alert.review_note = (body.note or "").strip() or None
     alert.reviewed_at = None if body.status == AlertStatus.OPEN.value else datetime.now(UTC)
+    await evidence.record_decision(session, alert, username, previous, alert.review_note)
     await session.commit()
     await session.refresh(alert)
     return AlertOut.model_validate(alert, from_attributes=True)
