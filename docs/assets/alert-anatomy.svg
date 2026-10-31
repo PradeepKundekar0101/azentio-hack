@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Anatomy of an alert: room rent above the per-day sub-limit, (7,000 minus 5,000) times 3 equals 6,000 rupees, calculated">
+  <title>Anatomy of an alert</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#16225a"/>
+    </linearGradient>
+    <clipPath id="type"><rect x="72" y="262" width="0" height="40">
+      <animate attributeName="width" values="0;0;570;570" keyTimes="0;0.12;0.5;1" dur="8s" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+      .label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; fill: #6b7399; }
+      .note { font-size: 14px; fill: #c9d1f5; }
+      .notehead { font-size: 13px; font-weight: 700; fill: #8b9cf4; letter-spacing: 1px; }
+      .fadein { opacity: 0; animation: fade 8s ease-out infinite; }
+      .d1 { animation-delay: 0s; } .d2 { animation-delay: 0.4s; } .d3 { animation-delay: 0.8s; } .d4 { animation-delay: 1.2s; }
+      @keyframes fade { 0% { opacity: 0; } 8%, 92% { opacity: 1; } 100% { opacity: 0; } }
+      .badge { opacity: 0; animation: pop 8s ease-out infinite; transform-origin: 704px 283px; }
+      @keyframes pop { 0%, 50% { opacity: 0; transform: scale(0.6); } 55% { opacity: 1; transform: scale(1.08); } 58%, 92% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="440" rx="20" fill="url(#bg)"/>
+
+  <!-- Alert card -->
+  <rect x="44" y="40" width="760" height="360" rx="16" fill="#ffffff"/>
+
+  <g class="fadein d1">
+    <rect x="72" y="66" width="172" height="26" rx="13" fill="#eef1fd"/>
+    <text x="158" y="84" class="sans" font-size="12" font-weight="700" fill="#2c41ab" text-anchor="middle" letter-spacing="0.8">SUB_LIMIT_EXCEEDED</text>
+    <rect x="254" y="66" width="80" height="26" rx="13" fill="#fff4e5"/>
+    <text x="294" y="84" class="sans" font-size="12" font-weight="700" fill="#b54708" text-anchor="middle">Medium</text>
+    <text x="776" y="84" class="mono" font-size="13" fill="#6b7399" text-anchor="end">ALR-000187</text>
+    <text x="72" y="126" class="sans" font-size="22" font-weight="700" fill="#141a33">Room rent above the per-day sub-limit</text>
+    <text x="72" y="152" class="sans" font-size="14" fill="#4b5375">CLM-004211 · Inpatient · Greenleaf Multispeciality Hospital (PRV-0001)</text>
+  </g>
+
+  <line x1="72" y1="172" x2="776" y2="172" stroke="#e8ebf4"/>
+
+  <g class="fadein d2">
+    <text x="72" y="200" class="sans label">RULE</text>
+    <text x="72" y="224" class="mono" font-size="14" fill="#141a33">C06 SUB_LIMIT_PER_DAY</text>
+    <text x="320" y="200" class="sans label">POLICY RULE</text>
+    <text x="320" y="224" class="mono" font-size="14" fill="#141a33">POL-000123-SL-01</text>
+    <text x="540" y="200" class="sans label">CLAUSE</text>
+    <text x="540" y="224" class="sans" font-size="14" fill="#141a33">Section 3.2 Room rent</text>
+  </g>
+
+  <text x="72" y="254" class="sans label fadein d3">CALCULATION</text>
+  <g clip-path="url(#type)">
+    <text x="72" y="290" class="mono" font-size="26" font-weight="700" fill="#141a33">(₹7,000 − ₹5,000) × 3 days = ₹6,000</text>
+  </g>
+
+  <g class="badge">
+    <rect x="652" y="270" width="104" height="26" rx="13" fill="#2c41ab"/>
+    <text x="704" y="288" class="sans" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">CALCULATED</text>
+  </g>
+
+  <g class="fadein d4">
+    <rect x="72" y="320" width="704" height="56" rx="10" fill="#f6f7fb"/>
+    <text x="90" y="344" class="sans" font-size="13" fill="#4b5375">Supporting records: claim CLM-004211, line LI-0193 (room, 3 days), policy POL-000123,</text>
+    <text x="90" y="364" class="sans" font-size="13" fill="#4b5375">rule POL-000123-SL-01, source <tspan class="mono">claims_data.xlsx · line_items · row 412</tspan></text>
+  </g>
+
+  <!-- Callouts -->
+  <g class="sans">
+    <text x="840" y="92" class="notehead">WHAT BROKE</text>
+    <text x="840" y="116" class="note">Category, severity and a plain</text>
+    <text x="840" y="136" class="note">sentence anyone can read.</text>
+
+    <text x="840" y="184" class="notehead">WHICH RULE</text>
+    <text x="840" y="208" class="note">The check code, the policy rule ID</text>
+    <text x="840" y="228" class="note">and the clause it comes from.</text>
+
+    <text x="840" y="276" class="notehead">HOW MUCH, EXACTLY</text>
+    <text x="840" y="300" class="note">The formula with real values, marked</text>
+    <text x="840" y="320" class="note">calculated, estimated or suspected.</text>
+
+    <text x="840" y="358" class="notehead">WHERE IT CAME FROM</text>
+    <text x="840" y="382" class="note">File, sheet and row for every record.</text>
+  </g>
+</svg>
