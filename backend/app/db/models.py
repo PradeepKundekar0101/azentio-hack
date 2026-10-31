@@ -588,6 +588,59 @@ class DocumentDiscrepancy(Base):
     created_at: Mapped[CreatedAt]
 
 
+class CorrectionSet(Base):
+    """One version of a claim's recommended settlement (append-only; a new version only when its inputs change)."""
+
+    __tablename__ = "correction_sets"
+    __table_args__ = (
+        UniqueConstraint("claim_id", "version", name="uq_correction_sets_claim_version"),
+        Index("ix_correction_sets_claim_id", "claim_id"),
+    )
+
+    set_id: Mapped[IntId]
+    claim_id: Mapped[str] = claim_fk()
+    version: Mapped[int] = mapped_column(Integer)
+    requested_amount: Mapped[Money]
+    recommended_payable: Mapped[Money]
+    total_reduction: Mapped[Money]
+    paid_amount: Mapped[Money | None]
+    recovery_amount: Mapped[Money | None]
+    inputs_hash: Mapped[str] = mapped_column(String(64))
+    run_id: Mapped[int | None] = mapped_column(ForeignKey("processing_runs.id", ondelete="SET NULL"))
+    created_at: Mapped[CreatedAt]
+
+
+class Correction(Base):
+    """One step from the requested amount to the recommended payable. correction_id (COR-...) is stable across
+    versions; original and corrected amounts are the running amount before and after the step."""
+
+    __tablename__ = "corrections"
+    __table_args__ = (
+        one_of("amount_type", enums.AmountType),
+        one_of("generated_by", enums.GeneratedBy),
+        Index("ix_corrections_claim_id", "claim_id"),
+    )
+
+    correction_id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    set_id: Mapped[int] = mapped_column(ForeignKey("correction_sets.set_id", ondelete="CASCADE"), primary_key=True)
+    claim_id: Mapped[str] = claim_fk()
+    line_id: Mapped[str | None] = mapped_column(String(30))
+    sequence: Mapped[int] = mapped_column(Integer)
+    type: Mapped[str] = mapped_column(String(30))
+    original_amount: Mapped[Money]
+    corrected_amount: Mapped[Money]
+    difference: Mapped[Money]
+    calculation_text: Mapped[str] = mapped_column(Text)
+    calculation: Mapped[Json]  # {"formula", "inputs"}
+    policy_rule_id: Mapped[str | None] = mapped_column(String(40))
+    evidence_refs: Mapped[list[str]] = mapped_column(ARRAY(Text))
+    amount_type: Mapped[str] = mapped_column(String(10))
+    confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
+    generated_by: Mapped[str] = mapped_column(String(10))
+    applied: Mapped[bool]
+    explanation: Mapped[str] = mapped_column(Text)
+
+
 class AuditLog(Base):
     """Every processing run, import, alert status change and document confirmation."""
 

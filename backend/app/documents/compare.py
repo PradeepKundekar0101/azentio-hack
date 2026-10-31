@@ -83,6 +83,11 @@ class Finding:
     extra: dict[str, Any] = field(default_factory=dict)
 
 
+def qty(value: Decimal) -> str:
+    """A quantity as written: 5, 2.5 (never 5.00)."""
+    return f"{value.normalize():f}"
+
+
 def _amount_type(provenance: str) -> str:
     return "calculated" if provenance == "verified" else "estimated"
 
@@ -105,10 +110,10 @@ def line_findings(claim: ClaimLineView, doc: DocLineView) -> list[Finding]:
             findings.append(
                 Finding(
                     "QUANTITY_MISMATCH",
-                    f"{label}: claimed quantity {cq:g}, the document shows {dq:g}; "
-                    f"({cq:g} - {dq:g}) × {inr(cp)} = {inr(impact)}.",
-                    f"{cq:g}",
-                    f"{dq:g}",
+                    f"{label}: claimed quantity {qty(cq)}, the document shows {qty(dq)}; "
+                    f"({qty(cq)} - {qty(dq)}) × {inr(cp)} = {inr(impact)}.",
+                    f"{qty(cq)}",
+                    f"{qty(dq)}",
                     cq - dq,
                     impact if impact > 0 else None,
                     kind if impact > 0 else None,
@@ -141,7 +146,7 @@ def line_findings(claim: ClaimLineView, doc: DocLineView) -> list[Finding]:
                     Finding(
                         "UNIT_PRICE_MISMATCH",
                         f"{label}: claimed unit price {inr(cp)}, the document shows "
-                        f"{inr(dp)}; ({inr(cp)} - {inr(dp)}) × {dq:g} = {inr(impact)}.",
+                        f"{inr(dp)}; ({inr(cp)} - {inr(dp)}) × {qty(dq)} = {inr(impact)}.",
                         str(cp),
                         str(dp),
                         cp - dp,
@@ -338,10 +343,10 @@ def stay_findings(
     return [
         Finding(
             "STAY_LENGTH_MISMATCH",
-            f"Billed {billed:g} room and ICU days; the discharge summary shows {stay:g} "
-            f"({admission:%d %b} to {discharge:%d %b %Y}): {extra:g} × {inr(rate)} = {inr(impact)}.",
-            f"{billed:g} days",
-            f"{stay:g} days",
+            f"Billed {qty(billed)} room and ICU days; the discharge summary shows {qty(stay)} "
+            f"({admission:%d %b} to {discharge:%d %b %Y}): {qty(extra)} × {inr(rate)} = {inr(impact)}.",
+            f"{qty(billed)} days",
+            f"{qty(stay)} days",
             extra,
             impact,
             "calculated",

@@ -552,9 +552,10 @@ class Investigation:
             ),
         ]
         reduced_room = rate * stay
+        # Line corrections in the plan's priority order: unsupported lines, then adjustments, then room days.
         items: list[tuple[str, Decimal, Line | None]] = [
-            ("ADJUST_TO_DOCUMENT", procedure.amount - invoice_price, procedure),
             ("REMOVE_UNSUPPORTED_LINE", extra.amount, extra),
+            ("ADJUST_TO_DOCUMENT", procedure.amount - invoice_price, procedure),
             ("REDUCE_ROOM_DAYS", room.amount - reduced_room, room),
             ("CAP_AT_SUB_LIMIT", (rate - limit) * stay, room),  # type: ignore[operator]
         ]

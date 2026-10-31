@@ -15,6 +15,7 @@ from app.alerts.build import build_alerts
 from app.core.config import Settings
 from app.core.enums import RunScope, RunStatus
 from app.core.logging import get_logger
+from app.corrections.service import build_for_loaded
 from app.db.models import (
     Alert,
     Claim,
@@ -217,6 +218,9 @@ async def execute_run(
     # Cross-claim correlation over every claim (links cross policies), in the same transaction.
     await build_graph(session, settings, run_id=run.id)
     lap("graph")
+    # Corrections: a new correction set for each affected claim whose result changed.
+    await build_for_loaded(session, loaded, claim_ids, run.id)
+    lap("corrections")
 
     run.claims_processed = len(evaluations)
     run.claims_failed = len(failures)
