@@ -179,3 +179,22 @@ export function formatDateTime(value: string | Date | null | undefined): string 
   const d = toDate(value);
   return d ? dateTimeFmt.format(d) : EMPTY;
 }
+
+const BYTE_UNITS = ["KB", "MB", "GB"] as const;
+
+/**
+ * File sizes in binary units: "820 B", "14 KB", "3.1 MB". Whole numbers drop the ".0", and a
+ * no-break space keeps the number and unit on one line.
+ */
+export function formatBytes(value: number | null | undefined): string {
+  if (value === null || value === undefined || !Number.isFinite(value) || value < 0) return EMPTY;
+  if (value < 1024) return `${Math.round(value)}\u00a0B`;
+  let size = value / 1024;
+  let unit = 0;
+  while (size >= 1024 && unit < BYTE_UNITS.length - 1) {
+    size /= 1024;
+    unit += 1;
+  }
+  const digits = size < 10 ? 1 : 0;
+  return `${trimDecimal(Number(size.toFixed(digits)), digits)}\u00a0${BYTE_UNITS[unit]}`;
+}

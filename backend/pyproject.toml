@@ -6,11 +6,18 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.20.1",
+    "anthropic>=2.3.0",
     "boto3>=1.43.123",
+    "docling>=2.145.0",
     "fastapi[standard]>=0.162.0",
+    "openpyxl>=3.1.5",
+    "pillow>=13.0.0",
     "psycopg[binary,pool]>=3.3.6",
     "pydantic-settings>=2.16.2",
     "pyjwt>=2.15.1",
+    "pypdfium2>=5.14.0",
+    "rapidfuzz>=3.14.6",
+    "reportlab>=5.1.0",
     "sqlalchemy[asyncio]>=2.1.6",
     "structlog>=26.1.0",
 ]
@@ -26,6 +33,11 @@ entrypoint = "app.main:app"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# Docling reads its own deprecated option fields internally even with default settings (we set neither).
+filterwarnings = [
+    "ignore:`force_full_page_ocr` is deprecated:DeprecationWarning",
+    "ignore:This field is deprecated. Use `generate_page_images=True`:DeprecationWarning",
+]
 
 [tool.ruff]
 target-version = "py312"
@@ -40,3 +52,13 @@ known-first-party = ["app", "scripts", "tests"]
 [tool.ruff.lint.per-file-ignores]
 # Generated migrations keep CHECK constraint expressions on one line.
 "migrations/versions/*" = ["E501"]
+
+# CPU-only PyTorch on Linux (Docker / App Platform): Docling needs no GPU, and the CUDA wheels add several GB.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]

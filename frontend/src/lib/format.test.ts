@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   EMPTY,
+  formatBytes,
   formatDate,
   formatDateTime,
   formatINR,
@@ -169,5 +170,24 @@ describe("dates", () => {
     expect(formatDate(null)).toBe(EMPTY);
     expect(formatDate("not a date")).toBe(EMPTY);
     expect(formatDateTime(undefined)).toBe(EMPTY);
+  });
+});
+
+describe("formatBytes", () => {
+  it.each([
+    [0, "0 B"],
+    [820, "820 B"],
+    [1024, "1 KB"],
+    [1536, "1.5 KB"],
+    [14_540, "14 KB"],
+    [20 * 1024 * 1024, "20 MB"],
+    [3.14 * 1024 * 1024, "3.1 MB"],
+  ])("%d -> %s", (value, expected) => {
+    expect(formatBytes(value)).toBe(expected.replace(" ", "\u00a0"));
+  });
+
+  it("returns the empty marker for missing or invalid sizes", () => {
+    expect(formatBytes(null)).toBe(EMPTY);
+    expect(formatBytes(-1)).toBe(EMPTY);
   });
 });

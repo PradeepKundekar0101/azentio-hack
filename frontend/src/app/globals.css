@@ -29,6 +29,9 @@
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
+  /* Chart grid lines and axis labels (Recharts reads these through var()). */
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-axis: var(--chart-axis);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -92,6 +95,16 @@
   /* Figures that line up in columns. Use on every amount, count and percentage. */
   .num {
     font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+/* Indeterminate progress: a segment sliding across its track. */
+@keyframes indeterminate {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
   }
 }
 

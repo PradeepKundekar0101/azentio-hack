@@ -114,6 +114,7 @@ class ImportIssue(Base):
     field: Mapped[str | None] = mapped_column(Text)
     value: Mapped[str | None] = mapped_column(Text)
     severity: Mapped[str] = mapped_column(String(10))
+    code: Mapped[str] = mapped_column(String(40))
     message: Mapped[str] = mapped_column(Text)
     raw_row: Mapped[Json | None]
 
@@ -358,3 +359,17 @@ class Document(Base):
     issues: Mapped[Json | None]
     confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
     created_at: Mapped[CreatedAt]
+
+
+class AuditLog(Base):
+    """Every processing run, import, alert status change and document confirmation."""
+
+    __tablename__ = "audit_log"
+
+    id: Mapped[IntId]
+    at: Mapped[CreatedAt]
+    actor: Mapped[str] = mapped_column(Text)
+    action: Mapped[str] = mapped_column(String(40))
+    entity: Mapped[str] = mapped_column(String(40))
+    entity_id: Mapped[str] = mapped_column(Text)
+    details: Mapped[Json | None]
