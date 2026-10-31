@@ -186,6 +186,28 @@ async def _alert_detail(session: AsyncSession, alert: Alert) -> AlertDetail:
     )
 
 
+class EscalationQueue(BaseModel):
+    to_review: list[AlertOut]
+    sent: list[AlertOut]
+
+
+@router.get("/alerts/escalations")
+async def escalation_queue(session: SessionDep, principal: CurrentPrincipal) -> EscalationQueue:
+    """Escalated alerts waiting for this user's level (or a lower one) and the ones they escalated."""
+    rows = await session.scalars(
+        select(Alert).where(Alert.status == AlertStatus.ESCALATED.value).order_by(Alert.escalated_at.desc())
+    )
+    alerts = list(rows)
+    return EscalationQueue(
+        to_review=[
+            AlertOut.model_validate(a, from_attributes=True)
+            for a in alerts
+            if principal.can_decide(a.escalated_to, a.escalated_by)
+        ],
+        sent=[AlertOut.model_validate(a, from_attributes=True) for a in alerts if a.escalated_by == principal.username],
+    )
+
+
 @router.get("/alerts/{alert_id}")
 async def get_alert(alert_id: int, session: SessionDep) -> AlertDetail:
     alert = await session.get(Alert, alert_id)
@@ -199,13 +221,14 @@ async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, pri
     alert = await session.get(Alert, alert_id)
     if alert is None:
         raise not_found("Alert")
-    if alert.status == AlertStatus.ESCALATED.value:
-        # An escalated alert is decided by a senior claims reviewer or an admin, and never by the
-        # person who escalated it: the pack's "authorised workflow" means a second pair of eyes.
-        if not principal.can_decide_escalations():
-            raise forbidden("Escalated alerts are decided by a senior claims reviewer")
+    if alert.status == AlertStatus.ESCALATED.value and not principal.can_decide(alert.escalated_to, alert.escalated_by):
+        # The level it was escalated to (or higher) decides it, and never the person who escalated it:
+        # the pack's "authorised workflow" means a second pair of eyes.
         if alert.escalated_by == principal.username:
             raise forbidden("Someone else must decide an alert you escalated")
+        raise forbidden("This alert is escalated to a higher level than your role")
+    if body.escalate_to is not None and not principal.can_escalate_to(body.escalate_to.value):
+        raise forbidden("Escalate only to a level above your own role")
     now = datetime.now(UTC)
     note = (body.note or "").strip() or None
     audit.record(

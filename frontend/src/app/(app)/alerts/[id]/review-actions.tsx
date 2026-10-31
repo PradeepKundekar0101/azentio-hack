@@ -18,9 +18,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { getErrorMessage } from "@/lib/api/errors";
 import { useReviewAlert } from "@/lib/alerts/hooks";
-import { type AlertOut, type AlertStatus, ESCALATION_TARGET_LABELS, type EscalationTarget } from "@/lib/alerts/model";
+import {
+  type AlertOut,
+  type AlertStatus,
+  ESCALATION_TARGET_LABELS,
+  type EscalationTarget,
+  escalationTargetLabel,
+} from "@/lib/alerts/model";
 import { useMe } from "@/lib/auth/hooks";
-import { canDecideEscalation } from "@/lib/auth/permissions";
+import { canDecideEscalation, escalationTargetsFor } from "@/lib/auth/permissions";
 
 const NOTE_MAX = 2000;
 
@@ -61,7 +67,7 @@ const COPY: Record<AlertStatus, Copy> = {
   escalated: {
     title: "Escalate",
     description:
-      "Hand this alert to a senior claims reviewer or the Special Investigation Unit. You will not be able to decide it yourself afterwards.",
+      "Hand this alert to a higher level. That level, or anyone above it, decides it; you will not be able to decide it yourself afterwards.",
     action: "Escalate",
     done: "Alert escalated",
     noteRequired: true,
@@ -84,9 +90,11 @@ const COPY: Record<AlertStatus, Copy> = {
 export function ReviewActions({ alert }: { alert: AlertOut }) {
   const [target, setTarget] = useState<AlertStatus | null>(null);
   const [note, setNote] = useState("");
-  const [escalateTo, setEscalateTo] = useState<EscalationTarget>("senior_reviewer");
   const review = useReviewAlert(alert.id);
   const { data: me } = useMe();
+  const targets = escalationTargetsFor(me?.role) as EscalationTarget[];
+  const [escalateTo, setEscalateTo] = useState<EscalationTarget>("senior_reviewer");
+  const chosenTarget = targets.includes(escalateTo) ? escalateTo : targets[0];
   const noteId = useId();
   const targetId = useId();
 
@@ -101,7 +109,7 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
   const submit = () => {
     if (!target || noteMissing) return;
     review.mutate(
-      { status: target, note: note.trim() || null, escalate_to: target === "escalated" ? escalateTo : null },
+      { status: target, note: note.trim() || null, escalate_to: target === "escalated" ? (chosenTarget ?? null) : null },
       {
         onSuccess: () => {
           toast.success(COPY[target].done);
@@ -116,9 +124,15 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
   if (alert.status === "escalated") {
     if (!me) {
       buttons = null;
-    } else if (canDecideEscalation(me.role, me.username, alert.escalated_by)) {
+    } else if (canDecideEscalation(me.role, me.username, alert.escalated_by, alert.escalated_to)) {
       buttons = (
         <>
+          {targets.length > 0 && (
+            <Button variant="outline" onClick={() => openDialog("escalated")}>
+              <ArrowUpRight data-icon="inline-start" aria-hidden="true" />
+              Escalate higher
+            </Button>
+          )}
           <Button variant="outline" onClick={() => openDialog("open")}>
             <RotateCcw data-icon="inline-start" aria-hidden="true" />
             Send back
@@ -139,17 +153,19 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
           <Lock className="size-3.5" aria-hidden="true" />
           {alert.escalated_by === me.username
             ? "You escalated this; another reviewer decides it."
-            : "Awaiting a senior claims reviewer."}
+            : `Awaiting ${escalationTargetLabel(alert.escalated_to ?? "senior_reviewer").toLowerCase()} decision.`}
         </p>
       );
     }
   } else if (alert.status === "open" || alert.status === "evidence_requested") {
     buttons = (
       <>
-        <Button variant="outline" onClick={() => openDialog("escalated")}>
-          <ArrowUpRight data-icon="inline-start" aria-hidden="true" />
-          Escalate
-        </Button>
+        {targets.length > 0 && (
+          <Button variant="outline" onClick={() => openDialog("escalated")}>
+            <ArrowUpRight data-icon="inline-start" aria-hidden="true" />
+            Escalate
+          </Button>
+        )}
         {alert.status === "open" && (
           <Button variant="outline" onClick={() => openDialog("evidence_requested")}>
             <FileQuestion data-icon="inline-start" aria-hidden="true" />
@@ -197,12 +213,12 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
                   <Label htmlFor={targetId} className="text-[13px]">
                     Escalate to
                   </Label>
-                  <Select value={escalateTo} onValueChange={(value) => setEscalateTo(value as EscalationTarget)}>
+                  <Select value={chosenTarget} onValueChange={(value) => setEscalateTo(value as EscalationTarget)}>
                     <SelectTrigger id={targetId} className="w-full bg-card">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent position="popper" align="start">
-                      {(Object.keys(ESCALATION_TARGET_LABELS) as EscalationTarget[]).map((value) => (
+                      {targets.map((value) => (
                         <SelectItem key={value} value={value}>
                           {ESCALATION_TARGET_LABELS[value]}
                         </SelectItem>

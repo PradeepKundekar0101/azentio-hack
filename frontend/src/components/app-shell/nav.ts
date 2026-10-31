@@ -1,4 +1,5 @@
 import {
+  Inbox,
   FileSpreadsheet,
   LayoutDashboard,
   type LucideIcon,
@@ -23,6 +24,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/claims", label: "Claims", icon: Wallet },
   { href: "/alerts", label: "Alerts", icon: ShieldAlert },
+  { href: "/reviews", label: "Review queue", icon: Inbox },
   { href: "/evidence", label: "Evidence", icon: ScrollText },
   { href: "/imports", label: "Imports", icon: FileSpreadsheet },
   { href: "/documents", label: "Documents", icon: ReceiptText },

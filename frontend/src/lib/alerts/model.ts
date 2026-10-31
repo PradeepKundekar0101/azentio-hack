@@ -108,7 +108,7 @@ export type EscalationTarget = Schemas["EscalationTarget"];
 
 export const ESCALATION_TARGET_LABELS: Record<EscalationTarget, string> = {
   senior_reviewer: "Senior claims reviewer",
-  siu: "Special Investigation Unit",
+  admin: "Administrator",
 };
 
 export const escalationTargetLabel = (value: string) =>

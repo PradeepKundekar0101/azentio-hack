@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useEscalations } from "@/lib/alerts/hooks";
 import { useMe } from "@/lib/auth/hooks";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,8 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const active = navItemForPath(pathname);
   const { data: user } = useMe();
   const items = navItemsFor(user?.role);
+  const escalations = useEscalations();
+  const waiting = user ? (escalations.data?.to_review.length ?? 0) : 0;
 
   return (
     <nav aria-label="Main" className="flex flex-col gap-0.5">
@@ -48,6 +51,14 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
               strokeWidth={2}
             />
             {item.label}
+            {item.href === "/reviews" && waiting > 0 && (
+              <span
+                className="num ml-auto inline-flex min-w-5 items-center justify-center rounded-full bg-destructive px-1.5 text-[11px] leading-5 font-semibold text-white"
+                aria-label={`${waiting} waiting for your decision`}
+              >
+                {waiting}
+              </span>
+            )}
           </Link>
         );
       })}

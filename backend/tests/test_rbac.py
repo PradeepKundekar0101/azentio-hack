@@ -146,7 +146,7 @@ def test_escalation_needs_a_reason_and_a_target(api: TestClient) -> None:  # noq
     assert api.patch(url, json={"status": "escalated"}).status_code == 422
     assert api.patch(url, json={"status": "escalated", "note": "Looks staged"}).status_code == 422
     assert api.patch(url, json={"status": "dismissed"}).status_code == 422
-    assert api.patch(url, json={"status": "reviewed", "escalate_to": "siu"}).status_code == 422
+    assert api.patch(url, json={"status": "reviewed", "escalate_to": "admin"}).status_code == 422
 
 
 def test_analysts_escalate_but_cannot_decide_escalations(api: TestClient) -> None:  # noqa: F811
@@ -156,10 +156,12 @@ def test_analysts_escalate_but_cannot_decide_escalations(api: TestClient) -> Non
     asha = sign_in(api, "asha")
     url = f"/api/v1/alerts/{alert['id']}"
 
-    escalated = asha.patch(url, json={"status": "escalated", "note": "Invoice looks altered", "escalate_to": "siu"})
+    escalated = asha.patch(
+        url, json={"status": "escalated", "note": "Invoice looks altered", "escalate_to": "senior_reviewer"}
+    )
     assert escalated.status_code == 200, escalated.text
     body = escalated.json()
-    assert (body["status"], body["escalated_to"], body["escalated_by"]) == ("escalated", "siu", "asha")
+    assert (body["status"], body["escalated_to"], body["escalated_by"]) == ("escalated", "senior_reviewer", "asha")
     assert body["escalation_reason"] == "Invoice looks altered"
 
     # The analyst cannot decide it, nor can another analyst.
@@ -179,11 +181,34 @@ def test_a_reviewer_cannot_decide_their_own_escalation(api: TestClient) -> None:
     onboard(api, "sunil", "senior_reviewer")
     sunil = sign_in(api, "sunil")
     url = f"/api/v1/alerts/{alert['id']}"
-    assert sunil.patch(url, json={"status": "escalated", "note": "Needs SIU", "escalate_to": "siu"}).status_code == 200
+    # Only upwards: a senior reviewer cannot escalate to their own level.
+    same_level = {"status": "escalated", "note": "Second opinion", "escalate_to": "senior_reviewer"}
+    assert sunil.patch(url, json=same_level).status_code == 403
+    to_admin = {"status": "escalated", "note": "Needs admin", "escalate_to": "admin"}
+    assert sunil.patch(url, json=to_admin).status_code == 200
 
     assert sunil.patch(url, json={"status": "dismissed", "note": "Changed my mind"}).status_code == 403
     # The admin (a different person) may.
     assert api.patch(url, json={"status": "dismissed", "note": "Provider contract allows it"}).status_code == 200
+
+
+def test_escalations_go_to_the_level_chosen_and_show_in_its_queue(api: TestClient) -> None:  # noqa: F811
+    alert = first_alert(api)
+    onboard(api, "asha", "analyst")
+    onboard(api, "sunil", "senior_reviewer")
+    asha, sunil = sign_in(api, "asha"), sign_in(api, "sunil")
+    url = f"/api/v1/alerts/{alert['id']}"
+
+    assert asha.patch(url, json={"status": "escalated", "note": "Big one", "escalate_to": "admin"}).status_code == 200
+    # Escalated to admin: the senior reviewer neither sees it in their queue nor decides it.
+    assert sunil.get("/api/v1/alerts/escalations").json()["to_review"] == []
+    assert sunil.patch(url, json={"status": "reviewed", "note": "ok"}).status_code == 403
+    assert [a["id"] for a in api.get("/api/v1/alerts/escalations").json()["to_review"]] == [alert["id"]]
+    assert [a["id"] for a in asha.get("/api/v1/alerts/escalations").json()["sent"]] == [alert["id"]]
+
+    api.patch(url, json={"status": "open", "note": "Send back"})
+    asha.patch(url, json={"status": "escalated", "note": "Check this", "escalate_to": "senior_reviewer"})
+    assert [a["id"] for a in sunil.get("/api/v1/alerts/escalations").json()["to_review"]] == [alert["id"]]
 
 
 def test_every_decision_is_audited_with_the_actor_and_role(api: TestClient, sql) -> None:  # noqa: F811

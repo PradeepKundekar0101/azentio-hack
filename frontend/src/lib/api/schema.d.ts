@@ -301,6 +301,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/alerts/escalations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Escalation Queue
+         * @description Escalated alerts waiting for this user's level (or a lower one) and the ones they escalated.
+         */
+        get: operations["escalation_queue_api_v1_alerts_escalations_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/alerts/{alert_id}": {
         parameters: {
             query?: never;
@@ -1709,11 +1729,19 @@ export interface components {
              */
             generated_by: "rule";
         };
+        /** EscalationQueue */
+        EscalationQueue: {
+            /** To Review */
+            to_review: components["schemas"]["AlertOut"][];
+            /** Sent */
+            sent: components["schemas"]["AlertOut"][];
+        };
         /**
          * EscalationTarget
+         * @description Escalation goes up the role ladder: to a senior claims reviewer or to an admin.
          * @enum {string}
          */
-        EscalationTarget: "senior_reviewer" | "siu";
+        EscalationTarget: "senior_reviewer" | "admin";
         /** EventOut */
         EventOut: {
             /** Event Id */
@@ -3454,6 +3482,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    escalation_queue_api_v1_alerts_escalations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EscalationQueue"];
                 };
             };
         };

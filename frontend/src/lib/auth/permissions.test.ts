@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { canDecideEscalation, canManageUsers, canReviewAlert, ROLE_LABELS, ROLES } from "./permissions";
+import {
+  canDecideEscalation,
+  canManageUsers,
+  canReviewAlert,
+  escalationTargetsFor,
+  ROLE_LABELS,
+  ROLES,
+} from "./permissions";
 
 describe("permissions", () => {
   it("only admins manage users", () => {
@@ -17,6 +24,16 @@ describe("permissions", () => {
     expect(canDecideEscalation("analyst", "asha", "bala")).toBe(false);
     expect(canDecideEscalation(undefined, "asha", "bala")).toBe(false);
     expect(canDecideEscalation("admin", undefined, "asha")).toBe(false);
+    // Escalated to admin: a senior reviewer cannot decide it, an admin can.
+    expect(canDecideEscalation("senior_reviewer", "sunil", "asha", "admin")).toBe(false);
+    expect(canDecideEscalation("admin", "root", "asha", "admin")).toBe(true);
+  });
+
+  it("escalation goes only up the ladder", () => {
+    expect(escalationTargetsFor("analyst")).toEqual(["senior_reviewer", "admin"]);
+    expect(escalationTargetsFor("senior_reviewer")).toEqual(["admin"]);
+    expect(escalationTargetsFor("admin")).toEqual([]);
+    expect(escalationTargetsFor(undefined)).toEqual([]);
   });
 
   it("every signed-in role can review an alert", () => {

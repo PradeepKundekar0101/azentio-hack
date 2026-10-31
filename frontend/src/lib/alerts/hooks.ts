@@ -19,7 +19,18 @@ export const alertsKeys = {
   detail: (id: number) => ["alerts", "detail", id] as const,
   cleared: (page: number, pageSize: number) => ["alerts", "cleared", page, pageSize] as const,
   summary: (filters: AlertFilters) => ["dashboard", "summary", filters] as const,
+  escalations: ["alerts", "escalations"] as const,
 };
+
+/** Escalated alerts waiting for the signed-in user's level, and the ones they escalated. Polls, so the
+ *  sidebar count works as a notification. */
+export function useEscalations() {
+  return useQuery({
+    queryKey: alertsKeys.escalations,
+    queryFn: async () => unwrap(await api.GET("/api/v1/alerts/escalations")),
+    refetchInterval: 15_000,
+  });
+}
 
 export function useAlerts(filters: AlertFilters, sort: AlertSort, page: number, pageSize: number) {
   return useQuery({
@@ -91,6 +102,7 @@ export function useReviewAlert(id: number) {
     onSuccess: (alert) => {
       queryClient.setQueryData<AlertDetail>(alertsKeys.detail(id), (old) => (old ? { ...old, alert } : old));
       void queryClient.invalidateQueries({ queryKey: ["alerts", "list"] });
+      void queryClient.invalidateQueries({ queryKey: alertsKeys.escalations });
       void queryClient.invalidateQueries({ queryKey: ["dashboard"] });
       void queryClient.invalidateQueries({ queryKey: ["claims"] });
     },

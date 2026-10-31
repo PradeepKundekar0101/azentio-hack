@@ -158,8 +158,14 @@ class Role(StrEnum):
 
 
 class EscalationTarget(StrEnum):
+    """Escalation goes up the role ladder: to a senior claims reviewer or to an admin."""
+
     SENIOR_REVIEWER = "senior_reviewer"
-    SIU = "siu"
+    ADMIN = "admin"
+
+
+# Higher rank decides more: an alert escalated to a level is decided by that level or above.
+ROLE_RANK = {Role.ANALYST.value: 0, Role.SENIOR_REVIEWER.value: 1, Role.ADMIN.value: 2}
 
 
 class ParseStatus(StrEnum):

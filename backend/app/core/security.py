@@ -18,7 +18,7 @@ from fastapi import Depends, Request
 from sqlalchemy import select
 
 from app.core.config import Settings
-from app.core.enums import Role
+from app.core.enums import ROLE_RANK, Role
 from app.core.errors import AppError
 from app.db.models import User
 from app.db.session import SessionDep
@@ -70,8 +70,18 @@ class Principal:
     def is_admin(self) -> bool:
         return self.role == Role.ADMIN.value
 
-    def can_decide_escalations(self) -> bool:
-        return self.role in (Role.SENIOR_REVIEWER.value, Role.ADMIN.value)
+    @property
+    def rank(self) -> int:
+        return ROLE_RANK.get(self.role, 0)
+
+    def can_escalate_to(self, target: str) -> bool:
+        """Only upwards: an analyst to a senior reviewer or an admin, a senior reviewer to an admin."""
+        return ROLE_RANK.get(target, 0) > self.rank
+
+    def can_decide(self, escalated_to: str | None, escalated_by: str | None) -> bool:
+        """The level it was escalated to, or higher, decides it; never the person who escalated it."""
+        level = ROLE_RANK.get(escalated_to or Role.SENIOR_REVIEWER.value, 1)
+        return self.rank >= level and escalated_by != self.username
 
 
 def create_session_token(settings: Settings, user: User) -> str:
