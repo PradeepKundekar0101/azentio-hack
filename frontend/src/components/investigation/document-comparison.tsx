@@ -9,6 +9,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Panel, PanelHeader } from "@/components/page";
 import { AlertAmount } from "@/components/review/badges";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getErrorMessage } from "@/lib/api/errors";
 import { useClaim } from "@/lib/claims/hooks";
@@ -200,6 +201,7 @@ function DiscrepancyList({ items, onSelect }: { items: DiscrepancyOut[]; onSelec
 function ComparisonBody({ comparison, claim, lines }: { comparison: ComparisonOut; claim: { claimant_name: string; incident_date: string }; lines: ClaimLine[] }) {
   const extraction = useExtraction(comparison.document.id, comparison.extraction_version);
   const [selected, setSelected] = useState<{ key: string; target: Target | null } | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const rows = useMemo(
     () => (extraction.data ? comparisonRows(comparison, lines, extraction.data) : []),
     [comparison, lines, extraction.data],
@@ -208,48 +210,23 @@ function ComparisonBody({ comparison, claim, lines }: { comparison: ComparisonOu
   if (extraction.isError) return <LoadError message={getErrorMessage(extraction.error)} onRetry={() => extraction.refetch()} />;
   const header = headerRows(extraction.data, claim, lines);
   const select = (key: string, target: Target | null) => setSelected({ key, target });
+  // Differences first; the rows that match are one click away.
+  const differingHeader = header.filter((row) => row.differs);
+  const differingRows = rows.filter(
+    (row) => row.kind !== "pair" || row.differs.length > 0 || row.discrepancies.some((d) => d.amount_impact != null),
+  );
+  const shownHeader = showAll ? header : differingHeader;
+  const shownRows = showAll ? rows : differingRows;
+  const hidden = header.length - differingHeader.length + rows.length - differingRows.length;
   return (
     <div className="grid xl:grid-cols-5">
       <div className="min-w-0 space-y-0 border-b xl:col-span-3 xl:border-r xl:border-b-0">
-        <table className="w-full text-[13px]">
-          <thead className="text-[11px] tracking-wide text-muted-foreground uppercase">
-            <tr className="border-b">
-              <th className="px-4 py-1.5 text-left font-medium">Field</th>
-              <th className="px-2 py-1.5 text-left font-medium">Claim</th>
-              <th className="px-2 py-1.5 text-left font-medium">Document</th>
-            </tr>
-          </thead>
-          <tbody>
-            {header.map((row) => (
-              <tr
-                key={row.key}
-                onClick={() => select(`header:${row.key}`, row.target)}
-                className={cn("cursor-pointer border-b hover:bg-muted/50", selected?.key === `header:${row.key}` && "bg-primary/6")}
-              >
-                <td className="px-4 py-1.5 text-muted-foreground">{row.label}</td>
-                <Cell value={headerValue(row.key, row.claimValue)} differs={row.differs} />
-                <Cell
-                  value={
-                    <>
-                      {headerValue(row.key, row.documentValue)}
-                      <ProvenanceMark status={row.provenance} />
-                    </>
-                  }
-                  differs={row.differs}
-                />
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {rows.length > 0 && (
-          <div className="border-b">
-            <LinesTable rows={rows} selected={selected?.key ?? null} onSelect={(row) => select(row.key, row.target)} />
-          </div>
-        )}
-        <div>
-          <h3 className="px-4 pt-3 text-[12px] font-semibold">
-            Discrepancies <span className="num font-normal text-muted-foreground">({comparison.discrepancies.length})</span>
+        <section>
+          <h3 className="px-4 pt-3 text-[13px] font-semibold">
+            What is different{" "}
+            <span className="num font-normal text-muted-foreground">({comparison.discrepancies.length})</span>
           </h3>
+          <p className="px-4 text-[12px] text-muted-foreground">Click a finding to see it on the document.</p>
           <DiscrepancyList
             items={comparison.discrepancies}
             onSelect={(d) => {
@@ -257,7 +234,59 @@ function ComparisonBody({ comparison, claim, lines }: { comparison: ComparisonOu
               select(d.discrepancy_id, ref.page ? { page: ref.page, bbox: ref.bbox ?? null } : null);
             }}
           />
-        </div>
+        </section>
+        <section className="border-t">
+          <div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 pb-2">
+            <h3 className="text-[13px] font-semibold">
+              Claim beside the document{" "}
+              <span className="font-normal text-muted-foreground">
+                {showAll ? "(everything)" : "(only what differs)"}
+              </span>
+            </h3>
+            {hidden > 0 && (
+              <Button variant="outline" size="sm" onClick={() => setShowAll((v) => !v)}>
+                {showAll ? "Show only differences" : `Show everything (${hidden} matching rows)`}
+              </Button>
+            )}
+          </div>
+          {shownHeader.length > 0 && (
+            <table className="w-full border-t text-[13px]">
+              <thead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+                <tr className="border-b">
+                  <th className="px-4 py-1.5 text-left font-medium">Field</th>
+                  <th className="px-2 py-1.5 text-left font-medium">Claim</th>
+                  <th className="px-2 py-1.5 text-left font-medium">Document</th>
+                </tr>
+              </thead>
+              <tbody>
+                {shownHeader.map((row) => (
+                  <tr
+                    key={row.key}
+                    onClick={() => select(`header:${row.key}`, row.target)}
+                    className={cn("cursor-pointer border-b hover:bg-muted/50", selected?.key === `header:${row.key}` && "bg-primary/6")}
+                  >
+                    <td className="px-4 py-1.5 text-muted-foreground">{row.label}</td>
+                    <Cell value={headerValue(row.key, row.claimValue)} differs={row.differs} />
+                    <Cell
+                      value={
+                        <>
+                          {headerValue(row.key, row.documentValue)}
+                          <ProvenanceMark status={row.provenance} />
+                        </>
+                      }
+                      differs={row.differs}
+                    />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          {shownRows.length > 0 && (
+            <div className="border-t">
+              <LinesTable rows={shownRows} selected={selected?.key ?? null} onSelect={(row) => select(row.key, row.target)} />
+            </div>
+          )}
+        </section>
       </div>
       <aside className="bg-muted/30 p-4 xl:col-span-2">
         <div className="xl:sticky xl:top-4">

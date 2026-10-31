@@ -50,3 +50,23 @@ export function evidenceKind(ref: string): string {
   if (ref.startsWith("STL-")) return "Settlement";
   return "Evidence";
 }
+
+const DOCUMENT_TYPES = new Set(["REMOVE_DUPLICATE_LINE", "REMOVE_UNSUPPORTED_LINE", "ADJUST_TO_DOCUMENT", "REDUCE_ROOM_DAYS", "ALIGN_TO_LINE_TOTAL"]);
+const TERM_TYPES = new Set(["APPLY_DEDUCTIBLE", "APPLY_COPAY"]);
+
+function rupees(paise: bigint): string {
+  return `${paise / BigInt(100)}.${(paise % BigInt(100)).toString().padStart(2, "0")}`;
+}
+
+/** Where the reduction comes from: what the documents and duplicates do not support, what is above the policy's
+ * limits (or not covered), and the normal deductible and co-pay. */
+export function settlementSummary(set: CorrectionSetOut): { documents: string; policyLimits: string; policyTerms: string } {
+  const totals = { documents: BigInt(0), policyLimits: BigInt(0), policyTerms: BigInt(0) };
+  for (const c of splitCorrections(set).applied) {
+    const paise = toPaise(c.difference) ?? BigInt(0);
+    if (DOCUMENT_TYPES.has(c.type)) totals.documents += paise;
+    else if (TERM_TYPES.has(c.type)) totals.policyTerms += paise;
+    else totals.policyLimits += paise;
+  }
+  return { documents: rupees(totals.documents), policyLimits: rupees(totals.policyLimits), policyTerms: rupees(totals.policyTerms) };
+}

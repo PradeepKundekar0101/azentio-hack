@@ -18,6 +18,7 @@ import {
   type CorrectionSetOut,
   evidenceKind,
   reconciles,
+  settlementSummary,
   splitCorrections,
 } from "@/lib/corrections/model";
 import { formatDateTime, formatINR } from "@/lib/format";
@@ -63,11 +64,46 @@ function Row({ correction, muted }: { correction: CorrectionOut; muted?: boolean
   );
 }
 
+function Summary({ set }: { set: CorrectionSetOut }) {
+  const parts = settlementSummary(set);
+  const items = [
+    { label: "Not supported by the documents", hint: "missing from the invoice, billed higher, extra room days, repeats", value: parts.documents, tone: "text-destructive" },
+    { label: "Above the policy's limits", hint: "sub-limits, exclusions, overall limit", value: parts.policyLimits, tone: "text-destructive" },
+    { label: "Normal policy terms", hint: "deductible and co-pay", value: parts.policyTerms, tone: "text-muted-foreground" },
+  ];
+  return (
+    <div className="border-b px-4 py-4">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span className="text-[13px] text-muted-foreground">Claimed</span>
+        <span className="num text-lg font-semibold">{formatINR(set.requested_amount)}</span>
+        <span className="text-muted-foreground" aria-hidden="true">→</span>
+        <span className="text-[13px] text-muted-foreground">Pay</span>
+        <span className="num text-lg font-semibold text-success">{formatINR(set.recommended_payable)}</span>
+      </div>
+      <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        {items.map((item) => (
+          <div key={item.label} className="rounded-md border bg-muted/30 px-3 py-2">
+            <div className={cn("num text-[15px] font-semibold", item.tone)}>
+              {item.value === "0.00" ? formatINR(0) : `−${formatINR(item.value)}`}
+            </div>
+            <div className="text-[12px] font-medium">{item.label}</div>
+            <div className="text-[11px] text-muted-foreground">{item.hint}</div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-2 text-[12px] text-muted-foreground">
+        The steps below apply these in order, each starting from the previous one&apos;s result, so nothing is counted twice.
+      </p>
+    </div>
+  );
+}
+
 function Table({ set }: { set: CorrectionSetOut }) {
   const { applied, review, recovery } = splitCorrections(set);
   const ok = reconciles(set);
   return (
     <>
+      <Summary set={set} />
       <div className="overflow-x-auto">
         <table className="w-full min-w-[760px]">
           <thead className="text-[11px] tracking-wide text-muted-foreground uppercase">
