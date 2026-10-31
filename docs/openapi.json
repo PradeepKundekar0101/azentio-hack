@@ -26,6 +26,32 @@
         }
       }
     },
+    "/api/v1/auth/demo-accounts": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Demo Accounts",
+        "description": "The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN\nis on, and lists only accounts that still exist and are active.",
+        "operationId": "demo_accounts_api_v1_auth_demo_accounts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/DemoAccount"
+                  },
+                  "type": "array",
+                  "title": "Response Demo Accounts Api V1 Auth Demo Accounts Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/auth/login": {
       "post": {
         "tags": [
@@ -1033,6 +1059,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/alerts/escalations": {
+      "get": {
+        "tags": [
+          "alerts"
+        ],
+        "summary": "Escalation Queue",
+        "description": "Escalated alerts waiting for this user's level (or a lower one) and the ones they escalated.",
+        "operationId": "escalation_queue_api_v1_alerts_escalations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EscalationQueue"
                 }
               }
             }
@@ -2552,6 +2600,421 @@
           }
         }
       }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "List Users",
+        "operationId": "list_users_api_v1_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserOut"
+                  },
+                  "type": "array",
+                  "title": "Response List Users Api V1 Users Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Create User",
+        "operationId": "create_user_api_v1_users_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{user_id}": {
+      "patch": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Update User",
+        "operationId": "update_user_api_v1_users__user_id__patch",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence": {
+      "get": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "List Investigations",
+        "operationId": "list_investigations_api_v1_evidence_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 50,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_InvestigationRow_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence/claims/{claim_id}": {
+      "get": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "Get Investigation",
+        "operationId": "get_investigation_api_v1_evidence_claims__claim_id__get",
+        "parameters": [
+          {
+            "name": "claim_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Claim Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence/claims/{claim_id}/open": {
+      "post": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "Open Investigation",
+        "operationId": "open_investigation_api_v1_evidence_claims__claim_id__open_post",
+        "parameters": [
+          {
+            "name": "claim_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Claim Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence/claims/{claim_id}/overrides": {
+      "post": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "Override",
+        "operationId": "override_api_v1_evidence_claims__claim_id__overrides_post",
+        "parameters": [
+          {
+            "name": "claim_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Claim Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceOverrideIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence/claims/{claim_id}/notes": {
+      "post": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "Add Note",
+        "operationId": "add_note_api_v1_evidence_claims__claim_id__notes_post",
+        "parameters": [
+          {
+            "name": "claim_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Claim Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceNoteIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/evidence/claims/{claim_id}/report": {
+      "get": {
+        "tags": [
+          "evidence"
+        ],
+        "summary": "Download Report",
+        "description": "Downloading is itself recorded, so the report covers its own export entry.",
+        "operationId": "download_report_api_v1_evidence_claims__claim_id__report_get",
+        "parameters": [
+          {
+            "name": "claim_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Claim Id"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "pdf",
+                "json"
+              ],
+              "type": "string",
+              "default": "pdf",
+              "title": "Format"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2855,6 +3318,62 @@
             ],
             "title": "Reviewed At"
           },
+          "reviewed_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed By"
+          },
+          "escalated_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Escalated To"
+          },
+          "escalated_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Escalated By"
+          },
+          "escalated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Escalated At"
+          },
+          "escalation_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Escalation Reason"
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -2881,6 +3400,11 @@
           "status",
           "review_note",
           "reviewed_at",
+          "reviewed_by",
+          "escalated_to",
+          "escalated_by",
+          "escalated_at",
+          "escalation_reason",
           "created_at"
         ],
         "title": "AlertOut"
@@ -2892,7 +3416,9 @@
             "enum": [
               "open",
               "reviewed",
-              "dismissed"
+              "dismissed",
+              "evidence_requested",
+              "escalated"
             ],
             "title": "Status"
           },
@@ -2907,13 +3433,24 @@
               }
             ],
             "title": "Note"
+          },
+          "escalate_to": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EscalationTarget"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
         "required": [
           "status"
         ],
-        "title": "AlertPatch"
+        "title": "AlertPatch",
+        "description": "An analyst's decision on a finding. Dismissing and escalating need a reason; an escalation says\nwho should look at it."
       },
       "AlertRow": {
         "properties": {
@@ -3015,7 +3552,9 @@
         "enum": [
           "open",
           "reviewed",
-          "dismissed"
+          "dismissed",
+          "evidence_requested",
+          "escalated"
         ],
         "title": "AlertStatus"
       },
@@ -3027,6 +3566,82 @@
           "suspected"
         ],
         "title": "AmountType"
+      },
+      "AnalysisEventOut": {
+        "properties": {
+          "event_id": {
+            "type": "integer",
+            "title": "Event Id"
+          },
+          "event_type": {
+            "type": "string",
+            "title": "Event Type"
+          },
+          "entity_type": {
+            "type": "string",
+            "title": "Entity Type"
+          },
+          "entity_id": {
+            "type": "string",
+            "title": "Entity Id"
+          },
+          "actor_type": {
+            "type": "string",
+            "title": "Actor Type"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "prompt_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Version"
+          },
+          "payload": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payload"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event_id",
+          "event_type",
+          "entity_type",
+          "entity_id",
+          "actor_type",
+          "model",
+          "prompt_version",
+          "payload",
+          "created_at"
+        ],
+        "title": "AnalysisEventOut"
       },
       "Body_create_import_api_v1_imports_post": {
         "properties": {
@@ -4317,6 +4932,33 @@
         ],
         "title": "DatasetCounts"
       },
+      "DemoAccount": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "display_name",
+          "role",
+          "password"
+        ],
+        "title": "DemoAccount"
+      },
       "DiscrepancyDetail": {
         "properties": {
           "discrepancy_id": {
@@ -5104,6 +5746,39 @@
         ],
         "title": "EdgeOut"
       },
+      "EscalationQueue": {
+        "properties": {
+          "to_review": {
+            "items": {
+              "$ref": "#/components/schemas/AlertOut"
+            },
+            "type": "array",
+            "title": "To Review"
+          },
+          "sent": {
+            "items": {
+              "$ref": "#/components/schemas/AlertOut"
+            },
+            "type": "array",
+            "title": "Sent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "to_review",
+          "sent"
+        ],
+        "title": "EscalationQueue"
+      },
+      "EscalationTarget": {
+        "type": "string",
+        "enum": [
+          "senior_reviewer",
+          "admin"
+        ],
+        "title": "EscalationTarget",
+        "description": "Escalation goes up the role ladder: to a senior claims reviewer or to an admin."
+      },
       "EventOut": {
         "properties": {
           "event_id": {
@@ -5192,6 +5867,211 @@
         ],
         "title": "EventOut"
       },
+      "EvidenceClaim": {
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "title": "Claim Id"
+          },
+          "claimant_name": {
+            "type": "string",
+            "title": "Claimant Name"
+          },
+          "policy_number": {
+            "type": "string",
+            "title": "Policy Number"
+          },
+          "claim_type": {
+            "type": "string",
+            "title": "Claim Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "incident_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Incident Date"
+          },
+          "requested_amount": {
+            "type": "string",
+            "title": "Requested Amount"
+          }
+        },
+        "type": "object",
+        "required": [
+          "claim_id",
+          "claimant_name",
+          "policy_number",
+          "claim_type",
+          "status",
+          "incident_date",
+          "requested_amount"
+        ],
+        "title": "EvidenceClaim"
+      },
+      "EvidenceDecision": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor"
+          },
+          "actor_role": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Role"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "note",
+          "actor",
+          "actor_role",
+          "at",
+          "seq"
+        ],
+        "title": "EvidenceDecision"
+      },
+      "EvidenceEventOut": {
+        "properties": {
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor"
+          },
+          "actor_role": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Role"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "opened",
+              "recalculated",
+              "decision",
+              "override",
+              "note",
+              "exported"
+            ],
+            "title": "Kind"
+          },
+          "finding_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finding Key"
+          },
+          "alert_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alert Id"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Payload"
+          },
+          "prev_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prev Hash"
+          },
+          "hash": {
+            "type": "string",
+            "title": "Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "seq",
+          "at",
+          "actor",
+          "actor_role",
+          "kind",
+          "finding_key",
+          "alert_id",
+          "summary",
+          "payload",
+          "prev_hash",
+          "hash"
+        ],
+        "title": "EvidenceEventOut"
+      },
       "EvidenceExport": {
         "properties": {
           "exported_at": {
@@ -5249,6 +6129,400 @@
           "events"
         ],
         "title": "EvidenceExport"
+      },
+      "EvidenceFinding": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "alert_id": {
+            "type": "integer",
+            "title": "Alert Id"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "category_label": {
+            "type": "string",
+            "title": "Category Label"
+          },
+          "severity": {
+            "type": "string",
+            "title": "Severity"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "line_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line Id"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          },
+          "recommendation": {
+            "$ref": "#/components/schemas/RecommendationOut"
+          },
+          "original_recommendation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RecommendationOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "changed_since_opened": {
+            "type": "boolean",
+            "title": "Changed Since Opened"
+          },
+          "effective_correction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective Correction"
+          },
+          "effective_corrected_amount": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective Corrected Amount"
+          },
+          "override": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvidenceOverride"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "decision": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvidenceDecision"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "key",
+          "alert_id",
+          "category",
+          "category_label",
+          "severity",
+          "status",
+          "line_id",
+          "explanation",
+          "recommendation",
+          "original_recommendation",
+          "changed_since_opened",
+          "effective_correction",
+          "effective_corrected_amount",
+          "override",
+          "decision"
+        ],
+        "title": "EvidenceFinding"
+      },
+      "EvidenceIntegrity": {
+        "properties": {
+          "verified": {
+            "type": "boolean",
+            "title": "Verified"
+          },
+          "events": {
+            "type": "integer",
+            "title": "Events"
+          },
+          "head_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Head Hash"
+          },
+          "broken_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Broken At"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "verified",
+          "events",
+          "head_hash",
+          "broken_at",
+          "reason"
+        ],
+        "title": "EvidenceIntegrity"
+      },
+      "EvidenceNoteIn": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Text"
+          },
+          "alert_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alert Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "EvidenceNoteIn"
+      },
+      "EvidenceOriginal": {
+        "properties": {
+          "run_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Run Id"
+          },
+          "totals": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Totals"
+          },
+          "payable_steps": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Payable Steps"
+          },
+          "results": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "totals",
+          "payable_steps",
+          "results"
+        ],
+        "title": "EvidenceOriginal"
+      },
+      "EvidenceOverride": {
+        "properties": {
+          "previous_correction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Correction"
+          },
+          "new_correction": {
+            "type": "string",
+            "title": "New Correction"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "reverted": {
+            "type": "boolean",
+            "title": "Reverted"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          }
+        },
+        "type": "object",
+        "required": [
+          "previous_correction",
+          "new_correction",
+          "reason",
+          "reverted",
+          "actor",
+          "at",
+          "seq"
+        ],
+        "title": "EvidenceOverride"
+      },
+      "EvidenceOverrideIn": {
+        "properties": {
+          "alert_id": {
+            "type": "integer",
+            "title": "Alert Id"
+          },
+          "correction": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Correction"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "alert_id",
+          "correction",
+          "reason"
+        ],
+        "title": "EvidenceOverrideIn"
+      },
+      "EvidenceSummary": {
+        "properties": {
+          "original_calculated_leakage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Calculated Leakage"
+          },
+          "current_calculated_leakage": {
+            "type": "string",
+            "title": "Current Calculated Leakage"
+          },
+          "adjusted_calculated_leakage": {
+            "type": "string",
+            "title": "Adjusted Calculated Leakage"
+          },
+          "estimated_leakage": {
+            "type": "string",
+            "title": "Estimated Leakage"
+          },
+          "findings": {
+            "type": "integer",
+            "title": "Findings"
+          },
+          "overrides": {
+            "type": "integer",
+            "title": "Overrides"
+          },
+          "decided": {
+            "type": "integer",
+            "title": "Decided"
+          },
+          "counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Counts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "original_calculated_leakage",
+          "current_calculated_leakage",
+          "adjusted_calculated_leakage",
+          "estimated_leakage",
+          "findings",
+          "overrides",
+          "decided",
+          "counts"
+        ],
+        "title": "EvidenceSummary"
       },
       "ExtractedLineOut": {
         "properties": {
@@ -5995,6 +7269,42 @@
         ],
         "title": "ImportIssueOut"
       },
+      "InvestigationBrief": {
+        "properties": {
+          "opened_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Opened At"
+          },
+          "opened_by": {
+            "type": "string",
+            "title": "Opened By"
+          },
+          "events": {
+            "type": "integer",
+            "title": "Events"
+          },
+          "head_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Head Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "opened_at",
+          "opened_by",
+          "events",
+          "head_hash"
+        ],
+        "title": "InvestigationBrief"
+      },
       "InvestigationBundle": {
         "properties": {
           "claim": {
@@ -6100,6 +7410,172 @@
           "finding_ids"
         ],
         "title": "InvestigationBundle"
+      },
+      "InvestigationOut": {
+        "properties": {
+          "claim": {
+            "$ref": "#/components/schemas/EvidenceClaim"
+          },
+          "investigation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InvestigationBrief"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "integrity": {
+            "$ref": "#/components/schemas/EvidenceIntegrity"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/EvidenceSummary"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceFinding"
+            },
+            "type": "array",
+            "title": "Findings"
+          },
+          "original": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvidenceOriginal"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceEventOut"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "analysis_events": {
+            "items": {
+              "$ref": "#/components/schemas/AnalysisEventOut"
+            },
+            "type": "array",
+            "title": "Analysis Events"
+          }
+        },
+        "type": "object",
+        "required": [
+          "claim",
+          "investigation",
+          "integrity",
+          "summary",
+          "findings",
+          "original",
+          "events",
+          "analysis_events"
+        ],
+        "title": "InvestigationOut"
+      },
+      "InvestigationRow": {
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "title": "Claim Id"
+          },
+          "claimant_name": {
+            "type": "string",
+            "title": "Claimant Name"
+          },
+          "claim_type": {
+            "type": "string",
+            "title": "Claim Type"
+          },
+          "opened_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Opened At"
+          },
+          "opened_by": {
+            "type": "string",
+            "title": "Opened By"
+          },
+          "events": {
+            "type": "integer",
+            "title": "Events"
+          },
+          "head_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Head Hash"
+          },
+          "last_event_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Event At"
+          },
+          "last_event_kind": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Event Kind"
+          },
+          "last_event_summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Event Summary"
+          },
+          "last_actor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Actor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "claim_id",
+          "claimant_name",
+          "claim_type",
+          "opened_at",
+          "opened_by",
+          "events",
+          "head_hash",
+          "last_event_at",
+          "last_event_kind",
+          "last_event_summary",
+          "last_actor"
+        ],
+        "title": "InvestigationRow"
       },
       "IssueSeverity": {
         "type": "string",
@@ -6736,6 +8212,27 @@
         ],
         "title": "Page[ImportIssueOut]"
       },
+      "Page_InvestigationRow_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationRow"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total"
+        ],
+        "title": "Page[InvestigationRow]"
+      },
       "Page_ProviderOut_": {
         "properties": {
           "items": {
@@ -7012,6 +8509,92 @@
         "type": "object",
         "title": "RebuildIn"
       },
+      "RecommendationOut": {
+        "properties": {
+          "action": {
+            "type": "string",
+            "title": "Action"
+          },
+          "basis": {
+            "type": "string",
+            "title": "Basis"
+          },
+          "original_amount": {
+            "type": "string",
+            "title": "Original Amount"
+          },
+          "correction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Correction"
+          },
+          "corrected_amount": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Corrected Amount"
+          },
+          "amount_type": {
+            "type": "string",
+            "title": "Amount Type"
+          },
+          "calculation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Calculation"
+          },
+          "rule_or_pattern": {
+            "type": "string",
+            "title": "Rule Or Pattern"
+          },
+          "policy_rule_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Policy Rule Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "basis",
+          "original_amount",
+          "correction",
+          "corrected_amount",
+          "amount_type",
+          "calculation",
+          "rule_or_pattern",
+          "policy_rule_id",
+          "source"
+        ],
+        "title": "RecommendationOut"
+      },
       "RecomputeOut": {
         "properties": {
           "set_id": {
@@ -7241,6 +8824,16 @@
         ],
         "title": "ResultOut"
       },
+      "Role": {
+        "type": "string",
+        "enum": [
+          "analyst",
+          "senior_reviewer",
+          "admin"
+        ],
+        "title": "Role",
+        "description": "Who may do what. Analysts review and escalate; senior reviewers decide escalations; admins onboard."
+      },
       "RunFailure": {
         "properties": {
           "claim_id": {
@@ -7440,11 +9033,20 @@
           "username": {
             "type": "string",
             "title": "Username"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
           }
         },
         "type": "object",
         "required": [
-          "username"
+          "username",
+          "display_name",
+          "role"
         ],
         "title": "SessionOut"
       },
@@ -7669,6 +9271,142 @@
           "last_run"
         ],
         "title": "Summary"
+      },
+      "UserCreate": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,99}$",
+            "title": "Username",
+            "description": "Lowercase letters, digits, dots, dashes"
+          },
+          "display_name": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Display Name"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 8,
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "display_name",
+          "role",
+          "password"
+        ],
+        "title": "UserCreate"
+      },
+      "UserOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
+          "created_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "username",
+          "display_name",
+          "role",
+          "is_active",
+          "created_by",
+          "created_at"
+        ],
+        "title": "UserOut"
+      },
+      "UserPatch": {
+        "properties": {
+          "display_name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Name"
+          },
+          "role": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Role"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_active": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Active"
+          },
+          "password": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 256,
+                "minLength": 8
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "title": "UserPatch"
       },
       "ValidationError": {
         "properties": {
