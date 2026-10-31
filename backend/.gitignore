@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+
+# env files
+.env*
