@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Claims Leakage frontend
 
-## Getting Started
+Next.js (App Router) client for the claims-leakage app.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The browser only talks to this app.
+`/api/*` and `/health` are rewritten to the FastAPI backend at `BACKEND_URL` (default `http://127.0.0.1:8000`), so the `azentio_session` cookie is first-party.
+Set it in `frontend/.env.local` if the backend runs elsewhere, then restart the dev server.
+`next build` bakes the rewrite in, so set `BACKEND_URL` at build time too.
+In production the App Platform ingress sends `/api` and `/health` to the backend before they reach Next.js, so the rewrite never fires there.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sign in with the demo account configured in `backend/.env` (`DEMO_USERNAME`, `DEMO_PASSWORD`).
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Script | What it does |
+| --- | --- |
+| `pnpm dev` | Dev server |
+| `pnpm build` / `pnpm start` | Production build and server |
+| `pnpm lint` | ESLint |
+| `pnpm typecheck` | Generates route types, then `tsc --noEmit` |
+| `pnpm test` | Vitest unit tests |
+| `pnpm api:types` | Regenerates `src/lib/api/schema.d.ts` from `${API_URL:-http://127.0.0.1:8000}/openapi.json` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/login` - sign-in page.
+- `src/app/(app)` - signed-in routes inside the app shell: Dashboard (`/`), `alerts`, `imports`, `documents`.
+- `src/proxy.ts` - redirects to `/login?next=...` when there is no session cookie.
+- `src/components/app-shell` - sidebar, top bar, mobile drawer, backend status and the session guard.
+- `src/components/ui` - shadcn/ui components (`components.json`).
+- `src/lib/api` - typed `openapi-fetch` client and `ApiError` (code, message, details).
+- `src/lib/auth` - `useMe`, `useLogin`, `useLogout` and safe post-login redirects.
+- `src/lib/format.ts` - rupees in Indian grouping, counts, percentages and dates.

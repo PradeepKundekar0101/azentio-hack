@@ -1,56 +1,72 @@
-import asyncio
-import logging
-from collections.abc import AsyncIterator, Awaitable, Callable
+"""App factory, routers and lifespan."""
+
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request, Response
-from sqlalchemy.ext.asyncio import async_sessionmaker
+from fastapi import APIRouter, Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from starlette.types import ASGIApp, Receive, Scope, Send
 
-from app import db
-from app.config import Settings, get_settings
-from app.storage import Storage
+from app.api import auth, health, reference
+from app.core.config import Settings, get_settings
+from app.core.errors import install_error_handlers
+from app.core.logging import configure_logging
+from app.core.security import session_username
+from app.db.session import Database
+from app.storage.spaces import Storage
 
-logger = logging.getLogger(__name__)
 
-HEALTH_CHECK_TIMEOUT_SECONDS = 10
+class SettingsCORSMiddleware:
+    """CORS with origins from the settings loaded at startup, so importing the app never reads configuration."""
+
+    def __init__(self, app: ASGIApp) -> None:
+        self.app = app
+        self.cors: ASGIApp | None = None
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+        if scope["type"] == "lifespan":
+            await self.app(scope, receive, send)
+            return
+        if self.cors is None:
+            settings: Settings = scope["app"].state.settings
+            self.cors = CORSMiddleware(
+                self.app,
+                allow_origins=settings.cors_origins,
+                allow_credentials=True,
+                allow_methods=["*"],
+                allow_headers=["*"],
+            )
+        await self.cors(scope, receive, send)
 
 
-async def _check(name: str, probe: Callable[[], Awaitable[None]]) -> str:
-    try:
-        await asyncio.wait_for(probe(), timeout=HEALTH_CHECK_TIMEOUT_SECONDS)
-    except Exception:
-        logger.exception("Health check failed: %s", name)
-        return "error"
-    return "ok"
+def _api_router() -> APIRouter:
+    api = APIRouter(prefix="/api/v1")
+    api.include_router(auth.router)
+    # Every other API route needs the demo session.
+    protected = APIRouter(dependencies=[Depends(session_username)])
+    protected.include_router(reference.router)
+    api.include_router(protected)
+    return api
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         resolved = settings or get_settings()
-        engine = db.create_engine(resolved)
-        app.state.engine = engine
-        app.state.sessionmaker = async_sessionmaker(engine, expire_on_commit=False)
+        configure_logging(json=resolved.app_env == "demo")
+        app.state.settings = resolved
+        app.state.db = Database(resolved)
         app.state.storage = Storage.from_settings(resolved)
-        yield
-        await engine.dispose()
+        try:
+            yield
+        finally:
+            await app.state.db.dispose()
 
-    app = FastAPI(title="Backend", lifespan=lifespan)
-
-    @app.get("/health")
-    async def health(request: Request, response: Response) -> dict:
-        state = request.app.state
-        checks = {
-            "database": await _check("database", lambda: db.ping(state.engine)),
-            "storage": await _check(
-                "storage", lambda: asyncio.to_thread(state.storage.ping)
-            ),
-        }
-        healthy = all(result == "ok" for result in checks.values())
-        if not healthy:
-            response.status_code = 503
-        return {"status": "ok" if healthy else "unavailable", "checks": checks}
-
+    app = FastAPI(title="Claims Leakage API", version="0.1.0", lifespan=lifespan)
+    install_error_handlers(app)
+    app.add_middleware(SettingsCORSMiddleware)
+    app.include_router(health.router)
+    app.include_router(_api_router())
     return app
 
 

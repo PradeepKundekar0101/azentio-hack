@@ -1,79 +1,31 @@
 # Backend
 
-FastAPI service managed with [uv](https://docs.astral.sh/uv/).
+FastAPI service managed with [uv](https://docs.astral.sh/uv/). See the [root README](../README.md) for setup and make targets.
 
-## Setup
+## Layout
 
-```bash
-uv sync
-cp .env.example .env
-```
-
-Fill in `.env` with the Postgres URL and Spaces key (see [Infrastructure](#infrastructure)).
-
-## Development
-
-```bash
-uv run alembic upgrade head
-uv run fastapi dev
-```
-
-The API runs at http://127.0.0.1:8000, with interactive docs at http://127.0.0.1:8000/docs.
-`GET /health` returns 200 when Postgres and Spaces are both reachable, and 503 otherwise.
-
-## Infrastructure
-
-All resources live in the DigitalOcean account `dev@getconch.ai`.
-
-| Resource | Details |
+| Path | Contents |
 | --- | --- |
-| Postgres | Cluster `azentio-hack-pg` (Postgres 18, `blr1`), database `azentio`, user `azentio_app` |
-| Spaces | Bucket `leaklens-files` (`sgp1`), shared with LeakLens. This app only reads and writes under `azentio-hack/`. |
-| Spaces key | `azentio-hack`, limited to read/write on `leaklens-files` |
+| `app/main.py` | App factory, lifespan (database, storage), routers |
+| `app/core/` | Settings, logging, error format, money parsing and formatting, session login, enums |
+| `app/db/` | Async engine and sessions (`session.py`), every table (`models.py`) |
+| `app/storage/` | DigitalOcean Spaces client |
+| `app/api/` | Routes: `/health`, and `/api/v1/...` |
+| `migrations/` | Alembic (async template); revision files are dated |
+| `reference/` | Service codes and providers loaded by `scripts.seed_reference` |
+| `scripts/` | Command-line jobs (`python -m scripts.<name>`) |
 
-Print the database connection details:
+## Conventions
 
-```bash
-doctl databases connection --format Host,Port $(doctl databases list --format ID,Name --no-header | awk '$2=="azentio-hack-pg"{print $1}')
-```
-
-## Using the database and Spaces in routes
-
-```python
-import asyncio
-
-from sqlalchemy import text
-
-from app.db import SessionDep
-from app.storage import StorageDep
-
-
-@app.post("/files/{name}")
-async def upload(name: str, session: SessionDep, storage: StorageDep) -> dict[str, str]:
-    await session.execute(text("select 1"))
-    key = await asyncio.to_thread(storage.upload, name, b"...", "text/plain")
-    return {"key": key, "url": storage.presigned_download_url(name)}
-```
-
-`Storage` uses boto3, which blocks, so wrap network calls in `asyncio.to_thread` inside async routes.
-`presigned_download_url` only signs locally and does not need it.
+- Every `/api/v1` route except `auth/login` requires the session cookie.
+- Errors are `{"error": {"code", "message", "details"}}`; lists take `page` and `page_size` and return `{items, total}`.
+- Money is `NUMERIC(12,2)` in Postgres and `Decimal` in Python; parse input with `app.core.money.parse_amount` and format with `inr`.
+- Routes get a database session with `SessionDep` and storage with `StorageDep`.
+  `Storage` uses boto3, which blocks, so wrap network calls in `asyncio.to_thread` inside async routes.
 
 ## Migrations
-
-Models subclass `app.db.Base`.
-Import each models module in `migrations/env.py` so autogenerate can see it.
 
 ```bash
 uv run alembic revision --autogenerate -m "describe the change"
 uv run alembic upgrade head
 ```
-
-## Checks
-
-```bash
-uv run pytest
-uv run ruff check .
-uv run ruff format --check .
-```
-
-Tests for Postgres and Spaces run against the real DigitalOcean resources and are skipped when `.env` is missing.

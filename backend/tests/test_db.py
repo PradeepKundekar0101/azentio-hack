@@ -1,8 +1,8 @@
 from fastapi.testclient import TestClient
 from sqlalchemy import text
 
-from app.config import Settings
-from app.db import SessionDep
+from app.core.config import Settings
+from app.db.session import SessionDep
 from app.main import create_app
 
 

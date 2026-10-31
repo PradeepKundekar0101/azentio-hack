@@ -1,1 +1,4 @@
 .DS_Store
+
+# Deployment-only secrets (see infra/render_spec.py)
+.env.do

@@ -1,0 +1,64 @@
+code,description,category,repeatable,min_interval_days,max_per_week
+RM-GEN,General ward room (per day),room,true,1,7
+RM-SEMI,Semi-private room (per day),room,true,1,7
+RM-PVT,Private room (per day),room,true,1,7
+RM-DLX,Deluxe room (per day),room,true,1,7
+ICU-STD,ICU bed (per day),icu,true,1,7
+ICU-HDU,High dependency unit (per day),icu,true,1,7
+ICU-NICU,Neonatal ICU (per day),icu,true,1,7
+CON-GP,General physician consultation,consultation,false,,
+CON-SPL,Specialist consultation,consultation,false,,
+CON-FUP,Follow-up consultation,consultation,true,7,1
+CON-TELE,Teleconsultation,consultation,false,,
+CON-EMR,Emergency consultation,consultation,false,,
+CON-VIS,Inpatient doctor visit (per day),consultation,true,1,7
+PRC-APPX,Laparoscopic appendectomy,procedure,false,,
+PRC-CHOL,Laparoscopic cholecystectomy,procedure,false,,
+PRC-CATA,Cataract surgery with lens implant,procedure,false,,
+PRC-HERN,Inguinal hernia repair,procedure,false,,
+PRC-KNEE,Total knee replacement,procedure,false,,
+PRC-CSEC,Caesarean section,procedure,false,,
+PRC-ANGIO,Coronary angioplasty,procedure,false,,
+PRC-ENDO,Upper GI endoscopy,procedure,false,,
+PRC-DIAL,Haemodialysis session,procedure,true,2,3
+PRC-CHEMO,Chemotherapy cycle,procedure,true,14,1
+PRC-COSM,Cosmetic rhinoplasty,procedure,false,,
+PRC-LIPO,Liposuction,procedure,false,,
+PRC-DENT,Dental implant,procedure,false,,
+PRC-LASIK,LASIK refractive surgery,procedure,false,,
+PRC-IVF,IVF treatment cycle,procedure,false,,
+PRC-BARI,Bariatric surgery,procedure,false,,
+PHA-ABX,Antibiotics,pharmacy,false,,
+PHA-ANLG,Analgesics,pharmacy,false,,
+PHA-IVFL,IV fluids,pharmacy,false,,
+PHA-INS,Insulin,pharmacy,false,,
+PHA-CARD,Cardiac medication,pharmacy,false,,
+PHA-ONC,Oncology drugs,pharmacy,false,,
+PHA-OTC,Over-the-counter medicines,pharmacy,false,,
+PHA-VIT,Vitamins and supplements,pharmacy,false,,
+DX-CBC,Complete blood count,diagnostics,false,,
+DX-LFT,Liver function test,diagnostics,false,,
+DX-KFT,Kidney function test,diagnostics,false,,
+DX-LIPID,Lipid profile,diagnostics,false,,
+DX-HBA1C,HbA1c,diagnostics,false,,
+DX-XRAY,Chest X-ray,diagnostics,false,,
+DX-USG,Ultrasound abdomen,diagnostics,false,,
+DX-CT,CT scan,diagnostics,false,,
+DX-MRI,MRI scan,diagnostics,false,,
+DX-ECG,Electrocardiogram,diagnostics,false,,
+DX-ECHO,2D echocardiography,diagnostics,false,,
+DX-TMT,Treadmill test,diagnostics,false,,
+CS-SYR,Syringes and needles,consumables,false,,
+CS-GLV,Surgical gloves,consumables,false,,
+CS-DRS,Dressing material,consumables,false,,
+CS-CATH,Urinary catheter,consumables,false,,
+CS-IMPL,Orthopaedic implant,consumables,false,,
+CS-STENT,Coronary stent,consumables,false,,
+PHY-SES,Physiotherapy session,physiotherapy,true,2,3
+PHY-OCC,Occupational therapy session,physiotherapy,true,2,3
+PHY-REHAB,Post-operative rehabilitation session,physiotherapy,true,1,6
+OTH-AMB,Ambulance charges,other,false,,
+OTH-REG,Registration and admission charges,other,false,,
+OTH-NURS,Nursing charges (per day),other,true,1,7
+OTH-BLD,Blood transfusion,other,false,,
+OTH-DIET,Dietician consultation,other,false,,

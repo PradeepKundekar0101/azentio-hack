@@ -2,8 +2,8 @@ import uuid
 
 import httpx
 
-from app.config import Settings
-from app.storage import Storage
+from app.core.config import Settings
+from app.storage.spaces import Storage
 
 
 def test_uploaded_object_lands_under_prefix_and_is_downloadable(
@@ -15,6 +15,7 @@ def test_uploaded_object_lands_under_prefix_and_is_downloadable(
     key = storage.upload(name, b"hello spaces", content_type="text/plain")
     try:
         assert key == f"{live_settings.spaces_prefix}{name}"
+        assert storage.download(name) == b"hello spaces"
         response = httpx.get(storage.presigned_download_url(name, expires_in=60))
         assert response.status_code == 200
         assert response.content == b"hello spaces"

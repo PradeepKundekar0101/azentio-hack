@@ -3,23 +3,28 @@ from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy.engine import Connection
+from sqlalchemy.ext.asyncio import create_async_engine
 
-from app import db
-from app.config import get_settings
+from app.core.config import get_settings
+from app.db.models import Base
 
 config = context.config
 
 if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
+    fileConfig(config.config_file_name, disable_existing_loggers=False)
 
-# Import every models module before this line so autogenerate can see its tables.
-target_metadata = db.Base.metadata
+target_metadata = Base.metadata
+
+
+def database_url() -> str:
+    # Tests and scripts pass a URL through config.attributes; otherwise use the app settings (backend/.env).
+    return config.attributes.get("database_url") or get_settings().database_url.get_secret_value()
 
 
 def run_migrations_offline() -> None:
     """Emit migration SQL to stdout without connecting to the database."""
     context.configure(
-        url=get_settings().database_url.get_secret_value(),
+        url=database_url(),
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
@@ -30,14 +35,14 @@ def run_migrations_offline() -> None:
 
 
 def do_run_migrations(connection: Connection) -> None:
-    context.configure(connection=connection, target_metadata=target_metadata)
+    context.configure(connection=connection, target_metadata=target_metadata, compare_server_default=True)
 
     with context.begin_transaction():
         context.run_migrations()
 
 
 async def run_async_migrations() -> None:
-    engine = db.create_engine(get_settings())
+    engine = create_async_engine(database_url())
 
     async with engine.connect() as connection:
         await connection.run_sync(do_run_migrations)
