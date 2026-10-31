@@ -2,7 +2,7 @@
 
 import { CircleAlert, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useState } from "react";
+import { type ReactNode, useEffect, useId, useState } from "react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import { type DemoAccount, useDemoAccounts, useLogin } from "@/lib/auth/hooks";
 import { ROLE_DESCRIPTIONS, roleLabel } from "@/lib/auth/permissions";
 import { safeNextPath } from "@/lib/auth/redirect";
 
-export function LoginForm() {
+export function LoginForm({ heading }: { heading?: ReactNode }) {
   const router = useRouter();
 
   const login = useLogin();
@@ -52,8 +52,10 @@ export function LoginForm() {
   const describedBy = error ? errorId : undefined;
 
   return (
-    <form onSubmit={onSubmit} className="mt-6 space-y-4">
-      <div className="space-y-1.5">
+    <>
+    <form onSubmit={onSubmit} className="rounded-2xl bg-card px-6 py-7 font-sans text-card-foreground shadow-pop sm:px-8 sm:py-8 w-full max-w-[24rem] space-y-4">
+      {heading}
+      <div className="space-y-1.5 pt-2">
         <Label htmlFor="username">Username</Label>
         <Input
           id="username"
@@ -98,12 +100,14 @@ export function LoginForm() {
         {busy && <Loader2 className="animate-spin" aria-hidden="true" />}
         {busy ? "Signing in" : "Sign in"}
       </Button>
+    </form>
 
       {demo.data && demo.data.length > 0 && (
-        <fieldset className="mt-2 min-w-0 border-t pt-4" disabled={busy}>
+        <fieldset className="rounded-2xl bg-card px-6 py-7 font-sans text-card-foreground shadow-pop sm:px-8 sm:py-8 w-full max-w-[24rem] min-w-0" disabled={busy}>
           <legend className="sr-only">Demo accounts</legend>
-          <p className="text-xs font-medium text-muted-foreground">Demo accounts: pick one to fill the form</p>
-          <ul className="mt-2 grid gap-1.5">
+          <p className="text-sm font-semibold">Demo accounts</p>
+          <p className="mt-1 text-xs text-muted-foreground">Pick a role to fill the form, then sign in.</p>
+          <ul className="mt-4 grid gap-2">
             {demo.data.map((account) => (
               <li key={account.username}>
                 <button
@@ -114,7 +118,7 @@ export function LoginForm() {
                 >
                   <span className="min-w-0">
                     <span className="block text-[13px] font-medium">{roleLabel(account.role)}</span>
-                    <span className="block truncate text-xs text-muted-foreground">{ROLE_DESCRIPTIONS[account.role]}</span>
+                    <span className="block text-xs text-muted-foreground">{ROLE_DESCRIPTIONS[account.role]}</span>
                   </span>
                   <span className="num shrink-0 text-xs text-muted-foreground">{account.username}</span>
                 </button>
@@ -123,6 +127,6 @@ export function LoginForm() {
           </ul>
         </fieldset>
       )}
-    </form>
+    </>
   );
 }

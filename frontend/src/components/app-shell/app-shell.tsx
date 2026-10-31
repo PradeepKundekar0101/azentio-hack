@@ -27,7 +27,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* The landing page's mesh, fading in from the top edge, so the portal opens under the same sky. */}
       <Backdrop
         tinted={false}
-        className="fixed inset-x-0 top-0 h-[52vh] opacity-[0.28] [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,black_0%,rgb(0_0_0/0.55)_45%,transparent_100%),linear-gradient(to_right,transparent_15%,black_70%)] dark:opacity-[0.55]"
+        className="pointer-events-none fixed inset-x-0 top-0 h-[52vh] transform-gpu [contain:strict] [&_*]:!animate-none opacity-[0.28] [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,black_0%,rgb(0_0_0/0.55)_45%,transparent_100%),linear-gradient(to_right,transparent_15%,black_70%)] dark:opacity-[0.55]"
       />
       {/* First in the tab order, ahead of the sidebar links. */}
       <a

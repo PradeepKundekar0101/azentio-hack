@@ -23,7 +23,8 @@ export default function LoginPage() {
     <div
       className={`${geistPixel.variable} ${geistSans.variable} relative isolate flex min-h-dvh flex-col bg-brand-ink px-5 pt-5 pb-10 font-brand text-brand-on-ink [color-scheme:dark] sm:px-10 sm:pt-6 lg:px-20`}
     >
-      <Backdrop />
+      {/* Fixed, still and on its own layer: a moving blurred SVG repaints on every scroll frame. */}
+      <Backdrop className="fixed transform-gpu [contain:strict] [&_*]:!animate-none" />
       <header className="flex h-11 items-center">
         <Link
           href={LANDING_PATH}
@@ -36,14 +37,19 @@ export default function LoginPage() {
       {/* Anchored near the top rather than centred, so an inline error grows the card
           downwards without moving the heading and fields. */}
       <main className="flex flex-1 items-start justify-center pt-[clamp(2.5rem,14vh,8rem)]">
-        <div className="page-enter w-full max-w-[24rem]">
+        <div className="page-enter w-full max-w-[24rem] md:max-w-[50rem]">
           <p className="mb-4 text-center font-pixel text-[13px] tracking-[0.08em] text-brand-on-ink-muted uppercase">
             Sign in to the dashboard
           </p>
-          <div className="rounded-2xl bg-card px-6 py-7 font-sans text-card-foreground shadow-pop sm:px-8 sm:py-8">
-            <h1 className="text-2xl leading-8 font-semibold tracking-[-0.015em]">Sign in</h1>
-            <p className="mt-1 text-sm text-muted-foreground">Use the team account for {PRODUCT_NAME}.</p>
-            <LoginForm />
+          <div className="flex flex-col items-center gap-5 md:flex-row md:items-start md:justify-center">
+            <LoginForm
+              heading={
+                <div>
+                  <h1 className="text-2xl leading-8 font-semibold tracking-[-0.015em]">Sign in</h1>
+                  <p className="mt-1 text-sm text-muted-foreground">Use the team account for {PRODUCT_NAME}.</p>
+                </div>
+              }
+            />
           </div>
         </div>
       </main>
