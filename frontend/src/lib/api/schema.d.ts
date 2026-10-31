@@ -384,6 +384,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/users": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Users */
+        get: operations["list_users_api_v1_users_get"];
+        put?: never;
+        /** Create User */
+        post: operations["create_user_api_v1_users_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/{user_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update User */
+        patch: operations["update_user_api_v1_users__user_id__patch"];
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -457,21 +492,36 @@ export interface components {
             review_note: string | null;
             /** Reviewed At */
             reviewed_at: string | null;
+            /** Reviewed By */
+            reviewed_by: string | null;
+            /** Escalated To */
+            escalated_to: string | null;
+            /** Escalated By */
+            escalated_by: string | null;
+            /** Escalated At */
+            escalated_at: string | null;
+            /** Escalation Reason */
+            escalation_reason: string | null;
             /**
              * Created At
              * Format: date-time
              */
             created_at: string;
         };
-        /** AlertPatch */
+        /**
+         * AlertPatch
+         * @description An analyst's decision on a finding. Dismissing and escalating need a reason; an escalation says
+         *     who should look at it.
+         */
         AlertPatch: {
             /**
              * Status
              * @enum {string}
              */
-            status: "open" | "reviewed" | "dismissed";
+            status: "open" | "reviewed" | "dismissed" | "evidence_requested" | "escalated";
             /** Note */
             note?: string | null;
+            escalate_to?: components["schemas"]["EscalationTarget"] | null;
         };
         /** AlertRow */
         AlertRow: {
@@ -509,7 +559,7 @@ export interface components {
          * AlertStatus
          * @enum {string}
          */
-        AlertStatus: "open" | "reviewed" | "dismissed";
+        AlertStatus: "open" | "reviewed" | "dismissed" | "evidence_requested" | "escalated";
         /**
          * AmountType
          * @enum {string}
@@ -798,6 +848,11 @@ export interface components {
              */
             created_at: string;
         };
+        /**
+         * EscalationTarget
+         * @enum {string}
+         */
+        EscalationTarget: "senior_reviewer" | "siu";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -1149,6 +1204,12 @@ export interface components {
             /** Explanation */
             explanation: string;
         };
+        /**
+         * Role
+         * @description Who may do what. Analysts review and escalate; senior reviewers decide escalations; admins onboard.
+         * @enum {string}
+         */
+        Role: "analyst" | "senior_reviewer" | "admin";
         /** RunFailure */
         RunFailure: {
             /** Claim Id */
@@ -1213,6 +1274,9 @@ export interface components {
         SessionOut: {
             /** Username */
             username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
         };
         /** SettlementOut */
         SettlementOut: {
@@ -1283,6 +1347,48 @@ export interface components {
             /** Top Providers */
             top_providers: components["schemas"]["ProviderRow"][];
             last_run: components["schemas"]["LastRun"] | null;
+        };
+        /** UserCreate */
+        UserCreate: {
+            /**
+             * Username
+             * @description Lowercase letters, digits, dots, dashes
+             */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Password */
+            password: string;
+        };
+        /** UserOut */
+        UserOut: {
+            /** Id */
+            id: number;
+            /** Username */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Is Active */
+            is_active: boolean;
+            /** Created By */
+            created_by: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** UserPatch */
+        UserPatch: {
+            /** Display Name */
+            display_name?: string | null;
+            role?: components["schemas"]["Role"] | null;
+            /** Is Active */
+            is_active?: boolean | null;
+            /** Password */
+            password?: string | null;
         };
         /** ValidationError */
         ValidationError: {
@@ -2085,6 +2191,94 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConfirmOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_users_api_v1_users_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"][];
+                };
+            };
+        };
+    };
+    create_user_api_v1_users_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_user_api_v1_users__user_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserPatch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"];
                 };
             };
             /** @description Validation Error */

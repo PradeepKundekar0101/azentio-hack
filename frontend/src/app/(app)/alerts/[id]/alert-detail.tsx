@@ -25,14 +25,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ApiError, getErrorMessage } from "@/lib/api/errors";
 import { useAlert } from "@/lib/alerts/hooks";
 import {
+  alertStatusLabel,
   AMOUNT_TYPE_DEFINITIONS,
-  type AlertDetail,
-  type AlertOut,
-  type AmountType,
   categoryLabel,
   claimTypeLabel,
   describePattern,
   DUPLICATE_CATEGORIES,
+  escalationTargetLabel,
+  type AlertDetail,
+  type AlertOut,
+  type AmountType,
 } from "@/lib/alerts/model";
 import {
   affectedLineIds,
@@ -228,10 +230,24 @@ function Summary({ alert }: { alert: AlertOut }) {
         </p>
       </div>
       <p className="text-sm leading-6 text-pretty">{alert.explanation}</p>
-      {(alert.review_note || alert.reviewed_at) && (
+      {alert.status === "escalated" && alert.escalated_to && (
+        <div className="rounded-md border border-destructive/25 bg-destructive/5 px-3 py-2 text-[13px]">
+          <p className="text-xs font-medium text-destructive">
+            Escalated to the {escalationTargetLabel(alert.escalated_to)}
+            {alert.escalated_by && <> by {alert.escalated_by}</>}
+            {alert.escalated_at && <span className="num"> on {formatDateTime(alert.escalated_at)}</span>}
+          </p>
+          {alert.escalation_reason && <p className="mt-0.5 whitespace-pre-line">{alert.escalation_reason}</p>}
+          <p className="mt-1 text-xs text-muted-foreground">
+            Waiting for a senior claims reviewer. The original finding and amount stay as they are.
+          </p>
+        </div>
+      )}
+      {alert.status !== "escalated" && (alert.review_note || alert.reviewed_at) && (
         <div className="rounded-md border bg-muted/40 px-3 py-2 text-[13px]">
           <p className="text-xs font-medium text-muted-foreground">
-            {alert.status === "dismissed" ? "Dismissed" : alert.status === "reviewed" ? "Reviewed" : "Last review"}
+            {alertStatusLabel(alert.status)}
+            {alert.reviewed_by && <> by {alert.reviewed_by}</>}
             {alert.reviewed_at && <span className="num"> {formatDateTime(alert.reviewed_at)}</span>}
           </p>
           {alert.review_note && <p className="mt-0.5 whitespace-pre-line">{alert.review_note}</p>}

@@ -139,6 +139,21 @@ class AlertStatus(StrEnum):
     OPEN = "open"
     REVIEWED = "reviewed"
     DISMISSED = "dismissed"
+    EVIDENCE_REQUESTED = "evidence_requested"
+    ESCALATED = "escalated"
+
+
+class Role(StrEnum):
+    """Who may do what. Analysts review and escalate; senior reviewers decide escalations; admins onboard."""
+
+    ANALYST = "analyst"
+    SENIOR_REVIEWER = "senior_reviewer"
+    ADMIN = "admin"
+
+
+class EscalationTarget(StrEnum):
+    SENIOR_REVIEWER = "senior_reviewer"
+    SIU = "siu"
 
 
 class ParseStatus(StrEnum):

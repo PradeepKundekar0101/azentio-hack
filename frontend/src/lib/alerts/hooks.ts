@@ -6,7 +6,11 @@ import { api } from "@/lib/api/client";
 import { unwrap } from "@/lib/api/errors";
 
 import { type AlertFilters, type AlertSort, filtersToApiQuery } from "./filters";
-import type { AlertDetail, AlertStatus } from "./model";
+import type {
+  AlertDetail,
+  AlertStatus,
+  EscalationTarget,
+} from "@/lib/alerts/model";
 
 export const alertsKeys = {
   all: ["alerts"] as const,
@@ -69,9 +73,11 @@ export function useProviders() {
 export interface AlertReview {
   status: AlertStatus;
   note: string | null;
+  escalate_to?: EscalationTarget | null;
 }
 
-/** Marks an alert reviewed, dismissed or open again; lists and the dashboard refresh after. */
+/** Records a decision on an alert (confirm, false positive, request evidence, escalate, reopen);
+ * lists and the dashboard refresh after. */
 export function useReviewAlert(id: number) {
   const queryClient = useQueryClient();
   return useMutation({
@@ -79,7 +85,7 @@ export function useReviewAlert(id: number) {
       unwrap(
         await api.PATCH("/api/v1/alerts/{alert_id}", {
           params: { path: { alert_id: id } },
-          body: { status: review.status, note: review.note },
+          body: { status: review.status, note: review.note, escalate_to: review.escalate_to ?? null },
         }),
       ),
     onSuccess: (alert) => {
