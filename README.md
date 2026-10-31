@@ -184,7 +184,7 @@ make migrate seed-reference            # schema, then 63 service codes and 40 pr
 make dev                               # backend on :8000, frontend on :3000
 ```
 
-Open <http://localhost:3000> and sign in with `DEMO_USERNAME` / `DEMO_PASSWORD` from `backend/.env`.
+Open <http://localhost:3000>: signed out, you land on the public page (`/welcome`); sign in with `DEMO_USERNAME` / `DEMO_PASSWORD` from `backend/.env` to reach the dashboard.
 
 <details>
 <summary><b>Make targets</b></summary>
@@ -249,9 +249,10 @@ azentio-hack/
 │   └── tests/
 ├── frontend/                Next.js App Router (TypeScript, pnpm)
 │   └── src/
-│       ├── app/             (app)/ dashboard, alerts, imports, documents · login
-│       ├── components/      app shell, shadcn/ui primitives, empty states
-│       └── lib/             typed API client, auth, ₹ formatters
+│       ├── app/             (app)/ dashboard, alerts, imports, documents · login · welcome (landing) · share images
+│       ├── components/      app shell, logo, shadcn/ui primitives, empty states
+│       ├── lib/             typed API client, auth, ₹ formatters
+│       └── styles/          theme.css (every colour token), brand constants, logo geometry, brand fonts
 ├── infra/                   App Platform spec and renderer
 └── docs/                    plan.md, decisions.md, assets/
 ```

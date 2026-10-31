@@ -2,21 +2,22 @@
   <title>Claims Leakage</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1020"/>
-      <stop offset="0.55" stop-color="#16225a"/>
-      <stop offset="1" stop-color="#2c41ab"/>
+      <stop offset="0" stop-color="#07090b"/>
+      <stop offset="0.5" stop-color="#0f3236"/>
+      <stop offset="0.85" stop-color="#4a1a10"/>
+      <stop offset="1" stop-color="#c4501a"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.78" cy="0.35" r="0.55">
-      <stop offset="0" stop-color="#8b9cf4" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#8b9cf4" stop-opacity="0"/>
+      <stop offset="0" stop-color="#f2a33a" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#f2a33a" stop-opacity="0"/>
     </radialGradient>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
     </pattern>
     <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#8b9cf4" stop-opacity="0"/>
-      <stop offset="0.85" stop-color="#8b9cf4" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#8b9cf4" stop-opacity="0.9"/>
+      <stop offset="0" stop-color="#f2a33a" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#f2a33a" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f2a33a" stop-opacity="0.85"/>
     </linearGradient>
     <clipPath id="card"><rect x="700" y="62" width="420" height="296" rx="14"/></clipPath>
     <clipPath id="frame"><rect width="1200" height="420" rx="20"/></clipPath>
@@ -31,37 +32,37 @@
     <rect width="1200" height="420" fill="url(#grid)"/>
     <rect width="1200" height="420" fill="url(#glow)"/>
 
-    <!-- Logo mark (the app's icon, scaled up) -->
-    <g transform="translate(80 92) scale(2.75)">
-      <rect width="24" height="24" rx="5" fill="#ffffff"/>
-      <path d="M7.5 5.5h6l3 3v5.25M7.5 5.5v13h4.75" stroke="#2c41ab" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <path d="M10 9.75h3M10 12.5h2.5" stroke="#2c41ab" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M16.25 14.25c1.2 1.45 1.95 2.5 1.95 3.4a1.95 1.95 0 0 1-3.9 0c0-.9.75-1.95 1.95-3.4z" fill="#2c41ab">
-        <animateTransform attributeName="transform" type="translate" values="0 0;0 0.6;0 0" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Logo mark (frontend/src/styles/brand.ts, scaled up): the leaked block drops and returns -->
+    <g transform="translate(80 92) scale(2.0625)">
+      <rect width="32" height="32" rx="8" fill="#07090b"/>
+      <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="none" stroke="#f5f1ea" stroke-opacity="0.15"/>
+      <path d="M8 6.25h16v3h-16zM8 11.75h13v3h-13zM8 17.25h6v3h-6zM18 17.25h6v3h-6z" fill="#f5f1ea"/>
+      <path d="M14.5 22.75h3v3h-3z" fill="#f2a33a">
+        <animateTransform attributeName="transform" type="translate" values="0 -5.5;0 0;0 0;0 -5.5" keyTimes="0;0.35;0.8;1" dur="3.2s" repeatCount="indefinite"/>
       </path>
     </g>
 
     <text x="80" y="218" class="sans" font-size="58" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Claims Leakage</text>
-    <text x="82" y="260" class="sans" font-size="21" fill="#c9d1f5">Find the money that leaks out of every insurance claim,</text>
-    <text x="82" y="288" class="sans" font-size="21" fill="#c9d1f5">and show exactly which rule it broke.</text>
+    <text x="82" y="260" class="sans" font-size="21" fill="#d9d2c9">Find the money that leaks out of every insurance claim,</text>
+    <text x="82" y="288" class="sans" font-size="21" fill="#d9d2c9">and show exactly which rule it broke.</text>
 
     <!-- Chips -->
     <g class="sans" font-size="14" font-weight="600">
       <g transform="translate(82 318)">
         <rect width="118" height="32" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
-        <text x="59" y="21" text-anchor="middle" fill="#e6e9fb">Policy rules</text>
+        <text x="59" y="21" text-anchor="middle" fill="#efe9e0">Policy rules</text>
       </g>
       <g transform="translate(210 318)">
         <rect width="112" height="32" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
-        <text x="56" y="21" text-anchor="middle" fill="#e6e9fb">Duplicates</text>
+        <text x="56" y="21" text-anchor="middle" fill="#efe9e0">Duplicates</text>
       </g>
       <g transform="translate(332 318)">
         <rect width="134" height="32" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
-        <text x="67" y="21" text-anchor="middle" fill="#e6e9fb">Exact rupees</text>
+        <text x="67" y="21" text-anchor="middle" fill="#efe9e0">Exact rupees</text>
       </g>
       <g transform="translate(476 318)">
         <rect width="172" height="32" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
-        <text x="86" y="21" text-anchor="middle" fill="#e6e9fb">Every alert explained</text>
+        <text x="86" y="21" text-anchor="middle" fill="#efe9e0">Every alert explained</text>
       </g>
     </g>
 
@@ -70,14 +71,14 @@
       <rect x="704" y="70" width="420" height="296" rx="14" fill="#000000" fill-opacity="0.25"/>
       <rect x="700" y="62" width="420" height="296" rx="14" fill="#ffffff"/>
       <g clip-path="url(#card)">
-        <rect x="700" y="62" width="420" height="48" fill="#f3f5fc"/>
-        <text x="724" y="92" class="mono" font-size="14" font-weight="700" fill="#1b2240">CLM-004211</text>
-        <text x="1096" y="92" class="sans" font-size="13" fill="#5b6385" text-anchor="end">Inpatient · Open</text>
+        <rect x="700" y="62" width="420" height="48" fill="#f7f2ea"/>
+        <text x="724" y="92" class="mono" font-size="14" font-weight="700" fill="#1b1714">CLM-004211</text>
+        <text x="1096" y="92" class="sans" font-size="13" fill="#675e55" text-anchor="end">Inpatient · Open</text>
 
-        <g class="sans" font-size="14" fill="#1b2240">
+        <g class="sans" font-size="14" fill="#1b1714">
           <text x="724" y="140">Consultation</text>
           <text x="1096" y="140" text-anchor="end" class="mono">₹1,500</text>
-          <line x1="724" y1="156" x2="1096" y2="156" stroke="#e6e9f3"/>
+          <line x1="724" y1="156" x2="1096" y2="156" stroke="#e9e2d7"/>
 
           <rect x="712" y="164" width="396" height="40" rx="8" fill="#fdecec">
             <animate attributeName="fill-opacity" values="0.55;1;0.55" dur="2.4s" repeatCount="indefinite"/>
@@ -87,13 +88,13 @@
 
           <text x="724" y="232">Diagnostics</text>
           <text x="1096" y="232" text-anchor="end" class="mono">₹4,200</text>
-          <line x1="724" y1="248" x2="1096" y2="248" stroke="#e6e9f3"/>
+          <line x1="724" y1="248" x2="1096" y2="248" stroke="#e9e2d7"/>
         </g>
 
-        <text x="724" y="284" class="sans" font-size="12" font-weight="600" fill="#5b6385" letter-spacing="0.6">C06 SUB_LIMIT_PER_DAY · POL-000123-SL-01</text>
-        <text x="724" y="316" class="mono" font-size="16" font-weight="700" fill="#1b2240">(₹7,000 − ₹5,000) × 3 = ₹6,000</text>
+        <text x="724" y="284" class="sans" font-size="12" font-weight="600" fill="#675e55" letter-spacing="0.6">C06 SUB_LIMIT_PER_DAY · POL-000123-SL-01</text>
+        <text x="724" y="316" class="mono" font-size="16" font-weight="700" fill="#1b1714">(₹7,000 − ₹5,000) × 3 = ₹6,000</text>
         <g transform="translate(724 328)">
-          <rect width="94" height="20" rx="10" fill="#2c41ab"/>
+          <rect width="94" height="20" rx="10" fill="#11545b"/>
           <text x="47" y="14" class="sans" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.8">CALCULATED</text>
         </g>
 
@@ -103,13 +104,13 @@
         </rect>
       </g>
 
-      <!-- Drops leaking from the flagged line -->
-      <g fill="#ff6b5e">
-        <path opacity="0" d="M1120 196c3.6 4.4 5.9 7.5 5.9 10.2a5.9 5.9 0 0 1-11.8 0c0-2.7 2.3-5.8 5.9-10.2z">
+      <!-- Blocks leaking from the flagged line (the logo's leaked block) -->
+      <g fill="#f2a33a">
+        <path opacity="0" d="M1114 198h11v11h-11z">
           <animateTransform attributeName="transform" type="translate" values="0 0;0 150" dur="2.4s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="2.4s" repeatCount="indefinite"/>
         </path>
-        <path opacity="0" d="M1120 196c3.6 4.4 5.9 7.5 5.9 10.2a5.9 5.9 0 0 1-11.8 0c0-2.7 2.3-5.8 5.9-10.2z">
+        <path opacity="0" d="M1114 198h11v11h-11z">
           <animateTransform attributeName="transform" type="translate" values="0 0;0 150" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
         </path>
