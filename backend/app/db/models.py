@@ -491,3 +491,43 @@ class AuditLog(Base):
     entity: Mapped[str] = mapped_column(String(40))
     entity_id: Mapped[str] = mapped_column(Text)
     details: Mapped[Json | None]
+
+
+class Investigation(Base):
+    """One per claim under investigation. Holds the head of its evidence chain."""
+
+    __tablename__ = "investigations"
+
+    claim_id: Mapped[str] = mapped_column(
+        String(20), ForeignKey("claims.claim_id", ondelete="CASCADE"), primary_key=True
+    )
+    opened_by: Mapped[str] = mapped_column(String(100))
+    opened_at: Mapped[CreatedAt]
+    event_count: Mapped[int] = mapped_column(Integer, server_default="0")
+    head_hash: Mapped[str | None] = mapped_column(String(64))
+
+
+class EvidenceEvent(Base):
+    """Append-only evidence history. Each entry stores the hash of the one before it, so any later edit
+    breaks the chain. Alerts are rebuilt on every run, so entries refer to findings by a stable key and
+    keep their own copy of what was shown, never only an alert ID."""
+
+    __tablename__ = "evidence_events"
+    __table_args__ = (
+        one_of("kind", enums.EvidenceKind),
+        Index("uq_evidence_events_claim_seq", "claim_id", "seq", unique=True),
+    )
+
+    id: Mapped[IntId]
+    claim_id: Mapped[str] = claim_fk()
+    seq: Mapped[int] = mapped_column(Integer)
+    at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    actor: Mapped[str] = mapped_column(String(100))
+    actor_role: Mapped[str | None] = mapped_column(String(20))
+    kind: Mapped[str] = mapped_column(String(20))
+    finding_key: Mapped[str | None] = mapped_column(String(200))
+    alert_id: Mapped[int | None] = mapped_column(BigInteger)
+    summary: Mapped[str] = mapped_column(Text)
+    payload: Mapped[Json]
+    prev_hash: Mapped[str | None] = mapped_column(String(64))
+    hash: Mapped[str] = mapped_column(String(64))

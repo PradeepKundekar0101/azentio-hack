@@ -1,7 +1,7 @@
 """users and alert escalation
 
 Revision ID: c4d2a9e7f1b3
-Revises: e5abd29e0ea8
+Revises: f9a35b8bb39d
 Create Date: 2026-11-01 10:30:00
 
 """
@@ -13,7 +13,7 @@ from alembic import op
 
 # revision identifiers, used by Alembic.
 revision: str = "c4d2a9e7f1b3"
-down_revision: str | Sequence[str] | None = "e5abd29e0ea8"
+down_revision: str | Sequence[str] | None = "f9a35b8bb39d"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

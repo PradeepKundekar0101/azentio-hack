@@ -207,3 +207,14 @@ class EventType(StrEnum):
     GROUP_CREATED = "group_created"
     CORRECTION_SET_CREATED = "correction_set_created"
     CROSS_CLAIM_ALERT_RAISED = "cross_claim_alert_raised"
+
+
+class EvidenceKind(StrEnum):
+    """One entry in a claim's evidence history (see app/evidence)."""
+
+    OPENED = "opened"  # investigation opened: the original calculation, issues and recommendations frozen
+    RECALCULATED = "recalculated"  # a later run changed the calculation or the issues
+    DECISION = "decision"  # an analyst's decision on a finding
+    OVERRIDE = "override"  # an analyst changed a recommended correction, with a reason
+    NOTE = "note"
+    EXPORTED = "exported"  # the investigation report was downloaded

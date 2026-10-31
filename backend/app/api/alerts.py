@@ -16,6 +16,7 @@ from app.core.errors import not_found
 from app.core.security import CurrentPrincipal, forbidden
 from app.db.models import Alert, Claim, DuplicateMatch, LineItem
 from app.db.session import SessionDep
+from app.evidence import service as evidence
 
 router = APIRouter(tags=["alerts"])
 
@@ -224,6 +225,7 @@ async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, pri
             else None
         ),
     )
+    previous = alert.status
     alert.status = body.status
     alert.review_note = note
     alert.reviewed_at = None if body.status == AlertStatus.OPEN.value else now
@@ -236,6 +238,15 @@ async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, pri
     else:
         # The decision closes the escalation; the audit log keeps who asked for it and why.
         alert.escalated_to = alert.escalated_by = alert.escalated_at = alert.escalation_reason = None
+    await evidence.record_decision(
+        session,
+        alert,
+        principal.username,
+        previous,
+        note,
+        actor_role=principal.role,
+        extra={"escalate_to": body.escalate_to.value if body.escalate_to else None},
+    )
     await session.commit()
     await session.refresh(alert)
     return AlertOut.model_validate(alert, from_attributes=True)

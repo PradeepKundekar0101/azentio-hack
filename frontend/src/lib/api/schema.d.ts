@@ -531,6 +531,111 @@ export interface paths {
         patch: operations["update_user_api_v1_users__user_id__patch"];
         trace?: never;
     };
+    "/api/v1/evidence": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Investigations */
+        get: operations["list_investigations_api_v1_evidence_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Investigation */
+        get: operations["get_investigation_api_v1_evidence_claims__claim_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/open": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Open Investigation */
+        post: operations["open_investigation_api_v1_evidence_claims__claim_id__open_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/overrides": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Override */
+        post: operations["override_api_v1_evidence_claims__claim_id__overrides_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/notes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Note */
+        post: operations["add_note_api_v1_evidence_claims__claim_id__notes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/report": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download Report
+         * @description Downloading is itself recorded, so the report covers its own export entry.
+         */
+        get: operations["download_report_api_v1_evidence_claims__claim_id__report_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -681,6 +786,32 @@ export interface components {
          * @enum {string}
          */
         AmountType: "calculated" | "estimated" | "suspected";
+        /** AnalysisEventOut */
+        AnalysisEventOut: {
+            /** Event Id */
+            event_id: number;
+            /** Event Type */
+            event_type: string;
+            /** Entity Type */
+            entity_type: string;
+            /** Entity Id */
+            entity_id: string;
+            /** Actor Type */
+            actor_type: string;
+            /** Model */
+            model: string | null;
+            /** Prompt Version */
+            prompt_version: string | null;
+            /** Payload */
+            payload: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
         /** Body_create_import_api_v1_imports_post */
         Body_create_import_api_v1_imports_post: {
             /**
@@ -1039,6 +1170,193 @@ export interface components {
          * @enum {string}
          */
         EscalationTarget: "senior_reviewer" | "siu";
+        /** EvidenceClaim */
+        EvidenceClaim: {
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /** Policy Number */
+            policy_number: string;
+            /** Claim Type */
+            claim_type: string;
+            /** Status */
+            status: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /** Requested Amount */
+            requested_amount: string;
+        };
+        /** EvidenceDecision */
+        EvidenceDecision: {
+            /** Status */
+            status: string | null;
+            /** Note */
+            note: string | null;
+            /** Actor */
+            actor: string;
+            /** Actor Role */
+            actor_role: string | null;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Seq */
+            seq: number;
+        };
+        /** EvidenceEventOut */
+        EvidenceEventOut: {
+            /** Seq */
+            seq: number;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Actor */
+            actor: string;
+            /** Actor Role */
+            actor_role: string | null;
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "opened" | "recalculated" | "decision" | "override" | "note" | "exported";
+            /** Finding Key */
+            finding_key: string | null;
+            /** Alert Id */
+            alert_id: number | null;
+            /** Summary */
+            summary: string;
+            /** Payload */
+            payload: {
+                [key: string]: unknown;
+            };
+            /** Prev Hash */
+            prev_hash: string | null;
+            /** Hash */
+            hash: string;
+        };
+        /** EvidenceFinding */
+        EvidenceFinding: {
+            /** Key */
+            key: string;
+            /** Alert Id */
+            alert_id: number;
+            /** Category */
+            category: string;
+            /** Category Label */
+            category_label: string;
+            /** Severity */
+            severity: string;
+            /** Status */
+            status: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Explanation */
+            explanation: string;
+            recommendation: components["schemas"]["RecommendationOut"];
+            original_recommendation: components["schemas"]["RecommendationOut"] | null;
+            /** Changed Since Opened */
+            changed_since_opened: boolean;
+            /** Effective Correction */
+            effective_correction: string | null;
+            /** Effective Corrected Amount */
+            effective_corrected_amount: string | null;
+            override: components["schemas"]["EvidenceOverride"] | null;
+            decision: components["schemas"]["EvidenceDecision"] | null;
+        };
+        /** EvidenceIntegrity */
+        EvidenceIntegrity: {
+            /** Verified */
+            verified: boolean;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+            /** Broken At */
+            broken_at: number | null;
+            /** Reason */
+            reason: string | null;
+        };
+        /** EvidenceNoteIn */
+        EvidenceNoteIn: {
+            /** Text */
+            text: string;
+            /** Alert Id */
+            alert_id?: number | null;
+        };
+        /** EvidenceOriginal */
+        EvidenceOriginal: {
+            /** Run Id */
+            run_id: number | null;
+            /** Totals */
+            totals: {
+                [key: string]: unknown;
+            } | null;
+            /** Payable Steps */
+            payable_steps: {
+                [key: string]: unknown;
+            }[];
+            /** Results */
+            results: {
+                [key: string]: unknown;
+            }[];
+        };
+        /** EvidenceOverride */
+        EvidenceOverride: {
+            /** Previous Correction */
+            previous_correction: string | null;
+            /** New Correction */
+            new_correction: string;
+            /** Reason */
+            reason: string;
+            /** Reverted */
+            reverted: boolean;
+            /** Actor */
+            actor: string;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Seq */
+            seq: number;
+        };
+        /** EvidenceOverrideIn */
+        EvidenceOverrideIn: {
+            /** Alert Id */
+            alert_id: number;
+            /** Correction */
+            correction: number | string;
+            /** Reason */
+            reason: string;
+        };
+        /** EvidenceSummary */
+        EvidenceSummary: {
+            /** Original Calculated Leakage */
+            original_calculated_leakage: string | null;
+            /** Current Calculated Leakage */
+            current_calculated_leakage: string;
+            /** Adjusted Calculated Leakage */
+            adjusted_calculated_leakage: string;
+            /** Estimated Leakage */
+            estimated_leakage: string;
+            /** Findings */
+            findings: number;
+            /** Overrides */
+            overrides: number;
+            /** Decided */
+            decided: number;
+            /** Counts */
+            counts: {
+                [key: string]: number;
+            };
+        };
         /** GroupDetail */
         GroupDetail: {
             /** Group Id */
@@ -1177,6 +1495,62 @@ export interface components {
             code: string;
             /** Message */
             message: string;
+        };
+        /** InvestigationBrief */
+        InvestigationBrief: {
+            /**
+             * Opened At
+             * Format: date-time
+             */
+            opened_at: string;
+            /** Opened By */
+            opened_by: string;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+        };
+        /** InvestigationOut */
+        InvestigationOut: {
+            claim: components["schemas"]["EvidenceClaim"];
+            investigation: components["schemas"]["InvestigationBrief"] | null;
+            integrity: components["schemas"]["EvidenceIntegrity"];
+            summary: components["schemas"]["EvidenceSummary"];
+            /** Findings */
+            findings: components["schemas"]["EvidenceFinding"][];
+            original: components["schemas"]["EvidenceOriginal"] | null;
+            /** Events */
+            events: components["schemas"]["EvidenceEventOut"][];
+            /** Analysis Events */
+            analysis_events: components["schemas"]["AnalysisEventOut"][];
+        };
+        /** InvestigationRow */
+        InvestigationRow: {
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /** Claim Type */
+            claim_type: string;
+            /**
+             * Opened At
+             * Format: date-time
+             */
+            opened_at: string;
+            /** Opened By */
+            opened_by: string;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+            /** Last Event At */
+            last_event_at: string | null;
+            /** Last Event Kind */
+            last_event_kind: string | null;
+            /** Last Event Summary */
+            last_event_summary: string | null;
+            /** Last Actor */
+            last_actor: string | null;
         };
         /**
          * IssueSeverity
@@ -1389,6 +1763,13 @@ export interface components {
             /** Total */
             total: number;
         };
+        /** Page[InvestigationRow] */
+        Page_InvestigationRow_: {
+            /** Items */
+            items: components["schemas"]["InvestigationRow"][];
+            /** Total */
+            total: number;
+        };
         /** Page[ProviderOut] */
         Page_ProviderOut_: {
             /** Items */
@@ -1482,6 +1863,29 @@ export interface components {
         RebuildIn: {
             /** Claim Ids */
             claim_ids?: string[] | null;
+        };
+        /** RecommendationOut */
+        RecommendationOut: {
+            /** Action */
+            action: string;
+            /** Basis */
+            basis: string;
+            /** Original Amount */
+            original_amount: string;
+            /** Correction */
+            correction: string | null;
+            /** Corrected Amount */
+            corrected_amount: string | null;
+            /** Amount Type */
+            amount_type: string;
+            /** Calculation */
+            calculation: string | null;
+            /** Rule Or Pattern */
+            rule_or_pattern: string;
+            /** Policy Rule Id */
+            policy_rule_id: string | null;
+            /** Source */
+            source: string;
         };
         /** RelatedOut */
         RelatedOut: {
@@ -2785,6 +3189,203 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["UserOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_investigations_api_v1_evidence_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_InvestigationRow_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_investigation_api_v1_evidence_claims__claim_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    open_investigation_api_v1_evidence_claims__claim_id__open_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    override_api_v1_evidence_claims__claim_id__overrides_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceOverrideIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_note_api_v1_evidence_claims__claim_id__notes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceNoteIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_report_api_v1_evidence_claims__claim_id__report_get: {
+        parameters: {
+            query?: {
+                format?: "pdf" | "json";
+            };
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

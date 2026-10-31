@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-from app.api import alerts, auth, claims, dashboard, documents, graph, health, imports, reference, runs, users
+from app.api import alerts, auth, claims, dashboard, documents, evidence, graph, health, imports, reference, runs, users
 from app.core.config import Settings, get_settings
 from app.core.errors import install_error_handlers
 from app.core.logging import configure_logging
@@ -54,6 +54,7 @@ def _api_router() -> APIRouter:
     protected.include_router(documents.router)
     protected.include_router(graph.router)
     protected.include_router(users.router)
+    protected.include_router(evidence.router)
     api.include_router(protected)
     return api
 
