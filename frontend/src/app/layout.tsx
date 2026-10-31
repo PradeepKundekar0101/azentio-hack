@@ -26,9 +26,17 @@ const atkinsonMono = Atkinson_Hyperlegible_Mono({
   fallback: ["ui-monospace", "monospace"],
 });
 
+const DESCRIPTION =
+  "Validate health insurance claims against policy rules, find duplicates and explain every rupee of leakage.";
+
 export const metadata: Metadata = {
+  // Share images need absolute URLs. SITE_URL is the deployed origin (App Platform's APP_URL).
+  metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
   title: { default: PRODUCT_NAME, template: `%s | ${PRODUCT_NAME}` },
-  description: "Validate health insurance claims against policy rules, find duplicates and explain every rupee of leakage.",
+  description: DESCRIPTION,
+  applicationName: PRODUCT_NAME,
+  openGraph: { type: "website", siteName: PRODUCT_NAME, title: PRODUCT_NAME, description: DESCRIPTION },
+  twitter: { card: "summary_large_image", title: PRODUCT_NAME, description: DESCRIPTION },
 };
 
 export const viewport: Viewport = {

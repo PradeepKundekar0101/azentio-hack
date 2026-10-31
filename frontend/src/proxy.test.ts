@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { describe, expect, it } from "vitest";
 
-import { proxy, SESSION_COOKIE } from "./proxy";
+import { config, proxy, SESSION_COOKIE } from "./proxy";
 
 const ORIGIN = "http://localhost:3000";
 
@@ -27,5 +27,29 @@ describe("proxy", () => {
     const response = run(path, { signedIn: true });
     expect(response.headers.get("location")).toBeNull();
     expect(response.headers.get("x-middleware-next")).toBe("1");
+  });
+});
+
+describe("proxy matcher", () => {
+  // Next compiles the matcher with path-to-regexp; anchoring the raw pattern is equivalent for these paths.
+  const matcher = new RegExp(`^${config.matcher[0]}$`);
+
+  it.each(["/", "/alerts", "/imports", "/documents/42"])("guards the app route %s", (path) => {
+    expect(matcher.test(path)).toBe(true);
+  });
+
+  it.each([
+    "/login",
+    "/welcome",
+    "/opengraph-image",
+    "/twitter-image",
+    "/apple-icon",
+    "/icon.svg",
+    "/favicon.ico",
+    "/api/auth/me",
+    "/health",
+    "/_next/static/chunk.js",
+  ])("leaves the public path %s alone", (path) => {
+    expect(matcher.test(path)).toBe(false);
   });
 });

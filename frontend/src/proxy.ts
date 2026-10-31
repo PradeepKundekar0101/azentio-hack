@@ -18,6 +18,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Everything except the login and landing pages, API/health rewrites, Next internals and static files.
-  matcher: ["/((?!login|welcome|api/|health|_next/|favicon\\.ico|.*\\.[\\w]+$).*)"],
+  // Everything except the public pages, the generated share images and icons (crawlers fetch
+  // them without a session), API/health rewrites, Next internals and static files.
+  matcher: [
+    "/((?!login|welcome|opengraph-image|twitter-image|apple-icon|api/|health|_next/|favicon\\.ico|.*\\.[\\w]+$).*)",
+  ],
 };
