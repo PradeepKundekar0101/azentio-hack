@@ -1,5 +1,6 @@
 """DigitalOcean Spaces (S3-compatible), private objects, scoped to one key prefix in one bucket."""
 
+from pathlib import Path
 from typing import Annotated
 
 import boto3
@@ -19,6 +20,8 @@ class Storage:
 
     @classmethod
     def from_settings(cls, settings: Settings) -> "Storage":
+        if settings.local_storage_dir:
+            return LocalStorage(Path(settings.local_storage_dir), settings.spaces_prefix)
         client = boto3.client(
             "s3",
             region_name=settings.spaces_region,
@@ -57,6 +60,38 @@ class Storage:
 
     def ping(self) -> None:
         self._client.list_objects_v2(Bucket=self._bucket, Prefix=self._prefix, MaxKeys=1)
+
+
+class LocalStorage(Storage):
+    """Files in a local directory with the same interface, for development without the shared bucket."""
+
+    def __init__(self, root: Path, prefix: str) -> None:
+        super().__init__(None, "", prefix)
+        self._root = root.resolve()
+
+    def _path(self, name: str) -> Path:
+        path = (self._root / self.key(name)).resolve()
+        if not path.is_relative_to(self._root):
+            raise ValueError(f"name outside the storage directory: {name}")
+        return path
+
+    def upload(self, name: str, body: bytes, content_type: str) -> str:
+        path = self._path(name)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(body)
+        return self.key(name)
+
+    def download(self, name: str) -> bytes:
+        return self._path(name).read_bytes()
+
+    def delete(self, name: str) -> None:
+        self._path(name).unlink(missing_ok=True)
+
+    def presigned_download_url(self, name: str, expires_in: int = PRESIGN_SECONDS) -> str:
+        return self._path(name).as_uri()
+
+    def ping(self) -> None:
+        self._root.mkdir(parents=True, exist_ok=True)
 
 
 def get_storage(request: Request) -> Storage:

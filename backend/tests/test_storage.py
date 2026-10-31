@@ -32,3 +32,22 @@ def test_deleted_object_is_no_longer_downloadable(live_settings: Settings) -> No
 
     response = httpx.get(storage.presigned_download_url(name, expires_in=60))
     assert response.status_code == 404
+
+
+def test_local_storage_keeps_files_under_its_directory(tmp_path) -> None:
+    from app.storage.spaces import LocalStorage, Storage
+    from tests.conftest import make_settings
+
+    storage = Storage.from_settings(make_settings(local_storage_dir=str(tmp_path)))
+    assert isinstance(storage, LocalStorage)
+    key = storage.upload("claims/CLM-1/docs/1.pdf", b"%PDF-1.4", "application/pdf")
+    assert key == storage.key("claims/CLM-1/docs/1.pdf")
+    assert (tmp_path / key).read_bytes() == b"%PDF-1.4"
+    assert storage.download("claims/CLM-1/docs/1.pdf") == b"%PDF-1.4"
+    storage.ping()
+    try:
+        storage.download("../../outside")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("a name outside the directory must be refused")

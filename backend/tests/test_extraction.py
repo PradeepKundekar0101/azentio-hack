@@ -454,3 +454,26 @@ def test_a_wire_answer_becomes_a_sourced_document() -> None:
     assert doc.invoice_number == SourcedValue(value="INV-1", source_quote="Invoice No: INV-1", page=1)
     assert doc.lines[0].amount.source_quote == "800.00"
     assert doc.total.value == "800.00" and doc.total.source_quote is None
+
+
+def test_document_content_is_served_same_origin(docs_api: TestClient) -> None:
+    name, doc = demo_doc(lambda d: d["clean"] and d["doc_type"] == "invoice" and d["kind"] == "pdf")
+    docs_api.app.state.reader = FixedReader(answer_for(doc))
+    data = (DEMO / "documents" / name).read_bytes()
+    document = docs_api.post(f"/api/v1/claims/{doc['claim_id']}/documents", files={"file": ("bill.pdf", data)}).json()
+    response = docs_api.get(f"/api/v1/documents/{document['id']}/content")
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "application/pdf"
+    assert response.content == data
+
+
+def test_a_quote_spanning_adjacent_items_is_found_with_their_combined_box() -> None:
+    spans = [
+        TextSpan(1, "Antibiotics", {"l": 0.1, "t": 0.30, "r": 0.3, "b": 0.31}),
+        TextSpan(1, "752.00", {"l": 0.8, "t": 0.30, "r": 0.9, "b": 0.31}),
+        TextSpan(1, "Total (Rs)", {"l": 0.6, "t": 0.40, "r": 0.7, "b": 0.41}),
+        TextSpan(1, "752.00", {"l": 0.8, "t": 0.40, "r": 0.9, "b": 0.41}),
+    ]
+    found = locate("Total (Rs)\n752.00", 1, spans, vision_pages=set())
+    assert found.status == "verified"
+    assert found.bbox == {"l": 0.6, "t": 0.40, "r": 0.9, "b": 0.41}

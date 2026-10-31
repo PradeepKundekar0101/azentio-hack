@@ -3,6 +3,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+import { DocumentComparison } from "@/components/investigation/document-comparison";
 import { RelatedClaimsGraph } from "@/components/investigation/related-claims-graph";
 import { PageHeader } from "@/components/page";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -31,6 +32,7 @@ export function InvestigationView({ id }: { id: string }) {
       />
       <div className="space-y-4">
         <RelatedClaimsGraph claimId={id} />
+        <DocumentComparison claimId={id} />
       </div>
     </>
   );

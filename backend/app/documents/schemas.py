@@ -225,3 +225,15 @@ def to_sourced(doc_type: str, wire: BaseModel) -> BaseModel:
         else:
             data[name] = value(name, item)
     return target.model_validate(data)
+
+
+class LineMatchDecision(BaseModel):
+    same_service: bool = Field(description="True when both lines bill the same service")
+    confidence: float = Field(ge=0, le=1)
+
+
+class ProcedureCheck(BaseModel):
+    supported: bool = Field(description="True when the summary says the procedure was performed")
+    quote: str | None = Field(
+        default=None, description="The exact sentence of the summary that supports it, copied character for character"
+    )

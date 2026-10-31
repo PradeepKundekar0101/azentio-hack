@@ -128,3 +128,13 @@ Each entry says what was chosen and why.
   So scanned bills never produce verified values, and an amount they support is an estimate.
 - **Money needs validation and a found source.** An amount is used to compute money only when its extraction passed validation (after the one retry) and its quote was found (`verified`, or `page_only`); an injected or invented value either fails validation or is unverified.
 - **Live checks.** `tests/test_extraction.py` runs Claude on one demo invoice and the injection canary when `ANTHROPIC_API_KEY` is set; `scripts/evaluate_extraction.py` measures classification, validation, verified values and accuracy over all demo documents with the real model.
+- **One comparison per document, versioned by inputs.** Each document's latest extraction is compared with the claim; a new comparison version is written only when the extraction or the claim's lines changed, so a processing run re-raises the same findings without new model calls.
+  Discrepancy IDs (`DSC-` plus a hash of claim, document, type and lines) stay the same across versions; a decision references the ID and the version.
+- **Codes for layouts that print none.** A document line without a printed service code takes the code whose catalogue description it reproduces (it may be cut short); the line-matching weights then work as specified.
+- **Header differences carry no amount.** Invoice number, provider, patient, date and total differences are informational; the money is in the line findings, so a changed line never counts twice through the total.
+  A claim line missing from an invoice counts as unsupported only when that invoice's extraction passed validation; a misread invoice raises no unsupported charges.
+- **Procedures.** A billed procedure that a summary entry names (token-set match of 85 or more) is documented by rule; otherwise Claude checks the summary text and must quote the supporting sentence, which is accepted only if it is in the parsed text.
+- **Document alerts.** Discrepancies with an amount become `DOCUMENT_DISCREPANCY` alerts, raised by the processing run (or by the comparison itself after an upload), and replaced with each comparison of the claim.
+  After an upload the claim is compared and the graph rebuilt, so a reused document links its claims straight away.
+- **Serving files.** `GET /documents/{id}/content` streams a document from the app's own origin for the viewer, which avoids bucket CORS; `GET /documents/{id}/file` still returns the five-minute presigned link.
+  For local development, `LOCAL_STORAGE_DIR` keeps files in a directory instead of Spaces.

@@ -11,7 +11,15 @@ import anthropic
 from pydantic import BaseModel
 
 from app.core.config import Settings
-from app.documents.schemas import UNTRUSTED_NOTE, WIRE_SCHEMAS, DocumentClass, to_sourced
+from app.documents.schemas import (
+    UNTRUSTED_NOTE,
+    WIRE_SCHEMAS,
+    DocumentClass,
+    LineMatchDecision,
+    ProcedureCheck,
+    to_sourced,
+    wrap_untrusted,
+)
 
 PROMPT_VERSION = "documents-2026-10-31.1"
 
@@ -31,6 +39,18 @@ EXTRACT_SYSTEM = (
     "(Indian documents print the day first); amounts are rupees with digits and a decimal point only in value. "
     "One line per billed row; subtotal, "
     "tax and total rows are not lines. " + UNTRUSTED_NOTE
+)
+
+MATCH_SYSTEM = (
+    "You compare two medical bill line descriptions: one from an insurance claim, one from the hospital's invoice. "
+    "Decide whether they bill the same service (for example 'CT Brain Plain' and 'CT Head without contrast' do). "
+    "Answer only about the service, not the amounts."
+)
+
+PROCEDURE_SYSTEM = (
+    "You check whether a hospital discharge summary documents a billed procedure. Answer supported only if the "
+    "summary says the procedure was performed, and then copy the exact sentence that says so, character for "
+    "character. If it is not there, answer not supported with no quote. " + UNTRUSTED_NOTE
 )
 
 
@@ -69,3 +89,11 @@ class DocumentReader:
             )
         wire = await self._parse(EXTRACT_SYSTEM, messages, WIRE_SCHEMAS[doc_type])
         return to_sourced(doc_type, wire)
+
+    async def same_service(self, claim_description: str, document_description: str) -> LineMatchDecision:
+        content = f"Claim line: {claim_description}\nInvoice line: {document_description}"
+        return await self._parse(MATCH_SYSTEM, [{"role": "user", "content": content}], LineMatchDecision)
+
+    async def check_procedure(self, procedure: str, summary_text: str) -> ProcedureCheck:
+        content = f"Billed procedure: {procedure}\n\nDischarge summary:\n{wrap_untrusted(summary_text)}"
+        return await self._parse(PROCEDURE_SYSTEM, [{"role": "user", "content": content}], ProcedureCheck)

@@ -157,5 +157,6 @@ async def confirm(
         )
     audit.record(session, username, "document_confirmed", "document", document.id, claim_id=claim_id, batch_id=batch.id)
     run = await start_run(session, RunScope.BATCH, batch.id)
-    background.add_task(run_in_background, request.app.state.db, request.app.state.settings, run.id)
+    app = request.app
+    background.add_task(run_in_background, app.state.db, app.state.settings, run.id, app.state.reader)
     return ConfirmOut(claim_id=claim_id, batch_id=batch.id, run=RunOut.model_validate(run))

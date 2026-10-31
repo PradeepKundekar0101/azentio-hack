@@ -60,7 +60,8 @@ async def create_run(
     run = await start_run(session, RunScope(body.scope), body.batch_id)
     audit.record(session, username, "run_started", "processing_run", run.id, scope=body.scope, batch_id=body.batch_id)
     await session.commit()
-    background.add_task(run_in_background, request.app.state.db, request.app.state.settings, run.id)
+    app = request.app
+    background.add_task(run_in_background, app.state.db, app.state.settings, run.id, app.state.reader)
     return RunOut.model_validate(run)
 
 

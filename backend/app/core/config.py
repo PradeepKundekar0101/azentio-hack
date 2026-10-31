@@ -35,6 +35,8 @@ class Settings(BaseSettings):
     spaces_prefix: str = ""
     spaces_access_key_id: SecretStr
     spaces_secret_access_key: SecretStr
+    # Local development only: keep files in this directory instead of Spaces.
+    local_storage_dir: str | None = None
 
     # Shared demo login, kept in an httpOnly cookie holding a signed session token.
     session_secret: SecretStr = Field(min_length=32)

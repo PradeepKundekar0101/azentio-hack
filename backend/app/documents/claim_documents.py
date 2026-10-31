@@ -15,12 +15,14 @@ from app.core.enums import ActorType, EventType, ExtractionStatus, GeneratedBy, 
 from app.core.logging import get_logger
 from app.db.models import Document, DocumentExtraction, ExtractedField, ExtractedLine
 from app.db.session import Database
+from app.documents.comparison_service import compare_claim
 from app.documents.extract_sourced import ExtractionResult, Reader, extract_document
 from app.documents.parse import FILE_TYPES, page_count, parse_items
 from app.documents.phash import phash
 from app.documents.read import PROMPT_VERSION
 from app.documents.schemas import SCHEMA_VERSION
 from app.events import event, write_events
+from app.graph.service import build_graph
 from app.storage.spaces import Storage
 
 log = get_logger(__name__)
@@ -173,6 +175,11 @@ async def process_claim_document(
         try:
             await extract_and_store(session, storage, reader, document, doc_type)
             await session.commit()
+            # Compare the claim with its documents, and relate claims that share this document.
+            if document.claim_id:
+                await compare_claim(session, reader, settings, document.claim_id)
+                await build_graph(session, settings, claim_ids=[document.claim_id])
+                await session.commit()
         except Exception as exc:
             log.exception("claim_document_failed", document_id=document_id)
             await session.rollback()
