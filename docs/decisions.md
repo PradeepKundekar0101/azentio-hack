@@ -36,7 +36,8 @@ Each entry says what was chosen and why.
 - **Public landing page at `/welcome`.** The dashboard stays at `/`; the proxy sends signed-out visitors at `/` to `/welcome` and every other app route to `/login`, so signed-in users never see the landing page.
 - **One token file.** Colours, contrast pairs and radii moved from `globals.css` to `src/styles/theme.css`, with a theme-independent brand block for the logo, landing page and share images.
   Share images cannot read CSS variables, so `src/styles/brand.ts` mirrors the brand block and a test keeps them equal.
-- **Logo.** Three ledger lines of a claim with one block fallen below the gap in the signal colour: leakage, caught and made visible. It is drawn from one geometry in `brand.ts`.
-- **Drawn backdrop instead of a photograph.** Gradients and two dune outlines in SVG: no image request, no licensing question and every colour from the tokens.
+- **Logo.** Three ledger lines of a claim with one block fallen below the gap in the signal colour: leakage, caught and made visible. It is drawn from one geometry in `brand.ts`, on an ink tile with a hairline edge so it holds on light and dark surfaces.
+- **App palette: warm paper and deep teal.** The app moved from stamp blue to the brand palette. Teal is the primary, not ember, so an action button is never mistaken for an amber warning on a screen full of alerts. Every text pair is AA in both themes; field outlines are at least 3:1.
+- **Drawn backdrop instead of a photograph.** A mesh gradient (blurred colour fields), a dune and film grain in SVG: no image request, no licensing question and every colour from the tokens.
 - **Geist Pixel is vendored**, one face plus its OFL licence, instead of adding the `geist` package: its latest release was newer than the lockfile's minimum release age, and only one of its faces is used.
 
