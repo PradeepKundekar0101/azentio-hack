@@ -120,3 +120,13 @@ Each entry says what was chosen and why.
   Cross-claim alerts are raised by graph builds (`graph_build_id`, no `run_id`), replaced on every build, and go on the later claim by submission date.
 - **`get_current_user()`** wraps the demo session and returns a `User`; the new routes depend on it so real accounts can replace it without touching them.
 - **Graph layout.** The related-claims view puts connecting entities (invoices, incidents, documents, claimants) above the claims and the provider and policy hubs below; claims are ordered outward from the claim being viewed along their links, and every claim pair gets one side-to-side edge carrying all its links.
+
+## Brand and landing page
+
+- **Public landing page at `/welcome`.** The dashboard stays at `/`; the proxy sends signed-out visitors at `/` to `/welcome` and every other app route to `/login`, so signed-in users never see the landing page.
+- **One token file.** Colours, contrast pairs and radii moved from `globals.css` to `src/styles/theme.css`, with a theme-independent brand block for the logo, landing page and share images.
+  Share images cannot read CSS variables, so `src/styles/brand.ts` mirrors the brand block and a test keeps them equal.
+- **Logo.** The original mark stays: a drop leaking from a claim form on a stamp-blue tile. Its geometry now lives once in `brand.ts` and feeds the React mark, the favicon, the Apple icon and the share images, in fixed brand colours so it reads the same in both themes.
+- **App palette stays stamp blue.** A warm teal palette was tried and dropped; the brand mesh behind the landing page uses the same blue at night (ocean, sky, a bright highlight) so the public page and the portal read as one product. Amber is kept for the logo's leaked block only.
+- **Drawn backdrop instead of a photograph.** A mesh gradient (blurred ocean and sky-blue fields), a dune and film grain in SVG: no image request, no licensing question and every colour from the tokens.
+- **Geist Pixel is vendored**, one face plus its OFL licence, instead of adding the `geist` package: its latest release was newer than the lockfile's minimum release age, and only one of its faces is used.

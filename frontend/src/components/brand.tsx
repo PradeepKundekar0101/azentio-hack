@@ -1,24 +1,26 @@
 import { cn } from "@/lib/utils";
+import { logoMark } from "@/styles/brand";
 
 export const PRODUCT_NAME = "Claims Leakage";
 
-/** A drop leaking from a claim form: the product's one-line idea, at 24px. */
+/**
+ * A drop leaking from a claim form: the product's one-line idea, at 24px. Drawn from the
+ * geometry in src/styles/brand.ts in fixed brand colours, so the mark reads the same in both
+ * themes, on the landing page and in the share images.
+ */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={cn("size-6 shrink-0", className)} fill="none">
-      <rect width="24" height="24" rx="5" className="fill-primary" />
+    <svg viewBox={logoMark.viewBox} aria-hidden="true" className={cn("size-6 shrink-0", className)} fill="none">
+      <rect width={logoMark.size} height={logoMark.size} rx={logoMark.radius} className="fill-brand-blue" />
       <path
-        d="M7.5 5.5h6l3 3v5.25M7.5 5.5v13h4.75"
-        className="stroke-primary-foreground"
-        strokeWidth="1.6"
+        d={logoMark.form}
+        className="stroke-brand-on-ink"
+        strokeWidth={logoMark.strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M10 9.75h3M10 12.5h2.5" className="stroke-primary-foreground" strokeWidth="1.6" strokeLinecap="round" />
-      <path
-        d="M16.25 14.25c1.2 1.45 1.95 2.5 1.95 3.4a1.95 1.95 0 0 1-3.9 0c0-.9.75-1.95 1.95-3.4z"
-        className="fill-primary-foreground"
-      />
+      <path d={logoMark.lines} className="stroke-brand-on-ink" strokeWidth={logoMark.strokeWidth} strokeLinecap="round" />
+      <path d={logoMark.drop} className="fill-brand-on-ink" />
     </svg>
   );
 }

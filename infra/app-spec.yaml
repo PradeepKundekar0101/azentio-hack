@@ -56,6 +56,9 @@ services:
     http_port: 8080
     instance_size_slug: apps-s-1vcpu-1gb
     instance_count: 1
+    envs:
+      # Absolute base for share-image URLs in page metadata (frontend/src/app/layout.tsx).
+      - { key: SITE_URL, scope: RUN_AND_BUILD_TIME, value: "${APP_URL}" }
 jobs:
   - name: migrate
     kind: PRE_DEPLOY

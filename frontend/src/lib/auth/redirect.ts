@@ -1,6 +1,8 @@
 /** Where users land after sign-in when no `next` is given. */
 export const HOME_PATH = "/";
 export const LOGIN_PATH = "/login";
+/** The public landing page that signed-out visitors see at the root. */
+export const LANDING_PATH = "/welcome";
 
 // A placeholder origin for parsing relative paths. `.invalid` is reserved and never resolves.
 const BASE = "http://next.invalid";

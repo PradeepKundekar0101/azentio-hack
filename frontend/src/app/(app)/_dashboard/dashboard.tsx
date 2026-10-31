@@ -229,7 +229,7 @@ function Kpi({
       {badge && <AmountTypeBadge type={badge} className="mt-2 sm:hidden" />}
     </>
   );
-  const className = "flex h-full flex-col rounded-lg border bg-card p-4 text-card-foreground";
+  const className = "flex h-full flex-col rounded-xl bg-card p-4 text-card-foreground shadow-card";
   return (
     <li className="min-w-0">
       {href ? (
@@ -237,7 +237,7 @@ function Kpi({
           href={href}
           className={cn(
             className,
-            "outline-none transition-colors hover:border-primary/40 hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
+            "outline-none transition-[box-shadow,transform,background-color] duration-200 hover:-translate-y-px hover:bg-accent/30 hover:shadow-raised focus-visible:ring-2 focus-visible:ring-ring",
           )}
         >
           {body}

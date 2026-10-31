@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Suspense, useEffect } from "react";
 
+import { Backdrop } from "@/app/welcome/backdrop";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getErrorMessage } from "@/lib/api/errors";
 import { useMe } from "@/lib/auth/hooks";
@@ -22,7 +23,12 @@ import { TopBar } from "./top-bar";
  */
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-dvh bg-canvas">
+    <div className="relative isolate min-h-dvh bg-canvas">
+      {/* The landing page's mesh, fading in from the top edge, so the portal opens under the same sky. */}
+      <Backdrop
+        tinted={false}
+        className="fixed inset-x-0 top-0 h-[52vh] opacity-[0.28] [mask-image:linear-gradient(to_bottom,black_0%,rgb(0_0_0/0.55)_45%,transparent_100%)] dark:opacity-[0.55]"
+      />
       {/* First in the tab order, ahead of the sidebar links. */}
       <a
         href="#main"
@@ -35,7 +41,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
       <div className="lg:pl-56">
         <TopBar />
-        <main id="main" tabIndex={-1} className="px-4 py-5 outline-none sm:px-6 lg:py-6 2xl:px-8">
+        <main id="main" tabIndex={-1} className="page-enter px-4 py-5 outline-none sm:px-6 lg:py-6 2xl:px-8">
           <Suspense fallback={<ContentSkeleton />}>
             <SessionGate>{children}</SessionGate>
           </Suspense>

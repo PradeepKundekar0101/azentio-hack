@@ -23,11 +23,11 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
             onClick={onNavigate}
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "group relative flex h-8 items-center gap-2.5 rounded-md px-2.5 text-[13.5px] font-medium outline-none",
+              "group relative flex h-8 items-center gap-2.5 rounded-lg px-2.5 text-[13.5px] font-medium outline-none",
               "text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground",
               "focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-1 focus-visible:ring-offset-sidebar",
               isActive &&
-                "bg-sidebar-accent text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:bg-sidebar-accent",
+                "bg-sidebar-accent text-sidebar-accent-foreground shadow-card hover:bg-sidebar-accent",
             )}
           >
             {isActive && (

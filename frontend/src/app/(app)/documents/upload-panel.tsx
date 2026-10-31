@@ -127,7 +127,7 @@ export function UploadPanel() {
             if (!busy) offer(event.dataTransfer.files);
           }}
           className={cn(
-            "flex flex-col items-center justify-center rounded-lg border border-dashed border-input bg-muted/30 px-4 py-8 text-center transition-colors outline-none",
+            "surface-grid relative flex flex-col items-center justify-center rounded-xl border border-dashed border-input/70 bg-muted/20 px-4 py-8 text-center transition-[border-color,background-color] outline-none hover:border-primary/40 hover:bg-primary/4",
             "hover:border-primary/50 hover:bg-primary/[0.03] focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
             dragging && "border-primary bg-primary/5",
             busy && "pointer-events-none opacity-60",
@@ -135,7 +135,7 @@ export function UploadPanel() {
         >
           <div
             className={cn(
-              "flex size-10 items-center justify-center rounded-lg bg-primary/8 text-primary ring-1 ring-primary/15 ring-inset transition-transform",
+              "flex size-12 items-center justify-center rounded-xl bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_14%,var(--card)),color-mix(in_oklch,var(--primary)_6%,var(--card)))] text-primary shadow-raised ring-1 ring-primary/15 ring-inset transition-transform",
               dragging && "scale-110",
             )}
           >
