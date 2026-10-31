@@ -8,7 +8,8 @@ from app.rules.context import RuleData
 
 
 def d(value: date) -> str:
-    return value.strftime("%-d %b %Y")
+    # No "%-d": that strftime flag is Linux/macOS only and raises on Windows.
+    return f"{value.day} {value:%b %Y}"
 
 
 def qty(value: Decimal) -> str:

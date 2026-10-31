@@ -37,27 +37,23 @@ def upgrade() -> None:
         sa.PrimaryKeyConstraint("id", name=op.f("pk_users")),
         sa.UniqueConstraint("username", name=op.f("uq_users_username")),
     )
-    with op.batch_alter_table("alerts") as batch:
-        batch.drop_constraint("ck_alerts_status", type_="check")
-        batch.alter_column("status", type_=sa.String(length=20), existing_type=sa.String(length=10))
-        batch.create_check_constraint("ck_alerts_status", f"status in ({NEW_STATUSES})")
-        batch.add_column(sa.Column("reviewed_by", sa.String(length=100), nullable=True))
-        batch.add_column(sa.Column("escalated_to", sa.String(length=20), nullable=True))
-        batch.add_column(sa.Column("escalated_by", sa.String(length=100), nullable=True))
-        batch.add_column(sa.Column("escalated_at", sa.DateTime(timezone=True), nullable=True))
-        batch.add_column(sa.Column("escalation_reason", sa.Text(), nullable=True))
+    # op.f() marks the names as final, so the naming convention is not applied a second time.
+    op.drop_constraint(op.f("ck_alerts_status"), "alerts", type_="check")
+    op.alter_column("alerts", "status", type_=sa.String(length=20), existing_type=sa.String(length=10))
+    op.create_check_constraint(op.f("ck_alerts_status"), "alerts", f"status in ({NEW_STATUSES})")
+    op.add_column("alerts", sa.Column("reviewed_by", sa.String(length=100), nullable=True))
+    op.add_column("alerts", sa.Column("escalated_to", sa.String(length=20), nullable=True))
+    op.add_column("alerts", sa.Column("escalated_by", sa.String(length=100), nullable=True))
+    op.add_column("alerts", sa.Column("escalated_at", sa.DateTime(timezone=True), nullable=True))
+    op.add_column("alerts", sa.Column("escalation_reason", sa.Text(), nullable=True))
 
 
 def downgrade() -> None:
     """Downgrade schema."""
     op.execute(f"update alerts set status = 'open' where status not in ({OLD_STATUSES})")
-    with op.batch_alter_table("alerts") as batch:
-        batch.drop_column("escalation_reason")
-        batch.drop_column("escalated_at")
-        batch.drop_column("escalated_by")
-        batch.drop_column("escalated_to")
-        batch.drop_column("reviewed_by")
-        batch.drop_constraint("ck_alerts_status", type_="check")
-        batch.alter_column("status", type_=sa.String(length=10), existing_type=sa.String(length=20))
-        batch.create_check_constraint("ck_alerts_status", f"status in ({OLD_STATUSES})")
+    for column in ("escalation_reason", "escalated_at", "escalated_by", "escalated_to", "reviewed_by"):
+        op.drop_column("alerts", column)
+    op.drop_constraint(op.f("ck_alerts_status"), "alerts", type_="check")
+    op.alter_column("alerts", "status", type_=sa.String(length=10), existing_type=sa.String(length=20))
+    op.create_check_constraint(op.f("ck_alerts_status"), "alerts", f"status in ({OLD_STATUSES})")
     op.drop_table("users")
