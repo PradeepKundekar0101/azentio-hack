@@ -30,3 +30,13 @@ Each entry says what was chosen and why.
 - **Contract enums are CHECK constraints** on text columns rather than Postgres enum types, so adding a value is a one-line migration.
 - **CORS** origins come from the settings loaded at startup, so importing the app never reads configuration.
   In production the browser only talks to one domain, so CORS is a fallback for local tools.
+
+## Brand and landing page
+
+- **Public landing page at `/welcome`.** The dashboard stays at `/`; the proxy sends signed-out visitors at `/` to `/welcome` and every other app route to `/login`, so signed-in users never see the landing page.
+- **One token file.** Colours, contrast pairs and radii moved from `globals.css` to `src/styles/theme.css`, with a theme-independent brand block for the logo, landing page and share images.
+  Share images cannot read CSS variables, so `src/styles/brand.ts` mirrors the brand block and a test keeps them equal.
+- **Logo.** Three ledger lines of a claim with one block fallen below the gap in the signal colour: leakage, caught and made visible. It is drawn from one geometry in `brand.ts`.
+- **Drawn backdrop instead of a photograph.** Gradients and two dune outlines in SVG: no image request, no licensing question and every colour from the tokens.
+- **Geist Pixel is vendored**, one face plus its OFL licence, instead of adding the `geist` package: its latest release was newer than the lockfile's minimum release age, and only one of its faces is used.
+
