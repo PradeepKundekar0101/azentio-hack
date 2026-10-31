@@ -100,7 +100,7 @@ export function LoginForm() {
       </Button>
 
       {demo.data && demo.data.length > 0 && (
-        <fieldset className="mt-2 border-t pt-4" disabled={busy}>
+        <fieldset className="mt-2 min-w-0 border-t pt-4" disabled={busy}>
           <legend className="sr-only">Demo accounts</legend>
           <p className="text-xs font-medium text-muted-foreground">Demo accounts: pick one to fill the form</p>
           <ul className="mt-2 grid gap-1.5">
