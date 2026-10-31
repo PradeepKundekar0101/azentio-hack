@@ -26,10 +26,9 @@ ACTIONS: dict[str, str] = {
 
 
 def finding_key(alert: Alert) -> str:
-    """Identifies the same finding across runs, which rebuild alerts with new IDs."""
-    matched = (alert.supporting or {}).get("matched_claim_id")
-    parts = [alert.category, alert.rule_or_pattern, alert.line_id or "-", alert.policy_rule_id or matched or "-"]
-    return "|".join(parts)
+    """The alert's stable finding ID (`ALR-...`): the same finding keeps it across runs, which rebuild alerts
+    with new row IDs."""
+    return alert.finding_id
 
 
 def recommendation(

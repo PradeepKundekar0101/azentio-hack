@@ -53,6 +53,7 @@ def build_report(view: dict[str, Any], generated_by: str) -> dict[str, Any]:
             "original_calculation": view["original"],
             "findings": view["findings"],
             "evidence_history": list(reversed(view["events"])),
+            "analysis_events": view["analysis_events"],
         }
     )
 

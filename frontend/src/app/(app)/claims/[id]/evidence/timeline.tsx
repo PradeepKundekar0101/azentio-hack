@@ -283,6 +283,42 @@ function NoteComposer({ data }: { data: Investigation }) {
   );
 }
 
+function AnalysisSteps({ data }: { data: Investigation }) {
+  if (data.analysis_events.length === 0) return null;
+  return (
+    <div className="border-t px-4 py-3">
+      <p className="text-[12px] font-semibold">Analysis steps</p>
+      <p className="mb-2 text-[12px] text-muted-foreground">
+        Recorded by the analysis pipeline (rules engine, correlation, AI extraction). Not part of the sealed chain.
+      </p>
+      <ul className="space-y-1.5">
+        {data.analysis_events.map((a) => (
+          <li key={a.event_id} className="flex items-baseline justify-between gap-3 text-[12px]">
+            <span className="min-w-0">
+              <span className="font-medium">{a.event_type.replaceAll("_", " ")}</span>{" "}
+              <span className="text-muted-foreground">
+                {a.entity_type} <span className="num">{a.entity_id}</span>
+              </span>
+              <span
+                className={cn(
+                  "ml-1.5 rounded px-1 py-px text-[10px] font-semibold uppercase",
+                  a.actor_type === "ai" ? "bg-chart-3/15 text-chart-3" : "bg-muted text-muted-foreground",
+                )}
+                title={a.model ? `${a.model}${a.prompt_version ? ` · prompt ${a.prompt_version}` : ""}` : undefined}
+              >
+                {a.actor_type}
+              </span>
+            </span>
+            <time className="num shrink-0 text-muted-foreground" dateTime={a.created_at} title={formatDateTime(a.created_at)}>
+              {relativeTime(a.created_at)}
+            </time>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function EvidenceTimeline({ data }: { data: Investigation }) {
   const [filter, setFilter] = useState<EvidenceFilter>("all");
   const events = data.events.filter((e) => matchesFilter(e, filter));
@@ -326,6 +362,7 @@ export function EvidenceTimeline({ data }: { data: Investigation }) {
           ))}
         </ol>
       )}
+      {(filter === "all" || filter === "system") && <AnalysisSteps data={data} />}
     </Panel>
   );
 }

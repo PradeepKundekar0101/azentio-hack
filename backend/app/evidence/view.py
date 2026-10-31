@@ -7,7 +7,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.enums import AmountType, EvidenceKind
-from app.db.models import Alert, Claim, EvidenceEvent, Investigation
+from app.db.models import Alert, AnalysisEvent, Claim, EvidenceEvent, Investigation
 from app.evidence import service
 from app.evidence.chain import Verification, verify
 from app.evidence.recommend import finding_key, recommendation
@@ -65,6 +65,13 @@ async def investigation_view(session: AsyncSession, claim_id: str, full: bool = 
     opened = next((e for e in events if e.kind == EvidenceKind.OPENED.value), None)
 
     alerts = list(await session.scalars(select(Alert).where(Alert.claim_id == claim_id).order_by(Alert.id)))
+    # System and AI analysis steps (graph builds, extractions, comparisons, corrections) recorded by the
+    # analysis pipeline; shown beside the analysts' entries, outside the hash chain.
+    analysis = list(
+        await session.scalars(
+            select(AnalysisEvent).where(AnalysisEvent.claim_id == claim_id).order_by(AnalysisEvent.created_at.desc())
+        )
+    )
     findings = []
     for alert in alerts:
         key = finding_key(alert)
@@ -187,6 +194,20 @@ async def investigation_view(session: AsyncSession, claim_id: str, full: bool = 
             else None
         ),
         "events": [event_dict(e, full) for e in reversed(events)],
+        "analysis_events": [
+            {
+                "event_id": a.event_id,
+                "event_type": a.event_type,
+                "entity_type": a.entity_type,
+                "entity_id": a.entity_id,
+                "actor_type": a.actor_type,
+                "model": a.model,
+                "prompt_version": a.prompt_version,
+                "payload": a.payload if full else None,
+                "created_at": a.created_at,
+            }
+            for a in analysis
+        ],
     }
 
 

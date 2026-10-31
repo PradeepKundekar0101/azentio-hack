@@ -131,6 +131,18 @@ class EvidenceOriginal(BaseModel):
     results: list[dict[str, Any]]
 
 
+class AnalysisEventOut(BaseModel):
+    event_id: int
+    event_type: str
+    entity_type: str
+    entity_id: str
+    actor_type: str
+    model: str | None
+    prompt_version: str | None
+    payload: dict[str, Any] | None
+    created_at: datetime
+
+
 class InvestigationOut(BaseModel):
     claim: EvidenceClaim
     investigation: InvestigationBrief | None
@@ -139,6 +151,7 @@ class InvestigationOut(BaseModel):
     findings: list[EvidenceFinding]
     original: EvidenceOriginal | None
     events: list[EvidenceEventOut]
+    analysis_events: list[AnalysisEventOut]
 
 
 class InvestigationRow(BaseModel):

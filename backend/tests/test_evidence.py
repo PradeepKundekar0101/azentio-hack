@@ -57,6 +57,7 @@ def test_a_decision_opens_the_investigation_with_the_original_calculation(api: T
         "reason": None,
     }
     finding = view["findings"][0]
+    assert finding["key"].startswith("ALR-") and decision["finding_key"] == finding["key"]
     assert finding["decision"]["status"] == "reviewed" and finding["decision"]["actor"] == "demo"
     assert Decimal(view["original"]["totals"]["calculated_leakage"]) == Decimal("4500")
 
