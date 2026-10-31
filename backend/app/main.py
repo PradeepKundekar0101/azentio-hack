@@ -18,6 +18,7 @@ from app.api import (
     graph,
     health,
     imports,
+    investigation,
     reference,
     runs,
 )
@@ -69,6 +70,7 @@ def _api_router() -> APIRouter:
     protected.include_router(graph.router)
     protected.include_router(claim_documents.router)
     protected.include_router(corrections.router)
+    protected.include_router(investigation.router)
     api.include_router(protected)
     return api
 

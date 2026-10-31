@@ -118,6 +118,10 @@ class MatchOut(Orm):
 
 class AlertBrief(Orm):
     id: int
+    finding_id: str
+    run_id: int | None
+    graph_build_id: int | None
+    comparison_id: int | None
     category: str
     severity: str
     amount: Decimal | None
