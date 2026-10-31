@@ -8,7 +8,8 @@ def test_login_sets_http_only_session_cookie(client: TestClient) -> None:
     response = client.post("/api/v1/auth/login", json={"username": DEMO_USERNAME, "password": DEMO_PASSWORD})
 
     assert response.status_code == 200
-    assert response.json() == {"username": DEMO_USERNAME}
+    # The first sign-in with the environment login creates the admin account.
+    assert response.json() == {"username": DEMO_USERNAME, "display_name": "Administrator", "role": "admin"}
     set_cookie = response.headers["set-cookie"]
     assert set_cookie.startswith(f"{COOKIE_NAME}=")
     assert "HttpOnly" in set_cookie
@@ -19,7 +20,7 @@ def test_me_returns_the_logged_in_user(auth_client: TestClient) -> None:
     response = auth_client.get("/api/v1/auth/me")
 
     assert response.status_code == 200
-    assert response.json() == {"username": DEMO_USERNAME}
+    assert response.json() == {"username": DEMO_USERNAME, "display_name": "Administrator", "role": "admin"}
 
 
 def test_wrong_password_is_rejected_without_a_cookie(client: TestClient) -> None:

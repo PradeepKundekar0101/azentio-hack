@@ -3,17 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useMe } from "@/lib/auth/hooks";
 import { cn } from "@/lib/utils";
 
-import { NAV_ITEMS, navItemForPath } from "./nav";
+import { navItemForPath, navItemsFor } from "./nav";
 
 export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const active = navItemForPath(pathname);
+  const { data: user } = useMe();
+  const items = navItemsFor(user?.role);
 
   return (
     <nav aria-label="Main" className="flex flex-col gap-0.5">
-      {NAV_ITEMS.map((item) => {
+      {items.map((item) => {
         const isActive = active?.href === item.href;
         const Icon = item.icon;
         return (

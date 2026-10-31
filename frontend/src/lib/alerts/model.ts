@@ -88,13 +88,31 @@ export const AMOUNT_TYPE_DEFINITIONS: Record<AmountType, string> = {
   suspected: "A pattern worth review where no amount can be determined.",
 };
 
-export const ALERT_STATUSES = ["open", "reviewed", "dismissed"] as const satisfies readonly AlertStatus[];
+export const ALERT_STATUSES = [
+  "open",
+  "evidence_requested",
+  "escalated",
+  "reviewed",
+  "dismissed",
+] as const satisfies readonly AlertStatus[];
 
 export const ALERT_STATUS_LABELS: Record<AlertStatus, string> = {
   open: "Open",
+  evidence_requested: "Evidence requested",
+  escalated: "Escalated",
   reviewed: "Reviewed",
   dismissed: "Dismissed",
 };
+
+export type EscalationTarget = Schemas["EscalationTarget"];
+
+export const ESCALATION_TARGET_LABELS: Record<EscalationTarget, string> = {
+  senior_reviewer: "Senior claims reviewer",
+  siu: "Special Investigation Unit",
+};
+
+export const escalationTargetLabel = (value: string) =>
+  (ESCALATION_TARGET_LABELS as Record<string, string>)[value] ?? humanize(value);
 
 export const CLAIM_TYPES = [
   "inpatient",

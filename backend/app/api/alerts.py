@@ -3,7 +3,7 @@ from decimal import Decimal
 from typing import Annotated, Any, Literal
 
 from fastapi import APIRouter, Query
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,9 +11,9 @@ from app.api.claims import ClaimDetail, MatchOut, claim_detail
 from app.api.filters import FiltersDep
 from app.api.pagination import Page, PageDep
 from app.core import audit
-from app.core.enums import AlertStatus, MatchDecision
+from app.core.enums import AlertStatus, EscalationTarget, MatchDecision
 from app.core.errors import not_found
-from app.core.security import CurrentUser
+from app.core.security import CurrentPrincipal, forbidden
 from app.db.models import Alert, Claim, DuplicateMatch, LineItem
 from app.db.session import SessionDep
 
@@ -60,6 +60,11 @@ class AlertOut(BaseModel):
     status: str
     review_note: str | None
     reviewed_at: datetime | None
+    reviewed_by: str | None
+    escalated_to: str | None
+    escalated_by: str | None
+    escalated_at: datetime | None
+    escalation_reason: str | None
     created_at: datetime
 
 
@@ -71,8 +76,23 @@ class AlertDetail(BaseModel):
 
 
 class AlertPatch(BaseModel):
-    status: Literal["open", "reviewed", "dismissed"]
+    """An analyst's decision on a finding. Dismissing and escalating need a reason; an escalation says
+    who should look at it."""
+
+    status: Literal["open", "reviewed", "dismissed", "evidence_requested", "escalated"]
     note: str | None = Field(default=None, max_length=2000)
+    escalate_to: EscalationTarget | None = None
+
+    @model_validator(mode="after")
+    def _reasons(self) -> "AlertPatch":
+        note = (self.note or "").strip()
+        if self.status in ("dismissed", "escalated", "evidence_requested") and not note:
+            raise ValueError(f"A note is required to mark an alert {self.status.replace('_', ' ')}")
+        if self.status == "escalated" and self.escalate_to is None:
+            raise ValueError("escalate_to is required when escalating")
+        if self.status != "escalated" and self.escalate_to is not None:
+            raise ValueError("escalate_to only applies when escalating")
+        return self
 
 
 async def _providers(session: AsyncSession, alerts: list[Alert]) -> dict[int, tuple[str, str]]:
@@ -174,23 +194,48 @@ async def get_alert(alert_id: int, session: SessionDep) -> AlertDetail:
 
 
 @router.patch("/alerts/{alert_id}")
-async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, username: CurrentUser) -> AlertOut:
+async def update_alert(alert_id: int, body: AlertPatch, session: SessionDep, principal: CurrentPrincipal) -> AlertOut:
     alert = await session.get(Alert, alert_id)
     if alert is None:
         raise not_found("Alert")
+    if alert.status == AlertStatus.ESCALATED.value:
+        # An escalated alert is decided by a senior claims reviewer or an admin, and never by the
+        # person who escalated it: the pack's "authorised workflow" means a second pair of eyes.
+        if not principal.can_decide_escalations():
+            raise forbidden("Escalated alerts are decided by a senior claims reviewer")
+        if alert.escalated_by == principal.username:
+            raise forbidden("Someone else must decide an alert you escalated")
+    now = datetime.now(UTC)
+    note = (body.note or "").strip() or None
     audit.record(
         session,
-        username,
+        principal.username,
         "alert_status_changed",
         "alert",
         alert.id,
         previous=alert.status,
         status=body.status,
-        note=body.note,
+        note=note,
+        actor_role=principal.role,
+        escalate_to=body.escalate_to.value if body.escalate_to else None,
+        previous_escalation=(
+            {"to": alert.escalated_to, "by": alert.escalated_by, "reason": alert.escalation_reason}
+            if alert.escalated_to
+            else None
+        ),
     )
     alert.status = body.status
-    alert.review_note = (body.note or "").strip() or None
-    alert.reviewed_at = None if body.status == AlertStatus.OPEN.value else datetime.now(UTC)
+    alert.review_note = note
+    alert.reviewed_at = None if body.status == AlertStatus.OPEN.value else now
+    alert.reviewed_by = None if body.status == AlertStatus.OPEN.value else principal.username
+    if body.status == AlertStatus.ESCALATED.value and body.escalate_to is not None:
+        alert.escalated_to = body.escalate_to.value
+        alert.escalated_by = principal.username
+        alert.escalated_at = now
+        alert.escalation_reason = note
+    else:
+        # The decision closes the escalation; the audit log keeps who asked for it and why.
+        alert.escalated_to = alert.escalated_by = alert.escalated_at = alert.escalation_reason = None
     await session.commit()
     await session.refresh(alert)
     return AlertOut.model_validate(alert, from_attributes=True)

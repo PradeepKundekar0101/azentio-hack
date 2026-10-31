@@ -118,7 +118,7 @@ Each entry says what was chosen and why.
 - **Group versions.** A group's ID is `REL-` plus the first 10 hex digits of the SHA-256 of its sorted claim IDs; a new version is written only when its content (members, tags, amount, summary or links) changes, and each build lists the (group, version) pairs current in it.
 - **Alert finding IDs.** Every alert has a `finding_id`, `ALR-` plus 12 hex digits of a hash of the claim, category, line, rule or pattern, policy rule and matched claim, so the same finding keeps its ID across runs while the alert rows themselves are replaced.
   Cross-claim alerts are raised by graph builds (`graph_build_id`, no `run_id`), replaced on every build, and go on the later claim by submission date.
-- **`get_current_user()`** wraps the demo session and returns a `User`; the new routes depend on it so real accounts can replace it without touching them.
+- **Graph routes depend on `session_principal`** (the signed-in user with a role, from the users and escalation work), the same guard as every other protected router.
 - **Graph layout.** The related-claims view puts connecting entities (invoices, incidents, documents, claimants) above the claims and the provider and policy hubs below; claims are ordered outward from the claim being viewed along their links, and every claim pair gets one side-to-side edge carrying all its links.
 
 ## Brand and landing page

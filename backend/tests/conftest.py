@@ -1,4 +1,6 @@
+import asyncio
 import os
+import sys
 from collections.abc import Iterator
 
 import pytest
@@ -9,6 +11,11 @@ from sqlalchemy import create_engine, text
 from app.core.config import Settings, get_settings
 from app.main import create_app
 from tests.support import migrate, truncate_all
+
+# psycopg's async connection cannot run on Windows' default Proactor event loop, which the test
+# client would otherwise create; the selector loop works on every platform.
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 TEST_DATABASE_URL = os.environ.get("TEST_DATABASE_URL", "postgresql+psycopg://localhost:5432/azentio_test")
 DEMO_USERNAME = "demo"

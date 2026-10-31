@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleCheck, CircleX, LoaderCircle, RotateCcw } from "lucide-react";
+import { ArrowUpRight, CircleCheck, CircleX, FileQuestion, LoaderCircle, Lock, RotateCcw } from "lucide-react";
 import { useId, useState } from "react";
 import { toast } from "sonner";
 
@@ -14,50 +14,94 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { getErrorMessage } from "@/lib/api/errors";
 import { useReviewAlert } from "@/lib/alerts/hooks";
-import type { AlertOut, AlertStatus } from "@/lib/alerts/model";
+import { type AlertOut, type AlertStatus, ESCALATION_TARGET_LABELS, type EscalationTarget } from "@/lib/alerts/model";
+import { useMe } from "@/lib/auth/hooks";
+import { canDecideEscalation } from "@/lib/auth/permissions";
 
 const NOTE_MAX = 2000;
 
-const COPY: Record<AlertStatus, { title: string; description: string; action: string; done: string }> = {
+interface Copy {
+  title: string;
+  description: string;
+  action: string;
+  done: string;
+  /** The backend refuses these decisions without a note, so the form does too. */
+  noteRequired: boolean;
+  placeholder?: string;
+}
+
+const COPY: Record<AlertStatus, Copy> = {
   reviewed: {
-    title: "Mark as reviewed",
-    description: "Record that this alert was checked. Add what you found or did, so others can follow it.",
-    action: "Mark reviewed",
-    done: "Alert marked as reviewed",
+    title: "Confirm discrepancy",
+    description: "Record that this finding was checked and stands. Add what you found, so others can follow it.",
+    action: "Confirm",
+    done: "Alert confirmed",
+    noteRequired: false,
   },
   dismissed: {
-    title: "Dismiss alert",
-    description: "Dismiss this alert when it is not leakage. Say why, so the decision can be audited.",
+    title: "Mark as false positive",
+    description: "Dismiss this alert when it is not leakage. The reason is required and is kept in the audit trail.",
     action: "Dismiss",
-    done: "Alert dismissed",
+    done: "Alert dismissed as a false positive",
+    noteRequired: true,
+    placeholder: "For example: provider contract allows a private room",
+  },
+  evidence_requested: {
+    title: "Request additional evidence",
+    description: "Say what is missing. The alert stays open and shows that evidence was asked for.",
+    action: "Request evidence",
+    done: "Evidence requested",
+    noteRequired: true,
+    placeholder: "For example: discharge summary and the original pharmacy bill",
+  },
+  escalated: {
+    title: "Escalate",
+    description:
+      "Hand this alert to a senior claims reviewer or the Special Investigation Unit. You will not be able to decide it yourself afterwards.",
+    action: "Escalate",
+    done: "Alert escalated",
+    noteRequired: true,
+    placeholder: "Why this needs a senior decision",
   },
   open: {
     title: "Reopen alert",
     description: "Put this alert back in the open queue.",
     action: "Reopen",
     done: "Alert reopened",
+    noteRequired: false,
   },
 };
 
-/** Mark reviewed, dismiss or reopen, each with an optional note, through one dialog. */
+/**
+ * The analyst's decisions on a finding: confirm, false positive, request evidence, escalate, reopen.
+ * An escalated alert is decided only by a senior claims reviewer or an admin, and never by whoever
+ * escalated it; everyone else sees why the buttons are not there.
+ */
 export function ReviewActions({ alert }: { alert: AlertOut }) {
   const [target, setTarget] = useState<AlertStatus | null>(null);
   const [note, setNote] = useState("");
+  const [escalateTo, setEscalateTo] = useState<EscalationTarget>("senior_reviewer");
   const review = useReviewAlert(alert.id);
+  const { data: me } = useMe();
   const noteId = useId();
+  const targetId = useId();
 
   const openDialog = (status: AlertStatus) => {
-    setNote(status === "open" ? "" : (alert.review_note ?? ""));
+    setNote(status === "open" || status === "escalated" ? "" : (alert.review_note ?? ""));
     setTarget(status);
   };
 
+  const copy = target ? COPY[target] : null;
+  const noteMissing = copy?.noteRequired === true && note.trim().length === 0;
+
   const submit = () => {
-    if (!target) return;
+    if (!target || noteMissing) return;
     review.mutate(
-      { status: target, note: note.trim() || null },
+      { status: target, note: note.trim() || null, escalate_to: target === "escalated" ? escalateTo : null },
       {
         onSuccess: () => {
           toast.success(COPY[target].done);
@@ -68,29 +112,72 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
     );
   };
 
-  const copy = target ? COPY[target] : null;
+  let buttons: React.ReactNode;
+  if (alert.status === "escalated") {
+    if (!me) {
+      buttons = null;
+    } else if (canDecideEscalation(me.role, me.username, alert.escalated_by)) {
+      buttons = (
+        <>
+          <Button variant="outline" onClick={() => openDialog("open")}>
+            <RotateCcw data-icon="inline-start" aria-hidden="true" />
+            Send back
+          </Button>
+          <Button variant="outline" onClick={() => openDialog("dismissed")}>
+            <CircleX data-icon="inline-start" aria-hidden="true" />
+            False positive
+          </Button>
+          <Button onClick={() => openDialog("reviewed")}>
+            <CircleCheck data-icon="inline-start" aria-hidden="true" />
+            Confirm
+          </Button>
+        </>
+      );
+    } else {
+      buttons = (
+        <p className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
+          <Lock className="size-3.5" aria-hidden="true" />
+          {alert.escalated_by === me.username
+            ? "You escalated this; another reviewer decides it."
+            : "Awaiting a senior claims reviewer."}
+        </p>
+      );
+    }
+  } else if (alert.status === "open" || alert.status === "evidence_requested") {
+    buttons = (
+      <>
+        <Button variant="outline" onClick={() => openDialog("escalated")}>
+          <ArrowUpRight data-icon="inline-start" aria-hidden="true" />
+          Escalate
+        </Button>
+        {alert.status === "open" && (
+          <Button variant="outline" onClick={() => openDialog("evidence_requested")}>
+            <FileQuestion data-icon="inline-start" aria-hidden="true" />
+            Request evidence
+          </Button>
+        )}
+        <Button variant="outline" onClick={() => openDialog("dismissed")}>
+          <CircleX data-icon="inline-start" aria-hidden="true" />
+          False positive
+        </Button>
+        <Button onClick={() => openDialog("reviewed")}>
+          <CircleCheck data-icon="inline-start" aria-hidden="true" />
+          Confirm
+        </Button>
+      </>
+    );
+  } else {
+    buttons = (
+      <Button variant="outline" onClick={() => openDialog("open")}>
+        <RotateCcw data-icon="inline-start" aria-hidden="true" />
+        Reopen
+      </Button>
+    );
+  }
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2">
-        {alert.status === "open" ? (
-          <>
-            <Button variant="outline" onClick={() => openDialog("dismissed")}>
-              <CircleX data-icon="inline-start" aria-hidden="true" />
-              Dismiss
-            </Button>
-            <Button onClick={() => openDialog("reviewed")}>
-              <CircleCheck data-icon="inline-start" aria-hidden="true" />
-              Mark reviewed
-            </Button>
-          </>
-        ) : (
-          <Button variant="outline" onClick={() => openDialog("open")}>
-            <RotateCcw data-icon="inline-start" aria-hidden="true" />
-            Reopen
-          </Button>
-        )}
-      </div>
+      <div className="flex flex-wrap items-center gap-2">{buttons}</div>
       <Dialog open={target !== null} onOpenChange={(open) => !open && !review.isPending && setTarget(null)}>
         <DialogContent className="sm:max-w-md">
           {copy && (
@@ -105,17 +192,38 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
                 <DialogTitle>{copy.title}</DialogTitle>
                 <DialogDescription>{copy.description}</DialogDescription>
               </DialogHeader>
+              {target === "escalated" && (
+                <div className="grid gap-1.5">
+                  <Label htmlFor={targetId} className="text-[13px]">
+                    Escalate to
+                  </Label>
+                  <Select value={escalateTo} onValueChange={(value) => setEscalateTo(value as EscalationTarget)}>
+                    <SelectTrigger id={targetId} className="w-full bg-card">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent position="popper" align="start">
+                      {(Object.keys(ESCALATION_TARGET_LABELS) as EscalationTarget[]).map((value) => (
+                        <SelectItem key={value} value={value}>
+                          {ESCALATION_TARGET_LABELS[value]}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
               <div className="grid gap-1.5">
                 <Label htmlFor={noteId} className="text-[13px]">
-                  Note <span className="font-normal text-muted-foreground">(optional)</span>
+                  {target === "escalated" || target === "dismissed" ? "Reason" : "Note"}{" "}
+                  {!copy.noteRequired && <span className="font-normal text-muted-foreground">(optional)</span>}
                 </Label>
                 <Textarea
                   id={noteId}
                   value={note}
                   maxLength={NOTE_MAX}
                   rows={4}
+                  required={copy.noteRequired}
                   className="min-h-24"
-                  placeholder={target === "dismissed" ? "For example: provider contract allows a private room" : ""}
+                  placeholder={copy.placeholder}
                   onChange={(event) => setNote(event.target.value)}
                 />
                 <p className="num text-right text-xs text-muted-foreground">
@@ -126,7 +234,7 @@ export function ReviewActions({ alert }: { alert: AlertOut }) {
                 <Button type="button" variant="outline" disabled={review.isPending} onClick={() => setTarget(null)}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={review.isPending}>
+                <Button type="submit" disabled={review.isPending || noteMissing}>
                   {review.isPending && (
                     <LoaderCircle className="animate-spin" data-icon="inline-start" aria-hidden="true" />
                   )}

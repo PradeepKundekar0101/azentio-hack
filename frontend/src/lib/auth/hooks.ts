@@ -47,6 +47,17 @@ export function useHydrated(): boolean {
   );
 }
 
+export type DemoAccount = Schemas["DemoAccount"];
+
+/** The seeded demo accounts for one-click sign-in; empty unless the backend has DEMO_QUICK_LOGIN on. */
+export function useDemoAccounts() {
+  return useQuery({
+    queryKey: ["auth", "demo-accounts"],
+    queryFn: async () => unwrap(await api.GET("/api/v1/auth/demo-accounts")),
+    staleTime: 5 * 60_000,
+  });
+}
+
 export function useLogin() {
   const queryClient = useQueryClient();
   return useMutation({
