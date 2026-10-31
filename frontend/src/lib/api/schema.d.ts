@@ -21,6 +21,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/auth/demo-accounts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Demo Accounts
+         * @description The seeded demo accounts, with passwords, for one-click sign-in. Empty unless DEMO_QUICK_LOGIN
+         *     is on, and lists only accounts that still exist and are active.
+         */
+        get: operations["demo_accounts_api_v1_auth_demo_accounts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/auth/login": {
         parameters: {
             query?: never;
@@ -272,6 +293,26 @@ export interface paths {
         };
         /** List Alerts */
         get: operations["list_alerts_api_v1_alerts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/alerts/escalations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Escalation Queue
+         * @description Escalated alerts waiting for this user's level (or a lower one) and the ones they escalated.
+         */
+        get: operations["escalation_queue_api_v1_alerts_escalations_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -636,6 +677,200 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/claims/{claim_id}/investigation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Investigation */
+        get: operations["investigation_api_v1_claims__claim_id__investigation_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/claims/{claim_id}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Claim Events */
+        get: operations["claim_events_api_v1_claims__claim_id__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/claims/{claim_id}/evidence.json": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Evidence Export
+         * @description The bundle plus every version and event: the data source for the downloadable report.
+         */
+        get: operations["evidence_export_api_v1_claims__claim_id__evidence_json_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Users */
+        get: operations["list_users_api_v1_users_get"];
+        put?: never;
+        /** Create User */
+        post: operations["create_user_api_v1_users_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/{user_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update User */
+        patch: operations["update_user_api_v1_users__user_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/evidence": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Investigations */
+        get: operations["list_investigations_api_v1_evidence_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Investigation */
+        get: operations["get_investigation_api_v1_evidence_claims__claim_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/open": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Open Investigation */
+        post: operations["open_investigation_api_v1_evidence_claims__claim_id__open_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/overrides": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Override */
+        post: operations["override_api_v1_evidence_claims__claim_id__overrides_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/notes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Note */
+        post: operations["add_note_api_v1_evidence_claims__claim_id__notes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/evidence/claims/{claim_id}/report": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download Report
+         * @description Downloading is itself recorded, so the report covers its own export entry.
+         */
+        get: operations["download_report_api_v1_evidence_claims__claim_id__report_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -644,6 +879,14 @@ export interface components {
         AlertBrief: {
             /** Id */
             id: number;
+            /** Finding Id */
+            finding_id: string;
+            /** Run Id */
+            run_id: number | null;
+            /** Graph Build Id */
+            graph_build_id: number | null;
+            /** Comparison Id */
+            comparison_id: number | null;
             /** Category */
             category: string;
             /** Severity */
@@ -713,21 +956,36 @@ export interface components {
             review_note: string | null;
             /** Reviewed At */
             reviewed_at: string | null;
+            /** Reviewed By */
+            reviewed_by: string | null;
+            /** Escalated To */
+            escalated_to: string | null;
+            /** Escalated By */
+            escalated_by: string | null;
+            /** Escalated At */
+            escalated_at: string | null;
+            /** Escalation Reason */
+            escalation_reason: string | null;
             /**
              * Created At
              * Format: date-time
              */
             created_at: string;
         };
-        /** AlertPatch */
+        /**
+         * AlertPatch
+         * @description An analyst's decision on a finding. Dismissing and escalating need a reason; an escalation says
+         *     who should look at it.
+         */
         AlertPatch: {
             /**
              * Status
              * @enum {string}
              */
-            status: "open" | "reviewed" | "dismissed";
+            status: "open" | "reviewed" | "dismissed" | "evidence_requested" | "escalated";
             /** Note */
             note?: string | null;
+            escalate_to?: components["schemas"]["EscalationTarget"] | null;
         };
         /** AlertRow */
         AlertRow: {
@@ -765,12 +1023,38 @@ export interface components {
          * AlertStatus
          * @enum {string}
          */
-        AlertStatus: "open" | "reviewed" | "dismissed";
+        AlertStatus: "open" | "reviewed" | "dismissed" | "evidence_requested" | "escalated";
         /**
          * AmountType
          * @enum {string}
          */
         AmountType: "calculated" | "estimated" | "suspected";
+        /** AnalysisEventOut */
+        AnalysisEventOut: {
+            /** Event Id */
+            event_id: number;
+            /** Event Type */
+            event_type: string;
+            /** Entity Type */
+            entity_type: string;
+            /** Entity Id */
+            entity_id: string;
+            /** Actor Type */
+            actor_type: string;
+            /** Model */
+            model: string | null;
+            /** Prompt Version */
+            prompt_version: string | null;
+            /** Payload */
+            payload: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
         /** Body_create_import_api_v1_imports_post */
         Body_create_import_api_v1_imports_post: {
             /**
@@ -1008,6 +1292,28 @@ export interface components {
             /** Discrepancies */
             discrepancies: components["schemas"]["DiscrepancyOut"][];
         };
+        /** ComparisonVersion */
+        ComparisonVersion: {
+            /** Comparison Id */
+            comparison_id: number;
+            /** Document Id */
+            document_id: number;
+            /** Extraction Id */
+            extraction_id: number;
+            /** Version */
+            version: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Line Matches */
+            line_matches: {
+                [key: string]: unknown;
+            };
+            /** Discrepancies */
+            discrepancies: components["schemas"]["DiscrepancyOut"][];
+        };
         /** ConfirmClaim */
         ConfirmClaim: {
             /** Policy Number */
@@ -1170,6 +1476,16 @@ export interface components {
             /** Rejected */
             rejected: number;
         };
+        /** DemoAccount */
+        DemoAccount: {
+            /** Username */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Password */
+            password: string;
+        };
         /** DiscrepancyDetail */
         DiscrepancyDetail: {
             /** Discrepancy Id */
@@ -1276,6 +1592,39 @@ export interface components {
              */
             doc_type: "invoice" | "discharge_summary" | "repair_estimate";
         };
+        /** DocumentBundle */
+        DocumentBundle: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string | null;
+            /** File Name */
+            file_name: string;
+            /** File Type */
+            file_type: string;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Sha256 */
+            sha256: string;
+            /** Phash */
+            phash: string | null;
+            /** Doc Type */
+            doc_type: string | null;
+            /** Page Count */
+            page_count: number | null;
+            /** Parse Status */
+            parse_status: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Latest Extraction Version */
+            latest_extraction_version?: number | null;
+            /** Latest Extraction Status */
+            latest_extraction_status?: string | null;
+            latest_extraction?: components["schemas"]["ExtractionOut"] | null;
+        };
         /** DocumentComparisonOut */
         DocumentComparisonOut: {
             /** Claim Id */
@@ -1380,6 +1729,253 @@ export interface components {
              */
             generated_by: "rule";
         };
+        /** EscalationQueue */
+        EscalationQueue: {
+            /** To Review */
+            to_review: components["schemas"]["AlertOut"][];
+            /** Sent */
+            sent: components["schemas"]["AlertOut"][];
+        };
+        /**
+         * EscalationTarget
+         * @description Escalation goes up the role ladder: to a senior claims reviewer or to an admin.
+         * @enum {string}
+         */
+        EscalationTarget: "senior_reviewer" | "admin";
+        /** EventOut */
+        EventOut: {
+            /** Event Id */
+            event_id: number;
+            /** Event Type */
+            event_type: string;
+            /** Claim Id */
+            claim_id: string | null;
+            /** Entity Type */
+            entity_type: string;
+            /** Entity Id */
+            entity_id: string;
+            /** Actor Type */
+            actor_type: string;
+            /** Model */
+            model: string | null;
+            /** Prompt Version */
+            prompt_version: string | null;
+            /** Payload */
+            payload: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** EvidenceClaim */
+        EvidenceClaim: {
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /** Policy Number */
+            policy_number: string;
+            /** Claim Type */
+            claim_type: string;
+            /** Status */
+            status: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /** Requested Amount */
+            requested_amount: string;
+        };
+        /** EvidenceDecision */
+        EvidenceDecision: {
+            /** Status */
+            status: string | null;
+            /** Note */
+            note: string | null;
+            /** Actor */
+            actor: string;
+            /** Actor Role */
+            actor_role: string | null;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Seq */
+            seq: number;
+        };
+        /** EvidenceEventOut */
+        EvidenceEventOut: {
+            /** Seq */
+            seq: number;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Actor */
+            actor: string;
+            /** Actor Role */
+            actor_role: string | null;
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "opened" | "recalculated" | "decision" | "override" | "note" | "exported";
+            /** Finding Key */
+            finding_key: string | null;
+            /** Alert Id */
+            alert_id: number | null;
+            /** Summary */
+            summary: string;
+            /** Payload */
+            payload: {
+                [key: string]: unknown;
+            };
+            /** Prev Hash */
+            prev_hash: string | null;
+            /** Hash */
+            hash: string;
+        };
+        /** EvidenceExport */
+        EvidenceExport: {
+            /**
+             * Exported At
+             * Format: date-time
+             */
+            exported_at: string;
+            bundle: components["schemas"]["InvestigationBundle"];
+            /** Extractions */
+            extractions: components["schemas"]["ExtractionOut"][];
+            /** Document Comparisons */
+            document_comparisons: components["schemas"]["ComparisonVersion"][];
+            /** Correction Sets */
+            correction_sets: components["schemas"]["CorrectionSetOut"][];
+            /** Relationship Groups */
+            relationship_groups: components["schemas"]["GroupOut"][];
+            /** Events */
+            events: components["schemas"]["EventOut"][];
+        };
+        /** EvidenceFinding */
+        EvidenceFinding: {
+            /** Key */
+            key: string;
+            /** Alert Id */
+            alert_id: number;
+            /** Category */
+            category: string;
+            /** Category Label */
+            category_label: string;
+            /** Severity */
+            severity: string;
+            /** Status */
+            status: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Explanation */
+            explanation: string;
+            recommendation: components["schemas"]["RecommendationOut"];
+            original_recommendation: components["schemas"]["RecommendationOut"] | null;
+            /** Changed Since Opened */
+            changed_since_opened: boolean;
+            /** Effective Correction */
+            effective_correction: string | null;
+            /** Effective Corrected Amount */
+            effective_corrected_amount: string | null;
+            override: components["schemas"]["EvidenceOverride"] | null;
+            decision: components["schemas"]["EvidenceDecision"] | null;
+        };
+        /** EvidenceIntegrity */
+        EvidenceIntegrity: {
+            /** Verified */
+            verified: boolean;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+            /** Broken At */
+            broken_at: number | null;
+            /** Reason */
+            reason: string | null;
+        };
+        /** EvidenceNoteIn */
+        EvidenceNoteIn: {
+            /** Text */
+            text: string;
+            /** Alert Id */
+            alert_id?: number | null;
+        };
+        /** EvidenceOriginal */
+        EvidenceOriginal: {
+            /** Run Id */
+            run_id: number | null;
+            /** Totals */
+            totals: {
+                [key: string]: unknown;
+            } | null;
+            /** Payable Steps */
+            payable_steps: {
+                [key: string]: unknown;
+            }[];
+            /** Results */
+            results: {
+                [key: string]: unknown;
+            }[];
+        };
+        /** EvidenceOverride */
+        EvidenceOverride: {
+            /** Previous Correction */
+            previous_correction: string | null;
+            /** New Correction */
+            new_correction: string;
+            /** Reason */
+            reason: string;
+            /** Reverted */
+            reverted: boolean;
+            /** Actor */
+            actor: string;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /** Seq */
+            seq: number;
+        };
+        /** EvidenceOverrideIn */
+        EvidenceOverrideIn: {
+            /** Alert Id */
+            alert_id: number;
+            /** Correction */
+            correction: number | string;
+            /** Reason */
+            reason: string;
+        };
+        /** EvidenceSummary */
+        EvidenceSummary: {
+            /** Original Calculated Leakage */
+            original_calculated_leakage: string | null;
+            /** Current Calculated Leakage */
+            current_calculated_leakage: string;
+            /** Adjusted Calculated Leakage */
+            adjusted_calculated_leakage: string;
+            /** Estimated Leakage */
+            estimated_leakage: string;
+            /** Findings */
+            findings: number;
+            /** Overrides */
+            overrides: number;
+            /** Decided */
+            decided: number;
+            /** Counts */
+            counts: {
+                [key: string]: number;
+            };
+        };
         /** ExtractedLineOut */
         ExtractedLineOut: {
             /** Line No */
@@ -1476,6 +2072,15 @@ export interface components {
             url: string;
             /** Expires In */
             expires_in: number;
+        };
+        /** FindingRef */
+        FindingRef: {
+            /** Finding Id */
+            finding_id: string;
+            /** Finding Version */
+            finding_version: number;
+            /** Kind */
+            kind: string;
         };
         /** GroupDetail */
         GroupDetail: {
@@ -1616,6 +2221,86 @@ export interface components {
             /** Message */
             message: string;
         };
+        /** InvestigationBrief */
+        InvestigationBrief: {
+            /**
+             * Opened At
+             * Format: date-time
+             */
+            opened_at: string;
+            /** Opened By */
+            opened_by: string;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+        };
+        /** InvestigationBundle */
+        InvestigationBundle: {
+            claim: components["schemas"]["ClaimOut"];
+            /** Lines */
+            lines: components["schemas"]["LineOut"][];
+            policy: components["schemas"]["PolicyOut"];
+            settlement: components["schemas"]["SettlementOut"] | null;
+            /** Validation Results */
+            validation_results: components["schemas"]["ResultOut"][];
+            /** Payable Steps */
+            payable_steps: components["schemas"]["StepOut"][];
+            /** Duplicates */
+            duplicates: components["schemas"]["MatchOut"][];
+            /** Alerts */
+            alerts: components["schemas"]["AlertBrief"][];
+            related: components["schemas"]["RelatedOut"];
+            /** Documents */
+            documents: components["schemas"]["DocumentBundle"][];
+            document_comparison: components["schemas"]["DocumentComparisonOut"];
+            corrections: components["schemas"]["CorrectionSetOut"] | null;
+            leakage: components["schemas"]["LeakageSummary"];
+            /** Finding Ids */
+            finding_ids: components["schemas"]["FindingRef"][];
+        };
+        /** InvestigationOut */
+        InvestigationOut: {
+            claim: components["schemas"]["EvidenceClaim"];
+            investigation: components["schemas"]["InvestigationBrief"] | null;
+            integrity: components["schemas"]["EvidenceIntegrity"];
+            summary: components["schemas"]["EvidenceSummary"];
+            /** Findings */
+            findings: components["schemas"]["EvidenceFinding"][];
+            original: components["schemas"]["EvidenceOriginal"] | null;
+            /** Events */
+            events: components["schemas"]["EvidenceEventOut"][];
+            /** Analysis Events */
+            analysis_events: components["schemas"]["AnalysisEventOut"][];
+        };
+        /** InvestigationRow */
+        InvestigationRow: {
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /** Claim Type */
+            claim_type: string;
+            /**
+             * Opened At
+             * Format: date-time
+             */
+            opened_at: string;
+            /** Opened By */
+            opened_by: string;
+            /** Events */
+            events: number;
+            /** Head Hash */
+            head_hash: string | null;
+            /** Last Event At */
+            last_event_at: string | null;
+            /** Last Event Kind */
+            last_event_kind: string | null;
+            /** Last Event Summary */
+            last_event_summary: string | null;
+            /** Last Actor */
+            last_actor: string | null;
+        };
         /**
          * IssueSeverity
          * @enum {string}
@@ -1655,6 +2340,24 @@ export interface components {
             finished_at: string | null;
             /** Claims Processed */
             claims_processed: number;
+        };
+        /**
+         * LeakageSummary
+         * @description requested - corrections = recommended payable. Calculated leakage is what the applied corrections take off
+         *     beyond normal policy application (deductible and co-pay); estimated is the items for review; recovery is what a
+         *     settled claim was overpaid.
+         */
+        LeakageSummary: {
+            /** Requested */
+            requested: string;
+            /** Recommended Payable */
+            recommended_payable: string | null;
+            /** Calculated */
+            calculated: string;
+            /** Estimated */
+            estimated: string;
+            /** Recovery */
+            recovery: string;
         };
         /** LeakageTotals */
         LeakageTotals: {
@@ -1834,6 +2537,13 @@ export interface components {
             /** Total */
             total: number;
         };
+        /** Page[InvestigationRow] */
+        Page_InvestigationRow_: {
+            /** Items */
+            items: components["schemas"]["InvestigationRow"][];
+            /** Total */
+            total: number;
+        };
         /** Page[ProviderOut] */
         Page_ProviderOut_: {
             /** Items */
@@ -1928,6 +2638,29 @@ export interface components {
             /** Claim Ids */
             claim_ids?: string[] | null;
         };
+        /** RecommendationOut */
+        RecommendationOut: {
+            /** Action */
+            action: string;
+            /** Basis */
+            basis: string;
+            /** Original Amount */
+            original_amount: string;
+            /** Correction */
+            correction: string | null;
+            /** Corrected Amount */
+            corrected_amount: string | null;
+            /** Amount Type */
+            amount_type: string;
+            /** Calculation */
+            calculation: string | null;
+            /** Rule Or Pattern */
+            rule_or_pattern: string;
+            /** Policy Rule Id */
+            policy_rule_id: string | null;
+            /** Source */
+            source: string;
+        };
         /** RecomputeOut */
         RecomputeOut: {
             /** Set Id */
@@ -2002,6 +2735,12 @@ export interface components {
             /** Explanation */
             explanation: string;
         };
+        /**
+         * Role
+         * @description Who may do what. Analysts review and escalate; senior reviewers decide escalations; admins onboard.
+         * @enum {string}
+         */
+        Role: "analyst" | "senior_reviewer" | "admin";
         /** RunFailure */
         RunFailure: {
             /** Claim Id */
@@ -2066,6 +2805,9 @@ export interface components {
         SessionOut: {
             /** Username */
             username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
         };
         /** SettlementOut */
         SettlementOut: {
@@ -2137,6 +2879,48 @@ export interface components {
             top_providers: components["schemas"]["ProviderRow"][];
             last_run: components["schemas"]["LastRun"] | null;
         };
+        /** UserCreate */
+        UserCreate: {
+            /**
+             * Username
+             * @description Lowercase letters, digits, dots, dashes
+             */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Password */
+            password: string;
+        };
+        /** UserOut */
+        UserOut: {
+            /** Id */
+            id: number;
+            /** Username */
+            username: string;
+            /** Display Name */
+            display_name: string;
+            role: components["schemas"]["Role"];
+            /** Is Active */
+            is_active: boolean;
+            /** Created By */
+            created_by: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** UserPatch */
+        UserPatch: {
+            /** Display Name */
+            display_name?: string | null;
+            role?: components["schemas"]["Role"] | null;
+            /** Is Active */
+            is_active?: boolean | null;
+            /** Password */
+            password?: string | null;
+        };
         /** ValidationError */
         ValidationError: {
             /** Location */
@@ -2175,6 +2959,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HealthOut"];
+                };
+            };
+        };
+    };
+    demo_accounts_api_v1_auth_demo_accounts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DemoAccount"][];
                 };
             };
         };
@@ -2678,6 +3482,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    escalation_queue_api_v1_alerts_escalations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EscalationQueue"];
                 };
             };
         };
@@ -3457,6 +4281,384 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RecomputeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    investigation_api_v1_claims__claim_id__investigation_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationBundle"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    claim_events_api_v1_claims__claim_id__events_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    evidence_export_api_v1_claims__claim_id__evidence_json_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EvidenceExport"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_users_api_v1_users_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"][];
+                };
+            };
+        };
+    };
+    create_user_api_v1_users_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_user_api_v1_users__user_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserPatch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_investigations_api_v1_evidence_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_InvestigationRow_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_investigation_api_v1_evidence_claims__claim_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    open_investigation_api_v1_evidence_claims__claim_id__open_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    override_api_v1_evidence_claims__claim_id__overrides_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceOverrideIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_note_api_v1_evidence_claims__claim_id__notes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceNoteIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvestigationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_report_api_v1_evidence_claims__claim_id__report_get: {
+        parameters: {
+            query?: {
+                format?: "pdf" | "json";
+            };
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

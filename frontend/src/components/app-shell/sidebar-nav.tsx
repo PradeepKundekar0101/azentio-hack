@@ -3,17 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useEscalations } from "@/lib/alerts/hooks";
+import { useMe } from "@/lib/auth/hooks";
 import { cn } from "@/lib/utils";
 
-import { NAV_ITEMS, navItemForPath } from "./nav";
+import { navItemForPath, navItemsFor } from "./nav";
 
 export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const active = navItemForPath(pathname);
+  const { data: user } = useMe();
+  const items = navItemsFor(user?.role);
+  const escalations = useEscalations();
+  const waiting = user ? (escalations.data?.to_review.length ?? 0) : 0;
 
   return (
     <nav aria-label="Main" className="flex flex-col gap-0.5">
-      {NAV_ITEMS.map((item) => {
+      {items.map((item) => {
         const isActive = active?.href === item.href;
         const Icon = item.icon;
         return (
@@ -23,11 +29,11 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
             onClick={onNavigate}
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "group relative flex h-8 items-center gap-2.5 rounded-md px-2.5 text-[13.5px] font-medium outline-none",
+              "group relative flex h-8 items-center gap-2.5 rounded-lg px-2.5 text-[13.5px] font-medium outline-none",
               "text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground",
               "focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-1 focus-visible:ring-offset-sidebar",
               isActive &&
-                "bg-sidebar-accent text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:bg-sidebar-accent",
+                "bg-sidebar-accent text-sidebar-accent-foreground shadow-card hover:bg-sidebar-accent",
             )}
           >
             {isActive && (
@@ -45,6 +51,14 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
               strokeWidth={2}
             />
             {item.label}
+            {item.href === "/reviews" && waiting > 0 && (
+              <span
+                className="num ml-auto inline-flex min-w-5 items-center justify-center rounded-full bg-destructive px-1.5 text-[11px] leading-5 font-semibold text-white"
+                aria-label={`${waiting} waiting for your decision`}
+              >
+                {waiting}
+              </span>
+            )}
           </Link>
         );
       })}

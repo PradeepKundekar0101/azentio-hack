@@ -145,6 +145,27 @@ class AlertStatus(StrEnum):
     OPEN = "open"
     REVIEWED = "reviewed"
     DISMISSED = "dismissed"
+    EVIDENCE_REQUESTED = "evidence_requested"
+    ESCALATED = "escalated"
+
+
+class Role(StrEnum):
+    """Who may do what. Analysts review and escalate; senior reviewers decide escalations; admins onboard."""
+
+    ANALYST = "analyst"
+    SENIOR_REVIEWER = "senior_reviewer"
+    ADMIN = "admin"
+
+
+class EscalationTarget(StrEnum):
+    """Escalation goes up the role ladder: to a senior claims reviewer or to an admin."""
+
+    SENIOR_REVIEWER = "senior_reviewer"
+    ADMIN = "admin"
+
+
+# Higher rank decides more: an alert escalated to a level is decided by that level or above.
+ROLE_RANK = {Role.ANALYST.value: 0, Role.SENIOR_REVIEWER.value: 1, Role.ADMIN.value: 2}
 
 
 class ParseStatus(StrEnum):
@@ -192,6 +213,17 @@ class EventType(StrEnum):
     GROUP_CREATED = "group_created"
     CORRECTION_SET_CREATED = "correction_set_created"
     CROSS_CLAIM_ALERT_RAISED = "cross_claim_alert_raised"
+
+
+class EvidenceKind(StrEnum):
+    """One entry in a claim's evidence history (see app/evidence)."""
+
+    OPENED = "opened"  # investigation opened: the original calculation, issues and recommendations frozen
+    RECALCULATED = "recalculated"  # a later run changed the calculation or the issues
+    DECISION = "decision"  # an analyst's decision on a finding
+    OVERRIDE = "override"  # an analyst changed a recommended correction, with a reason
+    NOTE = "note"
+    EXPORTED = "exported"  # the investigation report was downloaded
 
 
 class DocType(StrEnum):

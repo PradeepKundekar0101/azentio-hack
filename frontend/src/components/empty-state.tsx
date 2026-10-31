@@ -20,11 +20,12 @@ export function EmptyState({
   className?: string;
 }) {
   return (
-    <Panel className={cn("flex flex-col items-center px-6 py-12 text-center sm:py-16", className)}>
-      <div className="flex size-10 items-center justify-center rounded-lg bg-primary/8 text-primary ring-1 ring-primary/15 ring-inset">
-        <Icon className="size-5" aria-hidden="true" />
+    <Panel className={cn("relative isolate flex flex-col items-center overflow-hidden px-6 py-12 text-center sm:py-16", className)}>
+      <div aria-hidden="true" className="surface-grid absolute inset-0 -z-10" />
+      <div className="flex size-12 items-center justify-center rounded-xl bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_14%,var(--card)),color-mix(in_oklch,var(--primary)_6%,var(--card)))] text-primary shadow-raised ring-1 ring-primary/15 ring-inset">
+        <Icon className="size-5" aria-hidden="true" strokeWidth={1.75} />
       </div>
-      <h2 className="mt-4 text-base leading-6 font-semibold">{title}</h2>
+      <h2 className="mt-5 text-[17px] leading-6 font-semibold tracking-[-0.01em]">{title}</h2>
       <p className="mt-1 max-w-md text-sm text-pretty text-muted-foreground">{description}</p>
       {children}
       {actions && <div className="mt-5 flex flex-wrap items-center justify-center gap-2">{actions}</div>}

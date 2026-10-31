@@ -36,7 +36,7 @@ export function ChartTooltip({
   if (!active || !payload?.length) return null;
   const datum = payload[0]?.payload as Record<string, unknown>;
   return (
-    <div className="max-w-64 min-w-44 rounded-md border bg-popover px-3 py-2 text-xs text-popover-foreground shadow-md">
+    <div className="max-w-64 min-w-44 rounded-lg bg-popover px-3 py-2 text-xs text-popover-foreground shadow-pop">
       <div className="mb-1 font-semibold">{title(datum)}</div>
       <dl className="space-y-0.5">
         {rows(datum).map((r) => (

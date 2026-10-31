@@ -9,6 +9,7 @@ from typing import Annotated, Any
 from sqlalchemy import (
     ARRAY,
     BigInteger,
+    Boolean,
     CheckConstraint,
     Date,
     DateTime,
@@ -348,9 +349,15 @@ class Alert(Base):
     policy_rule_id: Mapped[str | None] = mapped_column(String(40))
     explanation: Mapped[str] = mapped_column(Text)
     supporting: Mapped[Json]
-    status: Mapped[str] = mapped_column(String(10), server_default=enums.AlertStatus.OPEN.value)
+    status: Mapped[str] = mapped_column(String(20), server_default=enums.AlertStatus.OPEN.value)
     review_note: Mapped[str | None] = mapped_column(Text)
     reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    reviewed_by: Mapped[str | None] = mapped_column(String(100))
+    # Set while an alert waits for a senior claims reviewer or the SIU; cleared when they decide it.
+    escalated_to: Mapped[str | None] = mapped_column(String(20))
+    escalated_by: Mapped[str | None] = mapped_column(String(100))
+    escalated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    escalation_reason: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[CreatedAt]
 
 
@@ -461,6 +468,22 @@ class Document(Base):
     extracted: Mapped[Json | None]
     issues: Mapped[Json | None]
     confidence: Mapped[Decimal | None] = mapped_column(Numeric(4, 3))
+    created_at: Mapped[CreatedAt]
+
+
+class User(Base):
+    """A person who can sign in. Roles are enforced in the API, never only in the interface."""
+
+    __tablename__ = "users"
+    __table_args__ = (one_of("role", enums.Role),)
+
+    id: Mapped[IntId]
+    username: Mapped[str] = mapped_column(String(100), unique=True)
+    display_name: Mapped[str] = mapped_column(String(120))
+    role: Mapped[str] = mapped_column(String(20))
+    password_hash: Mapped[str] = mapped_column(Text)
+    is_active: Mapped[bool] = mapped_column(Boolean, server_default="true")
+    created_by: Mapped[str | None] = mapped_column(String(100))
     created_at: Mapped[CreatedAt]
 
 
@@ -653,3 +676,43 @@ class AuditLog(Base):
     entity: Mapped[str] = mapped_column(String(40))
     entity_id: Mapped[str] = mapped_column(Text)
     details: Mapped[Json | None]
+
+
+class Investigation(Base):
+    """One per claim under investigation. Holds the head of its evidence chain."""
+
+    __tablename__ = "investigations"
+
+    claim_id: Mapped[str] = mapped_column(
+        String(20), ForeignKey("claims.claim_id", ondelete="CASCADE"), primary_key=True
+    )
+    opened_by: Mapped[str] = mapped_column(String(100))
+    opened_at: Mapped[CreatedAt]
+    event_count: Mapped[int] = mapped_column(Integer, server_default="0")
+    head_hash: Mapped[str | None] = mapped_column(String(64))
+
+
+class EvidenceEvent(Base):
+    """Append-only evidence history. Each entry stores the hash of the one before it, so any later edit
+    breaks the chain. Alerts are rebuilt on every run, so entries refer to findings by a stable key and
+    keep their own copy of what was shown, never only an alert ID."""
+
+    __tablename__ = "evidence_events"
+    __table_args__ = (
+        one_of("kind", enums.EvidenceKind),
+        Index("uq_evidence_events_claim_seq", "claim_id", "seq", unique=True),
+    )
+
+    id: Mapped[IntId]
+    claim_id: Mapped[str] = claim_fk()
+    seq: Mapped[int] = mapped_column(Integer)
+    at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    actor: Mapped[str] = mapped_column(String(100))
+    actor_role: Mapped[str | None] = mapped_column(String(20))
+    kind: Mapped[str] = mapped_column(String(20))
+    finding_key: Mapped[str | None] = mapped_column(String(200))
+    alert_id: Mapped[int | None] = mapped_column(BigInteger)
+    summary: Mapped[str] = mapped_column(Text)
+    payload: Mapped[Json]
+    prev_hash: Mapped[str | None] = mapped_column(String(64))
+    hash: Mapped[str] = mapped_column(String(64))

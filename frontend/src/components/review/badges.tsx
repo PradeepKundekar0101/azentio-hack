@@ -86,6 +86,8 @@ export function AlertAmount({
 
 const STATUS_CLASSES: Record<string, string> = {
   open: "border-border bg-card text-foreground",
+  evidence_requested: "bg-warning/10 text-warning dark:bg-warning/15",
+  escalated: "bg-destructive/10 text-destructive dark:bg-destructive/20",
   reviewed: "bg-success/10 text-success dark:bg-success/15",
   dismissed: "bg-secondary text-muted-foreground",
 };

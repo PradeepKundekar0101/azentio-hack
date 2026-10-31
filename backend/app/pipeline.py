@@ -32,6 +32,7 @@ from app.db.session import Database
 from app.documents.comparison_service import ComparisonReader, compare_claims
 from app.documents.read import DocumentReader
 from app.duplicates.detect import detect_duplicates
+from app.evidence import service as evidence
 from app.graph.service import build_graph
 from app.rules.context import ClaimData, Evaluation, LineData, PolicyData, RuleData, SettlementData
 from app.rules.payable import RULES_VERSION, evaluate_policy
@@ -218,6 +219,8 @@ async def execute_run(
     # Cross-claim correlation over every claim (links cross policies), in the same transaction.
     await build_graph(session, settings, run_id=run.id)
     lap("graph")
+    await evidence.capture_rerun(session, claim_ids, run.id)
+    lap("evidence")
     # Corrections: a new correction set for each affected claim whose result changed.
     await build_for_loaded(session, loaded, claim_ids, run.id)
     lap("corrections")

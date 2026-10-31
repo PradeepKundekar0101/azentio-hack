@@ -6,7 +6,11 @@ import { api } from "@/lib/api/client";
 import { unwrap } from "@/lib/api/errors";
 
 import { type AlertFilters, type AlertSort, filtersToApiQuery } from "./filters";
-import type { AlertDetail, AlertStatus } from "./model";
+import type {
+  AlertDetail,
+  AlertStatus,
+  EscalationTarget,
+} from "@/lib/alerts/model";
 
 export const alertsKeys = {
   all: ["alerts"] as const,
@@ -15,7 +19,18 @@ export const alertsKeys = {
   detail: (id: number) => ["alerts", "detail", id] as const,
   cleared: (page: number, pageSize: number) => ["alerts", "cleared", page, pageSize] as const,
   summary: (filters: AlertFilters) => ["dashboard", "summary", filters] as const,
+  escalations: ["alerts", "escalations"] as const,
 };
+
+/** Escalated alerts waiting for the signed-in user's level, and the ones they escalated. Polls, so the
+ *  sidebar count works as a notification. */
+export function useEscalations() {
+  return useQuery({
+    queryKey: alertsKeys.escalations,
+    queryFn: async () => unwrap(await api.GET("/api/v1/alerts/escalations")),
+    refetchInterval: 15_000,
+  });
+}
 
 export function useAlerts(filters: AlertFilters, sort: AlertSort, page: number, pageSize: number) {
   return useQuery({
@@ -69,9 +84,11 @@ export function useProviders() {
 export interface AlertReview {
   status: AlertStatus;
   note: string | null;
+  escalate_to?: EscalationTarget | null;
 }
 
-/** Marks an alert reviewed, dismissed or open again; lists and the dashboard refresh after. */
+/** Records a decision on an alert (confirm, false positive, request evidence, escalate, reopen);
+ * lists and the dashboard refresh after. */
 export function useReviewAlert(id: number) {
   const queryClient = useQueryClient();
   return useMutation({
@@ -79,12 +96,13 @@ export function useReviewAlert(id: number) {
       unwrap(
         await api.PATCH("/api/v1/alerts/{alert_id}", {
           params: { path: { alert_id: id } },
-          body: { status: review.status, note: review.note },
+          body: { status: review.status, note: review.note, escalate_to: review.escalate_to ?? null },
         }),
       ),
     onSuccess: (alert) => {
       queryClient.setQueryData<AlertDetail>(alertsKeys.detail(id), (old) => (old ? { ...old, alert } : old));
       void queryClient.invalidateQueries({ queryKey: ["alerts", "list"] });
+      void queryClient.invalidateQueries({ queryKey: alertsKeys.escalations });
       void queryClient.invalidateQueries({ queryKey: ["dashboard"] });
       void queryClient.invalidateQueries({ queryKey: ["claims"] });
     },

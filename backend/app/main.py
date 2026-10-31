@@ -15,17 +15,19 @@ from app.api import (
     corrections,
     dashboard,
     documents,
+    evidence,
     graph,
     health,
     imports,
     investigation,
     reference,
     runs,
+    users,
 )
 from app.core.config import Settings, get_settings
 from app.core.errors import install_error_handlers
 from app.core.logging import configure_logging
-from app.core.security import session_username
+from app.core.security import session_principal
 from app.db.session import Database
 from app.documents.extract import Extractor
 from app.documents.read import DocumentReader
@@ -58,8 +60,8 @@ class SettingsCORSMiddleware:
 def _api_router() -> APIRouter:
     api = APIRouter(prefix="/api/v1")
     api.include_router(auth.router)
-    # Every other API route needs the demo session.
-    protected = APIRouter(dependencies=[Depends(session_username)])
+    # Every other API route needs a signed-in user; routes that need a role add their own check.
+    protected = APIRouter(dependencies=[Depends(session_principal)])
     protected.include_router(reference.router)
     protected.include_router(imports.router)
     protected.include_router(runs.router)
@@ -71,6 +73,8 @@ def _api_router() -> APIRouter:
     protected.include_router(claim_documents.router)
     protected.include_router(corrections.router)
     protected.include_router(investigation.router)
+    protected.include_router(users.router)
+    protected.include_router(evidence.router)
     api.include_router(protected)
     return api
 

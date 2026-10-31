@@ -118,8 +118,18 @@ Each entry says what was chosen and why.
 - **Group versions.** A group's ID is `REL-` plus the first 10 hex digits of the SHA-256 of its sorted claim IDs; a new version is written only when its content (members, tags, amount, summary or links) changes, and each build lists the (group, version) pairs current in it.
 - **Alert finding IDs.** Every alert has a `finding_id`, `ALR-` plus 12 hex digits of a hash of the claim, category, line, rule or pattern, policy rule and matched claim, so the same finding keeps its ID across runs while the alert rows themselves are replaced.
   Cross-claim alerts are raised by graph builds (`graph_build_id`, no `run_id`), replaced on every build, and go on the later claim by submission date.
-- **`get_current_user()`** wraps the demo session and returns a `User`; the new routes depend on it so real accounts can replace it without touching them.
+- **Graph routes depend on `session_principal`** (the signed-in user with a role, from the users and escalation work), the same guard as every other protected router.
 - **Graph layout.** The related-claims view puts connecting entities (invoices, incidents, documents, claimants) above the claims and the provider and policy hubs below; claims are ordered outward from the claim being viewed along their links, and every claim pair gets one side-to-side edge carrying all its links.
+
+## Brand and landing page
+
+- **Public landing page at `/welcome`.** The dashboard stays at `/`; the proxy sends signed-out visitors at `/` to `/welcome` and every other app route to `/login`, so signed-in users never see the landing page.
+- **One token file.** Colours, contrast pairs and radii moved from `globals.css` to `src/styles/theme.css`, with a theme-independent brand block for the logo, landing page and share images.
+  Share images cannot read CSS variables, so `src/styles/brand.ts` mirrors the brand block and a test keeps them equal.
+- **Logo.** The original mark stays: a drop leaking from a claim form on a stamp-blue tile. Its geometry now lives once in `brand.ts` and feeds the React mark, the favicon, the Apple icon and the share images, in fixed brand colours so it reads the same in both themes.
+- **App palette stays stamp blue.** A warm teal palette was tried and dropped; the brand mesh behind the landing page uses the same blue at night (ocean, sky, a bright highlight) so the public page and the portal read as one product. Amber is kept for the logo's leaked block only.
+- **Drawn backdrop instead of a photograph.** A mesh gradient (blurred ocean and sky-blue fields), a dune and film grain in SVG: no image request, no licensing question and every colour from the tokens.
+- **Geist Pixel is vendored**, one face plus its OFL licence, instead of adding the `geist` package: its latest release was newer than the lockfile's minimum release age, and only one of its faces is used.
 - **Supporting documents are separate from the document-to-claim flow.** `POST /claims/{id}/documents` attaches a document to an existing claim and extracts it with sources; the earlier upload, review and confirm flow that creates a claim from an invoice is unchanged.
 - **The model returns plain values plus one `sources` list.** A `{value, source_quote, page}` object for every field is rejected by structured output as too complex, so Claude fills a flat schema with a `sources` entry (field, exact quote, page) per filled field, and `to_sourced()` pairs them back up before the provenance check.
 - **Provenance.** A quote is looked for among Docling's text items and table cells, on its stated page first and then on the others, after collapsing whitespace and case; a fuzzy `partial_ratio` of 90 or more also counts (OCR noise).

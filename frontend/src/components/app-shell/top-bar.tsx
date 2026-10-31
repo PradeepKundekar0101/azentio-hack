@@ -13,6 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { getErrorMessage } from "@/lib/api/errors";
 import { useLogout, useMe } from "@/lib/auth/hooks";
+import { roleLabel } from "@/lib/auth/permissions";
 import { HOME_PATH, LOGIN_PATH } from "@/lib/auth/redirect";
 
 import { SidebarContents } from "./sidebar";
@@ -70,7 +71,7 @@ export function TopBar() {
 
       <div className="ml-auto flex min-w-0 items-center gap-1">
         <div className="mr-2 flex min-w-0 items-center">
-          {user ? <UserBadge username={user.username} /> : <UserBadgeSkeleton />}
+          {user ? <UserBadge username={user.username} role={user.role} /> : <UserBadgeSkeleton />}
         </div>
         <ThemeToggle />
         <Tooltip>
@@ -92,8 +93,8 @@ export function TopBar() {
   );
 }
 
-/** Initial and username; on phones only the initial shows and the name is for screen readers. */
-function UserBadge({ username }: { username: string }) {
+/** Initial, username and role; on phones only the initial shows and the rest is for screen readers. */
+function UserBadge({ username, role }: { username: string; role: string }) {
   return (
     <span className="flex min-w-0 items-center gap-2">
       <span
@@ -102,9 +103,12 @@ function UserBadge({ username }: { username: string }) {
       >
         {username.slice(0, 1)}
       </span>
-      <span className="sr-only truncate text-sm font-medium sm:not-sr-only">
-        <span className="sr-only">Signed in as </span>
-        {username}
+      <span className="sr-only min-w-0 sm:not-sr-only sm:flex sm:flex-col sm:leading-tight">
+        <span className="truncate text-sm font-medium">
+          <span className="sr-only">Signed in as </span>
+          {username}
+        </span>
+        <span className="truncate text-[11px] text-muted-foreground">{roleLabel(role)}</span>
       </span>
     </span>
   );
