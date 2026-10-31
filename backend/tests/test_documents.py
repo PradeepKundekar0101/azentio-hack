@@ -230,3 +230,35 @@ def test_live_claude_ignores_instructions_inside_the_document(live_settings: Set
     assert result.problems == []
     assert Decimal(result.data.total) == Decimal("12800")
     assert len(result.data.line_items) == 2
+
+
+def test_document_claim_id_skips_ids_already_used(docs_api: TestClient, sql) -> None:
+    upload(docs_api, to_csv_files(BASE))
+    created = docs_api.post(
+        "/api/v1/documents", files={"file": ("invoice.pdf", invoice_pdf(PDF_LINES), "application/pdf")}
+    )
+    doc_id = created.json()["id"]
+    sql(
+        "insert into claims (claim_id, policy_number, claimant_id, claimant_name, incident_date, submission_date,"
+        " claim_type, requested_amount, status) values (:id, 'POL-000001', 'MEM-001', 'X', '2026-03-01',"
+        " '2026-03-02', 'inpatient', 1, 'open')",
+        id=f"CLM-{800000 + doc_id:06d}",
+    )
+    draft = docs_api.get(f"/api/v1/documents/{doc_id}").json()["extracted"]["draft"]
+    form = {
+        "claim": {
+            **draft["claim"],
+            "claimant_id": "MEM-002",
+            "claim_type": "inpatient",
+            "submission_date": "2026-05-06",
+        },
+        "invoice_reference": draft["invoice_reference"],
+        "provider_id": draft["provider_id"],
+        "provider_name": draft["provider_name"],
+        "lines": draft["lines"],
+    }
+
+    confirmed = docs_api.post(f"/api/v1/documents/{doc_id}/confirm", json=form)
+
+    assert confirmed.status_code == 200, confirmed.json()
+    assert confirmed.json()["claim_id"] == f"CLM-{801000 + doc_id:06d}"

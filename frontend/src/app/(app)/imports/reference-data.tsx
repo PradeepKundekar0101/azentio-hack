@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { RefreshCw } from "lucide-react";
 
-import { Panel, PanelHeader } from "@/components/page";
+import { Panel } from "@/components/page";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/lib/api/client";
@@ -27,26 +27,33 @@ function useReferenceTotals() {
   });
 }
 
-/** Seeded lookups that every import is validated against. */
+/** Seeded lookups that every import is validated against, as one compact strip. */
 export function ReferenceData() {
   const totals = useReferenceTotals();
 
   return (
-    <Panel aria-labelledby="reference-data-title">
-      <PanelHeader
-        title={<span id="reference-data-title">Reference data</span>}
-        description="Loaded in the database and used to validate every import."
-      />
+    <Panel
+      aria-labelledby="reference-data-title"
+      className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3"
+    >
+      <div className="min-w-0">
+        <h2 id="reference-data-title" className="text-sm font-semibold">
+          Reference data
+        </h2>
+        <p className="mt-0.5 text-[13px] text-pretty text-muted-foreground">
+          Loaded in the database and used to validate every import.
+        </p>
+      </div>
       {totals.isError ? (
-        <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-4" role="alert">
-          <p className="text-sm text-destructive">{getErrorMessage(totals.error)}</p>
+        <div className="flex flex-wrap items-center gap-3" role="alert">
+          <p className="text-[13px] text-destructive">{getErrorMessage(totals.error)}</p>
           <Button variant="outline" size="sm" onClick={() => totals.refetch()}>
             <RefreshCw data-icon="inline-start" aria-hidden="true" />
             Try again
           </Button>
         </div>
       ) : (
-        <dl className="grid grid-cols-2 divide-x">
+        <dl className="flex items-center gap-6">
           <Stat label="Providers" value={totals.data?.providers} />
           <Stat label="Service codes" value={totals.data?.serviceCodes} />
         </dl>
@@ -57,10 +64,10 @@ export function ReferenceData() {
 
 function Stat({ label, value }: { label: string; value: number | undefined }) {
   return (
-    <div className="px-4 py-3.5">
-      <dt className="text-[13px] text-muted-foreground">{label}</dt>
-      <dd className="mt-1 flex h-7 items-center text-xl leading-7 font-semibold num">
-        {value === undefined ? <Skeleton className="h-5 w-12" /> : formatNumber(value)}
+    <div className="flex flex-col">
+      <dt className="text-xs text-muted-foreground">{label}</dt>
+      <dd className="flex h-6 items-center text-base leading-6 font-semibold num">
+        {value === undefined ? <Skeleton className="h-4 w-10" /> : formatNumber(value)}
       </dd>
     </div>
   );

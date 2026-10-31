@@ -63,3 +63,28 @@ Each entry says what was chosen and why.
 - **Verification.** `scripts/datagen/oracle.py` re-reads the CSV export, validates it, recomputes every policy check, payable ledger and duplicate rule, and must reproduce the answer key exactly; generation fails otherwise.
 - **Invoices.** The 10 PDFs and 2 scans are new claims for demo-pack members (claim IDs `CLM-95xxxx`, not in the demo files); two carry a planted room-rent and exclusion finding.
   The duplicate PDF re-issues the largest settled single-invoice demo claim; `manifest.json` lists each document's expected findings as computed by the checker.
+
+## Phase 2
+
+- **Field contracts are declarative specs, not one Pydantic model per dataset.** `app/ingest/schemas.py` lists each field's type, pattern, choices and range; parsing collects every problem in a row at once and gives each a stable error code (`missing_field`, `negative_amount`, `ambiguous_date`, ...), which the issues table, the CSV report and the answer-key tests all use.
+- **Header matching** compacts names (lowercase, letters and digits only) before the synonym lookup, so spacing, case, underscores and CamelCase never matter.
+- **Ambiguous dates** are date-like values with a two-digit year (`03/04/26`); day-month order is never guessed beyond the three accepted formats.
+- **Warnings, not rejections, for rule-engine findings.** A claimant who is not an insured member, a paid amount above the approved amount, and a service date more than 30 days from the incident are accepted with a warning, so the rule engine can raise them as leakage.
+- **Unrecognised files or sheets** are counted under `unrecognised` (received and rejected), so reconciliation still holds and nothing disappears.
+- **The import runs synchronously** (the full sample imports in about 4 seconds); processing runs are background tasks.
+
+## Phases 3-5
+
+- **One alert per leakage.** When several eligibility checks fail, the first carries the full requested amount and the others are recorded with ₹0, so totals never double-count. Lines of an exact-duplicate claim are not reported again as duplicate lines.
+- **Settled claims raise one alert, the C12 overpayment.** Their failed policy checks are already inside the recomputed entitlement; C01-C11 results are still stored and shown on the claim page.
+- **Overpayment ceiling** is the lower of the approved amount and the recomputed entitlement; the explanation names a missed deductible or co-pay when the overpayment equals it.
+- **Ledger.** Settled claims consume their paid amount of the overall limit; open claims their computed payable. Per-period sub-limits and the per-period deductible consume the recomputed amounts. Claims outside the benefit period consume nothing.
+- **Batch runs** reprocess every claim of the policies the batch touched, because per-period and overall limits depend on earlier claims.
+- **Claimant identity for duplicates** is (policy number, claimant ID).
+- **Severity** is the higher of the category's base severity and the amount band (₹50,000 critical, ₹10,000 high, ₹2,000 medium); estimated and suspected alerts stay at "review".
+
+## Phase 7
+
+- **Unresolved service codes are left for the reviewer** rather than classified by Claude: printed codes match exactly, otherwise a fuzzy description match (≥ 80) is proposed with its confidence.
+- **Confirmed documents become one-claim import batches** (`source = document`), so they pass the identical validation path and appear in import history; the claim ID is `CLM-8` plus the document number (skipping forward past any ID an import already used).
+- **The API instance is `apps-s-2vcpu-4gb`** in the deploy spec, because Docling's layout and table models need 2-3 GB while reading; its models are baked into the image.

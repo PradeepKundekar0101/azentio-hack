@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import Settings
 from app.core.enums import BatchStatus, ClaimSource, ParseStatus
 from app.core.logging import get_logger
-from app.db.models import Document, ImportBatch, Provider, ServiceCode
+from app.db.models import Claim, Document, ImportBatch, Provider, ServiceCode
 from app.db.session import Database
 from app.documents.extract import Extractor, extract_invoice
 from app.documents.mapping import ProviderRef, ServiceRef, draft_claim
@@ -133,10 +133,21 @@ def confirm_tables(document: Document, claim_id: str, form: dict[str, Any]) -> l
     return [claims, RawTable(document.file_name, None, Dataset.LINE_ITEMS, headers, lines)]
 
 
+DOCUMENT_CLAIM_BASE = 800000  # imports and the generated samples use other ranges
+
+
+async def _free_claim_id(session: AsyncSession, document_id: int) -> str:
+    """CLM-8xxxxx from the document number; skips forward if an import already used that ID."""
+    number = DOCUMENT_CLAIM_BASE + document_id
+    while await session.get(Claim, f"CLM-{number:06d}") is not None:
+        number += 1000
+    return f"CLM-{number:06d}"
+
+
 async def confirm_document(
     session: AsyncSession, document: Document, form: dict[str, Any], username: str, today: date | None = None
 ) -> tuple[ValidationResult, ImportBatch | None, str]:
-    claim_id = f"CLM-{900000 + document.id:06d}"
+    claim_id = await _free_claim_id(session, document.id)
     tables = confirm_tables(document, claim_id, form)
     existing = await load_existing(session, tables)
     result = validate_tables(tables, existing, today or date.today())

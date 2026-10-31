@@ -3,6 +3,7 @@
 Stages are plain functions over loaded data so each can later become a graph node.
 """
 
+import time
 from collections import defaultdict
 from datetime import UTC, datetime
 from typing import Any
@@ -165,7 +166,9 @@ def _result_rows(run_id: int, evaluations: list[Evaluation]) -> tuple[list[dict]
 
 async def _insert(session: AsyncSession, model: type, rows: list[dict]) -> None:
     for start in range(0, len(rows), CHUNK):
-        await session.execute(insert(model), rows[start : start + CHUNK])
+        # Core insert on the table: every row keeps the same columns, so rows go out in large multi-row batches
+        # (ORM bulk insert splits batches whenever a row's non-null columns differ, one round trip each).
+        await session.execute(insert(model.__table__), rows[start : start + CHUNK])
 
 
 async def _clear(session: AsyncSession, claim_ids: list[str]) -> None:
@@ -176,19 +179,33 @@ async def _clear(session: AsyncSession, claim_ids: list[str]) -> None:
 
 
 async def execute_run(session: AsyncSession, run: ProcessingRun, settings: Settings) -> ProcessingRun:
+    timings: dict[str, float] = {}
+    clock = time.monotonic()
+
+    def lap(stage: str) -> None:
+        nonlocal clock
+        now = time.monotonic()
+        timings[stage] = round(now - clock, 2)
+        clock = now
+
     policy_numbers = await _policies_in_scope(session, RunScope(run.scope), run.batch_id)
     loaded = await load_claims(session, policy_numbers)
+    lap("load")
     evaluations, failures = run_rules(loaded)
+    lap("rules")
     matches = await detect_duplicates(session, loaded, run.id, settings.near_duplicate_threshold)
+    lap("duplicates")
     alerts = build_alerts(run.id, loaded, evaluations, matches, settings)
 
     claim_ids = [c.claim_id for c in loaded["claim_rows"]]
     await _clear(session, claim_ids)
+    lap("clear")
     results, steps = _result_rows(run.id, evaluations)
     await _insert(session, ValidationResult, results)
     await _insert(session, PayableStep, steps)
     await _insert(session, DuplicateMatch, matches)
     await _insert(session, Alert, alerts)
+    lap("insert")
 
     run.claims_processed = len(evaluations)
     run.claims_failed = len(failures)
@@ -196,7 +213,15 @@ async def execute_run(session: AsyncSession, run: ProcessingRun, settings: Setti
     run.status = RunStatus.COMPLETED.value
     run.finished_at = datetime.now(UTC)
     await session.commit()
-    log.info("run_finished", run_id=run.id, claims=len(evaluations), failed=len(failures), alerts=len(alerts))
+    lap("commit")
+    log.info(
+        "run_finished",
+        run_id=run.id,
+        claims=len(evaluations),
+        failed=len(failures),
+        alerts=len(alerts),
+        seconds=timings,
+    )
     return run
 
 

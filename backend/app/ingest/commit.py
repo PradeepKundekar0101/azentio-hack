@@ -81,7 +81,8 @@ def _jsonable(value: Any) -> Any:
 
 async def _insert(session: AsyncSession, model: type, records: list[dict[str, Any]]) -> None:
     for start in range(0, len(records), INSERT_CHUNK):
-        await session.execute(insert(model), records[start : start + INSERT_CHUNK])
+        # Core insert keeps every row's columns identical, so rows go out in large batches (see pipeline._insert).
+        await session.execute(insert(model.__table__), records[start : start + INSERT_CHUNK])
 
 
 async def commit_rows(

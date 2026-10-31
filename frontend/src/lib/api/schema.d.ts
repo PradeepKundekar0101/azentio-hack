@@ -106,10 +106,636 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/imports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Imports */
+        get: operations["list_imports_api_v1_imports_get"];
+        put?: never;
+        /** Create Import */
+        post: operations["create_import_api_v1_imports_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/imports/{batch_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Import */
+        get: operations["get_import_api_v1_imports__batch_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/imports/{batch_id}/issues": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Issues */
+        get: operations["list_issues_api_v1_imports__batch_id__issues_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/imports/{batch_id}/issues.csv": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Issues Csv */
+        get: operations["issues_csv_api_v1_imports__batch_id__issues_csv_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/runs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Run */
+        post: operations["create_run_api_v1_runs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/runs/latest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Latest Run */
+        get: operations["latest_run_api_v1_runs_latest_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/runs/{run_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Run */
+        get: operations["get_run_api_v1_runs__run_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/claims/{claim_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Claim */
+        get: operations["get_claim_api_v1_claims__claim_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/alerts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Alerts */
+        get: operations["list_alerts_api_v1_alerts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/alerts/{alert_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Alert */
+        get: operations["get_alert_api_v1_alerts__alert_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Alert */
+        patch: operations["update_alert_api_v1_alerts__alert_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/duplicates/cleared": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Cleared Duplicates */
+        get: operations["cleared_duplicates_api_v1_duplicates_cleared_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/dashboard/summary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Summary */
+        get: operations["summary_api_v1_dashboard_summary_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Documents */
+        get: operations["list_documents_api_v1_documents_get"];
+        put?: never;
+        /** Upload Document */
+        post: operations["upload_document_api_v1_documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Document */
+        get: operations["get_document_api_v1_documents__document_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/documents/{document_id}/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Confirm */
+        post: operations["confirm_api_v1_documents__document_id__confirm_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AlertBrief */
+        AlertBrief: {
+            /** Id */
+            id: number;
+            /** Category */
+            category: string;
+            /** Severity */
+            severity: string;
+            /** Amount */
+            amount: string | null;
+            /** Amount Type */
+            amount_type: string;
+            /** Rule Or Pattern */
+            rule_or_pattern: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Status */
+            status: string;
+            /** Explanation */
+            explanation: string;
+        };
+        /**
+         * AlertCategory
+         * @enum {string}
+         */
+        AlertCategory: "NOT_COVERED" | "OUT_OF_BENEFIT_PERIOD" | "EXCLUDED_SERVICE" | "SUB_LIMIT_EXCEEDED" | "OVERALL_LIMIT_EXCEEDED" | "SETTLEMENT_OVERPAYMENT" | "EXACT_DUPLICATE_CLAIM" | "DUPLICATE_LINE_ITEM" | "NEAR_DUPLICATE" | "EXCESS_FREQUENCY";
+        /** AlertDetail */
+        AlertDetail: {
+            alert: components["schemas"]["AlertOut"];
+            claim: components["schemas"]["ClaimDetail"];
+            matched_claim: components["schemas"]["ClaimDetail"] | null;
+            match: components["schemas"]["MatchOut"] | null;
+        };
+        /** AlertOut */
+        AlertOut: {
+            /** Id */
+            id: number;
+            /** Run Id */
+            run_id: number;
+            /** Claim Id */
+            claim_id: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Category */
+            category: string;
+            /** Severity */
+            severity: string;
+            /** Amount */
+            amount: string | null;
+            /** Amount Type */
+            amount_type: string;
+            /** Calculation */
+            calculation: string | null;
+            /** Rule Or Pattern */
+            rule_or_pattern: string;
+            /** Policy Rule Id */
+            policy_rule_id: string | null;
+            /** Explanation */
+            explanation: string;
+            /** Supporting */
+            supporting: {
+                [key: string]: unknown;
+            };
+            /** Status */
+            status: string;
+            /** Review Note */
+            review_note: string | null;
+            /** Reviewed At */
+            reviewed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** AlertPatch */
+        AlertPatch: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "open" | "reviewed" | "dismissed";
+            /** Note */
+            note?: string | null;
+        };
+        /** AlertRow */
+        AlertRow: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string;
+            /** Claimant */
+            claimant: string;
+            /** Provider Id */
+            provider_id: string | null;
+            /** Provider Name */
+            provider_name: string | null;
+            /** Claim Type */
+            claim_type: string;
+            /** Category */
+            category: string;
+            /** Severity */
+            severity: string;
+            /** Amount */
+            amount: string | null;
+            /** Amount Type */
+            amount_type: string;
+            /** Rule Or Pattern */
+            rule_or_pattern: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /** Status */
+            status: string;
+        };
+        /**
+         * AlertStatus
+         * @enum {string}
+         */
+        AlertStatus: "open" | "reviewed" | "dismissed";
+        /**
+         * AmountType
+         * @enum {string}
+         */
+        AmountType: "calculated" | "estimated" | "suspected";
+        /** Body_create_import_api_v1_imports_post */
+        Body_create_import_api_v1_imports_post: {
+            /**
+             * Files
+             * @description CSV, Excel (.xlsx) or JSON files
+             */
+            files: string[];
+        };
+        /** Body_upload_document_api_v1_documents_post */
+        Body_upload_document_api_v1_documents_post: {
+            /**
+             * File
+             * @description Invoice as PDF, PNG or JPEG, up to 15 MB
+             */
+            file: string;
+        };
+        /** CategoryRow */
+        CategoryRow: {
+            /** Category */
+            category: string;
+            /** Alerts */
+            alerts: number;
+            /** Calculated Amount */
+            calculated_amount: string;
+            /** Estimated Amount */
+            estimated_amount: string;
+        };
+        /** ClaimDetail */
+        ClaimDetail: {
+            claim: components["schemas"]["ClaimOut"];
+            policy: components["schemas"]["PolicyOut"];
+            /** Lines */
+            lines: components["schemas"]["LineOut"][];
+            settlement: components["schemas"]["SettlementOut"] | null;
+            /** Results */
+            results: components["schemas"]["ResultOut"][];
+            /** Payable Steps */
+            payable_steps: components["schemas"]["StepOut"][];
+            /** Duplicates */
+            duplicates: components["schemas"]["MatchOut"][];
+            /** Alerts */
+            alerts: components["schemas"]["AlertBrief"][];
+        };
+        /** ClaimOut */
+        ClaimOut: {
+            /** Claim Id */
+            claim_id: string;
+            /** Policy Number */
+            policy_number: string;
+            /** Claimant Id */
+            claimant_id: string;
+            /** Claimant Name */
+            claimant_name: string;
+            /**
+             * Incident Date
+             * Format: date
+             */
+            incident_date: string;
+            /**
+             * Submission Date
+             * Format: date
+             */
+            submission_date: string;
+            /** Claim Type */
+            claim_type: string;
+            /** Requested Amount */
+            requested_amount: string;
+            /** Incident Reference */
+            incident_reference: string | null;
+            /** Status */
+            status: string;
+            /** Source */
+            source: string;
+            /** Import Batch Id */
+            import_batch_id: number | null;
+            source_row: components["schemas"]["SourceRow"] | null;
+            /** Document Id */
+            document_id?: number | null;
+            /** Payable */
+            payable?: string | null;
+        };
+        /**
+         * ClaimType
+         * @enum {string}
+         */
+        ClaimType: "inpatient" | "outpatient" | "daycare" | "pharmacy" | "diagnostics";
+        /** ClearedRow */
+        ClearedRow: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Matched Claim Id */
+            matched_claim_id: string;
+            /** Matched Line Id */
+            matched_line_id: string | null;
+            /** Claimant */
+            claimant: string;
+            /** Service Code */
+            service_code: string | null;
+            /** Service Description */
+            service_description: string | null;
+            /** Reason */
+            reason: string;
+            /** Signals */
+            signals: {
+                [key: string]: unknown;
+            } | null;
+        };
+        /** ConfirmClaim */
+        ConfirmClaim: {
+            /** Policy Number */
+            policy_number?: string | null;
+            /** Claimant Id */
+            claimant_id?: string | null;
+            /** Claimant Name */
+            claimant_name?: string | null;
+            /** Incident Date */
+            incident_date?: string | null;
+            /** Submission Date */
+            submission_date?: string | null;
+            /** Claim Type */
+            claim_type?: string | null;
+            /** Requested Amount */
+            requested_amount?: string | null;
+            /** Incident Reference */
+            incident_reference?: string | null;
+        };
+        /** ConfirmIn */
+        ConfirmIn: {
+            claim: components["schemas"]["ConfirmClaim"];
+            /** Invoice Reference */
+            invoice_reference?: string | null;
+            /** Provider Id */
+            provider_id?: string | null;
+            /** Provider Name */
+            provider_name?: string | null;
+            /** Lines */
+            lines: components["schemas"]["ConfirmLine"][];
+        };
+        /** ConfirmLine */
+        ConfirmLine: {
+            /** Service Date */
+            service_date?: string | null;
+            /** Service Code */
+            service_code?: string | null;
+            /** Service Description */
+            service_description?: string | null;
+            /** Category */
+            category?: string | null;
+            /** Quantity */
+            quantity?: string | null;
+            /** Unit Price */
+            unit_price?: string | null;
+            /** Line Amount */
+            line_amount?: string | null;
+        };
+        /** ConfirmOut */
+        ConfirmOut: {
+            /** Claim Id */
+            claim_id: string;
+            /** Batch Id */
+            batch_id: number;
+            run: components["schemas"]["RunOut"];
+        };
+        /**
+         * Dataset
+         * @enum {string}
+         */
+        Dataset: "policies" | "policy_rules" | "claims" | "line_items" | "settlements";
+        /** DatasetCounts */
+        DatasetCounts: {
+            /** Received */
+            received: number;
+            /** Accepted */
+            accepted: number;
+            /** Warnings */
+            warnings: number;
+            /** Rejected */
+            rejected: number;
+        };
+        /** DocumentDetail */
+        DocumentDetail: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string | null;
+            /** File Name */
+            file_name: string;
+            /** File Type */
+            file_type: string;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Sha256 */
+            sha256: string;
+            /** Parse Status */
+            parse_status: string;
+            /** Confidence */
+            confidence: string | null;
+            /** Issues */
+            issues: string[] | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Extracted */
+            extracted: {
+                [key: string]: unknown;
+            } | null;
+            /** File Url */
+            file_url: string;
+        };
+        /** DocumentOut */
+        DocumentOut: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string | null;
+            /** File Name */
+            file_name: string;
+            /** File Type */
+            file_type: string;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Sha256 */
+            sha256: string;
+            /** Parse Status */
+            parse_status: string;
+            /** Confidence */
+            confidence: string | null;
+            /** Issues */
+            issues: string[] | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -137,12 +763,203 @@ export interface components {
             status: "ok" | "unavailable";
             checks: components["schemas"]["HealthChecks"];
         };
+        /** ImportBatchOut */
+        ImportBatchOut: {
+            /** Id */
+            id: number;
+            /** Uploaded By */
+            uploaded_by: string;
+            /**
+             * Uploaded At
+             * Format: date-time
+             */
+            uploaded_at: string;
+            /** Status */
+            status: string;
+            /** Files */
+            files: components["schemas"]["ImportFileOut"][];
+            /** Counts */
+            counts: {
+                [key: string]: components["schemas"]["DatasetCounts"];
+            };
+            totals: components["schemas"]["DatasetCounts"];
+            /** Error */
+            error: string | null;
+        };
+        /** ImportFileOut */
+        ImportFileOut: {
+            /** File Name */
+            file_name: string;
+            /** Size */
+            size: number;
+            /** Content Type */
+            content_type: string;
+            /**
+             * Datasets
+             * @default []
+             */
+            datasets: string[];
+        };
+        /** ImportIssueOut */
+        ImportIssueOut: {
+            /** Id */
+            id: number;
+            /** Dataset */
+            dataset: string | null;
+            /** File Name */
+            file_name: string;
+            /** Sheet */
+            sheet: string | null;
+            /** Row Number */
+            row_number: number | null;
+            /** Field */
+            field: string | null;
+            /** Value */
+            value: string | null;
+            /** Severity */
+            severity: string;
+            /** Code */
+            code: string;
+            /** Message */
+            message: string;
+        };
+        /**
+         * IssueSeverity
+         * @enum {string}
+         */
+        IssueSeverity: "error" | "warning";
+        /** Kpis */
+        Kpis: {
+            /** Claims Processed */
+            claims_processed: number;
+            /** Flagged Claims */
+            flagged_claims: number;
+            /** Flagged Percent */
+            flagged_percent: string;
+            /** Open Alerts */
+            open_alerts: number;
+            /** Calculated Leakage */
+            calculated_leakage: string;
+            /** Estimated Leakage */
+            estimated_leakage: string;
+            /** Suspected Alerts */
+            suspected_alerts: number;
+        };
+        /** LastRun */
+        LastRun: {
+            /** Id */
+            id: number;
+            /** Status */
+            status: string;
+            /** Scope */
+            scope: string;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Finished At */
+            finished_at: string | null;
+            /** Claims Processed */
+            claims_processed: number;
+        };
+        /** LineOut */
+        LineOut: {
+            /** Line Id */
+            line_id: string;
+            /** Invoice Reference */
+            invoice_reference: string;
+            /** Provider Id */
+            provider_id: string;
+            /** Provider Name */
+            provider_name: string;
+            /**
+             * Service Date
+             * Format: date
+             */
+            service_date: string;
+            /** Service Code */
+            service_code: string;
+            /** Service Description */
+            service_description: string;
+            /** Category */
+            category: string;
+            /** Quantity */
+            quantity: string;
+            /** Unit Price */
+            unit_price: string;
+            /** Line Amount */
+            line_amount: string;
+            source_row: components["schemas"]["SourceRow"] | null;
+        };
         /** LoginIn */
         LoginIn: {
             /** Username */
             username: string;
             /** Password */
             password: string;
+        };
+        /** MatchOut */
+        MatchOut: {
+            /** Id */
+            id: number;
+            /** Claim Id */
+            claim_id: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Matched Claim Id */
+            matched_claim_id: string;
+            /** Matched Line Id */
+            matched_line_id: string | null;
+            /** Matched Source */
+            matched_source: string;
+            /** Match Type */
+            match_type: string;
+            /** Score */
+            score: string | null;
+            /** Signals */
+            signals: {
+                [key: string]: unknown;
+            } | null;
+            /** Decision */
+            decision: string;
+            /** Reason */
+            reason: string;
+        };
+        /** Page[AlertRow] */
+        Page_AlertRow_: {
+            /** Items */
+            items: components["schemas"]["AlertRow"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[ClearedRow] */
+        Page_ClearedRow_: {
+            /** Items */
+            items: components["schemas"]["ClearedRow"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[DocumentOut] */
+        Page_DocumentOut_: {
+            /** Items */
+            items: components["schemas"]["DocumentOut"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[ImportBatchOut] */
+        Page_ImportBatchOut_: {
+            /** Items */
+            items: components["schemas"]["ImportBatchOut"][];
+            /** Total */
+            total: number;
+        };
+        /** Page[ImportIssueOut] */
+        Page_ImportIssueOut_: {
+            /** Items */
+            items: components["schemas"]["ImportIssueOut"][];
+            /** Total */
+            total: number;
         };
         /** Page[ProviderOut] */
         Page_ProviderOut_: {
@@ -158,6 +975,61 @@ export interface components {
             /** Total */
             total: number;
         };
+        /** PolicyOut */
+        PolicyOut: {
+            /** Policy Number */
+            policy_number: string;
+            /** Policyholder Name */
+            policyholder_name: string;
+            /** Insured Member Ids */
+            insured_member_ids: string[];
+            /** Product Name */
+            product_name: string;
+            /**
+             * Benefit Period Start
+             * Format: date
+             */
+            benefit_period_start: string;
+            /**
+             * Benefit Period End
+             * Format: date
+             */
+            benefit_period_end: string;
+            /** Overall Limit */
+            overall_limit: string;
+            /** Deductible Amount */
+            deductible_amount: string;
+            /** Deductible Basis */
+            deductible_basis: string;
+            /** Copay Percent */
+            copay_percent: string;
+            source_row: components["schemas"]["SourceRow"] | null;
+            /**
+             * Rules
+             * @default []
+             */
+            rules: components["schemas"]["PolicyRuleOut"][];
+        };
+        /** PolicyRuleOut */
+        PolicyRuleOut: {
+            /** Rule Id */
+            rule_id: string;
+            /** Rule Type */
+            rule_type: string;
+            /** Scope Type */
+            scope_type: string;
+            /** Scope Value */
+            scope_value: string;
+            /** Limit Basis */
+            limit_basis: string | null;
+            /** Limit Amount */
+            limit_amount: string | null;
+            /** Clause Ref */
+            clause_ref: string;
+            /** Description */
+            description: string | null;
+            source_row: components["schemas"]["SourceRow"] | null;
+        };
         /** ProviderOut */
         ProviderOut: {
             /** Provider Id */
@@ -166,6 +1038,92 @@ export interface components {
             name: string;
             /** City */
             city: string;
+        };
+        /** ProviderRow */
+        ProviderRow: {
+            /** Provider Id */
+            provider_id: string;
+            /** Provider Name */
+            provider_name: string;
+            /** Calculated Amount */
+            calculated_amount: string;
+            /** Alerts */
+            alerts: number;
+        };
+        /** ResultOut */
+        ResultOut: {
+            /** Id */
+            id: number;
+            /** Check Code */
+            check_code: string;
+            /**
+             * Check Name
+             * @default
+             */
+            check_name: string;
+            /** Line Id */
+            line_id: string | null;
+            /** Policy Rule Id */
+            policy_rule_id: string | null;
+            /** Outcome */
+            outcome: string;
+            /** Expected */
+            expected: string | null;
+            /** Actual */
+            actual: string | null;
+            /** Amount Impact */
+            amount_impact: string;
+            /** Inputs */
+            inputs: {
+                [key: string]: unknown;
+            } | null;
+            /** Explanation */
+            explanation: string;
+        };
+        /** RunFailure */
+        RunFailure: {
+            /** Claim Id */
+            claim_id: string;
+            /** Error */
+            error: string;
+        };
+        /** RunIn */
+        RunIn: {
+            /**
+             * Scope
+             * @enum {string}
+             */
+            scope: "batch" | "all";
+            /** Batch Id */
+            batch_id?: number | null;
+        };
+        /** RunOut */
+        RunOut: {
+            /** Id */
+            id: number;
+            /** Status */
+            status: string;
+            /** Scope */
+            scope: string;
+            /** Batch Id */
+            batch_id: number | null;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Finished At */
+            finished_at: string | null;
+            /** Claims Processed */
+            claims_processed: number;
+            /** Claims Failed */
+            claims_failed: number;
+            /** Failures */
+            failures: components["schemas"]["RunFailure"][] | null;
+            /** Rules Version */
+            rules_version: string;
+            /** Error */
+            error: string | null;
         };
         /** ServiceCodeOut */
         ServiceCodeOut: {
@@ -186,6 +1144,76 @@ export interface components {
         SessionOut: {
             /** Username */
             username: string;
+        };
+        /** SettlementOut */
+        SettlementOut: {
+            /** Settlement Id */
+            settlement_id: string;
+            /**
+             * Settlement Date
+             * Format: date
+             */
+            settlement_date: string;
+            /** Approved Amount */
+            approved_amount: string;
+            /** Paid Amount */
+            paid_amount: string;
+            /** Settlement Status */
+            settlement_status: string;
+            source_row: components["schemas"]["SourceRow"] | null;
+        };
+        /**
+         * Severity
+         * @enum {string}
+         */
+        Severity: "critical" | "high" | "medium" | "low" | "review";
+        /** SeverityRow */
+        SeverityRow: {
+            /** Severity */
+            severity: string;
+            /** Alerts */
+            alerts: number;
+        };
+        /** SourceRow */
+        SourceRow: {
+            /** File Name */
+            file_name?: string | null;
+            /** Sheet */
+            sheet?: string | null;
+            /** Row Number */
+            row_number?: number | null;
+            /** Extra */
+            extra?: {
+                [key: string]: unknown;
+            } | null;
+        };
+        /** StepOut */
+        StepOut: {
+            /** Step No */
+            step_no: number;
+            /** Step Code */
+            step_code: string;
+            /** Amount Before */
+            amount_before: string;
+            /** Amount After */
+            amount_after: string;
+            /** Reduction */
+            reduction: string;
+            /** Policy Rule Id */
+            policy_rule_id: string | null;
+            /** Explanation */
+            explanation: string;
+        };
+        /** Summary */
+        Summary: {
+            kpis: components["schemas"]["Kpis"];
+            /** By Category */
+            by_category: components["schemas"]["CategoryRow"][];
+            /** By Severity */
+            by_severity: components["schemas"]["SeverityRow"][];
+            /** Top Providers */
+            top_providers: components["schemas"]["ProviderRow"][];
+            last_run: components["schemas"]["LastRun"] | null;
         };
         /** ValidationError */
         ValidationError: {
@@ -355,6 +1383,602 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Page_ServiceCodeOut_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_imports_api_v1_imports_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_ImportBatchOut_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_import_api_v1_imports_post: {
+        parameters: {
+            query?: {
+                /** @description Dataset for a CSV or JSON array file */
+                dataset?: components["schemas"]["Dataset"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["Body_create_import_api_v1_imports_post"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportBatchOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_import_api_v1_imports__batch_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                batch_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportBatchOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_issues_api_v1_imports__batch_id__issues_get: {
+        parameters: {
+            query?: {
+                dataset?: string | null;
+                severity?: components["schemas"]["IssueSeverity"] | null;
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                batch_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_ImportIssueOut_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    issues_csv_api_v1_imports__batch_id__issues_csv_get: {
+        parameters: {
+            query?: {
+                dataset?: string | null;
+                severity?: components["schemas"]["IssueSeverity"] | null;
+            };
+            header?: never;
+            path: {
+                batch_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_run_api_v1_runs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RunIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    latest_run_api_v1_runs_latest_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunOut"] | null;
+                };
+            };
+        };
+    };
+    get_run_api_v1_runs__run_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_claim_api_v1_claims__claim_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClaimDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_alerts_api_v1_alerts_get: {
+        parameters: {
+            query?: {
+                sort?: string;
+                page?: number;
+                page_size?: number;
+                claim_type?: components["schemas"]["ClaimType"][];
+                provider_id?: string[];
+                category?: components["schemas"]["AlertCategory"][];
+                severity?: components["schemas"]["Severity"][];
+                amount_type?: components["schemas"]["AmountType"][];
+                status?: components["schemas"]["AlertStatus"][];
+                amount_min?: number | string | null;
+                amount_max?: number | string | null;
+                date_from?: string | null;
+                date_to?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_AlertRow_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_alert_api_v1_alerts__alert_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                alert_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AlertDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_alert_api_v1_alerts__alert_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                alert_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AlertPatch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AlertOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cleared_duplicates_api_v1_duplicates_cleared_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_ClearedRow_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    summary_api_v1_dashboard_summary_get: {
+        parameters: {
+            query?: {
+                claim_type?: components["schemas"]["ClaimType"][];
+                provider_id?: string[];
+                category?: components["schemas"]["AlertCategory"][];
+                severity?: components["schemas"]["Severity"][];
+                amount_type?: components["schemas"]["AmountType"][];
+                status?: components["schemas"]["AlertStatus"][];
+                amount_min?: number | string | null;
+                amount_max?: number | string | null;
+                date_from?: string | null;
+                date_to?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Summary"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_documents_api_v1_documents_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_DocumentOut_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upload_document_api_v1_documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["Body_upload_document_api_v1_documents_post"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_document_api_v1_documents__document_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    confirm_api_v1_documents__document_id__confirm_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ConfirmIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfirmOut"];
                 };
             };
             /** @description Validation Error */
