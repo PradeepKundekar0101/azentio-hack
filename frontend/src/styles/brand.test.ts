@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 
 import { describe, expect, it } from "vitest";
 
-import { brand } from "./brand";
+import { brand, logoMark } from "./brand";
 
 const read = (relative: string) => readFileSync(new URL(relative, import.meta.url), "utf8");
 
@@ -17,5 +17,30 @@ describe("brand tokens", () => {
       ]),
     );
     expect(declared).toEqual(brand);
+  });
+});
+
+describe("favicon", () => {
+  const icon = read("../app/icon.svg");
+
+  it("draws the logo geometry", () => {
+    expect(icon).toContain(`viewBox="${logoMark.viewBox}"`);
+    expect(icon).toContain(`d="${logoMark.lines}"`);
+    expect(icon).toContain(`d="${logoMark.leak}"`);
+  });
+
+  it("uses the brand colours", () => {
+    expect(icon).toContain(`fill="${brand.blue}"`);
+    expect(icon).toContain(`fill="${brand.onInk}"`);
+    expect(icon).toContain(`fill="${brand.signal}"`);
+  });
+});
+
+describe("logo geometry", () => {
+  it("keeps the leaked block inside the tile", () => {
+    const numbers = (path: string) => [...path.matchAll(/-?\d+(?:\.\d+)?/g)].map(([n]) => Number(n));
+    for (const n of [...numbers(logoMark.lines), ...numbers(logoMark.leak)]) {
+      expect(Math.abs(n)).toBeLessThanOrEqual(logoMark.size);
+    }
   });
 });
