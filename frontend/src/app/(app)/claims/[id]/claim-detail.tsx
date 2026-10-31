@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, FileSpreadsheet, Network, ReceiptText, SearchX, ShieldCheck } from "lucide-react";
+import { ArrowLeft, FileSpreadsheet, Network, ReceiptText, ScrollText, SearchX, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 import { LoadError } from "@/components/app-shell/states";
@@ -98,6 +98,12 @@ function ClaimView({ id }: { id: string }) {
               <Link href={`/claims/${encodeURIComponent(claim.claim_id)}/investigate`}>
                 <Network data-icon="inline-start" aria-hidden="true" />
                 Investigate
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href={`/claims/${encodeURIComponent(claim.claim_id)}/evidence`}>
+                <ScrollText data-icon="inline-start" aria-hidden="true" />
+                Evidence trail
               </Link>
             </Button>
             {claim.document_id != null && (

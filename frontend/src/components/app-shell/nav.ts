@@ -1,4 +1,12 @@
-import { FileSpreadsheet, LayoutDashboard, type LucideIcon, ReceiptText, ShieldAlert, Wallet } from "lucide-react";
+import {
+  FileSpreadsheet,
+  LayoutDashboard,
+  type LucideIcon,
+  ReceiptText,
+  ScrollText,
+  ShieldAlert,
+  Wallet,
+} from "lucide-react";
 
 export interface NavItem {
   href: string;
@@ -10,6 +18,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/claims", label: "Claims", icon: Wallet },
   { href: "/alerts", label: "Alerts", icon: ShieldAlert },
+  { href: "/evidence", label: "Evidence", icon: ScrollText },
   { href: "/imports", label: "Imports", icon: FileSpreadsheet },
   { href: "/documents", label: "Documents", icon: ReceiptText },
 ];

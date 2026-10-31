@@ -24,7 +24,7 @@ def _actor(username: str) -> tuple[str, str | None]:
     return username, None
 
 
-class Recommendation(BaseModel):
+class RecommendationOut(BaseModel):
     action: str
     basis: str
     original_amount: Decimal
@@ -37,7 +37,7 @@ class Recommendation(BaseModel):
     source: str
 
 
-class OverrideOut(BaseModel):
+class EvidenceOverride(BaseModel):
     previous_correction: Decimal | None
     new_correction: Decimal
     reason: str
@@ -47,7 +47,7 @@ class OverrideOut(BaseModel):
     seq: int
 
 
-class DecisionOut(BaseModel):
+class EvidenceDecision(BaseModel):
     status: str | None
     note: str | None
     actor: str
@@ -56,7 +56,7 @@ class DecisionOut(BaseModel):
     seq: int
 
 
-class FindingOut(BaseModel):
+class EvidenceFinding(BaseModel):
     key: str
     alert_id: int
     category: str
@@ -65,16 +65,16 @@ class FindingOut(BaseModel):
     status: str
     line_id: str | None
     explanation: str
-    recommendation: Recommendation
-    original_recommendation: Recommendation | None
+    recommendation: RecommendationOut
+    original_recommendation: RecommendationOut | None
     changed_since_opened: bool
     effective_correction: Decimal | None
     effective_corrected_amount: Decimal | None
-    override: OverrideOut | None
-    decision: DecisionOut | None
+    override: EvidenceOverride | None
+    decision: EvidenceDecision | None
 
 
-class EventOut(BaseModel):
+class EvidenceEventOut(BaseModel):
     seq: int
     at: datetime
     actor: str
@@ -88,7 +88,7 @@ class EventOut(BaseModel):
     hash: str
 
 
-class Integrity(BaseModel):
+class EvidenceIntegrity(BaseModel):
     verified: bool
     events: int
     head_hash: str | None
@@ -96,7 +96,7 @@ class Integrity(BaseModel):
     reason: str | None
 
 
-class Summary(BaseModel):
+class EvidenceSummary(BaseModel):
     original_calculated_leakage: Decimal | None
     current_calculated_leakage: Decimal
     adjusted_calculated_leakage: Decimal
@@ -107,7 +107,7 @@ class Summary(BaseModel):
     counts: dict[str, int]
 
 
-class ClaimBrief(BaseModel):
+class EvidenceClaim(BaseModel):
     claim_id: str
     claimant_name: str
     policy_number: str
@@ -124,7 +124,7 @@ class InvestigationBrief(BaseModel):
     head_hash: str | None
 
 
-class OriginalCalculation(BaseModel):
+class EvidenceOriginal(BaseModel):
     run_id: int | None
     totals: dict[str, Any] | None
     payable_steps: list[dict[str, Any]]
@@ -132,13 +132,13 @@ class OriginalCalculation(BaseModel):
 
 
 class InvestigationOut(BaseModel):
-    claim: ClaimBrief
+    claim: EvidenceClaim
     investigation: InvestigationBrief | None
-    integrity: Integrity
-    summary: Summary
-    findings: list[FindingOut]
-    original: OriginalCalculation | None
-    events: list[EventOut]
+    integrity: EvidenceIntegrity
+    summary: EvidenceSummary
+    findings: list[EvidenceFinding]
+    original: EvidenceOriginal | None
+    events: list[EvidenceEventOut]
 
 
 class InvestigationRow(BaseModel):
@@ -155,7 +155,7 @@ class InvestigationRow(BaseModel):
     last_actor: str | None
 
 
-class OverrideIn(BaseModel):
+class EvidenceOverrideIn(BaseModel):
     alert_id: int
     correction: Decimal = Field(ge=0, max_digits=12, decimal_places=2)
     reason: str = Field(min_length=1, max_length=2000)
@@ -169,7 +169,7 @@ class OverrideIn(BaseModel):
         return value
 
 
-class NoteIn(BaseModel):
+class EvidenceNoteIn(BaseModel):
     text: str = Field(min_length=1, max_length=2000)
     alert_id: int | None = None
 
@@ -202,7 +202,9 @@ async def open_investigation(claim_id: str, session: SessionDep, username: Curre
 
 
 @router.post("/claims/{claim_id}/overrides", status_code=201)
-async def override(claim_id: str, body: OverrideIn, session: SessionDep, username: CurrentUser) -> InvestigationOut:
+async def override(
+    claim_id: str, body: EvidenceOverrideIn, session: SessionDep, username: CurrentUser
+) -> InvestigationOut:
     actor, role = _actor(username)
     await service.override_correction(session, claim_id, body.alert_id, body.correction, body.reason, actor, role)
     await session.commit()
@@ -210,7 +212,7 @@ async def override(claim_id: str, body: OverrideIn, session: SessionDep, usernam
 
 
 @router.post("/claims/{claim_id}/notes", status_code=201)
-async def add_note(claim_id: str, body: NoteIn, session: SessionDep, username: CurrentUser) -> InvestigationOut:
+async def add_note(claim_id: str, body: EvidenceNoteIn, session: SessionDep, username: CurrentUser) -> InvestigationOut:
     actor, role = _actor(username)
     await service.add_note(session, claim_id, body.text, actor, role, body.alert_id)
     await session.commit()
