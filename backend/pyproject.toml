@@ -5,7 +5,12 @@ description = "FastAPI backend"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "alembic>=1.20.1",
+    "asyncpg>=0.32.0",
+    "boto3>=1.43.123",
     "fastapi[standard]>=0.162.0",
+    "pydantic-settings>=2.16.2",
+    "sqlalchemy[asyncio]>=2.1.6",
 ]
 
 [dependency-groups]
